@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 ## Run
 ```bash
-python tesy.py
+python test.py
 ```
 
 Add a package: `pip install <pkg>`, then add it to `requirements.txt`.
