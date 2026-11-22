@@ -1,0 +1,1120 @@
+--- pulled from https://www.pro-football-reference.com/awards/awards_YYYY.htm (1999-2025)
+
+season,award,rank,player,pfr_id,pos,team,votes,first_place,share,voting_system
+1999,mvp,1,Kurt Warner,WarnKu00,QB,St. Louis Rams,33.0,,0.66,single_vote
+1999,mvp,2,Msarshall Faulk,FaulMa00,RB,St. Louis Rams,8.0,,0.16,single_vote
+1999,mvp,3,Peyton Manning,MannPe00,QB,Indianapolis Colts,8.0,,0.16,single_vote
+1999,mvp,4,Edgerrin James,JameEd00,RB,Indianapolis Colts,1.0,,0.02,single_vote
+1999,opoy,1,Marshall Faulk,FaulMa00,RB,St. Louis Rams,26.0,,0.52,single_vote
+1999,opoy,2,Kurt Warner,WarnKu00,QB,St. Louis Rams,18.0,,0.36,single_vote
+1999,opoy,3,Edgerrin James,JameEd00,RB,Indianapolis Colts,3.0,,0.06,single_vote
+1999,opoy,4,Peyton Manning,MannPe00,QB,Indianapolis Colts,3.0,,0.06,single_vote
+1999,dpoy,1,Warren Sapp,SappWa00,RDT,Tampa Bay Buccaneers,19.0,,0.38,single_vote
+1999,dpoy,2,Jevon Kearse,KearJe00,LDE,Tennessee Titans,13.0,,0.26,single_vote
+1999,dpoy,3,Kevin Carter,CartKe00,LDE,St. Louis Rams,6.0,,0.12,single_vote
+1999,dpoy,4,Ray Lewis,LewiRa00,MLB,Baltimore Ravens,6.0,,0.12,single_vote
+1999,dpoy,5,Derrick Brooks,BrooDe00,RLB,Tampa Bay Buccaneers,3.0,,0.06,single_vote
+1999,dpoy,6,Kevin Hardy,HardKe00,RLB,Jacksonville Jaguars,2.0,,0.04,single_vote
+1999,dpoy,7,Junior Seau,SeauJu00,RLB,San Diego Chargers,1.0,,0.02,single_vote
+1999,oroy,1,Edgerrin James,JameEd00,RB,Indianapolis Colts,49.0,,0.98,single_vote
+1999,oroy,2,Kevin Johnson,JohnKe01,WR,Cleveland Browns,1.0,,0.02,single_vote
+1999,droy,1,Jevon Kearse,KearJe00,LDE,Tennessee Titans,49.0,,0.98,single_vote
+1999,droy,2,Champ Bailey,BailCh00,LCB,Washington Redskins,1.0,,0.02,single_vote
+1999,cpoy,1,Bryant Young,YounBr00,LDT,San Francisco 49ers,20.0,,0.4,single_vote
+1999,cpoy,2,Brad Johnson,JohnBr00,QB,Washington Redskins,7.0,,0.14,single_vote
+1999,cpoy,3,Isaac Bruce,BrucIs00,WR,St. Louis Rams,6.0,,0.12,single_vote
+1999,cpoy,4,Jeff George,GeorJe00,QB,Minnesota Vikings,4.0,,0.08,single_vote
+1999,cpoy,5,Alonzo Spellman,SpelAl20,LDT,Dallas Cowboys,4.0,,0.08,single_vote
+1999,cpoy,6,Qadry Ismail,IsmaQa00,WR,Baltimore Ravens,3.0,,0.06,single_vote
+1999,cpoy,7,Michael Westbrook,WestMi00,WR,Washington Redskins,2.0,,0.04,single_vote
+1999,cpoy,8,Tyrone Wheatley,WheaTy00,RB,Oakland Raiders,2.0,,0.04,single_vote
+1999,cpoy,9,Stephen Davis,DaviSt00,RB,Washington Redskins,1.0,,0.02,single_vote
+1999,cpoy,10,Marcus Robinson,RobiMa00,WR,Chicago Bears,1.0,,0.02,single_vote
+1999,coty,1,Dick Vermeil,VermDi0,,St. Louis Rams,27.5,,0.55,single_vote
+1999,coty,2,Jim Mora,MoraJi0,,Indianapolis Colts,18.5,,0.37,single_vote
+1999,coty,3,Jeff Fisher,FishJe0,,Tennessee Titans,2.5,,0.05,single_vote
+1999,coty,4,Tom Coughlin,CougTo0,,Jacksonville Jaguars,1.0,,0.02,single_vote
+1999,coty,5,Bill Parcells,ParcBi0,,New York Jets,.5,,0.01,single_vote
+2000,mvp,1,Marshall Faulk,FaulMa00,RB,St. Louis Rams,24.0,,0.48,single_vote
+2000,mvp,2,Donovan McNabb,McNaDo00,QB,Philadelphia Eagles,11.0,,0.22,single_vote
+2000,mvp,3,Eddie George,GeorEd00,RB,Tennessee Titans,8.0,,0.16,single_vote
+2000,mvp,4,Rich Gannon,GannRi00,QB,Oakland Raiders,5.0,,0.1,single_vote
+2000,mvp,5,Ray Lewis,LewiRa00,MLB,Baltimore Ravens,1.0,,0.02,single_vote
+2000,mvp,6,Peyton Manning,MannPe00,QB,Indianapolis Colts,1.0,,0.02,single_vote
+2000,opoy,1,Marshall Faulk,FaulMa00,RB,St. Louis Rams,32.0,,0.64,single_vote
+2000,opoy,2,Eddie George,GeorEd00,RB,Tennessee Titans,4.0,,0.08,single_vote
+2000,opoy,3,Edgerrin James,JameEd00,RB,Indianapolis Colts,4.0,,0.08,single_vote
+2000,opoy,4,Donovan McNabb,McNaDo00,QB,Philadelphia Eagles,3.0,,0.06,single_vote
+2000,opoy,5,Rich Gannon,GannRi00,QB,Oakland Raiders,2.0,,0.04,single_vote
+2000,opoy,6,Randy Moss,MossRa00,WR,Minnesota Vikings,2.0,,0.04,single_vote
+2000,opoy,7,Robert Smith,SmitRo00,RB,Minnesota Vikings,2.0,,0.04,single_vote
+2000,opoy,8,Peyton Manning,MannPe00,QB,Indianapolis Colts,1.0,,0.02,single_vote
+2000,dpoy,1,Ray Lewis,LewiRa00,MLB,Baltimore Ravens,30.0,,0.6,single_vote
+2000,dpoy,2,La'Roi Glover,GlovLa00,RDT,New Orleans Saints,11.0,,0.22,single_vote
+2000,dpoy,3,Warren Sapp,SappWa00,RDT,Tampa Bay Buccaneers,4.0,,0.08,single_vote
+2000,dpoy,4,Derrick Brooks,BrooDe00,RLB,Tampa Bay Buccaneers,2.0,,0.04,single_vote
+2000,dpoy,5,Keith Hamilton,HamiKe20,RDT,New York Giants,2.0,,0.04,single_vote
+2000,dpoy,6,Jason Taylor,TaylJa03,RDE,Miami Dolphins,1.0,,0.02,single_vote
+2000,oroy,1,Mike Anderson,AndeMi00,RB,Denver Broncos,40.0,,0.8,single_vote
+2000,oroy,2,Jamal Lewis,LewiJa00,RB,Baltimore Ravens,10.0,,0.2,single_vote
+2000,droy,1,Brian Urlacher,UrlaBr00,MLB,Chicago Bears,27.5,,0.55,single_vote
+2000,droy,2,Darren Howard,HowaDa21,LDE,New Orleans Saints,15.5,,0.31,single_vote
+2000,droy,3,Corey Simon,SimoCo00,LDT,Philadelphia Eagles,6.0,,0.12,single_vote
+2000,droy,4,Courtney Brown,BrowCo22,LDE,Cleveland Browns,1.0,,0.02,single_vote
+2000,cpoy,1,Joe Johnson,JohnJo04,RDE,New Orleans Saints,9.0,,0.18,single_vote
+2000,cpoy,2,Kerry Collins,CollKe00,QB,New York Giants,8.0,,0.16,single_vote
+2000,cpoy,3,Trent Dilfer,DilfTr00,QB,Baltimore Ravens,4.0,,0.08,single_vote
+2000,cpoy,4,Hugh Douglas,DougHu00,RDE,Philadelphia Eagles,4.0,,0.08,single_vote
+2000,cpoy,5,Dimitrius Underwood,UndeDi20,DT,Dallas Cowboys,3.0,,0.06,single_vote
+2000,cpoy,6,Lamar Smith,SmitLa00,RB,Miami Dolphins,3.0,,0.06,single_vote
+2000,cpoy,7,Tony Boselli,BoseTo00,LT,Jacksonville Jaguars,2.0,,0.04,single_vote
+2000,cpoy,8,Vinny Testaverde,TestVi00,QB,New York Jets,2.0,,0.04,single_vote
+2000,cpoy,9,Darren Sharper,SharDa00,FS,Green Bay Packers,2.0,,0.04,single_vote
+2000,cpoy,10,Andre Rison,RisoAn00,WR,Oakland Raiders,2.0,,0.04,single_vote
+2000,cpoy,11,Ray Lewis,LewiRa00,MLB,Baltimore Ravens,2.0,,0.04,single_vote
+2000,cpoy,12,Trent Green,GreeTr00,qb,St. Louis Rams,1.0,,0.02,single_vote
+2000,cpoy,13,Ahman Green,GreeAh00,RB,Green Bay Packers,1.0,,0.02,single_vote
+2000,cpoy,14,Chris Gedney,GednCh00,TE,Arizona Cardinals,1.0,,0.02,single_vote
+2000,cpoy,15,Gus Frerotte,FrerGu00,qb,Denver Broncos,1.0,,0.02,single_vote
+2000,cpoy,16,Kordell Stewart,StewKo00,QB,Pittsburgh Steelers,1.0,,0.02,single_vote
+2000,cpoy,17,Jay Fiedler,FiedJa00,QB,Miami Dolphins,1.0,,0.02,single_vote
+2000,cpoy,18,Jamal Anderson,AndeJa00,RB,Atlanta Falcons,1.0,,0.02,single_vote
+2000,cpoy,19,Ricky Watters,WattRi00,RB,Seattle Seahawks,1.0,,0.02,single_vote
+2000,cpoy,20,Bryant Westbrook,WestBr20,LCB,Detroit Lions,1.0,,0.02,single_vote
+2000,coty,1,Jim Haslett,HaslJi0,,New Orleans Saints,30.5,,0.61,single_vote
+2000,coty,2,Andy Reid,ReidAn0,,Philadelphia Eagles,9.5,,0.19,single_vote
+2000,coty,3,Jim Fassel,FassJi0,,New York Giants,2.0,,0.04,single_vote
+2000,coty,4,Jeff Fisher,FishJe0,,Tennessee Titans,2.0,,0.04,single_vote
+2000,coty,5,Jon Gruden,GrudJo0,,Oakland Raiders,2.0,,0.04,single_vote
+2000,coty,6,Brian Billick,BillBr0,,Baltimore Ravens,1.0,,0.02,single_vote
+2000,coty,7,Steve Mariucci,MariSt0,,San Francisco 49ers,1.0,,0.02,single_vote
+2000,coty,8,Mike Shanahan,ShanMi0,,Denver Broncos,1.0,,0.02,single_vote
+2000,coty,9,Dave Wannstedt,WannDa0,,Miami Dolphins,1.0,,0.02,single_vote
+2001,mvp,1,Kurt Warner,WarnKu00,QB,St. Louis Rams,21.5,,0.43,single_vote
+2001,mvp,2,Marshall Faulk,FaulMa00,RB,St. Louis Rams,17.5,,0.35,single_vote
+2001,mvp,3,Brett Favre,FavrBr00,QB,Green Bay Packers,5.0,,0.1,single_vote
+2001,mvp,4,Kordell Stewart,StewKo00,QB,Pittsburgh Steelers,4.0,,0.08,single_vote
+2001,mvp,5,Brian Urlacher,UrlaBr00,MLB,Chicago Bears,2.0,,0.04,single_vote
+2001,opoy,1,Marshall Faulk,FaulMa00,RB,St. Louis Rams,23.0,,0.46,single_vote
+2001,opoy,2,Kurt Warner,WarnKu00,QB,St. Louis Rams,22.0,,0.44,single_vote
+2001,opoy,3,Brett Favre,FavrBr00,QB,Green Bay Packers,3.0,,0.06,single_vote
+2001,opoy,4,Priest Holmes,HolmPr00,RB,Kansas City Chiefs,2.0,,0.04,single_vote
+2001,dpoy,1,Michael Strahan,StraMi02,LDE,New York Giants,27.0,,0.54,single_vote
+2001,dpoy,2,Brian Urlacher,UrlaBr00,MLB,Chicago Bears,20.0,,0.4,single_vote
+2001,dpoy,3,Ray Lewis,LewiRa00,MLB,Baltimore Ravens,2.0,,0.04,single_vote
+2001,dpoy,4,Jamir Miller,MillJa01,LLB,Cleveland Browns,1.0,,0.02,single_vote
+2001,oroy,1,Anthony Thomas,ThomAn01,RB,Chicago Bears,20.0,,0.4,single_vote
+2001,oroy,2,LaDainian Tomlinson,TomlLa00,RB,San Diego Chargers,16.0,,0.32,single_vote
+2001,oroy,3,Chris Chambers,ChamCh00,wr,Miami Dolphins,7.0,,0.14,single_vote
+2001,oroy,4,Leonard Davis,DaviLe21,RG,Arizona Cardinals,5.0,,0.1,single_vote
+2001,oroy,5,Dominic Rhodes,RhodDo00,RB,Indianapolis Colts,2.0,,0.04,single_vote
+2001,droy,1,Kendrell Bell,BellKe20,RILB,Pittsburgh Steelers,41.0,,0.82,single_vote
+2001,droy,2,Anthony Henry,HenrAn20,DB,Cleveland Browns,6.0,,0.12,single_vote
+2001,droy,3,Nate Clements,ClemNa99,RCB,Buffalo Bills,1.0,,0.02,single_vote
+2001,droy,4,Tommy Polley,PollTo21,LLB,St. Louis Rams,1.0,,0.02,single_vote
+2001,droy,5,Shaun Rogers,RogeSh99,LDT,Detroit Lions,1.0,,0.02,single_vote
+2001,cpoy,1,Garrison Hearst,HearGa00,RB,San Francisco 49ers,47.0,,0.94,single_vote
+2001,cpoy,2,Kevin Dyson,DysoKe00,WR,Tennessee Titans,1.0,,0.02,single_vote
+2001,cpoy,3,Jimmy Smith,SmitJi00,WR,Jacksonville Jaguars,1.0,,0.02,single_vote
+2001,cpoy,4,Kordell Stewart,StewKo00,QB,Pittsburgh Steelers,1.0,,0.02,single_vote
+2001,coty,1,Dick Jauron,JaurDi0,,Chicago Bears,24.0,,0.48,single_vote
+2001,coty,2,Bill Belichick,BeliBi0,,New England Patriots,19.5,,0.39,single_vote
+2001,coty,3,Bill Cowher,CowhBi0,,Pittsburgh Steelers,4.0,,0.08,single_vote
+2001,coty,4,Steve Mariucci,MariSt0,,San Francisco 49ers,2.0,,0.04,single_vote
+2001,coty,5,Butch Davis,DaviBu0,,Cleveland Browns,.5,,0.01,single_vote
+2002,mvp,1,Rich Gannon,GannRi00,QB,Oakland Raiders,19.0,,0.396,single_vote
+2002,mvp,2,Brett Favre,FavrBr00,QB,Green Bay Packers,15.0,,0.313,single_vote
+2002,mvp,3,Steve McNair,McNaSt00,QB,Tennessee Titans,11.0,,0.229,single_vote
+2002,mvp,4,Derrick Brooks,BrooDe00,RLB,Tampa Bay Buccaneers,1.0,,0.021,single_vote
+2002,mvp,5,Priest Holmes,HolmPr00,RB,Kansas City Chiefs,1.0,,0.021,single_vote
+2002,mvp,6,Michael Vick,VickMi00,QB,Atlanta Falcons,1.0,,0.021,single_vote
+2002,opoy,1,Priest Holmes,HolmPr00,RB,Kansas City Chiefs,20.5,,0.427,single_vote
+2002,opoy,2,Marvin Harrison,HarrMa00,WR,Indianapolis Colts,14.5,,0.302,single_vote
+2002,opoy,3,Rich Gannon,GannRi00,QB,Oakland Raiders,9.0,,0.188,single_vote
+2002,opoy,4,Ricky Williams,WillRi00,RB,Miami Dolphins,3.0,,0.063,single_vote
+2002,opoy,5,Steve McNair,McNaSt00,QB,Tennessee Titans,1.0,,0.021,single_vote
+2002,dpoy,1,Derrick Brooks,BrooDe00,RLB,Tampa Bay Buccaneers,36.0,,0.75,single_vote
+2002,dpoy,2,Jason Taylor,TaylJa03,RDE,Miami Dolphins,11.0,,0.229,single_vote
+2002,dpoy,3,Brian Dawkins,DawkBr00,FS,Philadelphia Eagles,1.0,,0.021,single_vote
+2002,oroy,1,Clinton Portis,PortCl00,RB,Denver Broncos,29.0,,0.604,single_vote
+2002,oroy,2,Jeremy Shockey,ShocJe00,TE,New York Giants,17.0,,0.354,single_vote
+2002,oroy,3,LeCharles Bentley,BentLe00,RG,New Orleans Saints,1.0,,0.021,single_vote
+2002,oroy,4,David Carr,CarrDa00,QB,Houston Texans,1.0,,0.021,single_vote
+2002,droy,1,Julius Peppers,PeppJu99,LDE,Carolina Panthers,25.0,,0.521,single_vote
+2002,droy,2,Dwight Freeney,FreeDw00,RDE,Indianapolis Colts,14.0,,0.292,single_vote
+2002,droy,3,Roy Williams,WillRo03,FS,Dallas Cowboys,7.0,,0.146,single_vote
+2002,droy,4,Ed Reed,ReedEd00,SS,Baltimore Ravens,1.0,,0.021,single_vote
+2002,droy,5,Tank Williams,WillTa20,SS,Tennessee Titans,1.0,,0.021,single_vote
+2002,cpoy,1,Tommy Maddox,MaddTo00,QB,Pittsburgh Steelers,24.0,,0.5,single_vote
+2002,cpoy,2,Robert Edwards,EdwaRo00,RB,Miami Dolphins,14.0,,0.292,single_vote
+2002,cpoy,3,Drew Bledsoe,BledDr00,QB,Buffalo Bills,5.0,,0.104,single_vote
+2002,cpoy,4,Jamal Lewis,LewiJa00,RB,Baltimore Ravens,2.0,,0.042,single_vote
+2002,cpoy,5,Edgerrin James,JameEd00,RB,Indianapolis Colts,1.0,,0.021,single_vote
+2002,cpoy,6,Rodney Peete,PeetRo00,QB,Carolina Panthers,1.0,,0.021,single_vote
+2002,cpoy,7,Fred Taylor,TaylFr00,RB,Jacksonville Jaguars,1.0,,0.021,single_vote
+2002,coty,1,Andy Reid,ReidAn0,,Philadelphia Eagles,35.0,,0.729,single_vote
+2002,coty,2,Jeff Fisher,FishJe0,,Tennessee Titans,6.0,,0.125,single_vote
+2002,coty,3,Herm Edwards,EdwaHe0,,New York Jets,3.0,,0.063,single_vote
+2002,coty,4,Brian Billick,BillBr0,,Baltimore Ravens,2.0,,0.042,single_vote
+2002,coty,5,Bill Callahan,CallBi0,,Oakland Raiders,1.0,,0.021,single_vote
+2002,coty,6,Jim Fassel,FassJi0,,New York Giants,1.0,,0.021,single_vote
+2003,mvp,1,Peyton Manning,MannPe00,QB,Indianapolis Colts,16.0,,0.32,single_vote
+2003,mvp,2,Steve McNair,McNaSt00,QB,Tennessee Titans,16.0,,0.32,single_vote
+2003,mvp,3,Tom Brady,BradTo00,QB,New England Patriots,8.0,,0.16,single_vote
+2003,mvp,4,Jamal Lewis,LewiJa00,RB,Baltimore Ravens,5.0,,0.1,single_vote
+2003,mvp,5,Priest Holmes,HolmPr00,RB,Kansas City Chiefs,3.0,,0.06,single_vote
+2003,mvp,6,Ray Lewis,LewiRa00,RILB,Baltimore Ravens,2.0,,0.04,single_vote
+2003,opoy,1,Jamal Lewis,LewiJa00,RB,Baltimore Ravens,29.0,,0.58,single_vote
+2003,opoy,2,LaDainian Tomlinson,TomlLa00,RB,San Diego Chargers,8.0,,0.16,single_vote
+2003,opoy,3,Peyton Manning,MannPe00,QB,Indianapolis Colts,6.0,,0.12,single_vote
+2003,opoy,4,Priest Holmes,HolmPr00,RB,Kansas City Chiefs,3.0,,0.06,single_vote
+2003,opoy,5,Steve McNair,McNaSt00,QB,Tennessee Titans,2.0,,0.04,single_vote
+2003,opoy,6,Torry Holt,HoltTo00,WR,St. Louis Rams,1.0,,0.02,single_vote
+2003,opoy,7,Deuce McAllister,McAlDe00,RB,New Orleans Saints,1.0,,0.02,single_vote
+2003,dpoy,1,Ray Lewis,LewiRa00,RILB,Baltimore Ravens,43.0,,0.86,single_vote
+2003,dpoy,2,Richard Seymour,SeymRi00,RDT,New England Patriots,2.0,,0.04,single_vote
+2003,dpoy,3,Roy Williams,WillRo03,FS,Dallas Cowboys,2.0,,0.04,single_vote
+2003,dpoy,4,Rodney Harrison,HarrRo01,SS,New England Patriots,1.0,,0.02,single_vote
+2003,dpoy,5,Leonard Little,LittLe00,LDE,St. Louis Rams,1.0,,0.02,single_vote
+2003,dpoy,6,Trevor Pryce,PrycTr00,LDE,Denver Broncos,1.0,,0.02,single_vote
+2003,oroy,1,Anquan Boldin,BoldAn00,WR,Arizona Cardinals,50.0,,1.0,single_vote
+2003,droy,1,Terrell Suggs,SuggTe99,LB-DE,Baltimore Ravens,23.0,,0.46,single_vote
+2003,droy,2,Terence Newman,NewmTe20,LCB,Dallas Cowboys,15.0,,0.3,single_vote
+2003,droy,3,Nick Barnett,BarnNi20,MLB,Green Bay Packers,6.0,,0.12,single_vote
+2003,droy,4,Kevin Williams,WillKe98,LDE,Minnesota Vikings,3.0,,0.06,single_vote
+2003,droy,5,Charles Tillman,TillCh20,LCB,Chicago Bears,2.0,,0.04,single_vote
+2003,droy,6,Eugene Wilson,WilsEu20,FS,New England Patriots,1.0,,0.02,single_vote
+2003,cpoy,1,Jon Kitna,KitnJo00,QB,Cincinnati Bengals,8.0,,0.16,single_vote
+2003,cpoy,2,Quincy Carter,CartQu00,QB,Dallas Cowboys,7.0,,0.14,single_vote
+2003,cpoy,3,Orlando Brown,BrowOr20,RT,Baltimore Ravens,6.0,,0.12,single_vote
+2003,cpoy,4,Stephen Davis,DaviSt00,RB,Carolina Panthers,5.0,,0.1,single_vote
+2003,cpoy,5,Jerome Woods,WoodJe00,FS,Kansas City Chiefs,5.0,,0.1,single_vote
+2003,cpoy,6,Chad Clifton,ClifCh20,LT,Green Bay Packers,4.0,,0.08,single_vote
+2003,cpoy,7,Ray Lewis,LewiRa00,RILB,Baltimore Ravens,4.0,,0.08,single_vote
+2003,cpoy,8,Daunte Culpepper,CulpDa00,QB,Minnesota Vikings,2.0,,0.04,single_vote
+2003,cpoy,9,Jevon Kearse,KearJe00,RDE,Tennessee Titans,2.0,,0.04,single_vote
+2003,cpoy,10,Jake Plummer,PlumJa00,QB,Denver Broncos,2.0,,0.04,single_vote
+2003,cpoy,11,Tony Brackens,BracTo00,LDE,Jacksonville Jaguars,1.0,,0.02,single_vote
+2003,cpoy,12,Courtney Brown,BrowCo22,LDE,Cleveland Browns,1.0,,0.02,single_vote
+2003,cpoy,13,Marshall Faulk,FaulMa00,RB,St. Louis Rams,1.0,,0.02,single_vote
+2003,cpoy,14,Priest Holmes,HolmPr00,RB,Kansas City Chiefs,1.0,,0.02,single_vote
+2003,cpoy,15,Tom Nalen,NaleTo00,C,Denver Broncos,1.0,,0.02,single_vote
+2003,coty,1,Bill Belichick,BeliBi0,,New England Patriots,35.5,,0.71,single_vote
+2003,coty,2,Marvin Lewis,LewiMa0,,Cincinnati Bengals,7.0,,0.14,single_vote
+2003,coty,3,Bill Parcells,ParcBi0,,Dallas Cowboys,6.5,,0.13,single_vote
+2003,coty,4,Andy Reid,ReidAn0,,Philadelphia Eagles,1.0,,0.02,single_vote
+2004,mvp,1,Peyton Manning,MannPe00,QB,Indianapolis Colts,47.0,,0.979,single_vote
+2004,mvp,2,Michael Vick,VickMi00,QB,Atlanta Falcons,1.0,,0.021,single_vote
+2004,opoy,1,Peyton Manning,MannPe00,QB,Indianapolis Colts,35.0,,0.729,single_vote
+2004,opoy,2,Daunte Culpepper,CulpDa00,QB,Minnesota Vikings,4.0,,0.083,single_vote
+2004,opoy,3,Terrell Owens,OwenTe00,WR,Philadelphia Eagles,4.0,,0.083,single_vote
+2004,opoy,4,Curtis Martin,MartCu00,RB,New York Jets,2.0,,0.042,single_vote
+2004,opoy,5,Drew Brees,BreeDr00,QB,San Diego Chargers,1.0,,0.021,single_vote
+2004,opoy,6,LaDainian Tomlinson,TomlLa00,RB,San Diego Chargers,1.0,,0.021,single_vote
+2004,opoy,7,Michael Vick,VickMi00,QB,Atlanta Falcons,1.0,,0.021,single_vote
+2004,dpoy,1,Ed Reed,ReedEd00,SS,Baltimore Ravens,20.0,,0.417,single_vote
+2004,dpoy,2,James Farrior,FarrJa99,LILB,Pittsburgh Steelers,16.0,,0.333,single_vote
+2004,dpoy,3,Dwight Freeney,FreeDw00,RDE,Indianapolis Colts,7.0,,0.146,single_vote
+2004,dpoy,4,Julius Peppers,PeppJu99,LDE,Carolina Panthers,3.0,,0.063,single_vote
+2004,dpoy,5,Donnie Edwards,EdwaDo20,LILB,San Diego Chargers,1.0,,0.021,single_vote
+2004,dpoy,6,Ray Lewis,LewiRa00,RILB,Baltimore Ravens,1.0,,0.021,single_vote
+2004,oroy,1,Ben Roethlisberger,RoetBe00,QB,Pittsburgh Steelers,48.0,,1.0,single_vote
+2004,droy,1,Jonathan Vilma,VilmJo99,MLB,New York Jets,21.0,,0.438,single_vote
+2004,droy,2,Dunta Robinson,RobiDu20,RCB,Houston Texans,12.0,,0.25,single_vote
+2004,droy,3,D.J. Williams,WillD.20,RLB,Denver Broncos,7.0,,0.146,single_vote
+2004,droy,4,Sean Taylor,TaylSe20,FS,Washington Redskins,3.0,,0.063,single_vote
+2004,droy,5,Jared Allen,AlleJa22,RDE,Kansas City Chiefs,2.0,,0.042,single_vote
+2004,droy,6,Michael Boulware,BoulMi20,DB-LB,Seattle Seahawks,1.0,,0.021,single_vote
+2004,droy,7,Karlos Dansby,DansKa20,LLB,Arizona Cardinals,1.0,,0.021,single_vote
+2004,droy,8,Tommie Harris,HarrTo99,LDT,Chicago Bears,1.0,,0.021,single_vote
+2004,cpoy,1,Drew Brees,BreeDr00,QB,San Diego Chargers,18.5,,0.385,single_vote
+2004,cpoy,2,Mark Fields,FielMa99,LLB,Carolina Panthers,10.0,,0.208,single_vote
+2004,cpoy,3,Willis McGahee,McGaWi00,RB,Buffalo Bills,6.0,,0.125,single_vote
+2004,cpoy,4,Jerome Bettis,BettJe00,RB,Pittsburgh Steelers,4.5,,0.094,single_vote
+2004,cpoy,5,Corey Dillon,DillCo00,RB,New England Patriots,4.0,,0.083,single_vote
+2004,cpoy,6,Michael Vick,VickMi00,QB,Atlanta Falcons,3.0,,0.063,single_vote
+2004,cpoy,7,Brian Griese,GrieBr00,QB,Tampa Bay Buccaneers,1.0,,0.021,single_vote
+2004,cpoy,8,T.J. Houshmandzadeh,HousTJ00,WR,Cincinnati Bengals,1.0,,0.021,single_vote
+2004,coty,1,Marty Schottenheimer,SchoMa0,,San Diego Chargers,27.5,,0.573,single_vote
+2004,coty,2,Bill Cowher,CowhBi0,,Pittsburgh Steelers,14.5,,0.302,single_vote
+2004,coty,3,Bill Belichick,BeliBi0,,New England Patriots,3.0,,0.063,single_vote
+2004,coty,4,Jim Mora,MoraJi1,,Atlanta Falcons,2.0,,0.042,single_vote
+2004,coty,5,John Fox,FoxxJo0,,Carolina Panthers,1.0,,0.021,single_vote
+2005,mvp,1,Shaun Alexander,AlexSh00,RB,Seattle Seahawks,19.0,,0.38,single_vote
+2005,mvp,2,Peyton Manning,MannPe00,QB,Indianapolis Colts,13.0,,0.26,single_vote
+2005,mvp,3,Tom Brady,BradTo00,QB,New England Patriots,10.0,,0.2,single_vote
+2005,mvp,4,Tiki Barber,BarbTi00,RB,New York Giants,6.0,,0.12,single_vote
+2005,mvp,5,Carson Palmer,PalmCa00,QB,Cincinnati Bengals,2.0,,0.04,single_vote
+2005,opoy,1,Shaun Alexander,AlexSh00,RB,Seattle Seahawks,34.0,,0.68,single_vote
+2005,opoy,2,Peyton Manning,MannPe00,QB,Indianapolis Colts,8.0,,0.16,single_vote
+2005,opoy,3,Tiki Barber,BarbTi00,RB,New York Giants,6.0,,0.12,single_vote
+2005,opoy,4,Tom Brady,BradTo00,QB,New England Patriots,1.0,,0.02,single_vote
+2005,opoy,5,Carson Palmer,PalmCa00,QB,Cincinnati Bengals,1.0,,0.02,single_vote
+2005,dpoy,1,Brian Urlacher,UrlaBr00,MLB,Chicago Bears,34.0,,0.68,single_vote
+2005,dpoy,2,Dwight Freeney,FreeDw00,RDE,Indianapolis Colts,4.0,,0.08,single_vote
+2005,dpoy,3,Troy Polamalu,PolaTr99,SS,Pittsburgh Steelers,3.0,,0.06,single_vote
+2005,dpoy,4,Osi Umenyiora,UmenOs99,RDE,New York Giants,2.0,,0.04,single_vote
+2005,dpoy,5,Adrian Wilson,WilsAd99,SS,Arizona Cardinals,2.0,,0.04,single_vote
+2005,dpoy,6,Champ Bailey,BailCh00,LCB,Denver Broncos,1.0,,0.02,single_vote
+2005,dpoy,7,Lance Briggs,BrigLa99,RLB,Chicago Bears,1.0,,0.02,single_vote
+2005,dpoy,8,Alex Brown,BrowAl20,RDE,Chicago Bears,1.0,,0.02,single_vote
+2005,dpoy,9,Marcus Stroud,StroMa01,LDT,Jacksonville Jaguars,1.0,,0.02,single_vote
+2005,dpoy,10,Nathan Vasher,VashNa99,RCB,Chicago Bears,1.0,,0.02,single_vote
+2005,oroy,1,Cadillac Williams,WillCa02,RB,Tampa Bay Buccaneers,47.0,,0.94,single_vote
+2005,oroy,2,Reggie Brown,BrowRe01,WR,Philadelphia Eagles,1.0,,0.02,single_vote
+2005,oroy,3,Logan Mankins,MankLo20,LG,New England Patriots,1.0,,0.02,single_vote
+2005,oroy,4,Heath Miller,MillHe00,TE,Pittsburgh Steelers,1.0,,0.02,single_vote
+2005,droy,1,Shawne Merriman,MerrSh99,LOLB,San Diego Chargers,28.5,,0.57,single_vote
+2005,droy,2,Lofa Tatupu,TatuLo99,MLB,Seattle Seahawks,16.5,,0.33,single_vote
+2005,droy,3,Odell Thurman,ThurOd20,MLB,Cincinnati Bengals,4.0,,0.08,single_vote
+2005,droy,4,DeMarcus Ware,WareDe99,ROLB,Dallas Cowboys,1.0,,0.02,single_vote
+2005,cpoy,1,Tedy Bruschi,BrusTe99,LILB,New England Patriots,18.0,,0.36,single_vote
+2005,cpoy,2,Steve Smith Sr.,SmitSt01,WR,Carolina Panthers,18.0,,0.36,single_vote
+2005,cpoy,3,Mark Brunell,BrunMa00,QB,Washington Redskins,6.0,,0.12,single_vote
+2005,cpoy,4,Kyle Vanden Bosch,VandKy99,LDE,Tennessee Titans,5.0,,0.1,single_vote
+2005,cpoy,5,Joey Galloway,GallJo00,WR,Tampa Bay Buccaneers,1.0,,0.02,single_vote
+2005,cpoy,6,Koren Robinson,RobiKo00,wr,Minnesota Vikings,1.0,,0.02,single_vote
+2005,cpoy,7,Ricky Williams,WillRi00,rb,Miami Dolphins,1.0,,0.02,single_vote
+2005,coty,1,Lovie Smith,SmitLo0,,Chicago Bears,24.5,,0.49,single_vote
+2005,coty,2,Tony Dungy,DungTo0,,Indianapolis Colts,20.5,,0.41,single_vote
+2005,coty,3,Bill Belichick,BeliBi0,,New England Patriots,2.0,,0.04,single_vote
+2005,coty,4,Tom Coughlin,CougTo0,,New York Giants,1.0,,0.02,single_vote
+2005,coty,5,Mike Holmgren,HolmMi0,,Seattle Seahawks,1.0,,0.02,single_vote
+2005,coty,6,Marvin Lewis,LewiMa0,,Cincinnati Bengals,1.0,,0.02,single_vote
+2006,mvp,1,LaDainian Tomlinson,TomlLa00,RB,San Diego Chargers,44.0,,0.88,single_vote
+2006,mvp,2,Drew Brees,BreeDr00,QB,New Orleans Saints,4.0,,0.08,single_vote
+2006,mvp,3,Peyton Manning,MannPe00,QB,Indianapolis Colts,2.0,,0.04,single_vote
+2006,opoy,1,LaDainian Tomlinson,TomlLa00,RB,San Diego Chargers,38.0,,0.76,single_vote
+2006,opoy,2,Drew Brees,BreeDr00,QB,New Orleans Saints,8.0,,0.16,single_vote
+2006,opoy,3,Peyton Manning,MannPe00,QB,Indianapolis Colts,3.0,,0.06,single_vote
+2006,opoy,4,Steven Jackson,JackSt00,RB,St. Louis Rams,1.0,,0.02,single_vote
+2006,dpoy,1,Jason Taylor,TaylJa03,RDE,Miami Dolphins,22.0,,0.44,single_vote
+2006,dpoy,2,Champ Bailey,BailCh00,LCB,Denver Broncos,16.0,,0.32,single_vote
+2006,dpoy,3,Shawne Merriman,MerrSh99,LOLB,San Diego Chargers,6.0,,0.12,single_vote
+2006,dpoy,4,Brian Urlacher,UrlaBr00,MLB,Chicago Bears,4.0,,0.08,single_vote
+2006,dpoy,5,Ray Lewis,LewiRa00,MLB,Baltimore Ravens,1.0,,0.02,single_vote
+2006,dpoy,6,Trevor Pryce,PrycTr00,LDE,Baltimore Ravens,1.0,,0.02,single_vote
+2006,oroy,1,Vince Young,YounVi00,QB,Tennessee Titans,23.0,,0.46,single_vote
+2006,oroy,2,Marques Colston,ColsMa00,WR,New Orleans Saints,9.0,,0.18,single_vote
+2006,oroy,3,Maurice Jones-Drew,DrewMa00,rb,Jacksonville Jaguars,9.0,,0.18,single_vote
+2006,oroy,4,Marcus McNeill,McNeMa20,LT,San Diego Chargers,6.0,,0.12,single_vote
+2006,oroy,5,Reggie Bush,BushRe00,rb,New Orleans Saints,3.0,,0.06,single_vote
+2006,droy,1,DeMeco Ryans,RyanDe20,MLB,Houston Texans,36.0,,0.72,single_vote
+2006,droy,2,Mark Anderson,AndeMa21,DE,Chicago Bears,5.0,,0.1,single_vote
+2006,droy,3,A.J. Hawk,HawkA.20,RLB,Green Bay Packers,4.0,,0.08,single_vote
+2006,droy,4,Kamerion Wimbley,WimbKa20,ROLB,Cleveland Browns,2.0,,0.04,single_vote
+2006,droy,5,Johnathan Joseph,JoseJo20,LCB,Cincinnati Bengals,1.0,,0.02,single_vote
+2006,droy,6,Dawan Landry,LandDa21,SS,Baltimore Ravens,1.0,,0.02,single_vote
+2006,droy,7,Mario Williams,WillMa22,RDE,Houston Texans,1.0,,0.02,single_vote
+2006,cpoy,1,Chad Pennington,PennCh01,QB,New York Jets,25.0,,0.5,single_vote
+2006,cpoy,2,Drew Brees,BreeDr00,QB,New Orleans Saints,8.5,,0.17,single_vote
+2006,cpoy,3,Carson Palmer,PalmCa00,QB,Cincinnati Bengals,5.5,,0.11,single_vote
+2006,cpoy,4,Kellen Winslow,WinsKe01,TE,Cleveland Browns,5.0,,0.1,single_vote
+2006,cpoy,5,Jeff Garcia,GarcJe00,qb,Philadelphia Eagles,2.0,,0.04,single_vote
+2006,cpoy,6,Correll Buckhalter,BuckCo00,RB,Philadelphia Eagles,1.0,,0.02,single_vote
+2006,cpoy,7,Travis Henry,HenrTr00,RB,Tennessee Titans,1.0,,0.02,single_vote
+2006,cpoy,8,Deuce McAllister,McAlDe00,RB,New Orleans Saints,1.0,,0.02,single_vote
+2006,cpoy,9,Javon Walker,WalkJa00,WR,Denver Broncos,1.0,,0.02,single_vote
+2006,coty,1,Sean Payton,PaytSe0,,New Orleans Saints,44.0,,0.88,single_vote
+2006,coty,2,Eric Mangini,MangEr0,,New York Jets,3.0,,0.06,single_vote
+2006,coty,3,Marty Schottenheimer,SchoMa0,,San Diego Chargers,2.0,,0.04,single_vote
+2006,coty,4,Jeff Fisher,FishJe0,,Tennessee Titans,1.0,,0.02,single_vote
+2007,mvp,1,Tom Brady,BradTo00,QB,New England Patriots,49.0,,0.98,single_vote
+2007,mvp,2,Brett Favre,FavrBr00,QB,Green Bay Packers,1.0,,0.02,single_vote
+2007,opoy,1,Tom Brady,BradTo00,QB,New England Patriots,35.5,,0.71,single_vote
+2007,opoy,2,Randy Moss,MossRa00,WR,New England Patriots,12.5,,0.25,single_vote
+2007,opoy,3,Brett Favre,FavrBr00,QB,Green Bay Packers,1.0,,0.02,single_vote
+2007,opoy,4,Wes Welker,WelkWe00,WR,New England Patriots,1.0,,0.02,single_vote
+2007,dpoy,1,Bob Sanders,SandBo99,SS,Indianapolis Colts,31.0,,0.62,single_vote
+2007,dpoy,2,Albert Haynesworth,HaynAl20,RDT,Tennessee Titans,4.0,,0.08,single_vote
+2007,dpoy,3,Patrick Kerney,KernPa99,LDE,Seattle Seahawks,4.0,,0.08,single_vote
+2007,dpoy,4,Antonio Cromartie,CromAn20,rcb,San Diego Chargers,3.0,,0.06,single_vote
+2007,dpoy,5,Mike Vrabel,VrabMi20,LOLB,New England Patriots,2.0,,0.04,single_vote
+2007,dpoy,6,DeMarcus Ware,WareDe99,ROLB,Dallas Cowboys,2.0,,0.04,single_vote
+2007,dpoy,7,Ronde Barber,BarbRo00,LCB,Tampa Bay Buccaneers,1.0,,0.02,single_vote
+2007,dpoy,8,James Harrison,HarrJa23,ROLB,Pittsburgh Steelers,1.0,,0.02,single_vote
+2007,dpoy,9,Mario Williams,WillMa22,RDE,Houston Texans,1.0,,0.02,single_vote
+2007,dpoy,10,Patrick Willis,WillPa98,RILB,San Francisco 49ers,1.0,,0.02,single_vote
+2007,oroy,1,Adrian Peterson,PeteAd01,RB,Minnesota Vikings,46.5,,0.93,single_vote
+2007,oroy,2,Joe Thomas,ThomJo28,LT,Cleveland Browns,3.5,,0.07,single_vote
+2007,droy,1,Patrick Willis,WillPa98,RILB,San Francisco 49ers,48.0,,0.96,single_vote
+2007,droy,2,Jon Beason,BeasJo99,MLB,Carolina Panthers,2.0,,0.04,single_vote
+2007,cpoy,1,Greg Ellis,ElliGr20,LOLB,Dallas Cowboys,12.0,,0.24,single_vote
+2007,cpoy,2,Randy Moss,MossRa00,WR,New England Patriots,10.0,,0.2,single_vote
+2007,cpoy,3,Ben Roethlisberger,RoetBe00,QB,Pittsburgh Steelers,7.0,,0.14,single_vote
+2007,cpoy,4,Brett Favre,FavrBr00,QB,Green Bay Packers,5.0,,0.1,single_vote
+2007,cpoy,5,Jamal Lewis,LewiJa00,RB,Cleveland Browns,5.0,,0.1,single_vote
+2007,cpoy,6,Bobby Engram,EngrBo00,WR,Seattle Seahawks,3.0,,0.06,single_vote
+2007,cpoy,7,Derek Anderson,AndeDe00,QB,Cleveland Browns,2.0,,0.04,single_vote
+2007,cpoy,8,Patrick Kerney,KernPa99,LDE,Seattle Seahawks,2.0,,0.04,single_vote
+2007,cpoy,9,Andre Carter,CartAn20,RDE,Washington Redskins,1.0,,0.02,single_vote
+2007,cpoy,10,Albert Haynesworth,HaynAl20,RDT,Tennessee Titans,1.0,,0.02,single_vote
+2007,cpoy,11,Amani Toomer,ToomAm00,WR,New York Giants,1.0,,0.02,single_vote
+2007,cpoy,12,Mario Williams,WillMa22,RDE,Houston Texans,1.0,,0.02,single_vote
+2007,coty,1,Bill Belichick,BeliBi0,,New England Patriots,29.0,,0.58,single_vote
+2007,coty,2,Mike McCarthy,McCaMi0,,Green Bay Packers,15.0,,0.3,single_vote
+2007,coty,3,Jack Del Rio,DelRJa0,,Jacksonville Jaguars,2.0,,0.04,single_vote
+2007,coty,4,Wade Phillips,PhilWa0,,Dallas Cowboys,2.0,,0.04,single_vote
+2007,coty,5,Tony Dungy,DungTo0,,Indianapolis Colts,1.0,,0.02,single_vote
+2007,coty,6,Jon Gruden,GrudJo0,,Tampa Bay Buccaneers,1.0,,0.02,single_vote
+2008,mvp,1,Peyton Manning,MannPe00,QB,Indianapolis Colts,32.0,,0.64,single_vote
+2008,mvp,2,Chad Pennington,PennCh01,QB,Miami Dolphins,4.0,,0.08,single_vote
+2008,mvp,3,Michael Turner,TurnMi00,RB,Atlanta Falcons,4.0,,0.08,single_vote
+2008,mvp,4,James Harrison,HarrJa23,ROLB,Pittsburgh Steelers,3.0,,0.06,single_vote
+2008,mvp,5,Adrian Peterson,PeteAd01,RB,Minnesota Vikings,3.0,,0.06,single_vote
+2008,mvp,6,Philip Rivers,RivePh00,QB,San Diego Chargers,2.0,,0.04,single_vote
+2008,mvp,7,Chris Johnson,JohnCh04,RB,Tennessee Titans,1.0,,0.02,single_vote
+2008,mvp,8,Kurt Warner,WarnKu00,QB,Arizona Cardinals,1.0,,0.02,single_vote
+2008,opoy,1,Drew Brees,BreeDr00,QB,New Orleans Saints,22.0,,0.44,single_vote
+2008,opoy,2,Peyton Manning,MannPe00,QB,Indianapolis Colts,9.0,,0.18,single_vote
+2008,opoy,3,Adrian Peterson,PeteAd01,RB,Minnesota Vikings,9.0,,0.18,single_vote
+2008,opoy,4,Philip Rivers,RivePh00,QB,San Diego Chargers,6.0,,0.12,single_vote
+2008,opoy,5,DeAngelo Williams,WillDe02,RB,Carolina Panthers,2.0,,0.04,single_vote
+2008,opoy,6,Steve Smith Sr.,SmitSt01,WR,Carolina Panthers,1.0,,0.02,single_vote
+2008,opoy,7,Michael Turner,TurnMi00,RB,Atlanta Falcons,1.0,,0.02,single_vote
+2008,dpoy,1,James Harrison,HarrJa23,ROLB,Pittsburgh Steelers,22.0,,0.44,single_vote
+2008,dpoy,2,DeMarcus Ware,WareDe99,ROLB,Dallas Cowboys,13.0,,0.26,single_vote
+2008,dpoy,3,Ed Reed,ReedEd00,FS,Baltimore Ravens,8.0,,0.16,single_vote
+2008,dpoy,4,Albert Haynesworth,HaynAl20,RDT,Tennessee Titans,5.0,,0.1,single_vote
+2008,dpoy,5,Troy Polamalu,PolaTr99,SS,Pittsburgh Steelers,2.0,,0.04,single_vote
+2008,oroy,1,Matt Ryan,RyanMa00,QB,Atlanta Falcons,44.0,,0.88,single_vote
+2008,oroy,2,Chris Johnson,JohnCh04,RB,Tennessee Titans,3.0,,0.06,single_vote
+2008,oroy,3,Ryan Clady,CladRy20,LT,Denver Broncos,2.0,,0.04,single_vote
+2008,oroy,4,Matt Forte,FortMa00,RB,Chicago Bears,1.0,,0.02,single_vote
+2008,droy,1,Jerod Mayo,MayoJe99,LILB,New England Patriots,49.0,,0.98,single_vote
+2008,droy,2,Keith Rivers,RiveKe99,rlb,Cincinnati Bengals,1.0,,0.02,single_vote
+2008,cpoy,1,Chad Pennington,PennCh01,QB,Miami Dolphins,19.0,,0.38,single_vote
+2008,cpoy,2,Kerry Collins,CollKe00,QB,Tennessee Titans,6.0,,0.12,single_vote
+2008,cpoy,3,Jake Delhomme,DelhJa00,QB,Carolina Panthers,6.0,,0.12,single_vote
+2008,cpoy,4,Anquan Boldin,BoldAn00,WR,Arizona Cardinals,4.0,,0.08,single_vote
+2008,cpoy,5,Antonio Bryant,BryaAn00,WR,Tampa Bay Buccaneers,4.0,,0.08,single_vote
+2008,cpoy,6,Kurt Warner,WarnKu00,QB,Arizona Cardinals,4.0,,0.08,single_vote
+2008,cpoy,7,Joey Porter,PortJo00,ROLB,Miami Dolphins,3.0,,0.06,single_vote
+2008,cpoy,8,Willie Anderson,AndeWi00,RT,Baltimore Ravens,1.0,,0.02,single_vote
+2008,cpoy,9,Ronnie Brown,BrowRo05,RB,Miami Dolphins,1.0,,0.02,single_vote
+2008,cpoy,10,Ryan Clark,ClarRy20,FS,Pittsburgh Steelers,1.0,,0.02,single_vote
+2008,cpoy,11,Philip Rivers,RivePh00,QB,San Diego Chargers,1.0,,0.02,single_vote
+2008,coty,1,Mike Smith,SmitMi0,,Atlanta Falcons,23.5,,0.47,single_vote
+2008,coty,2,Tony Sparano,SparTo0,,Miami Dolphins,22.5,,0.45,single_vote
+2008,coty,3,Jeff Fisher,FishJe0,,Tennessee Titans,3.0,,0.06,single_vote
+2008,coty,4,Bill Belichick,BeliBi0,,New England Patriots,1.0,,0.02,single_vote
+2009,mvp,1,Peyton Manning,MannPe00,QB,Indianapolis Colts,39.5,,0.79,single_vote
+2009,mvp,2,Drew Brees,BreeDr00,QB,New Orleans Saints,7.5,,0.15,single_vote
+2009,mvp,3,Philip Rivers,RivePh00,QB,San Diego Chargers,2.0,,0.04,single_vote
+2009,mvp,4,Brett Favre,FavrBr00,QB,Minnesota Vikings,1.0,,0.02,single_vote
+2009,opoy,1,Chris Johnson,JohnCh04,RB,Tennessee Titans,38.5,,0.77,single_vote
+2009,opoy,2,Drew Brees,BreeDr00,QB,New Orleans Saints,9.0,,0.18,single_vote
+2009,opoy,3,Peyton Manning,MannPe00,QB,Indianapolis Colts,1.5,,0.03,single_vote
+2009,opoy,4,Philip Rivers,RivePh00,QB,San Diego Chargers,1.0,,0.02,single_vote
+2009,dpoy,1,Charles Woodson,WoodCh00,LCB,Green Bay Packers,28.0,,0.56,single_vote
+2009,dpoy,2,Darrelle Revis,ReviDa99,LCB,New York Jets,14.0,,0.28,single_vote
+2009,dpoy,3,Elvis Dumervil,DumeEl20,ROLB,Denver Broncos,3.0,,0.06,single_vote
+2009,dpoy,4,Darren Sharper,SharDa00,FS,New Orleans Saints,3.0,,0.06,single_vote
+2009,dpoy,5,Jared Allen,AlleJa22,RDE,Minnesota Vikings,2.0,,0.04,single_vote
+2009,oroy,1,Percy Harvin,HarvPe00,wr,Minnesota Vikings,41.0,,0.82,single_vote
+2009,oroy,2,Michael Oher,OherMi20,RT,Baltimore Ravens,6.0,,0.12,single_vote
+2009,oroy,3,Jeremy Maclin,MaclJe00,WR,Philadelphia Eagles,1.0,,0.02,single_vote
+2009,oroy,4,Knowshon Moreno,MoreKn00,RB,Denver Broncos,1.0,,0.02,single_vote
+2009,oroy,5,Mike Wallace,WallMi00,WR,Pittsburgh Steelers,1.0,,0.02,single_vote
+2009,droy,1,Brian Cushing,CushBr99,LLB,Houston Texans,39.0,,0.78,single_vote
+2009,droy,2,Jairus Byrd,ByrdJa99,FS,Buffalo Bills,6.0,,0.12,single_vote
+2009,droy,3,Clay Matthews,MattCl99,ROLB,Green Bay Packers,3.0,,0.06,single_vote
+2009,droy,4,Brian Orakpo,OrakBr99,LLB,Washington Redskins,2.0,,0.04,single_vote
+2009,cpoy,1,Tom Brady,BradTo00,QB,New England Patriots,19.0,,0.388,single_vote
+2009,cpoy,2,Cadillac Williams,WillCa02,RB,Tampa Bay Buccaneers,14.0,,0.286,single_vote
+2009,cpoy,3,Vince Young,YounVi00,QB,Tennessee Titans,7.0,,0.143,single_vote
+2009,cpoy,4,Cedric Benson,BensCe00,RB,Cincinnati Bengals,4.0,,0.082,single_vote
+2009,cpoy,5,Brett Favre,FavrBr00,QB,Minnesota Vikings,4.0,,0.082,single_vote
+2009,cpoy,6,Anthony Hargrove,HargAn20,rdt,New Orleans Saints,1.0,,0.02,single_vote
+2009,coty,1,Marvin Lewis,LewiMa0,,Cincinnati Bengals,20.5,,0.41,single_vote
+2009,coty,2,Sean Payton,PaytSe0,,New Orleans Saints,11.5,,0.23,single_vote
+2009,coty,3,Norv Turner,TurnNo0,,San Diego Chargers,9.0,,0.18,single_vote
+2009,coty,4,Jim Caldwell,CaldJi0,,Indianapolis Colts,7.0,,0.14,single_vote
+2009,coty,5,Andy Reid,ReidAn0,,Philadelphia Eagles,1.0,,0.02,single_vote
+2009,coty,6,Ken Whisenhunt,WhisKe0,,Arizona Cardinals,1.0,,0.02,single_vote
+2010,mvp,1,Tom Brady,BradTo00,QB,New England Patriots,50.0,,1.0,single_vote
+2010,opoy,1,Tom Brady,BradTo00,QB,New England Patriots,21.0,,0.42,single_vote
+2010,opoy,2,Michael Vick,VickMi00,QB,Philadelphia Eagles,11.0,,0.22,single_vote
+2010,opoy,3,Arian Foster,FostAr00,RB,Houston Texans,7.0,,0.14,single_vote
+2010,opoy,4,Philip Rivers,RivePh00,QB,San Diego Chargers,5.0,,0.1,single_vote
+2010,opoy,5,DeSean Jackson,JackDe00,WR,Philadelphia Eagles,2.0,,0.04,single_vote
+2010,opoy,6,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,2.0,,0.04,single_vote
+2010,opoy,7,Roddy White,WhitRo00,WR,Atlanta Falcons,2.0,,0.04,single_vote
+2010,dpoy,1,Troy Polamalu,PolaTr99,SS,Pittsburgh Steelers,17.0,,0.34,single_vote
+2010,dpoy,2,Clay Matthews,MattCl99,LOLB,Green Bay Packers,15.0,,0.3,single_vote
+2010,dpoy,3,James Harrison,HarrJa23,ROLB,Pittsburgh Steelers,8.0,,0.16,single_vote
+2010,dpoy,4,Julius Peppers,PeppJu99,RDE,Chicago Bears,6.0,,0.12,single_vote
+2010,dpoy,5,Brian Urlacher,UrlaBr00,MLB,Chicago Bears,2.0,,0.04,single_vote
+2010,dpoy,6,Haloti Ngata,NgatHa20,LDE,Baltimore Ravens,1.0,,0.02,single_vote
+2010,dpoy,7,Ed Reed,ReedEd00,FS,Baltimore Ravens,1.0,,0.02,single_vote
+2010,oroy,1,Sam Bradford,BradSa00,QB,St. Louis Rams,44.0,,0.88,single_vote
+2010,oroy,2,Mike Williams,WillMi04,WR,Tampa Bay Buccaneers,4.0,,0.08,single_vote
+2010,oroy,3,Maurkice Pouncey,PounMa20,C,Pittsburgh Steelers,2.0,,0.04,single_vote
+2010,droy,1,Ndamukong Suh,SuhxNd99,LDT,Detroit Lions,48.0,,0.96,single_vote
+2010,droy,2,Devin McCourty,McCoDe99,LCB,New England Patriots,2.0,,0.04,single_vote
+2010,cpoy,1,Michael Vick,VickMi00,QB,Philadelphia Eagles,29.5,,0.59,single_vote
+2010,cpoy,2,Mike Williams,WillMi03,WR,Seattle Seahawks,8.0,,0.16,single_vote
+2010,cpoy,3,E.J. Henderson,HendE.20,MLB,Minnesota Vikings,3.5,,0.07,single_vote
+2010,cpoy,4,Matt Cassel,CassMa00,QB,Kansas City Chiefs,2.0,,0.04,single_vote
+2010,cpoy,5,Brian Urlacher,UrlaBr00,MLB,Chicago Bears,2.0,,0.04,single_vote
+2010,cpoy,6,Wes Welker,WelkWe00,WR,New England Patriots,2.0,,0.04,single_vote
+2010,cpoy,7,LeGarrette Blount,BlouLe00,rb,Tampa Bay Buccaneers,1.0,,0.02,single_vote
+2010,cpoy,8,Troy Polamalu,PolaTr99,SS,Pittsburgh Steelers,1.0,,0.02,single_vote
+2010,cpoy,9,Leon Washington,WashLe00,RB,Seattle Seahawks,1.0,,0.02,single_vote
+2010,coty,1,Bill Belichick,BeliBi0,,New England Patriots,30.0,,0.6,single_vote
+2010,coty,2,Raheem Morris,MorrRa0,,Tampa Bay Buccaneers,11.5,,0.23,single_vote
+2010,coty,3,Todd Haley,HaleTo0,,Kansas City Chiefs,4.5,,0.09,single_vote
+2010,coty,4,Andy Reid,ReidAn0,,Philadelphia Eagles,1.0,,0.02,single_vote
+2010,coty,5,Lovie Smith,SmitLo0,,Chicago Bears,1.0,,0.02,single_vote
+2010,coty,6,Mike Smith,SmitMi0,,Atlanta Falcons,1.0,,0.02,single_vote
+2010,coty,7,Steve Spagnuolo,SpagSt0,,St. Louis Rams,1.0,,0.02,single_vote
+2011,mvp,1,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,48.0,,0.96,single_vote
+2011,mvp,2,Drew Brees,BreeDr00,QB,New Orleans Saints,2.0,,0.04,single_vote
+2011,opoy,1,Drew Brees,BreeDr00,QB,New Orleans Saints,43.0,,0.86,single_vote
+2011,opoy,2,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,7.0,,0.14,single_vote
+2011,dpoy,1,Terrell Suggs,SuggTe99,LOLB,Baltimore Ravens,21.0,,0.42,single_vote
+2011,dpoy,2,Jared Allen,AlleJa22,RDE,Minnesota Vikings,14.0,,0.28,single_vote
+2011,dpoy,3,Justin Smith,SmitJu20,RDE,San Francisco 49ers,6.0,,0.12,single_vote
+2011,dpoy,4,Jason Pierre-Paul,PierJa99,RDE,New York Giants,5.0,,0.1,single_vote
+2011,dpoy,5,Patrick Willis,WillPa98,RILB,San Francisco 49ers,2.0,,0.04,single_vote
+2011,dpoy,6,NaVorro Bowman,BowmNa99,LILB,San Francisco 49ers,1.0,,0.02,single_vote
+2011,dpoy,7,Charles Woodson,WoodCh00,LCB,Green Bay Packers,1.0,,0.02,single_vote
+2011,oroy,1,Cam Newton,NewtCa00,QB,Carolina Panthers,47.0,,0.94,single_vote
+2011,oroy,2,Andy Dalton,DaltAn00,QB,Cincinnati Bengals,3.0,,0.06,single_vote
+2011,droy,1,Von Miller,MillVo00,LILB,Denver Broncos,39.0,,0.78,single_vote
+2011,droy,2,Aldon Smith,SmitAl04,DE,San Francisco 49ers,11.0,,0.22,single_vote
+2011,cpoy,1,Matthew Stafford,StafMa00,QB,Detroit Lions,21.0,,0.42,single_vote
+2011,cpoy,2,D'Qwell Jackson,JackDQ20,MLB,Cleveland Browns,15.0,,0.3,single_vote
+2011,cpoy,3,Alex Smith,SmitAl03,QB,San Francisco 49ers,7.0,,0.14,single_vote
+2011,cpoy,4,Steve Smith Sr.,SmitSt01,WR,Carolina Panthers,3.0,,0.06,single_vote
+2011,cpoy,5,Elvis Dumervil,DumeEl20,LOLB,Denver Broncos,2.0,,0.04,single_vote
+2011,cpoy,6,Andre Carter,CartAn20,RDE,New England Patriots,1.0,,0.02,single_vote
+2011,cpoy,7,Eli Manning,MannEl00,QB,New York Giants,1.0,,0.02,single_vote
+2011,coty,1,Jim Harbaugh,HarbJi0,,San Francisco 49ers,45.0,,0.9,single_vote
+2011,coty,2,Mike McCarthy,McCaMi0,,Green Bay Packers,3.0,,0.06,single_vote
+2011,coty,3,John Fox,FoxxJo0,,Denver Broncos,2.0,,0.04,single_vote
+2012,mvp,1,Adrian Peterson,PeteAd01,RB,Minnesota Vikings,30.5,,0.61,single_vote
+2012,mvp,2,Peyton Manning,MannPe00,QB,Denver Broncos,19.5,,0.39,single_vote
+2012,opoy,1,Adrian Peterson,PeteAd01,RB,Minnesota Vikings,36.0,,0.72,single_vote
+2012,opoy,2,Peyton Manning,MannPe00,QB,Denver Broncos,8.0,,0.16,single_vote
+2012,opoy,3,Tom Brady,BradTo00,QB,New England Patriots,2.0,,0.04,single_vote
+2012,opoy,4,Calvin Johnson,JohnCa00,WR,Detroit Lions,2.0,,0.04,single_vote
+2012,opoy,5,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,2.0,,0.04,single_vote
+2012,dpoy,1,J.J. Watt,WattJ.00,LDE,Houston Texans,49.0,,0.98,single_vote
+2012,dpoy,2,Von Miller,MillVo00,LILB,Denver Broncos,1.0,,0.02,single_vote
+2012,oroy,1,Robert Griffin III,GrifRo01,QB,Washington Redskins,29.0,,0.58,single_vote
+2012,oroy,2,Andrew Luck,LuckAn00,QB,Indianapolis Colts,11.0,,0.22,single_vote
+2012,oroy,3,Russell Wilson,WilsRu00,QB,Seattle Seahawks,10.0,,0.2,single_vote
+2012,droy,1,Luke Kuechly,KuecLu00,MLB,Carolina Panthers,28.0,,0.56,single_vote
+2012,droy,2,Bobby Wagner,WagnBo00,MLB,Seattle Seahawks,11.0,,0.22,single_vote
+2012,droy,3,Casey Hayward,HaywCa00,rcb,Green Bay Packers,6.0,,0.12,single_vote
+2012,droy,4,Jackrabbit Jenkins,JenkJa03,RCB,St. Louis Rams,3.0,,0.06,single_vote
+2012,droy,5,Lavonte David,DaviLa00,RLB,Tampa Bay Buccaneers,2.0,,0.04,single_vote
+2012,cpoy,1,Peyton Manning,MannPe00,QB,Denver Broncos,31.5,,0.63,single_vote
+2012,cpoy,2,Adrian Peterson,PeteAd01,RB,Minnesota Vikings,17.5,,0.35,single_vote
+2012,cpoy,3,Jamaal Charles,CharJa00,RB,Kansas City Chiefs,1.0,,0.02,single_vote
+2012,coty,1,Bruce Arians,AriaBr0,,Indianapolis Colts,36.5,,0.73,single_vote
+2012,coty,2,Chuck Pagano,PagaCh0,,Indianapolis Colts,5.5,,0.11,single_vote
+2012,coty,3,Pete Carroll,CarrPe0,,Seattle Seahawks,5.0,,0.1,single_vote
+2012,coty,4,Leslie Frazier,FrazLe0,,Minnesota Vikings,3.0,,0.06,single_vote
+2013,mvp,1,Peyton Manning,MannPe00,QB,Denver Broncos,49.0,,0.98,single_vote
+2013,mvp,2,Tom Brady,BradTo00,QB,New England Patriots,1.0,,0.02,single_vote
+2013,opoy,1,Peyton Manning,MannPe00,QB,Denver Broncos,33.0,,0.66,single_vote
+2013,opoy,2,LeSean McCoy,McCoLe01,RB,Philadelphia Eagles,10.0,,0.2,single_vote
+2013,opoy,3,Jamaal Charles,CharJa00,RB,Kansas City Chiefs,4.0,,0.08,single_vote
+2013,opoy,4,Tom Brady,BradTo00,QB,New England Patriots,1.0,,0.02,single_vote
+2013,opoy,5,Drew Brees,BreeDr00,QB,New Orleans Saints,1.0,,0.02,single_vote
+2013,opoy,6,Russell Wilson,WilsRu00,QB,Seattle Seahawks,1.0,,0.02,single_vote
+2013,dpoy,1,Luke Kuechly,KuecLu00,MLB,Carolina Panthers,19.0,,0.38,single_vote
+2013,dpoy,2,Robert Mathis,MathRo20,ROLB,Indianapolis Colts,11.5,,0.23,single_vote
+2013,dpoy,3,Earl Thomas,ThomEa99,FS,Seattle Seahawks,7.5,,0.15,single_vote
+2013,dpoy,4,Robert Quinn,QuinRo00,RDE,St. Louis Rams,6.0,,0.12,single_vote
+2013,dpoy,5,Richard Sherman,SherRi00,LCB,Seattle Seahawks,4.0,,0.08,single_vote
+2013,dpoy,6,J.J. Watt,WattJ.00,LDE,Houston Texans,2.0,,0.04,single_vote
+2013,oroy,1,Eddie Lacy,LacyEd00,RB,Green Bay Packers,35.0,,0.7,single_vote
+2013,oroy,2,Keenan Allen,AlleKe00,WR,San Diego Chargers,12.0,,0.24,single_vote
+2013,oroy,3,Giovani Bernard,BernGi00,rb,Cincinnati Bengals,1.0,,0.02,single_vote
+2013,oroy,4,Cordarrelle Patterson,PattCo00,wr,Minnesota Vikings,1.0,,0.02,single_vote
+2013,oroy,5,Larry Warford,WarfLa00,RG,Detroit Lions,1.0,,0.02,single_vote
+2013,droy,1,Sheldon Richardson,RichSh00,RDE,New York Jets,23.0,,0.46,single_vote
+2013,droy,2,Kiko Alonso,AlonKi00,MLB,Buffalo Bills,19.0,,0.38,single_vote
+2013,droy,3,Kenny Vaccaro,VaccKe00,SS,New Orleans Saints,4.0,,0.08,single_vote
+2013,droy,4,Star Lotulelei,LotuSt00,RDT,Carolina Panthers,2.0,,0.04,single_vote
+2013,droy,5,Tyrann Mathieu,MathTy00,FS,Arizona Cardinals,2.0,,0.04,single_vote
+2013,cpoy,1,Philip Rivers,RivePh00,QB,San Diego Chargers,13.0,,0.26,single_vote
+2013,cpoy,2,Knowshon Moreno,MoreKn00,RB,Denver Broncos,8.0,,0.16,single_vote
+2013,cpoy,3,Jason Peters,PeteJa21,LT,Philadelphia Eagles,8.0,,0.16,single_vote
+2013,cpoy,4,Darrelle Revis,ReviDa99,LCB,Tampa Bay Buccaneers,6.0,,0.12,single_vote
+2013,cpoy,5,Brent Grimes,GrimBr20,LCB,Miami Dolphins,3.0,,0.06,single_vote
+2013,cpoy,6,Thomas Davis,DaviTh20,LLB,Carolina Panthers,2.0,,0.04,single_vote
+2013,cpoy,7,Pierre Garcon,GarcPi00,WR,Washington Redskins,2.0,,0.04,single_vote
+2013,cpoy,8,Josh Gordon,GordJo02,WR,Cleveland Browns,2.0,,0.04,single_vote
+2013,cpoy,9,Alex Smith,SmitAl03,QB,Kansas City Chiefs,2.0,,0.04,single_vote
+2013,cpoy,10,Terrell Suggs,SuggTe99,LOLB,Baltimore Ravens,2.0,,0.04,single_vote
+2013,cpoy,11,Sean Lee,LeexSe99,MLB,Dallas Cowboys,1.0,,0.02,single_vote
+2013,cpoy,12,LeSean McCoy,McCoLe01,RB,Philadelphia Eagles,1.0,,0.02,single_vote
+2013,coty,1,Ron Rivera,RiveRo0,,Carolina Panthers,21.5,,0.43,single_vote
+2013,coty,2,Andy Reid,ReidAn0,,Kansas City Chiefs,13.5,,0.27,single_vote
+2013,coty,3,Bill Belichick,BeliBi0,,New England Patriots,7.0,,0.14,single_vote
+2013,coty,4,Chip Kelly,KellCh0,,Philadelphia Eagles,4.0,,0.08,single_vote
+2013,coty,5,Bruce Arians,AriaBr0,,Arizona Cardinals,2.0,,0.04,single_vote
+2013,coty,6,Pete Carroll,CarrPe0,,Seattle Seahawks,2.0,,0.04,single_vote
+2014,mvp,1,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,31.0,,0.62,single_vote
+2014,mvp,2,J.J. Watt,WattJ.00,LDE,Houston Texans,13.0,,0.26,single_vote
+2014,mvp,3,DeMarco Murray,MurrDe00,RB,Dallas Cowboys,2.0,,0.04,single_vote
+2014,mvp,4,Tony Romo,RomoTo00,QB,Dallas Cowboys,2.0,,0.04,single_vote
+2014,mvp,5,Tom Brady,BradTo00,QB,New England Patriots,1.0,,0.02,single_vote
+2014,mvp,6,Bobby Wagner,WagnBo00,MLB,Seattle Seahawks,1.0,,0.02,single_vote
+2014,opoy,1,DeMarco Murray,MurrDe00,RB,Dallas Cowboys,26.0,,0.52,single_vote
+2014,opoy,2,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,15.0,,0.3,single_vote
+2014,opoy,3,Antonio Brown,BrowAn04,WR,Pittsburgh Steelers,5.0,,0.1,single_vote
+2014,opoy,4,Le'Veon Bell,BellLe00,RB,Pittsburgh Steelers,2.0,,0.04,single_vote
+2014,opoy,5,Rob Gronkowski,GronRo00,TE,New England Patriots,1.0,,0.02,single_vote
+2014,opoy,6,Tony Romo,RomoTo00,QB,Dallas Cowboys,1.0,,0.02,single_vote
+2014,dpoy,1,J.J. Watt,WattJ.00,LDE,Houston Texans,50.0,,1.0,single_vote
+2014,oroy,1,Odell Beckham Jr.,BeckOd00,WR,New York Giants,42.0,,0.84,single_vote
+2014,oroy,2,Zack Martin,MartZa00,RG,Dallas Cowboys,7.0,,0.14,single_vote
+2014,oroy,3,Mike Evans,EvanMi00,WR,Tampa Bay Buccaneers,1.0,,0.02,single_vote
+2014,droy,1,Aaron Donald,DonaAa00,LDT,St. Louis Rams,25.0,,0.5,single_vote
+2014,droy,2,C.J. Mosley,MoslC.00,LILB,Baltimore Ravens,18.0,,0.36,single_vote
+2014,droy,3,Khalil Mack,MackKh00,RLB,Oakland Raiders,6.0,,0.12,single_vote
+2014,droy,4,Chris Borland,BorlCh00,RILB,San Francisco 49ers,1.0,,0.02,single_vote
+2014,cpoy,1,Rob Gronkowski,GronRo00,TE,New England Patriots,27.0,,0.54,single_vote
+2014,cpoy,2,Jeremy Maclin,MaclJe00,WR,Philadelphia Eagles,7.0,,0.14,single_vote
+2014,cpoy,3,Rolando McClain,McClRo00,MLB,Dallas Cowboys,7.0,,0.14,single_vote
+2014,cpoy,4,Chris Harris Jr.,HarrCh01,RCB,Denver Broncos,3.0,,0.06,single_vote
+2014,cpoy,5,Justin Forsett,ForsJu00,RB,Baltimore Ravens,2.0,,0.04,single_vote
+2014,cpoy,6,Arian Foster,FostAr00,RB,Houston Texans,2.0,,0.04,single_vote
+2014,cpoy,7,Larry Foote,FootLa20,LILB,Arizona Cardinals,1.0,,0.02,single_vote
+2014,cpoy,8,Kyle Orton,OrtoKy00,QB,Buffalo Bills,1.0,,0.02,single_vote
+2014,coty,1,Bruce Arians,AriaBr0,,Arizona Cardinals,39.5,,0.79,single_vote
+2014,coty,2,Jason Garrett,GarrJa0,,Dallas Cowboys,3.0,,0.06,single_vote
+2014,coty,3,Bill O'Brien,OBriBi0,,Houston Texans,3.0,,0.06,single_vote
+2014,coty,4,Pete Carroll,CarrPe0,,Seattle Seahawks,2.5,,0.05,single_vote
+2014,coty,5,Bill Belichick,BeliBi0,,New England Patriots,1.0,,0.02,single_vote
+2014,coty,6,Jim Caldwell,CaldJi0,,Detroit Lions,1.0,,0.02,single_vote
+2015,mvp,1,Cam Newton,NewtCa00,QB,Carolina Panthers,48.0,,0.96,single_vote
+2015,mvp,2,Tom Brady,BradTo00,QB,New England Patriots,1.0,,0.02,single_vote
+2015,mvp,3,Carson Palmer,PalmCa00,QB,Arizona Cardinals,1.0,,0.02,single_vote
+2015,opoy,1,Cam Newton,NewtCa00,QB,Carolina Panthers,18.0,,0.36,single_vote
+2015,opoy,2,Antonio Brown,BrowAn04,WR,Pittsburgh Steelers,10.0,,0.2,single_vote
+2015,opoy,3,Russell Wilson,WilsRu00,QB,Seattle Seahawks,7.0,,0.14,single_vote
+2015,opoy,4,Tom Brady,BradTo00,QB,New England Patriots,6.0,,0.12,single_vote
+2015,opoy,5,Carson Palmer,PalmCa00,QB,Arizona Cardinals,6.0,,0.12,single_vote
+2015,opoy,6,Julio Jones,JoneJu02,WR,Atlanta Falcons,2.0,,0.04,single_vote
+2015,opoy,7,Adrian Peterson,PeteAd01,RB,Minnesota Vikings,1.0,,0.02,single_vote
+2015,dpoy,1,J.J. Watt,WattJ.00,RDE,Houston Texans,37.0,,0.74,single_vote
+2015,dpoy,2,Aaron Donald,DonaAa00,LDT,St. Louis Rams,7.0,,0.14,single_vote
+2015,dpoy,3,Luke Kuechly,KuecLu00,MLB,Carolina Panthers,4.0,,0.08,single_vote
+2015,dpoy,4,Josh Norman,NormJo01,RCB,Carolina Panthers,2.0,,0.04,single_vote
+2015,oroy,1,Todd Gurley,GurlTo01,RB,St. Louis Rams,27.0,,0.54,single_vote
+2015,oroy,2,Jameis Winston,WinsJa00,QB,Tampa Bay Buccaneers,17.0,,0.34,single_vote
+2015,oroy,3,Amari Cooper,CoopAm00,WR,Oakland Raiders,4.0,,0.08,single_vote
+2015,oroy,4,David Johnson,JohnDa08,rb,Arizona Cardinals,1.0,,0.02,single_vote
+2015,oroy,5,Tyler Lockett,LockTy00,WR,Seattle Seahawks,1.0,,0.02,single_vote
+2015,droy,1,Marcus Peters,PeteMa00,LCB,Kansas City Chiefs,45.0,,0.9,single_vote
+2015,droy,2,Ronald Darby,DarbRo00,LCB,Buffalo Bills,4.0,,0.08,single_vote
+2015,droy,3,Leonard Williams,WillLe02,RDE,New York Jets,1.0,,0.02,single_vote
+2015,cpoy,1,Eric Berry,BerrEr99,FS,Kansas City Chiefs,38.0,,0.76,single_vote
+2015,cpoy,2,Carson Palmer,PalmCa00,QB,Arizona Cardinals,6.0,,0.12,single_vote
+2015,cpoy,3,Adrian Peterson,PeteAd01,RB,Minnesota Vikings,4.0,,0.08,single_vote
+2015,cpoy,4,NaVorro Bowman,BowmNa99,LILB,San Francisco 49ers,1.0,,0.02,single_vote
+2015,cpoy,5,Doug Martin,MartDo00,RB,Tampa Bay Buccaneers,1.0,,0.02,single_vote
+2015,coty,1,Ron Rivera,RiveRo0,,Carolina Panthers,36.5,,0.73,single_vote
+2015,coty,2,Andy Reid,ReidAn0,,Kansas City Chiefs,6.0,,0.12,single_vote
+2015,coty,3,Bill O'Brien,OBriBi0,,Houston Texans,2.0,,0.04,single_vote
+2015,coty,4,Mike Zimmer,ZimmMi0,,Minnesota Vikings,2.0,,0.04,single_vote
+2015,coty,5,Gary Kubiak,KubiGa0,,Denver Broncos,1.5,,0.03,single_vote
+2015,coty,6,Bruce Arians,AriaBr0,,Arizona Cardinals,1.0,,0.02,single_vote
+2015,coty,7,Bill Belichick,BeliBi0,,New England Patriots,1.0,,0.02,single_vote
+2016,mvp,1,Matt Ryan,RyanMa00,QB,Atlanta Falcons,25.0,,0.5,single_vote
+2016,mvp,2,Tom Brady,BradTo00,QB,New England Patriots,10.0,,0.2,single_vote
+2016,mvp,3,Derek Carr,CarrDe02,QB,Oakland Raiders,6.0,,0.12,single_vote
+2016,mvp,4,Ezekiel Elliott,ElliEz00,RB,Dallas Cowboys,6.0,,0.12,single_vote
+2016,mvp,5,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,2.0,,0.04,single_vote
+2016,mvp,6,Dak Prescott,PresDa01,QB,Dallas Cowboys,1.0,,0.02,single_vote
+2016,opoy,1,Matt Ryan,RyanMa00,QB,Atlanta Falcons,15.5,,0.31,single_vote
+2016,opoy,2,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,11.0,,0.22,single_vote
+2016,opoy,3,David Johnson,JohnDa08,RB,Arizona Cardinals,8.0,,0.16,single_vote
+2016,opoy,4,Tom Brady,BradTo00,QB,New England Patriots,7.0,,0.14,single_vote
+2016,opoy,5,Ezekiel Elliott,ElliEz00,RB,Dallas Cowboys,5.5,,0.11,single_vote
+2016,opoy,6,Le'Veon Bell,BellLe00,RB,Pittsburgh Steelers,1.0,,0.02,single_vote
+2016,opoy,7,Drew Brees,BreeDr00,QB,New Orleans Saints,1.0,,0.02,single_vote
+2016,opoy,8,Derek Carr,CarrDe02,QB,Oakland Raiders,1.0,,0.02,single_vote
+2016,dpoy,1,Khalil Mack,MackKh00,RDE,Oakland Raiders,18.0,,0.36,single_vote
+2016,dpoy,2,Von Miller,MillVo00,LOLB,Denver Broncos,17.0,,0.34,single_vote
+2016,dpoy,3,Landon Collins,CollLa00,SS,New York Giants,9.0,,0.18,single_vote
+2016,dpoy,4,Aaron Donald,DonaAa00,LDT,Los Angeles Rams,3.0,,0.06,single_vote
+2016,dpoy,5,Sean Lee,LeexSe99,RLB,Dallas Cowboys,2.0,,0.04,single_vote
+2016,dpoy,6,Eric Berry,BerrEr99,SS,Kansas City Chiefs,1.0,,0.02,single_vote
+2016,oroy,1,Dak Prescott,PresDa01,QB,Dallas Cowboys,28.5,,0.57,single_vote
+2016,oroy,2,Ezekiel Elliott,ElliEz00,RB,Dallas Cowboys,21.5,,0.43,single_vote
+2016,droy,1,Joey Bosa,BosaJo00,LDE,San Diego Chargers,37.0,,0.74,single_vote
+2016,droy,2,Jalen Ramsey,RamsJa00,RCB,Jacksonville Jaguars,10.0,,0.2,single_vote
+2016,droy,3,Deion Jones,JoneDe01,RILB,Atlanta Falcons,3.0,,0.06,single_vote
+2016,cpoy,1,Jordy Nelson,NelsJo00,WR,Green Bay Packers,36.0,,0.72,single_vote
+2016,cpoy,2,Cameron Wake,WakeCa00,LDE,Miami Dolphins,11.0,,0.22,single_vote
+2016,cpoy,3,Dennis Pitta,PittDe00,TE,Baltimore Ravens,2.0,,0.04,single_vote
+2016,cpoy,4,Le'Veon Bell,BellLe00,RB,Pittsburgh Steelers,1.0,,0.02,single_vote
+2016,coty,1,Jason Garrett,GarrJa0,,Dallas Cowboys,25.0,,0.5,single_vote
+2016,coty,2,Bill Belichick,BeliBi0,,New England Patriots,14.0,,0.28,single_vote
+2016,coty,3,Adam Gase,GaseAd0,,Miami Dolphins,6.0,,0.12,single_vote
+2016,coty,4,Jack Del Rio,DelRJa0,,Oakland Raiders,4.0,,0.08,single_vote
+2016,coty,5,Andy Reid,ReidAn0,,Kansas City Chiefs,1.0,,0.02,single_vote
+2017,mvp,1,Tom Brady,BradTo00,QB,New England Patriots,40.0,,0.8,single_vote
+2017,mvp,2,Todd Gurley,GurlTo01,RB,Los Angeles Rams,8.0,,0.16,single_vote
+2017,mvp,3,Carson Wentz,WentCa00,QB,Philadelphia Eagles,2.0,,0.04,single_vote
+2017,opoy,1,Todd Gurley,GurlTo01,RB,Los Angeles Rams,37.0,,0.74,single_vote
+2017,opoy,2,Antonio Brown,BrowAn04,WR,Pittsburgh Steelers,8.0,,0.16,single_vote
+2017,opoy,3,Tom Brady,BradTo00,QB,New England Patriots,4.0,,0.08,single_vote
+2017,opoy,4,DeAndre Hopkins,HopkDe00,WR,Houston Texans,1.0,,0.02,single_vote
+2017,dpoy,1,Aaron Donald,DonaAa00,RDE,Los Angeles Rams,23.0,,0.46,single_vote
+2017,dpoy,2,Calais Campbell,CampCa99,RDE,Jacksonville Jaguars,17.0,,0.34,single_vote
+2017,dpoy,3,Chandler Jones,JoneCh03,LOLB,Arizona Cardinals,5.0,,0.1,single_vote
+2017,dpoy,4,Cameron Jordan,JordCa00,LDE,New Orleans Saints,1.0,,0.02,single_vote
+2017,dpoy,5,DeMarcus Lawrence,LawrDe00,LDE,Dallas Cowboys,1.0,,0.02,single_vote
+2017,dpoy,6,Xavier Rhodes,RhodXa00,RCB,Minnesota Vikings,1.0,,0.02,single_vote
+2017,dpoy,7,Harrison Smith,SmitHa00,FS,Minnesota Vikings,1.0,,0.02,single_vote
+2017,dpoy,8,Bobby Wagner,WagnBo00,MLB,Seattle Seahawks,1.0,,0.02,single_vote
+2017,oroy,1,Alvin Kamara,KamaAl00,rb,New Orleans Saints,28.0,,0.56,single_vote
+2017,oroy,2,Kareem Hunt,HuntKa00,RB,Kansas City Chiefs,21.0,,0.42,single_vote
+2017,oroy,3,Deshaun Watson,WatsDe00,qb,Houston Texans,1.0,,0.02,single_vote
+2017,droy,1,Marshon Lattimore,LattMa01,RCB,New Orleans Saints,45.0,,0.9,single_vote
+2017,droy,2,Tre'Davious White,WhitTr01,LCB,Buffalo Bills,4.0,,0.08,single_vote
+2017,droy,3,Reuben Foster,FostRe00,MLB,San Francisco 49ers,1.0,,0.02,single_vote
+2017,cpoy,1,Keenan Allen,AlleKe00,WR,Los Angeles Chargers,28.0,,0.56,single_vote
+2017,cpoy,2,Case Keenum,KeenCa00,QB,Minnesota Vikings,8.0,,0.16,single_vote
+2017,cpoy,3,Rob Gronkowski,GronRo00,TE,New England Patriots,5.0,,0.1,single_vote
+2017,cpoy,4,Cameron Heyward,HeywCa01,LDE,Pittsburgh Steelers,2.0,,0.04,single_vote
+2017,cpoy,5,Jaylon Smith,SmitJa05,mlb,Dallas Cowboys,2.0,,0.04,single_vote
+2017,cpoy,6,Kyle Fuller,FullKy00,CB,Chicago Bears,1.0,,0.02,single_vote
+2017,cpoy,7,Todd Gurley,GurlTo01,RB,Los Angeles Rams,1.0,,0.02,single_vote
+2017,cpoy,8,Marshawn Lynch,LyncMa00,RB,Oakland Raiders,1.0,,0.02,single_vote
+2017,cpoy,9,Manti Te'o,TeoxMa00,MLB,New Orleans Saints,1.0,,0.02,single_vote
+2017,cpoy,10,Ben Watson,WatsBe00,TE,Baltimore Ravens,1.0,,0.02,single_vote
+2017,coty,1,Sean McVay,McVaSe0,,Los Angeles Rams,35.0,,0.7,single_vote
+2017,coty,2,Mike Zimmer,ZimmMi0,,Minnesota Vikings,11.0,,0.22,single_vote
+2017,coty,3,Doug Marrone,MarrDo0,,Jacksonville Jaguars,2.0,,0.04,single_vote
+2017,coty,4,Bill Belichick,BeliBi0,,New England Patriots,1.0,,0.02,single_vote
+2017,coty,5,Doug Pederson,PedeDo0,,Philadelphia Eagles,1.0,,0.02,single_vote
+2018,mvp,1,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,41.0,,0.82,single_vote
+2018,mvp,2,Drew Brees,BreeDr00,QB,New Orleans Saints,9.0,,0.18,single_vote
+2018,opoy,1,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,30.0,,0.6,single_vote
+2018,opoy,2,Drew Brees,BreeDr00,QB,New Orleans Saints,16.0,,0.32,single_vote
+2018,opoy,3,Todd Gurley,GurlTo01,RB,Los Angeles Rams,2.0,,0.04,single_vote
+2018,opoy,4,DeAndre Hopkins,HopkDe00,WR,Houston Texans,2.0,,0.04,single_vote
+2018,dpoy,1,Aaron Donald,DonaAa00,RDT,Los Angeles Rams,45.0,,0.9,single_vote
+2018,dpoy,2,Khalil Mack,MackKh00,LOLB,Chicago Bears,5.0,,0.1,single_vote
+2018,oroy,1,Saquon Barkley,BarkSa00,RB,New York Giants,26.5,,0.53,single_vote
+2018,oroy,2,Baker Mayfield,MayfBa00,QB,Cleveland Browns,21.5,,0.43,single_vote
+2018,oroy,3,Quenton Nelson,NelsQu00,LG,Indianapolis Colts,2.0,,0.04,single_vote
+2018,droy,1,Shaquille Leonard,LeonDa00,LLB,Indianapolis Colts,29.0,,0.58,single_vote
+2018,droy,2,Derwin James,JameDe00,FS,Los Angeles Chargers,20.0,,0.4,single_vote
+2018,droy,3,Bradley Chubb,ChubBr00,LOLB,Denver Broncos,1.0,,0.02,single_vote
+2018,cpoy,1,Andrew Luck,LuckAn00,QB,Indianapolis Colts,44.0,,0.88,single_vote
+2018,cpoy,2,J.J. Watt,WattJ.00,LDE,Houston Texans,4.0,,0.08,single_vote
+2018,cpoy,3,Adrian Peterson,PeteAd01,RB,Washington Redskins,2.0,,0.04,single_vote
+2018,coty,1,Matt Nagy,NagyMa0,,Chicago Bears,24.0,,0.48,single_vote
+2018,coty,2,Anthony Lynn,LynnAn0,,Los Angeles Chargers,10.0,,0.2,single_vote
+2018,coty,3,Frank Reich,ReicFr0,,Indianapolis Colts,8.0,,0.16,single_vote
+2018,coty,4,Andy Reid,ReidAn0,,Kansas City Chiefs,5.0,,0.1,single_vote
+2018,coty,5,Pete Carroll,CarrPe0,,Seattle Seahawks,2.0,,0.04,single_vote
+2018,coty,6,Sean Payton,PaytSe0,,New Orleans Saints,1.0,,0.02,single_vote
+2019,mvp,1,Lamar Jackson,JackLa00,QB,Baltimore Ravens,50.0,,1.0,single_vote
+2019,opoy,1,Michael Thomas,ThomMi05,WR,New Orleans Saints,19.0,,0.38,single_vote
+2019,opoy,2,Lamar Jackson,JackLa00,QB,Baltimore Ravens,17.0,,0.34,single_vote
+2019,opoy,3,Christian McCaffrey,McCaCh01,RB,Carolina Panthers,12.0,,0.24,single_vote
+2019,opoy,4,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,1.0,,0.02,single_vote
+2019,opoy,5,Russell Wilson,WilsRu00,QB,Seattle Seahawks,1.0,,0.02,single_vote
+2019,dpoy,1,Stephon Gilmore,GilmSt00,RCB,New England Patriots,21.0,,0.42,single_vote
+2019,dpoy,2,Chandler Jones,JoneCh03,LOLB,Arizona Cardinals,14.0,,0.28,single_vote
+2019,dpoy,3,T.J. Watt,WattT.00,LOLB,Pittsburgh Steelers,10.0,,0.2,single_vote
+2019,dpoy,4,Shaquil Barrett,BarrSh00,ROLB,Tampa Bay Buccaneers,2.0,,0.04,single_vote
+2019,dpoy,5,Aaron Donald,DonaAa00,RDE,Los Angeles Rams,1.0,,0.02,single_vote
+2019,dpoy,6,Danielle Hunter,HuntDa01,LDE,Minnesota Vikings,1.0,,0.02,single_vote
+2019,dpoy,7,Tre'Davious White,WhitTr01,RCB,Buffalo Bills,1.0,,0.02,single_vote
+2019,oroy,1,Kyler Murray,MurrKy00,QB,Arizona Cardinals,26.5,,0.53,single_vote
+2019,oroy,2,Josh Jacobs,JacoJo01,RB,Oakland Raiders,13.0,,0.26,single_vote
+2019,oroy,3,A.J. Brown,BrowAJ00,WR,Tennessee Titans,9.5,,0.19,single_vote
+2019,oroy,4,Miles Sanders,SandMi01,RB,Philadelphia Eagles,1.0,,0.02,single_vote
+2019,droy,1,Nick Bosa,BosaNi00,LDE,San Francisco 49ers,43.0,,0.86,single_vote
+2019,droy,2,Maxx Crosby,CrosMa00,RDE,Oakland Raiders,4.0,,0.08,single_vote
+2019,droy,3,Devin Bush Jr.,BushDe01,lilb,Pittsburgh Steelers,2.0,,0.04,single_vote
+2019,droy,4,Josh Hines-Allen,AlleJo03,EDGE,Jacksonville Jaguars,1.0,,0.02,single_vote
+2019,cpoy,1,Ryan Tannehill,TannRy00,QB,Tennessee Titans,16.0,,0.32,single_vote
+2019,cpoy,2,Jimmy Garoppolo,GaroJi00,QB,San Francisco 49ers,15.0,,0.3,single_vote
+2019,cpoy,3,Darren Waller,WallDa01,TE,Oakland Raiders,8.0,,0.16,single_vote
+2019,cpoy,4,Travis Frederick,FredTr00,C,Dallas Cowboys,6.0,,0.12,single_vote
+2019,cpoy,5,Teddy Bridgewater,BridTe00,QB,New Orleans Saints,1.0,,0.02,single_vote
+2019,cpoy,6,Dalvin Cook,CookDa01,RB,Minnesota Vikings,1.0,,0.02,single_vote
+2019,cpoy,7,Cooper Kupp,KuppCo00,WR,Los Angeles Rams,1.0,,0.02,single_vote
+2019,cpoy,8,Richard Sherman,SherRi00,LCB,San Francisco 49ers,1.0,,0.02,single_vote
+2019,cpoy,9,Carson Wentz,WentCa00,QB,Philadelphia Eagles,1.0,,0.02,single_vote
+2019,coty,1,John Harbaugh,HarbJo0,,Baltimore Ravens,27.5,,0.55,single_vote
+2019,coty,2,Kyle Shanahan,ShanKy0,,San Francisco 49ers,14.5,,0.29,single_vote
+2019,coty,3,Matt LaFleur,LaFlMa0,,Green Bay Packers,3.0,,0.06,single_vote
+2019,coty,4,Sean McDermott,McDeSe0,,Buffalo Bills,2.0,,0.04,single_vote
+2019,coty,5,Mike Tomlin,TomlMi0,,Pittsburgh Steelers,2.0,,0.04,single_vote
+2019,coty,6,Sean Payton,PaytSe0,,New Orleans Saints,1.0,,0.02,single_vote
+2020,mvp,1,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,44.0,,0.88,single_vote
+2020,mvp,2,Josh Allen,AlleJo02,QB,Buffalo Bills,4.0,,0.08,single_vote
+2020,mvp,3,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,2.0,,0.04,single_vote
+2020,opoy,1,Derrick Henry,HenrDe00,RB,Tennessee Titans,32.0,,0.64,single_vote
+2020,opoy,2,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,5.0,,0.1,single_vote
+2020,opoy,3,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,5.0,,0.1,single_vote
+2020,opoy,4,Josh Allen,AlleJo02,QB,Buffalo Bills,3.0,,0.06,single_vote
+2020,opoy,5,Travis Kelce,KelcTr00,TE,Kansas City Chiefs,3.0,,0.06,single_vote
+2020,opoy,6,Alvin Kamara,KamaAl00,RB,New Orleans Saints,2.0,,0.04,single_vote
+2020,dpoy,1,Aaron Donald,DonaAa00,DT,Los Angeles Rams,27.0,,0.54,single_vote
+2020,dpoy,2,T.J. Watt,WattT.00,LOLB,Pittsburgh Steelers,20.0,,0.4,single_vote
+2020,dpoy,3,Xavien Howard,HowaXa00,RCB,Miami Dolphins,3.0,,0.06,single_vote
+2020,oroy,1,Justin Herbert,HerbJu00,QB,Los Angeles Chargers,41.0,,0.82,single_vote
+2020,oroy,2,Justin Jefferson,JeffJu00,WR,Minnesota Vikings,9.0,,0.18,single_vote
+2020,droy,1,Chase Young,YounCh04,LDE,Washington Football Team,42.5,,0.85,single_vote
+2020,droy,2,Jeremy Chinn,ChinJe00,RLB,Carolina Panthers,4.5,,0.09,single_vote
+2020,droy,3,Patrick Queen,QueePa00,LILB,Baltimore Ravens,2.0,,0.04,single_vote
+2020,droy,4,Antoine Winfield Jr.,WinfAn00,SS,Tampa Bay Buccaneers,1.0,,0.02,single_vote
+2020,cpoy,1,Alex Smith,SmitAl03,QB,Washington Football Team,49.0,,0.98,single_vote
+2020,cpoy,2,Ben Roethlisberger,RoetBe00,QB,Pittsburgh Steelers,1.0,,0.02,single_vote
+2020,coty,1,Kevin Stefanski,StefKe0,,Cleveland Browns,25.0,,0.51,single_vote
+2020,coty,2,Sean McDermott,McDeSe0,,Buffalo Bills,7.0,,0.143,single_vote
+2020,coty,3,Brian Flores,FlorBr0,,Miami Dolphins,6.0,,0.122,single_vote
+2020,coty,4,Ron Rivera,RiveRo0,,Washington Football Team,4.0,,0.082,single_vote
+2020,coty,5,Matt LaFleur,LaFlMa0,,Green Bay Packers,3.0,,0.061,single_vote
+2020,coty,6,Sean Payton,PaytSe0,,New Orleans Saints,2.0,,0.041,single_vote
+2020,coty,7,Andy Reid,ReidAn0,,Kansas City Chiefs,2.0,,0.041,single_vote
+2021,mvp,1,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,39.0,,0.78,single_vote
+2021,mvp,2,Tom Brady,BradTo00,QB,Tampa Bay Buccaneers,10.0,,0.2,single_vote
+2021,mvp,3,Cooper Kupp,KuppCo00,WR,Los Angeles Rams,1.0,,0.02,single_vote
+2021,opoy,1,Cooper Kupp,KuppCo00,WR,Los Angeles Rams,35.0,,0.7,single_vote
+2021,opoy,2,Jonathan Taylor,TaylJo02,RB,Indianapolis Colts,10.0,,0.2,single_vote
+2021,opoy,3,Tom Brady,BradTo00,QB,Tampa Bay Buccaneers,3.0,,0.06,single_vote
+2021,opoy,4,Aaron Rodgers,RodgAa00,QB,Green Bay Packers,2.0,,0.04,single_vote
+2021,dpoy,1,T.J. Watt,WattT.00,LB,Pittsburgh Steelers,42.0,,0.84,single_vote
+2021,dpoy,2,Micah Parsons,ParsMi00,LB,Dallas Cowboys,5.0,,0.1,single_vote
+2021,dpoy,3,Aaron Donald,DonaAa00,DT,Los Angeles Rams,3.0,,0.06,single_vote
+2021,oroy,1,Ja'Marr Chase,ChasJa00,WR,Cincinnati Bengals,42.0,,0.84,single_vote
+2021,oroy,2,Mac Jones,JoneMa05,QB,New England Patriots,5.0,,0.1,single_vote
+2021,oroy,3,Creed Humphrey,HumpCr00,OL,Kansas City Chiefs,2.0,,0.04,single_vote
+2021,oroy,4,Rashawn Slater,SlatRa00,T,Los Angeles Chargers,1.0,,0.02,single_vote
+2021,droy,1,Micah Parsons,ParsMi00,LB,Dallas Cowboys,50.0,,1.0,single_vote
+2021,cpoy,1,Joe Burrow,BurrJo01,QB,Cincinnati Bengals,28.0,,0.56,single_vote
+2021,cpoy,2,Dak Prescott,PresDa01,QB,Dallas Cowboys,21.0,,0.42,single_vote
+2021,cpoy,3,Derwin James,JameDe00,S,Los Angeles Chargers,1.0,,0.02,single_vote
+2021,coty,1,Mike Vrabel,VrabMi0,,Tennessee Titans,36.0,,0.72,single_vote
+2021,coty,2,Matt LaFleur,LaFlMa0,,Green Bay Packers,8.0,,0.16,single_vote
+2021,coty,3,Rich Bisaccia,BisaRi0,,Las Vegas Raiders,3.0,,0.06,single_vote
+2021,coty,4,Zac Taylor,TaylZa0,,Cincinnati Bengals,2.0,,0.04,single_vote
+2021,coty,5,Bill Belichick,BeliBi0,,New England Patriots,1.0,,0.02,single_vote
+2022,mvp,1,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,490.0,48,0.98,ranked_points
+2022,mvp,2,Jalen Hurts,HurtJa00,QB,Philadelphia Eagles,193.0,1,0.386,ranked_points
+2022,mvp,3,Josh Allen,AlleJo02,QB,Buffalo Bills,151.0,1,0.302,ranked_points
+2022,mvp,4,Joe Burrow,BurrJo01,QB,Cincinnati Bengals,128.0,,0.256,ranked_points
+2022,mvp,5,Justin Jefferson,JeffJu00,WR,Minnesota Vikings,55.0,,0.11,ranked_points
+2022,mvp,6,Nick Bosa,BosaNi00,DE,San Francisco 49ers,20.0,,0.04,ranked_points
+2022,mvp,7,Trevor Lawrence,LawrTr00,QB,Jacksonville Jaguars,3.0,,0.006,ranked_points
+2022,mvp,8,Micah Parsons,ParsMi00,LB,Dallas Cowboys,2.0,,0.004,ranked_points
+2022,mvp,9,A.J. Brown,BrowAJ00,WR,Philadelphia Eagles,1.0,,0.002,ranked_points
+2022,mvp,10,Justin Fields,FielJu00,QB,Chicago Bears,1.0,,0.002,ranked_points
+2022,mvp,11,Derrick Henry,HenrDe00,RB,Tennessee Titans,1.0,,0.002,ranked_points
+2022,mvp,12,Justin Herbert,HerbJu00,QB,Los Angeles Chargers,1.0,,0.002,ranked_points
+2022,mvp,13,Tyreek Hill,HillTy00,WR,Miami Dolphins,1.0,,0.002,ranked_points
+2022,mvp,14,Geno Smith,SmitGe00,QB,Seattle Seahawks,1.0,,0.002,ranked_points
+2022,mvp,15,Tua Tagovailoa,TagoTu00,QB,Miami Dolphins,1.0,,0.002,ranked_points
+2022,mvp,16,Denny Kellington,,,Buffalo Bills,1.0,,0.002,ranked_points
+2022,opoy,1,Justin Jefferson,JeffJu00,WR,Minnesota Vikings,192.0,35,0.768,ranked_points
+2022,opoy,2,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,75.0,10,0.3,ranked_points
+2022,opoy,3,Jalen Hurts,HurtJa00,QB,Philadelphia Eagles,52.0,3,0.208,ranked_points
+2022,opoy,4,Tyreek Hill,HillTy00,WR,Miami Dolphins,43.0,1,0.172,ranked_points
+2022,opoy,5,Josh Jacobs,JacoJo01,RB,Las Vegas Raiders,32.0,,0.128,ranked_points
+2022,opoy,6,Travis Kelce,KelcTr00,TE,Kansas City Chiefs,20.0,,0.08,ranked_points
+2022,opoy,7,Christian McCaffrey,McCaCh01,RB,2TM,11.0,,0.044,ranked_points
+2022,opoy,8,Josh Allen,AlleJo02,QB,Buffalo Bills,7.0,1,0.028,ranked_points
+2022,opoy,9,Joe Burrow,BurrJo01,QB,Cincinnati Bengals,6.0,,0.024,ranked_points
+2022,opoy,10,Austin Ekeler,EkelAu00,RB,Los Angeles Chargers,6.0,,0.024,ranked_points
+2022,opoy,11,A.J. Brown,BrowAJ00,WR,Philadelphia Eagles,4.0,,0.016,ranked_points
+2022,opoy,12,Derrick Henry,HenrDe00,RB,Tennessee Titans,2.0,,0.008,ranked_points
+2022,dpoy,1,Nick Bosa,BosaNi00,DE,San Francisco 49ers,237.0,46,0.948,ranked_points
+2022,dpoy,2,Micah Parsons,ParsMi00,LB,Dallas Cowboys,101.0,,0.404,ranked_points
+2022,dpoy,3,Chris Jones,JoneCh09,DT,Kansas City Chiefs,56.0,1,0.224,ranked_points
+2022,dpoy,4,Haason Reddick,ReddHa00,LB,Philadelphia Eagles,19.0,2,0.076,ranked_points
+2022,dpoy,5,Myles Garrett,GarrMy00,DE,Cleveland Browns,17.0,,0.068,ranked_points
+2022,dpoy,6,Maxx Crosby,CrosMa00,DE,Las Vegas Raiders,8.0,,0.032,ranked_points
+2022,dpoy,7,Quinnen Williams,WillQu00,DT,New York Jets,5.0,1,0.02,ranked_points
+2022,dpoy,8,Sauce Gardner,GardSa00,CB,New York Jets,4.0,,0.016,ranked_points
+2022,dpoy,9,Matt Judon,JudoMa00,LB,New England Patriots,2.0,,0.008,ranked_points
+2022,dpoy,10,Minkah Fitzpatrick,FitzMi00,S,Pittsburgh Steelers,1.0,,0.004,ranked_points
+2022,oroy,1,Garrett Wilson,WilsGa00,WR,New York Jets,156.0,18,0.624,ranked_points
+2022,oroy,2,Kenneth Walker III,WalkKe00,RB,Seattle Seahawks,129.0,19,0.516,ranked_points
+2022,oroy,3,Brock Purdy,PurdBr00,QB,San Francisco 49ers,78.0,6,0.312,ranked_points
+2022,oroy,4,Chris Olave,OlavCh00,WR,New Orleans Saints,50.0,5,0.2,ranked_points
+2022,oroy,5,Tyler Allgeier,AllgTy00,RB,Atlanta Falcons,12.0,1,0.048,ranked_points
+2022,oroy,6,Kenny Pickett,PickKe00,QB,Pittsburgh Steelers,11.0,,0.044,ranked_points
+2022,oroy,7,Tyler Linderbaum,LindTy00,C,Baltimore Ravens,5.0,1,0.02,ranked_points
+2022,oroy,8,Christian Watson,WatsCh00,WR,Green Bay Packers,5.0,,0.02,ranked_points
+2022,oroy,9,Dameon Pierce,PierDa01,RB,Houston Texans,3.0,,0.012,ranked_points
+2022,oroy,10,Isiah Pacheco,PachIs00,RB,Kansas City Chiefs,1.0,,0.004,ranked_points
+2022,droy,1,Sauce Gardner,GardSa00,CB,New York Jets,242.0,46,0.968,ranked_points
+2022,droy,2,Aidan Hutchinson,HutcAi00,DE,Detroit Lions,129.0,3,0.516,ranked_points
+2022,droy,3,Riq Woolen,WoolTa00,CB,Seattle Seahawks,73.0,1,0.292,ranked_points
+2022,droy,4,Kayvon Thibodeaux,ThibKa00,LB,New York Giants,3.0,,0.012,ranked_points
+2022,droy,5,Jalen Pitre,PitrJa00,DB,Houston Texans,1.0,,0.004,ranked_points
+2022,droy,6,Sam Williams,WillSa00,DE,Dallas Cowboys,1.0,,0.004,ranked_points
+2022,cpoy,1,Geno Smith,SmitGe00,QB,Seattle Seahawks,171.0,28,0.684,ranked_points
+2022,cpoy,2,Christian McCaffrey,McCaCh01,RB,2TM,110.0,12,0.44,ranked_points
+2022,cpoy,3,Saquon Barkley,BarkSa00,RB,New York Giants,86.0,4,0.344,ranked_points
+2022,cpoy,4,Brandon Graham,GrahBr99,DE,Philadelphia Eagles,21.0,2,0.084,ranked_points
+2022,cpoy,5,Nick Gates,GateNi00,C,New York Giants,18.0,2,0.072,ranked_points
+2022,cpoy,6,Jared Goff,GoffJa00,QB,Detroit Lions,15.0,1,0.06,ranked_points
+2022,cpoy,7,Chris Godwin,GodwCh00,WR,Tampa Bay Buccaneers,8.0,,0.032,ranked_points
+2022,cpoy,8,J.J. Watt,WattJ.00,DE,Arizona Cardinals,5.0,1,0.02,ranked_points
+2022,cpoy,9,Derrick Henry,HenrDe00,RB,Tennessee Titans,4.0,,0.016,ranked_points
+2022,cpoy,10,Za'Darius Smith,SmitZa00,LB,Minnesota Vikings,4.0,,0.016,ranked_points
+2022,cpoy,11,Daniel Jones,JoneDa05,QB,New York Giants,2.0,,0.008,ranked_points
+2022,cpoy,12,Damar Hamlin,HamlDa00,S,Buffalo Bills,1.0,,0.004,ranked_points
+2022,cpoy,13,Danielle Hunter,HuntDa01,LB,Minnesota Vikings,1.0,,0.004,ranked_points
+2022,cpoy,14,Trevor Lawrence,LawrTr00,QB,Jacksonville Jaguars,1.0,,0.004,ranked_points
+2022,cpoy,15,Jerick McKinnon,McKiJe00,RB,Kansas City Chiefs,1.0,,0.004,ranked_points
+2022,cpoy,16,David Ojabo,OjabDa00,LB,Baltimore Ravens,1.0,,0.004,ranked_points
+2022,coty,1,Brian Daboll,DaboBr0,,New York Giants,123.0,16,0.492,ranked_points
+2022,coty,2,Kyle Shanahan,ShanKy0,,San Francisco 49ers,100.0,12,0.4,ranked_points
+2022,coty,3,Doug Pederson,PedeDo0,,Jacksonville Jaguars,75.0,5,0.3,ranked_points
+2022,coty,4,Sean McDermott,McDeSe0,,Buffalo Bills,48.0,7,0.192,ranked_points
+2022,coty,5,Nick Sirianni,SiriNi0,,Philadelphia Eagles,45.0,6,0.18,ranked_points
+2022,coty,6,Kevin O'Connell,OConKe0,,Minnesota Vikings,23.0,1,0.092,ranked_points
+2022,coty,7,Dan Campbell,CampDa1,,Detroit Lions,15.0,1,0.06,ranked_points
+2022,coty,8,Andy Reid,ReidAn0,,Kansas City Chiefs,10.0,2,0.04,ranked_points
+2022,coty,9,Pete Carroll,CarrPe0,,Seattle Seahawks,6.0,,0.024,ranked_points
+2022,coty,10,Mike Tomlin,TomlMi0,,Pittsburgh Steelers,5.0,,0.02,ranked_points
+2023,mvp,1,Lamar Jackson,JackLa00,QB,Baltimore Ravens,493.0,49,0.986,ranked_points
+2023,mvp,2,Dak Prescott,PresDa01,QB,Dallas Cowboys,152.0,0,0.304,ranked_points
+2023,mvp,3,Christian McCaffrey,McCaCh01,RB,San Francisco 49ers,147.0,0,0.294,ranked_points
+2023,mvp,4,Brock Purdy,PurdBr00,QB,San Francisco 49ers,97.0,0,0.194,ranked_points
+2023,mvp,5,Josh Allen,AlleJo02,QB,Buffalo Bills,80.0,1,0.16,ranked_points
+2023,mvp,6,Tyreek Hill,HillTy00,WR,Miami Dolphins,60.0,0,0.12,ranked_points
+2023,mvp,7,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,12.0,0,0.024,ranked_points
+2023,mvp,8,Matthew Stafford,StafMa00,QB,Los Angeles Rams,4.0,0,0.008,ranked_points
+2023,mvp,9,C.J. Stroud,StroCJ00,QB,Houston Texans,4.0,0,0.008,ranked_points
+2023,mvp,10,Myles Garrett,GarrMy00,DE,Cleveland Browns,1.0,0,0.002,ranked_points
+2023,opoy,1,Christian McCaffrey,McCaCh01,RB,San Francisco 49ers,222.0,39,0.888,ranked_points
+2023,opoy,2,Tyreek Hill,HillTy00,WR,Miami Dolphins,139.0,7,0.556,ranked_points
+2023,opoy,3,CeeDee Lamb,LambCe00,WR,Dallas Cowboys,45.0,1,0.18,ranked_points
+2023,opoy,4,Lamar Jackson,JackLa00,QB,Baltimore Ravens,32.0,2,0.128,ranked_points
+2023,opoy,5,Dak Prescott,PresDa01,QB,Dallas Cowboys,5.0,0,0.02,ranked_points
+2023,opoy,6,Josh Allen,AlleJo02,QB,Buffalo Bills,3.0,0,0.012,ranked_points
+2023,opoy,7,Brock Purdy,PurdBr00,QB,San Francisco 49ers,3.0,0,0.012,ranked_points
+2023,opoy,8,Travis Etienne,EtieTr00,RB,Jacksonville Jaguars,1.0,0,0.004,ranked_points
+2023,dpoy,1,Myles Garrett,GarrMy00,DE,Cleveland Browns,165.0,23,0.66,ranked_points
+2023,dpoy,2,T.J. Watt,WattT.00,LB,Pittsburgh Steelers,140.0,19,0.56,ranked_points
+2023,dpoy,3,Micah Parsons,ParsMi00,LB,Dallas Cowboys,89.0,7,0.356,ranked_points
+2023,dpoy,4,Maxx Crosby,CrosMa00,DE,Las Vegas Raiders,21.0,0,0.084,ranked_points
+2023,dpoy,5,DaRon Bland,BlanDa00,CB,Dallas Cowboys,14.0,1,0.056,ranked_points
+2023,dpoy,6,Fred Warner,WarnFr00,LB,San Francisco 49ers,7.0,0,0.028,ranked_points
+2023,dpoy,7,Antoine Winfield Jr.,WinfAn00,S,Tampa Bay Buccaneers,7.0,0,0.028,ranked_points
+2023,dpoy,8,Roquan Smith,SmitRo07,LB,Baltimore Ravens,4.0,0,0.016,ranked_points
+2023,dpoy,9,Dexter Lawrence,LawrDe03,DL,New York Giants,1.0,0,0.004,ranked_points
+2023,dpoy,10,Khalil Mack,MackKh00,LB,Los Angeles Chargers,1.0,0,0.004,ranked_points
+2023,dpoy,11,Nnamdi Madubuike,MaduJu00,DT,Baltimore Ravens,1.0,0,0.004,ranked_points
+2023,oroy,1,C.J. Stroud,StroCJ00,QB,Houston Texans,246.0,48,0.984,ranked_points
+2023,oroy,2,Puka Nacua,NacuPu00,WR,Los Angeles Rams,154.0,2,0.616,ranked_points
+2023,oroy,3,Sam LaPorta,LaPoSa01,TE,Detroit Lions,40.0,0,0.16,ranked_points
+2023,oroy,4,Jahmyr Gibbs,GibbJa01,RB,Detroit Lions,4.0,0,0.016,ranked_points
+2023,oroy,5,Bijan Robinson,RobiBi01,RB,Atlanta Falcons,3.0,0,0.012,ranked_points
+2023,oroy,6,Zay Flowers,FlowZa00,WR,Baltimore Ravens,1.0,0,0.004,ranked_points
+2023,oroy,7,Jayden Reed,ReedJa03,WR,Green Bay Packers,1.0,0,0.004,ranked_points
+2023,oroy,8,Rashee Rice,RiceRa01,WR,Kansas City Chiefs,1.0,0,0.004,ranked_points
+2023,droy,1,Will Anderson,AndeWi01,DE,Houston Texans,151.0,16,0.604,ranked_points
+2023,droy,2,Jalen Carter,CartJa05,DT,Philadelphia Eagles,122.0,14,0.488,ranked_points
+2023,droy,3,Kobie Turner,TurnKo00,NT,Los Angeles Rams,95.0,14,0.38,ranked_points
+2023,droy,4,Devon Witherspoon,WithDe00,CB,Seattle Seahawks,57.0,4,0.228,ranked_points
+2023,droy,5,Brian Branch,BranBr00,DB,Detroit Lions,6.0,0,0.024,ranked_points
+2023,droy,6,YaYa Diaby,DiabYa00,LB,Tampa Bay Buccaneers,6.0,1,0.024,ranked_points
+2023,droy,7,Joey Porter Jr.,PortJo02,CB,Pittsburgh Steelers,6.0,1,0.024,ranked_points
+2023,droy,8,Jack Campbell,CampJa04,LB,Detroit Lions,3.0,0,0.012,ranked_points
+2023,droy,9,Byron Young,YounBy01,LB,Los Angeles Rams,3.0,0,0.012,ranked_points
+2023,droy,10,Calijah Kancey,KancCa00,DL,Tampa Bay Buccaneers,1.0,0,0.004,ranked_points
+2023,cpoy,1,Joe Flacco,FlacJo00,QB,Cleveland Browns,151.0,13,0.604,ranked_points
+2023,cpoy,2,Damar Hamlin,HamlDa00,S,Buffalo Bills,140.0,21,0.56,ranked_points
+2023,cpoy,3,Baker Mayfield,MayfBa00,QB,Tampa Bay Buccaneers,93.0,10,0.372,ranked_points
+2023,cpoy,4,Matthew Stafford,StafMa00,QB,Los Angeles Rams,30.0,1,0.12,ranked_points
+2023,cpoy,5,Tua Tagovailoa,TagoTu00,QB,Miami Dolphins,21.0,4,0.084,ranked_points
+2023,cpoy,6,Brock Purdy,PurdBr00,QB,San Francisco 49ers,6.0,1,0.024,ranked_points
+2023,cpoy,7,Breece Hall,HallBr03,RB,New York Jets,3.0,0,0.012,ranked_points
+2023,cpoy,8,Calvin Ridley,RidlCa00,WR,Jacksonville Jaguars,3.0,0,0.012,ranked_points
+2023,cpoy,9,Aaron Donald,DonaAa00,DT,Los Angeles Rams,1.0,0,0.004,ranked_points
+2023,cpoy,10,Lamar Jackson,JackLa00,QB,Baltimore Ravens,1.0,0,0.004,ranked_points
+2023,cpoy,11,Kyler Murray,MurrKy00,QB,Arizona Cardinals,1.0,0,0.004,ranked_points
+2023,coty,1,Kevin Stefanski,StefKe0,,Cleveland Browns,165.0,21,0.66,ranked_points
+2023,coty,2,DeMeco Ryans,RyanDe0,,Houston Texans,165.0,20,0.66,ranked_points
+2023,coty,3,Dan Campbell,CampDa1,,Detroit Lions,33.0,3,0.132,ranked_points
+2023,coty,4,John Harbaugh,HarbJo0,,Baltimore Ravens,26.0,2,0.104,ranked_points
+2023,coty,5,Kyle Shanahan,ShanKy0,,San Francisco 49ers,26.0,3,0.104,ranked_points
+2023,coty,6,Sean McVay,McVaSe0,,Los Angeles Rams,21.0,1,0.084,ranked_points
+2023,coty,7,Mike Tomlin,TomlMi0,,Pittsburgh Steelers,5.0,0,0.02,ranked_points
+2023,coty,8,Shane Steichen,SteiSh0,,Indianapolis Colts,4.0,0,0.016,ranked_points
+2023,coty,9,Matt LaFleur,LaFlMa0,,Green Bay Packers,2.0,0,0.008,ranked_points
+2023,coty,10,Todd Bowles,BowlTo0,,Tampa Bay Buccaneers,1.0,0,0.004,ranked_points
+2023,coty,11,Mike McDaniel,McDaMi0,,Miami Dolphins,1.0,0,0.004,ranked_points
+2023,coty,12,Sean McDermott,McDeSe0,,Buffalo Bills,1.0,0,0.004,ranked_points
+2024,mvp,1,Josh Allen,AlleJo02,QB,Buffalo Bills,378.0,27,0.771,ranked_points
+2024,mvp,2,Lamar Jackson,JackLa00,QB,Baltimore Ravens,352.0,22,0.718,ranked_points
+2024,mvp,3,Saquon Barkley,BarkSa00,RB,Philadelphia Eagles,117.0,0,0.239,ranked_points
+2024,mvp,4,Joe Burrow,BurrJo01,QB,Cincinnati Bengals,82.0,0,0.167,ranked_points
+2024,mvp,5,Jared Goff,GoffJa00,QB,Detroit Lions,47.0,0,0.096,ranked_points
+2024,mvp,6,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,31.0,0,0.063,ranked_points
+2024,mvp,7,Jayden Daniels,DaniJa02,QB,Washington Commanders,7.0,0,0.014,ranked_points
+2024,mvp,8,Ja'Marr Chase,ChasJa00,WR,Cincinnati Bengals,6.0,0,0.012,ranked_points
+2024,mvp,9,Justin Herbert,HerbJu00,QB,Los Angeles Chargers,4.0,0,0.008,ranked_points
+2024,mvp,10,Sam Darnold,DarnSa00,QB,Minnesota Vikings,3.0,0,0.006,ranked_points
+2024,mvp,11,Baker Mayfield,MayfBa00,QB,Tampa Bay Buccaneers,2.0,0,0.004,ranked_points
+2024,opoy,1,Saquon Barkley,BarkSa00,RB,Philadelphia Eagles,396.0,34,0.808,ranked_points
+2024,opoy,2,Lamar Jackson,JackLa00,QB,Baltimore Ravens,182.0,12,0.371,ranked_points
+2024,opoy,3,Ja'Marr Chase,ChasJa00,WR,Cincinnati Bengals,166.0,0,0.339,ranked_points
+2024,opoy,4,Derrick Henry,HenrDe00,RB,Baltimore Ravens,89.0,1,0.182,ranked_points
+2024,opoy,5,Joe Burrow,BurrJo01,QB,Cincinnati Bengals,78.0,1,0.159,ranked_points
+2024,opoy,6,Josh Allen,AlleJo02,QB,Buffalo Bills,48.0,1,0.098,ranked_points
+2024,opoy,7,Justin Jefferson,JeffJu00,WR,Minnesota Vikings,25.0,0,0.051,ranked_points
+2024,opoy,8,Jahmyr Gibbs,GibbJa01,RB,Detroit Lions,21.0,0,0.043,ranked_points
+2024,opoy,9,Jared Goff,GoffJa00,QB,Detroit Lions,5.0,0,0.01,ranked_points
+2024,opoy,10,Joe Thuney,ThunJo00,G,Kansas City Chiefs,4.0,0,0.008,ranked_points
+2024,opoy,11,Kyren Williams,WillKy02,RB,Los Angeles Rams,2.0,0,0.004,ranked_points
+2024,opoy,12,Amon-Ra St. Brown,StxxAm00,WR,Detroit Lions,2.0,0,0.004,ranked_points
+2024,opoy,13,Penei Sewell,SewePe00,T,Detroit Lions,2.0,0,0.004,ranked_points
+2024,opoy,14,Baker Mayfield,MayfBa00,QB,Tampa Bay Buccaneers,2.0,0,0.004,ranked_points
+2024,opoy,15,George Kittle,KittGe00,TE,San Francisco 49ers,2.0,0,0.004,ranked_points
+2024,opoy,16,Josh Jacobs,JacoJo01,RB,Green Bay Packers,2.0,0,0.004,ranked_points
+2024,opoy,17,Jordan Mailata,MailJo00,T,Philadelphia Eagles,1.0,0,0.002,ranked_points
+2024,opoy,18,Patrick Mahomes,MahoPa00,QB,Kansas City Chiefs,1.0,0,0.002,ranked_points
+2024,opoy,19,Jayden Daniels,DaniJa02,QB,Washington Commanders,1.0,0,0.002,ranked_points
+2024,dpoy,1,Patrick Surtain II,SurtPa01,CB,Denver Broncos,320.0,25,0.653,ranked_points
+2024,dpoy,2,Trey Hendrickson,HendTr00,DE,Cincinnati Bengals,203.0,11,0.414,ranked_points
+2024,dpoy,3,Myles Garrett,GarrMy00,DE,Cleveland Browns,157.0,5,0.32,ranked_points
+2024,dpoy,4,T.J. Watt,WattT.00,LB,Pittsburgh Steelers,111.0,3,0.227,ranked_points
+2024,dpoy,5,Zack Baun,BaunZa00,LB,Philadelphia Eagles,63.0,2,0.129,ranked_points
+2024,dpoy,6,Kerby Joseph,JoseKe03,S,Detroit Lions,60.0,1,0.122,ranked_points
+2024,dpoy,7,Andrew Van Ginkel,VanGAn00,OLB,Minnesota Vikings,21.0,1,0.043,ranked_points
+2024,dpoy,8,Xavier McKinney,McKiXa00,S,Green Bay Packers,17.0,0,0.035,ranked_points
+2024,dpoy,9,Nik Bonitto,BoniNi00,OLB,Denver Broncos,16.0,0,0.033,ranked_points
+2024,dpoy,10,Kyle Hamilton,HamiKy00,S,Baltimore Ravens,16.0,0,0.033,ranked_points
+2024,dpoy,11,Jonathan Greenard,GreeJo04,OLB,Minnesota Vikings,10.0,1,0.02,ranked_points
+2024,dpoy,12,Jalen Carter,CartJa05,DT,Philadelphia Eagles,7.0,0,0.014,ranked_points
+2024,dpoy,13,Cameron Heyward,HeywCa01,DT,Pittsburgh Steelers,6.0,0,0.012,ranked_points
+2024,dpoy,14,Will Anderson,AndeWi01,DE,Houston Texans,3.0,0,0.006,ranked_points
+2024,dpoy,15,Leonard Williams,WillLe02,DE,Seattle Seahawks,3.0,0,0.006,ranked_points
+2024,dpoy,16,Zach Allen,AlleZa01,DE,Denver Broncos,3.0,0,0.006,ranked_points
+2024,dpoy,17,Chris Jones,JoneCh09,DT,Kansas City Chiefs,2.0,0,0.004,ranked_points
+2024,dpoy,18,Micah Parsons,ParsMi00,LB,Dallas Cowboys,2.0,0,0.004,ranked_points
+2024,dpoy,19,Derek Stingley Jr.,StinDe00,CB,Houston Texans,2.0,0,0.004,ranked_points
+2024,dpoy,20,Zaire Franklin,FranZa00,LB,Indianapolis Colts,2.0,0,0.004,ranked_points
+2024,dpoy,21,Bobby Wagner,WagnBo00,MLB,Washington Commanders,2.0,0,0.004,ranked_points
+2024,dpoy,22,Trent McDuffie,McDuTr00,CB,Kansas City Chiefs,1.0,0,0.002,ranked_points
+2024,dpoy,23,Danielle Hunter,HuntDa01,DE,Houston Texans,1.0,0,0.002,ranked_points
+2024,dpoy,24,Christian Benford,BenfCh00,CB,Buffalo Bills,1.0,0,0.002,ranked_points
+2024,oroy,1,Jayden Daniels,DaniJa02,QB,Washington Commanders,485.0,48,0.99,ranked_points
+2024,oroy,2,Brock Bowers,BoweBr01,TE,Las Vegas Raiders,209.0,1,0.427,ranked_points
+2024,oroy,3,Bo Nix,NixxBo00,QB,Denver Broncos,151.0,0,0.308,ranked_points
+2024,oroy,4,Brian Thomas,ThomBr06,WR,Jacksonville Jaguars,81.0,0,0.165,ranked_points
+2024,oroy,5,Malik Nabers,NabeMa00,WR,New York Giants,51.0,0,0.104,ranked_points
+2024,oroy,6,Bucky Irving,IrviBu00,RB,Tampa Bay Buccaneers,31.0,0,0.063,ranked_points
+2024,oroy,7,Joe Alt,AltxJo01,OT,Los Angeles Chargers,8.0,0,0.016,ranked_points
+2024,oroy,8,Drake Maye,MayeDr00,QB,New England Patriots,6.0,0,0.012,ranked_points
+2024,oroy,9,Ladd McConkey,McCoLa00,WR,Los Angeles Chargers,5.0,0,0.01,ranked_points
+2024,oroy,10,Caleb Williams,WillCa03,QB,Chicago Bears,2.0,0,0.004,ranked_points
+2024,droy,1,Jared Verse,VersJa00,OLB,Los Angeles Rams,417.0,36,0.851,ranked_points
+2024,droy,2,Quinyon Mitchell,MitcQu00,CB,Philadelphia Eagles,234.0,9,0.478,ranked_points
+2024,droy,3,Braden Fiske,FiskBr00,DE,Los Angeles Rams,96.0,1,0.196,ranked_points
+2024,droy,4,Cooper DeJean,DeJeCo00,DB,Philadelphia Eagles,88.0,0,0.18,ranked_points
+2024,droy,5,Chop Robinson,RobiCh00,LB,Miami Dolphins,73.0,0,0.149,ranked_points
+2024,droy,6,Edgerrin Cooper,CoopEd00,LB,Green Bay Packers,30.0,0,0.061,ranked_points
+2024,droy,7,Tarheeb Still,StilTa00,CB,Los Angeles Chargers,27.0,1,0.055,ranked_points
+2024,droy,8,Calen Bullock,BullCa00,S,Houston Texans,17.0,1,0.035,ranked_points
+2024,droy,9,Mike Sainristil,SainMi00,CB,Washington Commanders,14.0,1,0.029,ranked_points
+2024,droy,10,Kamari Lassiter,LassKa00,CB,Houston Texans,12.0,0,0.024,ranked_points
+2024,droy,11,Nate Wiggins,WiggNa00,CB,Baltimore Ravens,7.0,0,0.014,ranked_points
+2024,droy,12,Laiatu Latu,LatuLa00,DE,Indianapolis Colts,5.0,0,0.01,ranked_points
+2024,droy,13,T'Vondre Sweat,SweaTV01,NT,Tennessee Titans,5.0,0,0.01,ranked_points
+2024,droy,14,Malik Mustapha,MustMa00,S,San Francisco 49ers,2.0,0,0.004,ranked_points
+2024,droy,15,Terrion Arnold,ArnoTe00,CB,Detroit Lions,1.0,0,0.002,ranked_points
+2024,droy,16,Tykee Smith,SmitTy05,S,Tampa Bay Buccaneers,1.0,0,0.002,ranked_points
+2024,cpoy,1,Joe Burrow,BurrJo01,QB,Cincinnati Bengals,370.0,31,0.755,ranked_points
+2024,cpoy,2,J.K. Dobbins,DobbJK00,RB,Los Angeles Chargers,190.0,3,0.388,ranked_points
+2024,cpoy,3,Sam Darnold,DarnSa00,QB,Minnesota Vikings,92.0,7,0.188,ranked_points
+2024,cpoy,4,Damar Hamlin,HamlDa00,S,Buffalo Bills,86.0,3,0.176,ranked_points
+2024,cpoy,5,Christian Gonzalez,GonzCh00,CB,New England Patriots,69.0,2,0.141,ranked_points
+2024,cpoy,6,Tim Patrick,PatrTi00,WR,Detroit Lions,66.0,3,0.135,ranked_points
+2024,cpoy,7,Aaron Rodgers,RodgAa00,QB,New York Jets,30.0,0,0.061,ranked_points
+2024,cpoy,8,Nick Chubb,ChubNi00,RB,Cleveland Browns,25.0,0,0.051,ranked_points
+2024,cpoy,9,Cameron Heyward,HeywCa01,DT,Pittsburgh Steelers,24.0,0,0.049,ranked_points
+2024,cpoy,10,Kyler Murray,MurrKy00,QB,Arizona Cardinals,21.0,0,0.043,ranked_points
+2024,cpoy,11,C.J. Gardner-Johnson,GardCh00,S,Philadelphia Eagles,8.0,0,0.016,ranked_points
+2024,cpoy,12,Justin Herbert,HerbJu00,QB,Los Angeles Chargers,7.0,0,0.014,ranked_points
+2024,cpoy,13,Kirk Cousins,CousKi00,QB,Atlanta Falcons,6.0,0,0.012,ranked_points
+2024,cpoy,14,Russell Wilson,WilsRu00,QB,Pittsburgh Steelers,5.0,0,0.01,ranked_points
+2024,cpoy,15,Saquon Barkley,BarkSa00,RB,Philadelphia Eagles,5.0,0,0.01,ranked_points
+2024,cpoy,16,Tony Jefferson,JeffTo00,FS,Los Angeles Chargers,4.0,0,0.008,ranked_points
+2024,cpoy,17,Zach Ertz,ErtzZa00,TE,Washington Commanders,3.0,0,0.006,ranked_points
+2024,cpoy,18,Nakobe Dean,DeanNa00,LB,Philadelphia Eagles,3.0,0,0.006,ranked_points
+2024,cpoy,19,Jonathan Taylor,TaylJo02,RB,Indianapolis Colts,2.0,0,0.004,ranked_points
+2024,cpoy,20,Jameson Williams,WillJa11,WR,Detroit Lions,2.0,0,0.004,ranked_points
+2024,cpoy,21,Dre Greenlaw,GreeDr00,OLB,San Francisco 49ers,2.0,0,0.004,ranked_points
+2024,cpoy,22,T.J. Hockenson,HockTJ00,TE,Minnesota Vikings,2.0,0,0.004,ranked_points
+2024,cpoy,23,Cam Akers,AkerCa00,RB,2TM,2.0,0,0.004,ranked_points
+2024,cpoy,24,Mark Andrews,AndrMa00,TE,Baltimore Ravens,2.0,0,0.004,ranked_points
+2024,cpoy,25,Marlon Humphrey,HumpMa00,CB,Baltimore Ravens,1.0,0,0.002,ranked_points
+2024,cpoy,26,Anthony Richardson,RichAn03,QB,Indianapolis Colts,1.0,0,0.002,ranked_points
+2024,cpoy,27,Jack Conklin,ConkJa00,T,Cleveland Browns,1.0,0,0.002,ranked_points
+2024,coty,1,Kevin O'Connell,OConKe0,,Minnesota Vikings,351.0,24,0.716,ranked_points
+2024,coty,2,Dan Campbell,CampDa1,,Detroit Lions,281.0,19,0.573,ranked_points
+2024,coty,3,Andy Reid,ReidAn0,,Kansas City Chiefs,119.0,4,0.243,ranked_points
+2024,coty,4,Dan Quinn,QuinDa0,,Washington Commanders,85.0,1,0.173,ranked_points
+2024,coty,5,Sean Payton,PaytSe0,,Denver Broncos,70.0,1,0.143,ranked_points
+2024,coty,6,Jim Harbaugh,HarbJi0,,Los Angeles Chargers,54.0,0,0.11,ranked_points
+2024,coty,7,Sean McDermott,McDeSe0,,Buffalo Bills,32.0,0,0.065,ranked_points
+2024,coty,8,Mike Tomlin,TomlMi0,,Pittsburgh Steelers,13.0,0,0.027,ranked_points
+2024,coty,9,Sean McVay,McVaSe0,,Los Angeles Rams,9.0,0,0.018,ranked_points
+2024,coty,10,Matt LaFleur,LaFlMa0,,Green Bay Packers,7.0,0,0.014,ranked_points
+2024,coty,11,Todd Bowles,BowlTo0,,Tampa Bay Buccaneers,3.0,0,0.006,ranked_points
+2024,coty,12,Nick Sirianni,SiriNi0,,Philadelphia Eagles,3.0,0,0.006,ranked_points
+2024,coty,13,John Harbaugh,HarbJo0,,Baltimore Ravens,2.0,0,0.004,ranked_points
+2025,mvp,1,Matthew Stafford,StafMa00,QB,Los Angeles Rams,366.0,24,0.732,ranked_points
+2025,mvp,2,Drake Maye,MayeDr00,QB,New England Patriots,361.0,23,0.722,ranked_points
+2025,mvp,3,Josh Allen,AlleJo02,QB,Buffalo Bills,91.0,2,0.182,ranked_points
+2025,mvp,4,Christian McCaffrey,McCaCh01,RB,San Francisco 49ers,71.0,0,0.142,ranked_points
+2025,mvp,5,Trevor Lawrence,LawrTr00,QB,Jacksonville Jaguars,49.0,0,0.098,ranked_points
+2025,mvp,6,Justin Herbert,HerbJu00,QB,Los Angeles Chargers,,1,,ranked_points
+2025,opoy,1,Jaxon Smith-Njigba,SmitJa06,WR,Seattle Seahawks,272.0,14,0.544,ranked_points
+2025,opoy,2,Christian McCaffrey,McCaCh01,RB,San Francisco 49ers,223.0,12,0.446,ranked_points
+2025,opoy,3,Puka Nacua,NacuPu00,WR,Los Angeles Rams,170.0,8,0.34,ranked_points
+2025,opoy,4,Bijan Robinson,RobiBi01,RB,Atlanta Falcons,168.0,6,0.336,ranked_points
+2025,opoy,5,Drake Maye,MayeDr00,QB,New England Patriots,58.0,5,0.116,ranked_points
+2025,opoy,6,Josh Allen,AlleJo02,QB,Buffalo Bills,,1,,ranked_points
+2025,opoy,7,Trey McBride,McBrTr01,TE,Arizona Cardinals,,1,,ranked_points
+2025,opoy,8,Matthew Stafford,StafMa00,QB,Los Angeles Rams,,3,,ranked_points
+2025,dpoy,1,Myles Garrett,GarrMy00,DE,Cleveland Browns,500.0,50,1.0,ranked_points
+2025,dpoy,2,Will Anderson,AndeWi01,DE,Houston Texans,177.0,0,0.354,ranked_points
+2025,dpoy,3,Micah Parsons,ParsMi00,DL,Green Bay Packers,63.0,0,0.126,ranked_points
+2025,dpoy,4,Nik Bonitto,BoniNi00,LB,Denver Broncos,52.0,0,0.104,ranked_points
+2025,dpoy,5,Aidan Hutchinson,HutcAi00,DE,Detroit Lions,42.0,0,0.084,ranked_points
+2025,oroy,1,Tetairoa McMillan,McMiTe00,WR,Carolina Panthers,445.0,41,0.89,ranked_points
+2025,oroy,2,Tyler Shough,ShouTy00,QB,New Orleans Saints,168.0,5,0.336,ranked_points
+2025,oroy,3,TreVeyon Henderson,HendTr02,RB,New England Patriots,111.0,1,0.222,ranked_points
+2025,oroy,4,Jaxson Dart,DartJa00,QB,New York Giants,88.0,1,0.176,ranked_points
+2025,oroy,5,Emeka Egbuka,EgbuEm01,WR,Tampa Bay Buccaneers,66.0,0,0.132,ranked_points
+2025,oroy,6,Grey Zabel,ZabeGr00,G,Seattle Seahawks,,2,,ranked_points
+2025,droy,1,Carson Schwesinger,SchwCa00,LB,Cleveland Browns,441.0,40,0.882,ranked_points
+2025,droy,2,Nick Emmanwori,EmmaNi00,S,Seattle Seahawks,199.0,7,0.398,ranked_points
+2025,droy,3,James Pearce,PearJa00,DE,Atlanta Falcons,173.0,2,0.346,ranked_points
+2025,droy,4,Xavier Watts,WattXa00,S,Atlanta Falcons,102.0,1,0.204,ranked_points
+2025,droy,5,Abdul Carter,CartAb00,LB,New York Giants,72.0,0,0.144,ranked_points
+2025,cpoy,1,Christian McCaffrey,McCaCh01,RB,San Francisco 49ers,395.0,31,0.79,ranked_points
+2025,cpoy,2,Aidan Hutchinson,HutcAi00,DE,Detroit Lions,221.0,9,0.442,ranked_points
+2025,cpoy,3,Dak Prescott,PresDa01,QB,Dallas Cowboys,167.0,6,0.334,ranked_points
+2025,cpoy,4,Trevor Lawrence,LawrTr00,QB,Jacksonville Jaguars,130.0,2,0.26,ranked_points
+2025,cpoy,5,Stefon Diggs,DiggSt00,WR,New England Patriots,40.0,0,0.08,ranked_points
+2025,cpoy,6,Chris Olave,OlavCh00,WR,New Orleans Saints,,1,,ranked_points
+2025,cpoy,7,Philip Rivers,RivePh00,QB,Indianapolis Colts,,1,,ranked_points
+2025,coty,1,Mike Vrabel,VrabMi0,,New England Patriots,302.0,19,0.604,ranked_points
+2025,coty,2,Liam Coen,CoenLi0,,Jacksonville Jaguars,239.0,16,0.478,ranked_points
+2025,coty,3,Mike Macdonald,MacdMi0,,Seattle Seahawks,191.0,8,0.382,ranked_points
+2025,coty,4,Ben Johnson,JohnBe0,,Chicago Bears,145.0,1,0.29,ranked_points
+2025,coty,5,Kyle Shanahan,ShanKy0,,San Francisco 49ers,140.0,6,0.28,ranked_points
