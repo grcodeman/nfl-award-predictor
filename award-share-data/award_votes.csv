@@ -2,7 +2,7 @@
 
 season,award,rank,player,pfr_id,pos,team,votes,first_place,share,voting_system
 1999,mvp,1,Kurt Warner,WarnKu00,QB,St. Louis Rams,33.0,,0.66,single_vote
-1999,mvp,2,Msarshall Faulk,FaulMa00,RB,St. Louis Rams,8.0,,0.16,single_vote
+1999,mvp,2,Marshall Faulk,FaulMa00,RB,St. Louis Rams,8.0,,0.16,single_vote
 1999,mvp,3,Peyton Manning,MannPe00,QB,Indianapolis Colts,8.0,,0.16,single_vote
 1999,mvp,4,Edgerrin James,JameEd00,RB,Indianapolis Colts,1.0,,0.02,single_vote
 1999,opoy,1,Marshall Faulk,FaulMa00,RB,St. Louis Rams,26.0,,0.52,single_vote
