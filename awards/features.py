@@ -8,12 +8,19 @@ python -m awards.features   writes the 1999-2025 table with targets to .cache/mo
 """
 import pandas as pd
 
-from awards.data import ROOT, VOTES_CSV, load_player_ids, load_targets, load_team_records, load_weekly_stats
+from awards.data import (ROOT, VOTES_CSV, add_targets, load_player_ids, load_targets, load_team_records,
+                         load_weekly_stats)
 
 # Per team game rates, so a player 10 games in compares fairly with a full season.
 RATES = ["yards", "tds", "epa", "turnovers"]
 POSITIONS = ["QB", "RB", "WR", "TE"]
 FINAL_WEEK = 18  # covers every regular-season week, 17-game seasons included
+
+
+def zscore(col, groups):
+    """0 = average for the group, +1 = one standard deviation above. A group too small to vary gets 0."""
+    g = col.groupby(groups)
+    return ((col - g.transform("mean")) / g.transform("std")).fillna(0)
 
 
 def build_features(seasons, through_week):
@@ -58,8 +65,7 @@ def build_features(seasons, through_week):
     # because some seasons have only 1 or 2 TEs in the pool, too few for a z-score to mean anything.
     z_group = [p["season"], p["position_group"].replace({"TE": "WR"})]
     for c in RATES:
-        col = p[f"{c}_pg"]
-        p[f"{c}_z"] = ((col - col.groupby(z_group).transform("mean")) / col.groupby(z_group).transform("std")).fillna(0)
+        p[f"{c}_z"] = zscore(p[f"{c}_pg"], z_group)
 
     for position in POSITIONS:
         p[f"is_{position.lower()}"] = (p["position_group"] == position).astype(int)
@@ -68,15 +74,14 @@ def build_features(seasons, through_week):
     keep = ["season", "player_id", "pfr_id", "player", "position_group", "team", "headshot_url",
             "games", "team_games", "team_win_pct", "availability"]
     keep += [f"{c}_pg" for c in RATES] + [f"{c}_z" for c in RATES] + [f"is_{x.lower()}" for x in POSITIONS]
+    keep += ["conf_rank"]
     return p[keep].sort_values(["season", "epa_z"], ascending=[True, False]).reset_index(drop=True)
 
 
 def main():
     seasons = range(1999, 2026)
-    table = build_features(seasons, FINAL_WEEK)
+    table = add_targets(build_features(seasons, FINAL_WEEK))
     targets = load_targets()
-    table = table.merge(targets, on=["pfr_id", "season"], how="left")
-    table[["target_mvp", "target_opoy"]] = table[["target_mvp", "target_opoy"]].fillna(0)
     out = ROOT / ".cache" / "modeling_table.csv"
     table.to_csv(out, index=False)
     print(f"wrote {len(table)} rows to {out.relative_to(ROOT)}\n")

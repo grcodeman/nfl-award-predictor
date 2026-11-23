@@ -25,10 +25,11 @@ STAT_COLS = [
 
 
 def load_targets(awards=("mvp", "opoy")):
-    """One row per player-season that got votes: pfr_id, season, target_mvp, target_opoy.
+    """One row per player-season that got votes: pfr_id, season, target_* and won_* for each award.
 
-    The target is first-place share. Unlike `share`, it sums to 1.0 within every season and award,
+    target_* is first-place share. Unlike `share`, it sums to 1.0 within every season and award,
     so it means the same thing before and after the 2022 switch to ranked ballots.
+    won_* is 1 for the winner, from the award-data/ winner files, which list both 2003 co-MVPs.
     """
     v = pd.read_csv(VOTES_CSV, skiprows=2)
     v = v[v["award"].isin(awards)].dropna(subset=["pfr_id"])  # drops Denny Kellington, a team trainer (2022 MVP)
@@ -37,7 +38,20 @@ def load_targets(awards=("mvp", "opoy")):
     # single_vote seasons: every vote was a first-place vote, so share already is first-place share
     v["target"] = v["share"].where(v["voting_system"] == "single_vote", first / total_first)
     wide = v.pivot_table(index=["pfr_id", "season"], columns="award", values="target", aggfunc="sum", fill_value=0)
-    return wide.add_prefix("target_").reset_index().rename_axis(columns=None)
+    wide = wide.add_prefix("target_").reset_index().rename_axis(columns=None)
+    for award in awards:
+        w = pd.read_csv(ROOT / "award-data" / f"{award}.csv", skiprows=2)
+        winners = set(zip(w["Player-additional"], w["Year"]))
+        wide[f"won_{award}"] = [int(key in winners) for key in zip(wide["pfr_id"], wide["season"])]
+    return wide
+
+
+def add_targets(table):
+    """Attach target_* and won_* to a build_features table; 0 for players who got no votes."""
+    t = table.merge(load_targets(), on=["pfr_id", "season"], how="left", validate="many_to_one")
+    cols = [c for c in t.columns if c.startswith(("target_", "won_"))]
+    t[cols] = t[cols].fillna(0)
+    return t
 
 
 def load_player_ids():
@@ -65,6 +79,10 @@ def load_team_records(seasons, through_week):
     ])
     games["team"] = games["team"].replace(OLD_TEAM_CODES)
     games["win"] = (games["margin"] > 0) + 0.5 * (games["margin"] == 0)  # a tie counts as half a win
-    return games.groupby(["season", "team"], as_index=False).agg(
-        team_games=("win", "size"), team_win_pct=("win", "mean"),
-    )
+    t = games.groupby(["season", "team"], as_index=False).agg(team_games=("win", "size"), team_win_pct=("win", "mean"))
+    conf = nfl.load_teams().to_pandas().set_index("team_abbr")["team_conf"]
+    t["conf"] = t["team"].map(conf).where(~((t["team"] == "SEA") & (t["season"] < 2002)), "AFC")  # SEA moved in 2002
+    # 1 = best record in the conference (ties share the better rank). A stand-in for playoff seed
+    # that also works mid-season.
+    t["conf_rank"] = t.groupby(["season", "conf"])["team_win_pct"].rank(method="min", ascending=False)
+    return t
