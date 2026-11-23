@@ -79,7 +79,11 @@ def load_team_records(seasons, through_week):
     ])
     games["team"] = games["team"].replace(OLD_TEAM_CODES)
     games["win"] = (games["margin"] > 0) + 0.5 * (games["margin"] == 0)  # a tie counts as half a win
-    t = games.groupby(["season", "team"], as_index=False).agg(team_games=("win", "size"), team_win_pct=("win", "mean"))
+    t = games.groupby(["season", "team"], as_index=False).agg(
+        team_games=("win", "size"), team_win_pct=("win", "mean"),
+        team_wins=("margin", lambda m: (m > 0).sum()), team_losses=("margin", lambda m: (m < 0).sum()),
+        team_ties=("margin", lambda m: (m == 0).sum()),
+    )
     conf = nfl.load_teams().to_pandas().set_index("team_abbr")["team_conf"]
     t["conf"] = t["team"].map(conf).where(~((t["team"] == "SEA") & (t["season"] < 2002)), "AFC")  # SEA moved in 2002
     # 1 = best record in the conference (ties share the better rank). A stand-in for playoff seed

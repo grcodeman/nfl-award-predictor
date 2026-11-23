@@ -74,7 +74,7 @@ def build_features(seasons, through_week):
     keep = ["season", "player_id", "pfr_id", "player", "position_group", "team", "headshot_url",
             "games", "team_games", "team_win_pct", "availability"]
     keep += [f"{c}_pg" for c in RATES] + [f"{c}_z" for c in RATES] + [f"is_{x.lower()}" for x in POSITIONS]
-    keep += ["conf_rank"]
+    keep += ["conf_rank", "team_wins", "team_losses", "team_ties"] + RATES  # record and season totals, for display
     return p[keep].sort_values(["season", "epa_z"], ascending=[True, False]).reset_index(drop=True)
 
 

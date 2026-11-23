@@ -1,0 +1,200 @@
+{
+  "season": 2026,
+  "through_week": 8,
+  "generated_at": "2026-11-23T20:14:26Z",
+  "model_version": "v1",
+  "awards": {
+    "mvp": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "00-0034857",
+        "player": "Josh Allen",
+        "position": "QB",
+        "team": "BUF",
+        "team_record": "6-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ynrhq9iv30ysjpwmrfdv",
+        "share": 0.384,
+        "prev_share": 0.396,
+        "stats": {
+          "games": 7,
+          "yards_per_game": 294.9,
+          "tds": 20,
+          "turnovers": 6,
+          "epa_per_game": 9.4
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 3,
+        "player_id": "00-0037834",
+        "player": "Brock Purdy",
+        "position": "QB",
+        "team": "SF",
+        "team_record": "6-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/xs2fyj1sqdgwvt9ihbri",
+        "share": 0.216,
+        "prev_share": 0.139,
+        "stats": {
+          "games": 7,
+          "yards_per_game": 272.7,
+          "tds": 16,
+          "turnovers": 4,
+          "epa_per_game": 9.9
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 5,
+        "player_id": "00-0036442",
+        "player": "Joe Burrow",
+        "position": "QB",
+        "team": "CIN",
+        "team_record": "5-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/gnnvcgui1cijybukk2w7",
+        "share": 0.171,
+        "prev_share": 0.039,
+        "stats": {
+          "games": 7,
+          "yards_per_game": 312.1,
+          "tds": 22,
+          "turnovers": 7,
+          "epa_per_game": 8.9
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 2,
+        "player_id": "00-0033106",
+        "player": "Jared Goff",
+        "position": "QB",
+        "team": "DET",
+        "team_record": "5-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/kaicbot8qhzrvddilbtp",
+        "share": 0.086,
+        "prev_share": 0.275,
+        "stats": {
+          "games": 7,
+          "yards_per_game": 282.7,
+          "tds": 16,
+          "turnovers": 2,
+          "epa_per_game": 7.2
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 6,
+        "player_id": "00-0038543",
+        "player": "Jaxon Smith-Njigba",
+        "position": "WR",
+        "team": "SEA",
+        "team_record": "4-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/yx1xjrupbqdknnjaq4a6",
+        "share": 0.039,
+        "prev_share": 0.032,
+        "stats": {
+          "games": 8,
+          "yards_per_game": 128.5,
+          "tds": 9,
+          "turnovers": 0,
+          "epa_per_game": 7.0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 7,
+        "player_id": "00-0036971",
+        "player": "Trevor Lawrence",
+        "position": "QB",
+        "team": "JAX",
+        "team_record": "5-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/k9uzdernqkx7oquy7dkg",
+        "share": 0.039,
+        "prev_share": 0.018,
+        "stats": {
+          "games": 7,
+          "yards_per_game": 252.9,
+          "tds": 17,
+          "turnovers": 5,
+          "epa_per_game": 8.4
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 4,
+        "player_id": "00-0038134",
+        "player": "Kenneth Walker III",
+        "position": "RB",
+        "team": "KC",
+        "team_record": "5-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vk6nruaqdewdglofcwwg",
+        "share": 0.012,
+        "prev_share": 0.066,
+        "stats": {
+          "games": 7,
+          "yards_per_game": 128.7,
+          "tds": 8,
+          "turnovers": 0,
+          "epa_per_game": 1.2
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 8,
+        "player_id": "00-0033873",
+        "player": "Patrick Mahomes",
+        "position": "QB",
+        "team": "KC",
+        "team_record": "5-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/wdckwtob1lybvkmxnf7p",
+        "share": 0.009,
+        "prev_share": 0.01,
+        "stats": {
+          "games": 7,
+          "yards_per_game": 267.4,
+          "tds": 13,
+          "turnovers": 4,
+          "epa_per_game": 4.5
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 9,
+        "player_id": "00-0033280",
+        "player": "Christian McCaffrey",
+        "position": "RB",
+        "team": "SF",
+        "team_record": "6-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/st82s2ytyzanatcmkqck",
+        "share": 0.007,
+        "prev_share": 0.003,
+        "stats": {
+          "games": 7,
+          "yards_per_game": 91.4,
+          "tds": 8,
+          "turnovers": 1,
+          "epa_per_game": 1.6
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 15,
+        "player_id": "00-0029604",
+        "player": "Kirk Cousins",
+        "position": "QB",
+        "team": "LV",
+        "team_record": "4-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/za7cynvpwlsro1tsaijk",
+        "share": 0.005,
+        "prev_share": 0.001,
+        "stats": {
+          "games": 8,
+          "yards_per_game": 266.4,
+          "tds": 20,
+          "turnovers": 5,
+          "epa_per_game": 5.4
+        }
+      }
+    ]
+  }
+}

@@ -21,6 +21,7 @@ MODELS = {
     "logistic": lambda: make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000)),
 }
 TARGETS = {"ridge": "target_{award}", "logistic": "won_{award}"}
+MODEL_VERSION = "v1"  # written into the prediction JSON; bump it when features or models change
 
 
 def fit(kind, train, award="mvp"):
