@@ -1,0 +1,78 @@
+<!doctype html>
+<!--
+  Award Watch: static dashboard for the weekly predictions in ../predictions/.
+  View locally from the repo root:  python -m http.server 8000  then open http://localhost:8000/site/
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Award Watch: NFL MVP race</title>
+  <meta name="description" content="Weekly model predictions for the NFL MVP race, from player stats and team standings.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preload" href="fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/barlow-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>Award Watch</a>
+      <p class="status" id="status"></p>
+    </div>
+  </header>
+
+  <nav class="tabbar" aria-label="Awards">
+    <div class="wrap">
+      <div class="tabs" role="tablist" id="tabs"></div>
+    </div>
+  </nav>
+
+  <main class="wrap" id="panel" role="tabpanel" aria-busy="true">
+    <div class="intro">
+      <h1 id="title">MVP race</h1>
+      <p class="lede" id="lede">Loading this week's predictions…</p>
+    </div>
+
+    <p class="message" id="message" hidden></p>
+
+    <div class="layout" id="content">
+      <section class="race" aria-labelledby="race-heading">
+        <h2 class="section-heading" id="race-heading">Top 10</h2>
+        <ol class="race-list" id="race-list">
+          <li class="row skeleton"></li><li class="row skeleton"></li><li class="row skeleton"></li>
+          <li class="row skeleton"></li><li class="row skeleton"></li>
+        </ol>
+      </section>
+
+      <section class="trend" aria-labelledby="trend-heading">
+        <h2 class="section-heading" id="trend-heading">Share by week</h2>
+        <p class="trend-note">This week's top five, week by week. A gap means the player was outside that week's top 10.</p>
+        <ul class="legend" id="legend"></ul>
+        <figure class="chart" id="chart"></figure>
+        <details class="table-view">
+          <summary>Show as table</summary>
+          <div class="table-scroll" id="chart-table"></div>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap footer">
+    <h2 class="section-heading">How it works</h2>
+    <p>
+      Each week a logistic regression is retrained on AP voting from 1999 to 2025 and scores every
+      starting-caliber QB, RB, WR and TE on per-game yards, touchdowns, EPA and turnovers, his team's
+      conference standing, and games played. Shares add up to 100% across the whole pool of about 90
+      players, so they read as each player's slice of the vote if the season ended today.
+    </p>
+    <p class="credits">
+      Stats from <a href="https://nflverse.nflverse.com/">nflverse</a>. Voting history from
+      <a href="https://www.pro-football-reference.com/">Pro Football Reference</a>. Not affiliated
+      with the NFL or the Associated Press.
+    </p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

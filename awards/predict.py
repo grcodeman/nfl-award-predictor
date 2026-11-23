@@ -5,8 +5,9 @@ python -m awards.predict                          latest completed week of the c
 python -m awards.predict --season 2026 --week 5   rebuild any completed week (backfill)
 
 Writes predictions/{season}/week_{WW}.json, a copy of the newest week at predictions/latest.json,
-and predictions/index.json listing every week available. Training takes seconds, so the model is
-refit on every run instead of being saved.
+predictions/index.json listing every week available, and predictions/teams.json with the team
+colors and logos the dashboard uses. Training takes seconds, so the model is refit on every run
+instead of being saved.
 """
 import argparse
 import json
@@ -84,6 +85,13 @@ def write_if_changed(path, payload):
     return True
 
 
+def write_teams():
+    """teams.json: the name, color and logo the dashboard shows for each team code."""
+    t = nfl.load_teams().to_pandas()
+    teams = {r.team_abbr: {"name": r.team_name, "color": r.team_color, "logo": r.team_logo_espn} for r in t.itertuples()}
+    write_if_changed(OUT / "teams.json", teams)
+
+
 def write_index():
     """index.json lists every week on disk; latest.json is a copy of the newest one."""
     weeks = sorted((int(f.parent.name), int(f.stem.split("_")[1])) for f in OUT.glob("*/week_*.json"))
@@ -134,6 +142,7 @@ def main():
 
     changed = write_if_changed(path, payload)
     write_index()
+    write_teams()
 
     print(f"{args.season} through week {week}: {'wrote' if changed else 'unchanged'} {path.relative_to(ROOT)}"
           f" (trained on {train_seasons[0]}-{train_seasons[-1]}, {len(train)} rows)")
