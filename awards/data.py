@@ -14,7 +14,7 @@ update_config(cache_mode="filesystem", cache_dir=ROOT / ".cache" / "nflreadpy", 
 # Schedules use the team code of the time; stats use today's code for every season.
 OLD_TEAM_CODES = {"STL": "LA", "SD": "LAC", "OAK": "LV"}
 
-ID_COLS = ["season", "week", "player_id", "player_display_name", "position_group", "team", "headshot_url"]
+ID_COLS = ["season", "week", "game_id", "player_id", "player_display_name", "position_group", "team", "headshot_url"]
 STAT_COLS = [
     "attempts", "carries", "receptions",
     "passing_yards", "rushing_yards", "receiving_yards",

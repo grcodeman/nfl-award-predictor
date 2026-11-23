@@ -1,7 +1,8 @@
 """Weekly predictions: retrain, score the season through a week, write the dashboard JSON.
 
-python -m awards.predict                          latest completed week of the current season
-python -m awards.predict --season 2026 --week 5   a past week (backfill)
+python -m awards.predict                          latest completed week of the current season,
+                                                  skipped if that week's file already exists
+python -m awards.predict --season 2026 --week 5   rebuild any completed week (backfill)
 
 Writes predictions/{season}/week_{WW}.json, a copy of the newest week at predictions/latest.json,
 and predictions/index.json listing every week available. Training takes seconds, so the model is
@@ -25,13 +26,19 @@ TOP_N = 10
 
 
 def latest_completed_week(season):
-    """Highest week where every regular-season game has a result, or None before week 1 is done."""
+    """Highest week where every regular-season game has a result and published player stats.
+
+    nflverse posts player stats a few hours after the games, so a week can be finished on the
+    schedule before its stats exist. Returns None if no week is complete yet.
+    """
     g = nfl.load_schedules([season]).to_pandas()
-    done = g[g["game_type"] == "REG"].groupby("week")["result"].apply(lambda r: r.notna().all())
-    if not done.any():
+    g = g[g["game_type"] == "REG"]
+    played = g["result"].notna()
+    if not played.any():  # before week 1 there is no stats file for the season either
         return None
-    # nflverse publishes player stats a few hours after the games; don't get ahead of them.
-    return min(int(done[done].index.max()), int(load_weekly_stats([season], FINAL_WEEK)["week"].max()))
+    has_stats = g["game_id"].isin(load_weekly_stats([season], FINAL_WEEK)["game_id"])
+    done = (played & has_stats).groupby(g["week"]).all()
+    return int(done[done].index.max()) if done.any() else None
 
 
 def ranked(season, week, model):
@@ -101,6 +108,12 @@ def main():
     week = args.week or latest
     if week > latest:
         raise SystemExit(f"{args.season} week {week} isn't complete yet (latest completed week is {latest})")
+    path = OUT / str(args.season) / f"week_{week:02d}.json"
+    # The weekly run skips a week it already has, which makes the Wednesday run a safety net and the
+    # offseason a no-op. Passing --week rebuilds that week regardless.
+    if args.week is None and path.exists():
+        print(f"{args.season} week {week} is already in {path.relative_to(ROOT)}, nothing to do")
+        return
 
     # Train on every season with votes except the one being predicted, as in the evaluation.
     train_seasons = sorted(set(load_targets()["season"]) - {args.season})
@@ -119,7 +132,6 @@ def main():
         prev = ranked(args.season, week - 1, model) if week > 1 else None
         payload["awards"][award] = [entry(pid, row, prev) for pid, row in now.head(TOP_N).iterrows()]
 
-    path = OUT / str(args.season) / f"week_{week:02d}.json"
     changed = write_if_changed(path, payload)
     write_index()
 

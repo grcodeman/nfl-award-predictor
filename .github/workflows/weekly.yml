@@ -1,0 +1,55 @@
+name: weekly predictions
+
+on:
+  schedule:
+    # 13:17 UTC = 8:17 ET in winter (EST), 9:17 ET in September and October (EDT).
+    # Tuesday picks up Monday night's game; Wednesday is a safety net if stats were posted late.
+    - cron: "17 13 * * 2,3"
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season (blank = current season)"
+        required: false
+      week:
+        description: "Week to rebuild (blank = latest completed week, skipped if it already has a file)"
+        required: false
+
+permissions:
+  contents: write
+
+# A manual run and a scheduled run must not push at the same time.
+concurrency:
+  group: weekly-predictions
+
+jobs:
+  predict:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install requirements
+        run: pip install -r requirements.txt
+
+      - name: Run predictions
+        env:  # inputs go through env, not straight into the script, so they can't inject shell code
+          SEASON: ${{ inputs.season }}
+          WEEK: ${{ inputs.week }}
+        run: python -m awards.predict ${SEASON:+--season "$SEASON"} ${WEEK:+--week "$WEEK"}
+
+      - name: Commit changed predictions
+        run: |
+          git add predictions
+          if git diff --cached --quiet; then
+            echo "No prediction changes, nothing to commit"
+            exit 0
+          fi
+          weeks=$(git diff --cached --name-only -- 'predictions/*/week_*.json' | sed 's#predictions/##; s#\.json##' | paste -sd ' ' -)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "predictions: ${weeks:-index update}"
+          git push
