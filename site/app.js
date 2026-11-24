@@ -4,7 +4,7 @@
 const DATA = "../predictions/";
 // short: tab and page heading; full: the description and the browser title
 const AWARD_NAMES = {
-  mvp: { short: "MVP", full: "MVP" },
+  mvp: { short: "MVP", full: "Most Valuable Player" },
   opoy: { short: "OPOY", full: "Offensive Player of the Year" },
 };
 const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(), full: award.toUpperCase() };
@@ -177,7 +177,7 @@ function render(award, latest, teams, weeks) {
   const rows = latest.awards[award] || [];
   const week = latest.through_week;
   $("title").textContent = `${short} race`;
-  document.title = `Award Watch: NFL ${full} race`;
+  document.title = `Award Watch: NFL ${short} race`;
   const lede = `The model's predicted share of the AP ${full} vote, from this season's stats.`;
   if ($("lede").textContent !== lede) $("lede").textContent = lede; // the MVP line is already in the HTML
   $("panel").setAttribute("aria-busy", "false");
