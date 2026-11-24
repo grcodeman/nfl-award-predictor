@@ -1,11 +1,18 @@
-"""Leave-one-season-out evaluation of the MVP models.
+"""Leave-one-season-out evaluation of the award models.
 
-python -m awards.evaluate
+python -m awards.evaluate          MVP
+python -m awards.evaluate opoy     Offensive Player of the Year
+
+Both awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
+scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the dashboard is read
+mid-season, so the shared set stayed.
 
 For each season 1999-2025: train on full-season features from the other 26 seasons, then score the
 held-out season with features through weeks 8, 11, 14 and the full season. Seasons are held out
 whole because players in the same season compete for the same votes.
 """
+import sys
+
 import pandas as pd
 
 from awards.data import VOTES_CSV, add_targets
@@ -15,7 +22,11 @@ from awards.model import MODELS, fit, score
 SEASONS = range(1999, 2026)
 WEEKS = [8, 11, 14, FINAL_WEEK]
 # From the throwaway prototype (logistic, v1 features): (winner is top pick, winner in top 3) out of 27.
-FLOOR = {8: (11, 17), 11: (13, 21), 14: (14, 23), FINAL_WEEK: (16, 24)}
+# The plan gives OPOY a full-season floor only.
+FLOOR = {
+    "mvp": {8: (11, 17), 11: (13, 21), 14: (14, 23), FINAL_WEEK: (16, 24)},
+    "opoy": {FINAL_WEEK: (14, 22)},
+}
 
 
 def week_label(week):
@@ -58,8 +69,9 @@ def main(award="mvp"):
         for kind in MODELS:
             r = results[(results["model"] == kind) & (results["week"] == week)]["winner_rank"]
             cells.append(f"{(r == 1).sum():>2} / {(r <= 3).sum():>2} of 27")
-        floor = FLOOR[week]
-        print(f"{week_label(week):<17}" + "".join(f"{c:>16}" for c in cells) + f"{floor[0]:>9} / {floor[1]:>2} of 27")
+        floor = FLOOR[award].get(week)
+        floor_cell = f"{floor[0]:>9} / {floor[1]:>2} of 27" if floor else f"{'–':>15}"
+        print(f"{week_label(week):<17}" + "".join(f"{c:>16}" for c in cells) + floor_cell)
 
     for kind in MODELS:
         r = results[(results["model"] == kind) & (results["week"] == FINAL_WEEK) & (results["winner_rank"] != 1)]
@@ -82,4 +94,7 @@ def main(award="mvp"):
 
 
 if __name__ == "__main__":
-    main()
+    award = sys.argv[1] if len(sys.argv) > 1 else "mvp"
+    if award not in FLOOR:
+        raise SystemExit(f"unknown award {award!r}; choose from {', '.join(FLOOR)}")
+    main(award)

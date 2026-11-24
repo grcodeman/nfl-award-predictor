@@ -2,7 +2,12 @@
 "use strict";
 
 const DATA = "../predictions/";
-const AWARD_NAMES = { mvp: "MVP", opoy: "Offensive Player of the Year" };
+// short: tab and page heading; full: the description and the browser title
+const AWARD_NAMES = {
+  mvp: { short: "MVP", full: "MVP" },
+  opoy: { short: "OPOY", full: "Offensive Player of the Year" },
+};
+const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(), full: award.toUpperCase() };
 const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5"]; // chart colors, fixed order; color follows the player, not the rank
 const NIGHT = ["--n1", "--n2", "--n3", "--n4", "--n5"]; // the same hues stepped for the dark leader card
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -134,18 +139,22 @@ async function main() {
   const awards = Object.keys(latest.awards);
   const tabs = awards.map((award) => el("button", {
     class: "tab", role: "tab", id: `tab-${award}`, "aria-controls": "panel", type: "button",
-    text: AWARD_NAMES[award] || award.toUpperCase(),
+    text: awardName(award).short,
   }));
   $("tabs").replaceChildren(...tabs);
 
+  // The selected award lives in the URL (#opoy) so a link opens on that tab; MVP keeps the plain URL.
+  const fromHash = () => Math.max(0, awards.indexOf(location.hash.slice(1)));
   function select(i) {
     tabs.forEach((tab, j) => {
       tab.setAttribute("aria-selected", String(i === j));
       tab.tabIndex = i === j ? 0 : -1;
     });
     $("panel").setAttribute("aria-labelledby", tabs[i].id);
+    history.replaceState(null, "", i === 0 ? location.pathname + location.search : `#${awards[i]}`);
     render(awards[i], latest, teams, weeks);
   }
+  addEventListener("hashchange", () => select(fromHash()));
   // One opening moment: the share bars and the vote bar draw in once. Sorting or switching tabs won't replay it.
   document.documentElement.classList.add("intro");
   setTimeout(() => document.documentElement.classList.remove("intro"), 1200);
@@ -160,20 +169,20 @@ async function main() {
       select(next);
     });
   });
-  select(0);
+  select(fromHash());
 }
 
 function render(award, latest, teams, weeks) {
-  const name = AWARD_NAMES[award] || award.toUpperCase();
+  const { short, full } = awardName(award);
   const rows = latest.awards[award] || [];
   const week = latest.through_week;
-  $("title").textContent = `${name} race`;
-  document.title = `Award Watch: NFL ${name} race`;
-  const lede = `The model's predicted share of the AP ${name} vote, from this season's stats.`;
+  $("title").textContent = `${short} race`;
+  document.title = `Award Watch: NFL ${full} race`;
+  const lede = `The model's predicted share of the AP ${full} vote, from this season's stats.`;
   if ($("lede").textContent !== lede) $("lede").textContent = lede; // the MVP line is already in the HTML
   $("panel").setAttribute("aria-busy", "false");
   if (!rows.length) {
-    showMessage(`No ${name} predictions in this week's file yet.`);
+    showMessage(`No ${full} predictions in this week's file yet.`);
     return;
   }
   $("content").hidden = false;
@@ -236,7 +245,9 @@ function renderHero(rows, week, team) {
       change == null
         ? stat("stat-context", "Last week", el("span", { class: "flat", text: "New" }))
         : stat("stat-context", `Since week ${week - 1}`, move(change * 100), "pts"),
-      margin == null ? stat("stat-context", "Lead", "–") : stat("stat-context", `Lead over ${lastName(second.player)}`, pts(margin), "pts"),
+      margin == null ? stat("stat-context", "Lead", "–")
+        // a long surname ("Smith-Njigba") would truncate in the label cell
+        : stat("stat-context", lastName(second.player).length <= 9 ? `Lead over ${lastName(second.player)}` : "Lead over No. 2", pts(margin), "pts"),
       stat("stat-core", "Yds/g", s.yards_per_game.toFixed(1)),
       stat("stat-core", "TD", String(s.tds)),
       stat("stat-core", "TO", String(s.turnovers)),

@@ -21,8 +21,8 @@ from awards.features import FINAL_WEEK, build_features
 from awards.model import MODEL_VERSION, fit, score, to_shares
 
 OUT = ROOT / "predictions"
-KIND = "logistic"  # the model that cleared the Phase 2 floor at every snapshot week
-AWARDS = ["mvp"]
+KIND = "logistic"  # the model that cleared the MVP floor at every snapshot week and the OPOY floor
+AWARDS = ["mvp", "opoy"]  # each award gets its own model, trained on its own "won" label
 TOP_N = 10
 
 

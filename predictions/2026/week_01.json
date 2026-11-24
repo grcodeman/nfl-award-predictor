@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 1,
-  "generated_at": "2026-11-23T20:14:07Z",
-  "model_version": "v1",
+  "generated_at": "2026-11-24T18:46:19Z",
+  "model_version": "v2",
   "awards": {
     "mvp": [
       {
@@ -186,6 +186,198 @@
         "team_record": "0-1",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vcvhmxvxw2a3armle0af",
         "share": 0.007,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 371.0,
+          "tds": 4,
+          "turnovers": 1,
+          "epa_per_game": 15.1
+        }
+      }
+    ],
+    "opoy": [
+      {
+        "rank": 1,
+        "prev_rank": null,
+        "player_id": "00-0038134",
+        "player": "Kenneth Walker III",
+        "position": "RB",
+        "team": "KC",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vk6nruaqdewdglofcwwg",
+        "share": 0.492,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 191.0,
+          "tds": 2,
+          "turnovers": 0,
+          "epa_per_game": 8.8
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": null,
+        "player_id": "00-0032764",
+        "player": "Derrick Henry",
+        "position": "RB",
+        "team": "BAL",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tm79x0iknqg6hms3ypyt",
+        "share": 0.219,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 163.0,
+          "tds": 3,
+          "turnovers": 0,
+          "epa_per_game": 7.6
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": null,
+        "player_id": "00-0036275",
+        "player": "D'Andre Swift",
+        "position": "RB",
+        "team": "CHI",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/owpmwzoilitcodc6cmxo",
+        "share": 0.069,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 134.0,
+          "tds": 3,
+          "turnovers": 0,
+          "epa_per_game": 8.8
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": null,
+        "player_id": "00-0039139",
+        "player": "Jahmyr Gibbs",
+        "position": "RB",
+        "team": "DET",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/cursejnmmp1i9hnxihkj",
+        "share": 0.052,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 186.0,
+          "tds": 2,
+          "turnovers": 1,
+          "epa_per_game": -0.7
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": null,
+        "player_id": "00-0039918",
+        "player": "Caleb Williams",
+        "position": "QB",
+        "team": "CHI",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/h4qs11kutwiw7whekmyt",
+        "share": 0.031,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 334.0,
+          "tds": 4,
+          "turnovers": 0,
+          "epa_per_game": 19.0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": null,
+        "player_id": "00-0034857",
+        "player": "Josh Allen",
+        "position": "QB",
+        "team": "BUF",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ynrhq9iv30ysjpwmrfdv",
+        "share": 0.025,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 357.0,
+          "tds": 4,
+          "turnovers": 0,
+          "epa_per_game": 9.7
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": null,
+        "player_id": "00-0039064",
+        "player": "Zay Flowers",
+        "position": "WR",
+        "team": "BAL",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/xzhto2dejy2pflkfx40c",
+        "share": 0.025,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 150.0,
+          "tds": 1,
+          "turnovers": 0,
+          "epa_per_game": 10.7
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": null,
+        "player_id": "00-0037239",
+        "player": "Chris Olave",
+        "position": "WR",
+        "team": "NO",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/u1wdmijwkbobujmw7kbb",
+        "share": 0.015,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 182.0,
+          "tds": 0,
+          "turnovers": 0,
+          "epa_per_game": 11.3
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": null,
+        "player_id": "00-0040122",
+        "player": "Ashton Jeanty",
+        "position": "RB",
+        "team": "LV",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/syspis1mntov9kgspb7r",
+        "share": 0.014,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "yards_per_game": 147.0,
+          "tds": 2,
+          "turnovers": 0,
+          "epa_per_game": 2.0
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": null,
+        "player_id": "00-0039150",
+        "player": "Bryce Young",
+        "position": "QB",
+        "team": "CAR",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vcvhmxvxw2a3armle0af",
+        "share": 0.01,
         "prev_share": null,
         "stats": {
           "games": 1,
