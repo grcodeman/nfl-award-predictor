@@ -12,7 +12,7 @@ instead of being saved.
 import argparse
 import json
 import shutil
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 import nflreadpy as nfl
 
@@ -76,6 +76,7 @@ def stats(row, award):
             "prod_pct": int(round(row.prod_pct)),
             "prev_prod_pct": int(round(row.prev_prod_pct)),
         }
+    # Season totals, as the model sees them (it divides by team games, so missed games count against a player)
     if row.side == "defense":
         return {
             "games": int(row.games),
@@ -87,26 +88,32 @@ def stats(row, award):
         }
     return {
         "games": int(row.games),
-        "yards_per_game": round(float(row.yards / row.games), 1),
+        "yards": int(row.yards),
         "tds": int(row.tds),
         "turnovers": int(row.turnovers),
-        "epa_per_game": round(float(row.epa / row.games), 1),
+        "epa": round(float(row.epa), 1),
     }
 
 
 def photos_for(names):
-    """Coach name -> photo, from predictions/coaches.json, looking up only coaches it doesn't have yet.
-    A failed lookup (Wikipedia down, no network) leaves those coaches on initials; it never stops the run."""
+    """Coach name -> photo, from predictions/coaches.json, looking up only coaches it doesn't know.
+
+    A coach with no free photo is stored as {"checked": date} and asked about again after a week, so a
+    backfill doesn't ask Wikipedia about the same coaches every run. A failed lookup (Wikipedia down, no
+    network) leaves those coaches on initials; it never stops the run."""
     path = OUT / "coaches.json"
     known = json.loads(path.read_text()) if path.exists() else {}
-    todo = sorted(set(names) - set(known))
+    today = datetime.now(timezone.utc).date()
+    stale = lambda v: "url" not in v and (today - date.fromisoformat(v["checked"])).days >= 7  # noqa: E731
+    todo = sorted(n for n in set(names) if n not in known or stale(known[n]))
     if todo:
         try:
-            known.update(coach_photos(todo))
+            found = coach_photos(todo)
+            known.update({n: found.get(n, {"checked": today.isoformat()}) for n in todo})
         except Exception as e:  # noqa: BLE001 - photos are optional
             print(f"coach photo lookup failed, using initials: {e}")
         write_if_changed(path, dict(sorted(known.items())))
-    return known
+    return {n: v for n, v in known.items() if "url" in v}
 
 
 def entry(award, player_id, row, prev, photo=None):

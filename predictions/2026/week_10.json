@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "through_week": 10,
-  "generated_at": "2026-11-25T04:52:06Z",
+  "generated_at": "2026-11-25T21:26:59Z",
   "model_version": "v7",
   "awards": {
     "mvp": [
@@ -18,10 +18,10 @@
         "prev_share": 0.376,
         "stats": {
           "games": 9,
-          "yards_per_game": 320.0,
+          "yards": 2880,
           "tds": 30,
           "turnovers": 7,
-          "epa_per_game": 10.1
+          "epa": 90.8
         }
       },
       {
@@ -37,10 +37,10 @@
         "prev_share": 0.219,
         "stats": {
           "games": 9,
-          "yards_per_game": 287.9,
+          "yards": 2591,
           "tds": 22,
           "turnovers": 5,
-          "epa_per_game": 10.9
+          "epa": 97.9
         }
       },
       {
@@ -56,10 +56,10 @@
         "prev_share": 0.175,
         "stats": {
           "games": 9,
-          "yards_per_game": 279.3,
+          "yards": 2514,
           "tds": 24,
           "turnovers": 8,
-          "epa_per_game": 8.4
+          "epa": 75.5
         }
       },
       {
@@ -75,10 +75,10 @@
         "prev_share": 0.049,
         "stats": {
           "games": 9,
-          "yards_per_game": 265.6,
+          "yards": 2390,
           "tds": 21,
           "turnovers": 6,
-          "epa_per_game": 9.4
+          "epa": 85.0
         }
       },
       {
@@ -94,10 +94,10 @@
         "prev_share": 0.012,
         "stats": {
           "games": 9,
-          "yards_per_game": 105.6,
+          "yards": 950,
           "tds": 13,
           "turnovers": 1,
-          "epa_per_game": 3.5
+          "epa": 31.1
         }
       },
       {
@@ -113,10 +113,10 @@
         "prev_share": 0.012,
         "stats": {
           "games": 9,
-          "yards_per_game": 276.1,
+          "yards": 2485,
           "tds": 20,
           "turnovers": 5,
-          "epa_per_game": 5.5
+          "epa": 49.4
         }
       },
       {
@@ -132,10 +132,10 @@
         "prev_share": 0.041,
         "stats": {
           "games": 9,
-          "yards_per_game": 273.3,
+          "yards": 2460,
           "tds": 19,
           "turnovers": 5,
-          "epa_per_game": 6.0
+          "epa": 54.3
         }
       },
       {
@@ -151,10 +151,10 @@
         "prev_share": 0.002,
         "stats": {
           "games": 10,
-          "yards_per_game": 256.5,
+          "yards": 2565,
           "tds": 24,
           "turnovers": 9,
-          "epa_per_game": 5.0
+          "epa": 49.7
         }
       },
       {
@@ -170,10 +170,10 @@
         "prev_share": 0.066,
         "stats": {
           "games": 8,
-          "yards_per_game": 130.5,
+          "yards": 1044,
           "tds": 11,
           "turnovers": 0,
-          "epa_per_game": 2.3
+          "epa": 18.5
         }
       },
       {
@@ -189,10 +189,10 @@
         "prev_share": 0.004,
         "stats": {
           "games": 9,
-          "yards_per_game": 153.8,
+          "yards": 1384,
           "tds": 13,
           "turnovers": 2,
-          "epa_per_game": 1.8
+          "epa": 16.3
         }
       }
     ],
@@ -210,10 +210,10 @@
         "prev_share": 0.226,
         "stats": {
           "games": 9,
-          "yards_per_game": 153.8,
+          "yards": 1384,
           "tds": 13,
           "turnovers": 2,
-          "epa_per_game": 1.8
+          "epa": 16.3
         }
       },
       {
@@ -229,10 +229,10 @@
         "prev_share": 0.213,
         "stats": {
           "games": 10,
-          "yards_per_game": 125.0,
+          "yards": 1250,
           "tds": 10,
           "turnovers": 0,
-          "epa_per_game": 6.3
+          "epa": 62.7
         }
       },
       {
@@ -248,10 +248,10 @@
         "prev_share": 0.132,
         "stats": {
           "games": 9,
-          "yards_per_game": 320.0,
+          "yards": 2880,
           "tds": 30,
           "turnovers": 7,
-          "epa_per_game": 10.1
+          "epa": 90.8
         }
       },
       {
@@ -267,10 +267,10 @@
         "prev_share": 0.011,
         "stats": {
           "games": 9,
-          "yards_per_game": 105.6,
+          "yards": 950,
           "tds": 13,
           "turnovers": 1,
-          "epa_per_game": 3.5
+          "epa": 31.1
         }
       },
       {
@@ -286,10 +286,10 @@
         "prev_share": 0.251,
         "stats": {
           "games": 8,
-          "yards_per_game": 130.5,
+          "yards": 1044,
           "tds": 11,
           "turnovers": 0,
-          "epa_per_game": 2.3
+          "epa": 18.5
         }
       },
       {
@@ -305,10 +305,10 @@
         "prev_share": 0.022,
         "stats": {
           "games": 9,
-          "yards_per_game": 287.9,
+          "yards": 2591,
           "tds": 22,
           "turnovers": 5,
-          "epa_per_game": 10.9
+          "epa": 97.9
         }
       },
       {
@@ -324,10 +324,10 @@
         "prev_share": 0.032,
         "stats": {
           "games": 9,
-          "yards_per_game": 120.1,
+          "yards": 1081,
           "tds": 9,
           "turnovers": 2,
-          "epa_per_game": 1.8
+          "epa": 16.2
         }
       },
       {
@@ -343,10 +343,10 @@
         "prev_share": 0.046,
         "stats": {
           "games": 9,
-          "yards_per_game": 279.3,
+          "yards": 2514,
           "tds": 24,
           "turnovers": 8,
-          "epa_per_game": 8.4
+          "epa": 75.5
         }
       },
       {
@@ -362,10 +362,10 @@
         "prev_share": 0.001,
         "stats": {
           "games": 10,
-          "yards_per_game": 256.5,
+          "yards": 2565,
           "tds": 24,
           "turnovers": 9,
-          "epa_per_game": 5.0
+          "epa": 49.7
         }
       },
       {
@@ -381,10 +381,10 @@
         "prev_share": 0.002,
         "stats": {
           "games": 9,
-          "yards_per_game": 97.6,
+          "yards": 878,
           "tds": 7,
           "turnovers": 0,
-          "epa_per_game": 5.3
+          "epa": 48.0
         }
       }
     ],
@@ -402,10 +402,10 @@
         "prev_share": 0.139,
         "stats": {
           "games": 9,
-          "yards_per_game": 57.7,
+          "yards": 519,
           "tds": 4,
           "turnovers": 0,
-          "epa_per_game": 2.0
+          "epa": 18.2
         }
       },
       {
@@ -421,10 +421,10 @@
         "prev_share": 0.275,
         "stats": {
           "games": 10,
-          "yards_per_game": 52.3,
+          "yards": 523,
           "tds": 3,
           "turnovers": 0,
-          "epa_per_game": 0.7
+          "epa": 7.4
         }
       },
       {
@@ -440,10 +440,10 @@
         "prev_share": 0.081,
         "stats": {
           "games": 10,
-          "yards_per_game": 50.1,
+          "yards": 501,
           "tds": 2,
           "turnovers": 1,
-          "epa_per_game": 0.6
+          "epa": 6.3
         }
       },
       {
@@ -459,10 +459,10 @@
         "prev_share": 0.108,
         "stats": {
           "games": 5,
-          "yards_per_game": 63.8,
+          "yards": 319,
           "tds": 3,
           "turnovers": 0,
-          "epa_per_game": 1.2
+          "epa": 6.1
         }
       },
       {
@@ -478,10 +478,10 @@
         "prev_share": 0.045,
         "stats": {
           "games": 9,
-          "yards_per_game": 41.4,
+          "yards": 373,
           "tds": 2,
           "turnovers": 1,
-          "epa_per_game": -0.4
+          "epa": -3.6
         }
       },
       {
@@ -497,10 +497,10 @@
         "prev_share": 0.042,
         "stats": {
           "games": 6,
-          "yards_per_game": 61.2,
+          "yards": 367,
           "tds": 2,
           "turnovers": 0,
-          "epa_per_game": 2.3
+          "epa": 14.1
         }
       },
       {
@@ -516,10 +516,10 @@
         "prev_share": 0.038,
         "stats": {
           "games": 9,
-          "yards_per_game": 38.9,
+          "yards": 350,
           "tds": 1,
           "turnovers": 0,
-          "epa_per_game": 1.0
+          "epa": 9.0
         }
       },
       {
@@ -535,10 +535,10 @@
         "prev_share": 0.03,
         "stats": {
           "games": 5,
-          "yards_per_game": 124.2,
+          "yards": 621,
           "tds": 3,
           "turnovers": 5,
-          "epa_per_game": -2.9
+          "epa": -14.4
         }
       },
       {
@@ -554,10 +554,10 @@
         "prev_share": 0.018,
         "stats": {
           "games": 9,
-          "yards_per_game": 36.2,
+          "yards": 326,
           "tds": 2,
           "turnovers": 0,
-          "epa_per_game": 1.2
+          "epa": 10.9
         }
       },
       {
@@ -573,10 +573,10 @@
         "prev_share": 0.019,
         "stats": {
           "games": 9,
-          "yards_per_game": 29.8,
+          "yards": 268,
           "tds": 1,
           "turnovers": 0,
-          "epa_per_game": 0.9
+          "epa": 8.3
         }
       }
     ],

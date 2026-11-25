@@ -197,7 +197,8 @@ h1 { font: 700 2.875rem/1 var(--cond); text-transform: uppercase; letter-spacing
 .hero-share-sub { display: none; }
 
 .hero-stats {
-  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  /* the two context cells ("Lead over McMillian") take what their labels need; the stats share the rest */
+  display: grid; grid-template-columns: auto auto repeat(calc(var(--hero-cols, 6) - 2), minmax(0, 1fr));
   margin-top: 1.5rem; padding: 1rem 0; border-block: 1px solid var(--night-rule);
 }
 .hero-stats > div { padding: 0 1rem; border-left: 1px solid var(--night-rule); min-width: 0; }
@@ -371,8 +372,9 @@ h1 { font: 700 2.875rem/1 var(--cond); text-transform: uppercase; letter-spacing
   .hero-share .cap { display: none; }
   .hero-share-sub { display: grid; gap: 0.25rem; margin-top: 0.625rem; font-size: 0.9375rem; color: var(--night-muted); }
   .hero-share-sub .move { font-size: 1rem; }
-  .hero-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1.25rem; }
-  .hero-stats .stat-context { display: none; }
+  .hero-stats { grid-template-columns: repeat(var(--hero-core, 4), minmax(0, 1fr)); margin-top: 1.25rem; }
+  .hero-stats .stat-context, .hero-stats .stat-games { display: none; }
+  .hero-stats > .stat-games + .stat-core { border-left: 0; padding-left: 0; }
   .hero-stats > .stat-core { padding: 0 0.75rem; }
   .hero-stats > .stat-core:nth-child(3) { border-left: 0; padding-left: 0; }
   .hero-stats dd { font-size: 1.625rem; }

@@ -51,6 +51,15 @@ the team" 6/11 8/18 9/20 12/20; minus conf_rank 4/11 8/16 8/20 12/20; minus poin
 week 8, did better at weeks 11 and 14, and at full season gained three top picks for one top-3 season
 (as with DPOY's prior vote), so it is the set used.
 
+Recent form, production over the team's last 4 or 6 games (per team game, so a missed game counts as 0)
+as one z-score against the starters, was tried on top of every player award's set and kept for none.
+Last 4 / last 6, top pick / top 3 at weeks 8, 11, 14, full: MVP 12/19 14/23 14/25 16/24 and 13/19
+14/23 14/25 16/24; OPOY 6/15 11/15 12/20 14/22 and 6/14 11/16 12/22 15/21; OROY 13/20 15/22 18/25
+16/25 and unchanged; DPOY 4/7 6/9 4/12 4/10 and 4/8 7/9 6/12 5/10; DROY 6/15 11/17 10/17 9/18 and
+7/15 10/17 10/18 11/19; CPOY 5/9 6/11 6/10 7/13 and 5/10 6/10 7/11 7/13. Each lost ground at full
+season or week 14, or only traded a top pick for a top-3 season. Season totals per team game already
+count missed games, which is why availability itself carries almost no weight.
+
 For each season 1999-2025: train on full-season features from the other 26 seasons, then score the
 held-out season with features through weeks 8, 11, 14 and the full season. Seasons are held out
 whole because players in the same season compete for the same votes.

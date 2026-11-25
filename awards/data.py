@@ -3,9 +3,7 @@ head coach photos."""
 import html
 import json
 import re
-import time
 from pathlib import Path
-from urllib.error import HTTPError
 from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 
@@ -152,15 +150,11 @@ WIKI_UA = "nfl-coach-photos/1.0 (weekly award predictions; python urllib)"
 
 
 def _wiki(**params):
+    """One API call. A rate limit (HTTP 429) raises straight away rather than retrying: photos are
+    optional, and the next weekly run asks again."""
     url = f"{WIKI_API}?{urlencode({'format': 'json', 'formatversion': 2, **params})}"
-    for attempt in range(4):
-        try:
-            with urlopen(Request(url, headers={"User-Agent": WIKI_UA}), timeout=30) as r:
-                return json.load(r)
-        except HTTPError as e:
-            if e.code != 429 or attempt == 3:
-                raise
-            time.sleep(int(e.headers.get("Retry-After") or 5))  # rate limited: wait as asked, then retry
+    with urlopen(Request(url, headers={"User-Agent": WIKI_UA}), timeout=30) as r:
+        return json.load(r)
 
 
 def _wiki_pages(titles, **params):

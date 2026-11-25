@@ -17,14 +17,20 @@ const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(),
 // unit: the inline label on phones ("92.4 yds/g"); long: the head-to-head label; lower: fewer is better;
 // neutral: neither side is better, so the head to head doesn't bold it; fmt: how to show it;
 // note: the head-to-head line for a fewer-is-better stat.
+// Players show season totals and games played, the way the model weighs them: its per-game rates divide
+// by the team's games, so a player who missed time isn't flattered by a per-game-played average.
+// games: on phones the leader card leaves it out (the line under each name in the table keeps it).
+const GAMES = { key: "games", label: "G", long: "Games played", unit: "G", games: true };
 const STAT_SETS = {
   offense: [
-    { key: "yards_per_game", label: "Yds/g", unit: "yds/g", digits: 1 },
+    GAMES,
+    { key: "yards", label: "Yds", long: "Yards", unit: "yds", fmt: (x) => x.toLocaleString("en-US") },
     { key: "tds", label: "TD", unit: "TD" },
     { key: "turnovers", label: "TO", long: "Turnovers", unit: "TO", lower: true },
-    { key: "epa_per_game", label: "EPA/g", unit: "EPA/g", digits: 1 },
+    { key: "epa", label: "EPA", unit: "EPA", fmt: (x) => String(Math.round(x)) }, // a QB's total runs past 100
   ],
   defense: [
+    GAMES,
     { key: "sacks", label: "Sacks", unit: "sacks" },
     { key: "ints", label: "INT", unit: "INT" },
     { key: "passes_defended", label: "PD", long: "Passes defended", unit: "PD" },
@@ -56,7 +62,7 @@ const showStat = (st, r) => {
 const statValue = (st, r) => r.stats[st.key];
 // "How it works", one per award, because each award ranks its own pool. MVP's is also static in index.html.
 const RETRAINED = "Each week a logistic regression is retrained on AP voting from 1999 to 2025 and scores";
-const OFFENSE = "per-game yards, touchdowns, EPA and turnovers, the team's conference standing, and games played";
+const OFFENSE = "yards, touchdowns, EPA and turnovers per team game (a missed game counts as zero), the team's conference standing, and games played";
 const shares = (pool, who = "player") =>
   `Shares add up to 100% across the whole pool of ${pool}, so they read as each ${who}'s slice of the vote if the season ended today.`;
 const STARTERS_HOW = `${RETRAINED} every starting-caliber QB, RB, WR and TE on ${OFFENSE}. ${shares("about 90 players")}`;
@@ -64,8 +70,8 @@ const HOW_IT_WORKS = {
   mvp: STARTERS_HOW,
   opoy: STARTERS_HOW,
   oroy: `${RETRAINED} every rookie QB, RB, WR and TE with a regular role, compared with the league's starters, on ${OFFENSE}. ${shares("about 20 rookies")}`,
-  dpoy: `${RETRAINED} every starting defensive lineman, linebacker and defensive back on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and last season's DPOY votes. ${shares("about 200 players")}`,
-  droy: `${RETRAINED} every rookie defensive lineman, linebacker and defensive back with a regular role, compared with the league's starters, on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and draft position. ${shares("about 30 rookies")}`,
+  dpoy: `${RETRAINED} every starting defensive lineman, linebacker and defensive back on sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns per team game, the team's conference standing, games played, and last season's DPOY votes. ${shares("about 200 players")}`,
+  droy: `${RETRAINED} every rookie defensive lineman, linebacker and defensive back with a regular role, compared with the league's starters, on sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns per team game, the team's conference standing, games played, and draft position. ${shares("about 30 rookies")}`,
   cpoy: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every non-rookie with a regular role, on offense or defense, on this season's production and last season's, the share of last season's games played, the team's conference standing, and games played. % is production as a percentile of the starters at the same position: 88 means ahead of 88% of them. ${shares("about 450 players")}`,
   coty: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every head coach on the team's win percentage, its change from last season, point differential per game, conference standing, and whether it's the coach's first season with the team. ${shares("32 head coaches", "coach")} Coach photos are from Wikipedia; point at one for its photographer and license.`,
 };
@@ -331,14 +337,14 @@ function renderHero(rows, week, team, set) {
         el("span", { class: "hero-share-sub" },
           change == null ? null : el("span", {}, move(change * 100), ` pts since week ${week - 1}`),
           margin == null ? null : el("span", { text: `${pts(margin)} pts ahead of ${lastName(second.player)}` })))),
-    el("dl", { class: "hero-stats" },
+    el("dl", { class: "hero-stats", vars: { "--hero-cols": 2 + set.length, "--hero-core": set.filter((st) => !st.games).length } },
       change == null
         ? stat("stat-context", "Last week", el("span", { class: "flat", text: "New" }))
         : stat("stat-context", `Since week ${week - 1}`, move(change * 100), "pts"),
       margin == null ? stat("stat-context", "Lead", "–")
         // a long surname ("Smith-Njigba") would truncate in the label cell
         : stat("stat-context", lastName(second.player).length <= 9 ? `Lead over ${lastName(second.player)}` : "Lead over No. 2", pts(margin), "pts"),
-      ...set.map((st) => stat("stat-core", st.label, showStat(st, lead)))),
+      ...set.map((st) => stat(st.games ? "stat-core stat-games" : "stat-core", st.label, showStat(st, lead)))),
     el("div", { class: "vote" },
       el("p", { class: "vote-label", id: "vote-label", text: "The vote if the season ended today" }),
       el("div", { class: "vote-bar", role: "img", "aria-labelledby": "vote-label vote-legend" },
