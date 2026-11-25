@@ -10,11 +10,13 @@ const AWARD_NAMES = {
   dpoy: { short: "DPOY", full: "Defensive Player of the Year", stats: "defense" },
   droy: { short: "DROY", full: "Defensive Rookie of the Year", stats: "defense" },
   cpoy: { short: "CPOY", full: "Comeback Player of the Year", stats: "comeback" },
+  coty: { short: "COTY", full: "Coach of the Year", stats: "coach" },
 };
 const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(), full: award.toUpperCase() };
 // The four stats an award's leader card, table and head to head show, keyed to the JSON's stats.
 // unit: the inline label on phones ("92.4 yds/g"); long: the head-to-head label; lower: fewer is better;
-// neutral: neither side is better, so the head to head doesn't bold it.
+// neutral: neither side is better, so the head to head doesn't bold it; fmt: how to show it;
+// note: the head-to-head line for a fewer-is-better stat.
 const STAT_SETS = {
   offense: [
     { key: "yards_per_game", label: "Yds/g", unit: "yds/g", digits: 1 },
@@ -36,10 +38,22 @@ const STAT_SETS = {
     { key: "games", label: "G", long: "Games", unit: "G" },
     { key: "prod_pct", label: "%", long: "Percentile", unit: "%" },
   ],
+  // Values stay four characters or fewer to fit a phone's leader card, so last season is wins, not a record
+  coach: [
+    { key: "prev_wins", label: "Prev W", long: "Wins last season", unit: "W last yr", neutral: true },
+    { key: "win_pct_change", label: "Gain", long: "Win % gain", unit: "win %", fmt: (x) => `${x < 0 ? "−" : "+"}${Math.abs(x).toFixed(2).slice(1)}` },
+    { key: "point_diff", label: "Diff", long: "Point differential", unit: "pt diff", fmt: (x) => `${x < 0 ? "−" : "+"}${Math.abs(x)}` },
+    { key: "conf_rank", label: "Conf", long: "Conference rank", unit: "in conf", lower: true, fmt: (x) => ordinalNum(x),
+      note: "A lower conference rank is better." },
+  ],
 };
 const statSet = (award) => STAT_SETS[AWARD_NAMES[award]?.stats || "offense"];
 // digits fixes the decimals; otherwise whole numbers stay whole and half sacks show as 4.5
-const showStat = (st, r) => { const x = r.stats[st.key]; return st.digits ? x.toFixed(st.digits) : String(x); };
+const showStat = (st, r) => {
+  const x = r.stats[st.key];
+  return st.fmt ? st.fmt(x) : st.digits ? x.toFixed(st.digits) : String(x);
+};
+const statValue = (st, r) => r.stats[st.key];
 // "How it works", one per award, because each award ranks its own pool. MVP's is also static in index.html.
 const RETRAINED = "Each week a logistic regression is retrained on AP voting from 1999 to 2025 and scores";
 const OFFENSE = "per-game yards, touchdowns, EPA and turnovers, the team's conference standing, and games played";
@@ -53,6 +67,7 @@ const HOW_IT_WORKS = {
   dpoy: `${RETRAINED} every starting defensive lineman, linebacker and defensive back on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and last season's DPOY votes. ${shares("about 200 players")}`,
   droy: `${RETRAINED} every rookie defensive lineman, linebacker and defensive back with a regular role, compared with the league's starters, on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and draft position. ${shares("about 30 rookies")}`,
   cpoy: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every non-rookie with a regular role, on offense or defense, on this season's production and last season's, the share of last season's games played, the team's conference standing, and games played. % is production as a percentile of the starters at the same position: 88 means ahead of 88% of them. ${shares("about 450 players")}`,
+  coty: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every head coach on the team's win percentage, its change from last season, point differential per game, conference standing, and whether it's the coach's first season with the team. ${shares("32 head coaches", "coach")}`,
 };
 const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5"]; // chart colors, fixed order; color follows the player, not the rank
 const NIGHT = ["--n1", "--n2", "--n3", "--n4", "--n5"]; // the same hues stepped for the dark leader card
@@ -328,7 +343,7 @@ const columnsFor = (set) => [
   ["player", "Player", 1, "c-player", (r) => lastName(r.player)],
   ["rec", "Rec", -1, "c-stat c-rec", (r) => winPct(r.team_record)],
   // where fewer is better (turnovers), the first click sorts low to high
-  ...set.map((st) => [st.key, st.label, st.lower ? 1 : -1, "c-stat", (r) => r.stats[st.key]]),
+  ...set.map((st) => [st.key, st.label, st.lower ? 1 : -1, "c-stat", (r) => statValue(st, r)]),
   ["share", "Share", -1, "c-share", (r) => r.share],
   ["chg", "Chg", -1, "c-chg", (r) => shareChange(r) ?? -Infinity],
 ];
@@ -673,7 +688,7 @@ function renderHeadToHead(rows, set) {
     // label, value, display, then true if lower is better, false if higher, null if neither (no bold).
     // Fewer-is-better stats go last, next to the note.
     ["Share", (r) => r.share, (r) => pct(r.share), false],
-    ...[...set.filter((st) => !st.lower), ...lower].map((st) => [st.long || st.label, (r) => r.stats[st.key], (r) => showStat(st, r),
+    ...[...set.filter((st) => !st.lower), ...lower].map((st) => [st.long || st.label, (r) => statValue(st, r), (r) => showStat(st, r),
       st.neutral ? null : Boolean(st.lower)]),
     ["Record", (r) => winPct(r.team_record), (r) => r.team_record, false],
   ];
@@ -695,7 +710,7 @@ function renderHeadToHead(rows, set) {
         el("span", { class: `h2h-val b${better === "b" ? " better" : ""}`, text: show(b) }));
     }),
     el("p", { class: "h2h-note", text: ["Bold marks the better number.",
-      ...lower.map((st) => `Fewer ${(st.long || st.label).toLowerCase()} is better.`)].join(" ") }));
+      ...lower.map((st) => st.note || `Fewer ${(st.long || st.label).toLowerCase()} is better.`)].join(" ") }));
 }
 
 main();

@@ -10,7 +10,7 @@ python -m awards.features   writes the 1999-2025 table with targets to .cache/mo
 import numpy as np
 import pandas as pd
 
-from awards.data import (ROOT, VOTES_CSV, add_targets, load_player_ids, load_targets, load_team_records,
+from awards.data import (ROOT, add_targets, coach_id, load_player_ids, load_targets, load_team_records, load_votes,
                          load_weekly_stats)
 
 # Per team game rates, so a player 10 games in compares fairly with a full season.
@@ -48,7 +48,9 @@ POOLS = {
     "droy": lambda t: (t["side"] == "defense") & (t["rookie"] == 1),
     # Non-rookies with a regular role on either side, from 2000 on (a comeback needs a previous season).
     # Starters only would miss players back for part of a season: Joe Flacco, 2023's winner, played 5 games.
-    "cpoy": lambda t: (t["rookie"] == 0) & t["prev_availability"].notna(),
+    "cpoy": lambda t: (t["side"] != "coach") & (t["rookie"] == 0) & t["prev_availability"].notna(),
+    # every team's head coach, from 2000 on (the record change needs a previous season)
+    "coty": lambda t: (t["side"] == "coach") & t["prev_win_pct"].notna(),
 }
 
 
@@ -74,7 +76,8 @@ def build_features(seasons, through_week):
 
     side is "offense" or "defense"; starter, regular and rookie say which pools the row is in. Every row
     has a regular role; rookie means a rookie with one. A row's z-scores for the other side are 0. The prev_* columns
-    describe the player's previous full season and are blank in 1999.
+    describe the player's previous full season and are blank in 1999. Coaches come last, one row per
+    team-season (side "coach", from coach_seasons), with their own columns.
     """
     p = player_seasons(seasons, through_week)
     p = p.merge(last_season(p), on=["season", "player_id"], how="left", validate="one_to_one")
@@ -91,7 +94,29 @@ def build_features(seasons, through_week):
     return pd.concat([
         p.loc[p["side"] == "offense", keep].sort_values(["season", "epa_z"], ascending=[True, False]),
         p.loc[p["side"] == "defense", keep].sort_values(["season", "player_id"]),
+        coach_seasons(seasons, through_week),
     ]).reset_index(drop=True)
+
+
+def coach_seasons(seasons, through_week):
+    """One row per team-season: its head coach (in the latest game) as a COTY candidate, with the team's
+    record and point differential so far, last season's full record, and whether the coach is new."""
+    t = load_team_records(seasons, through_week)
+    prior = sorted({s - 1 for s in seasons if s - 1 >= FIRST_SEASON})
+    prev = load_team_records(prior, FINAL_WEEK) if prior else t.iloc[:0]
+    prev = prev.assign(season=prev["season"] + 1).rename(columns={
+        "team_win_pct": "prev_win_pct", "coach": "prev_coach", "team_wins": "prev_wins",
+        "team_losses": "prev_losses", "team_ties": "prev_ties"})
+    t = t.merge(prev[["season", "team", "prev_win_pct", "prev_coach", "prev_wins", "prev_losses", "prev_ties"]],
+                on=["season", "team"], how="left", validate="one_to_one")
+    t["win_pct_change"] = t["team_win_pct"] - t["prev_win_pct"]
+    t["new_coach"] = (t["coach"] != t["prev_coach"]).astype(int)
+    t = t.assign(player_id="HC:" + t["coach"], pfr_id=t["team"].map(coach_id), player=t["coach"], position="HC",
+                 position_group="HC", side="coach", headshot_url=None, games=t["team_games"])
+    keep = ["season", "player_id", "pfr_id", "player", "position", "position_group", "side", "team", "headshot_url",
+            "games", "team_games", "team_win_pct", "conf_rank", "def_rank", "team_pd_pg", "team_wins", "team_losses",
+            "team_ties", "prev_win_pct", "prev_wins", "prev_losses", "prev_ties", "win_pct_change", "new_coach"]
+    return t[keep].sort_values(["season", "team"])
 
 
 def last_season(p):
@@ -222,7 +247,7 @@ def main():
           f" over {per_season.size} seasons")
 
     # Vote-getters who are not in the award's pool, with their name and position from the vote file.
-    voters = pd.read_csv(VOTES_CSV, skiprows=2)[["season", "award", "player", "pfr_id", "pos"]]
+    voters = load_votes()[["season", "award", "player", "pfr_id", "pos"]]
     for award in POOLS:
         pool = award_pool(table, award)
         sums = pool.groupby("season")[f"target_{award}"].sum()
@@ -241,8 +266,11 @@ def main():
         print(f"  {season} {name}: top is {top['player']} ({top['target_mvp']:.2f})"
               f" {'OK' if top['player'] == name else 'MISMATCH'}")
 
+    from awards.model import FEATURES  # model doesn't import features, so this can't loop
+
     now = build_features([2026], through_week=10)
-    print(f"\n2026 through week 10: {len(now)} candidates, {now.isna().sum().sum()} missing values,"
+    missing = sum(int(award_pool(now, a)[FEATURES[a]].isna().sum().sum()) for a in POOLS)
+    print(f"\n2026 through week 10: {len(now)} candidates, {missing} missing feature values,"
           f" by position {now['position_group'].value_counts().to_dict()},"
           + "".join(f" {award} {len(award_pool(now, award))}" for award in POOLS))
     print(now.head(8)[["player", "position_group", "team", "games", "team_win_pct", "yards_pg", "tds_pg", "epa_z"]]

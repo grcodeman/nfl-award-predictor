@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 2,
-  "generated_at": "2026-11-25T04:18:15Z",
-  "model_version": "v6",
+  "generated_at": "2026-11-25T04:37:00Z",
+  "model_version": "v7",
   "awards": {
     "mvp": [
       {
@@ -1163,6 +1163,208 @@
           "prev_games": 8,
           "prod_pct": 44,
           "prev_prod_pct": 30
+        }
+      }
+    ],
+    "coty": [
+      {
+        "rank": 1,
+        "prev_rank": 2,
+        "player_id": "HC:Klint Kubiak",
+        "player": "Klint Kubiak",
+        "position": "HC",
+        "team": "LV",
+        "team_record": "2-0",
+        "headshot_url": null,
+        "share": 0.725,
+        "prev_share": 0.266,
+        "stats": {
+          "games": 2,
+          "prev_record": "3-14",
+          "prev_wins": 3,
+          "win_pct_change": 0.824,
+          "point_diff": 26,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 5,
+        "player_id": "HC:Zac Taylor",
+        "player": "Zac Taylor",
+        "position": "HC",
+        "team": "CIN",
+        "team_record": "2-0",
+        "headshot_url": null,
+        "share": 0.1,
+        "prev_share": 0.037,
+        "stats": {
+          "games": 2,
+          "prev_record": "6-11",
+          "prev_wins": 6,
+          "win_pct_change": 0.647,
+          "point_diff": 20,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 6,
+        "player_id": "HC:Andy Reid",
+        "player": "Andy Reid",
+        "position": "HC",
+        "team": "KC",
+        "team_record": "2-0",
+        "headshot_url": null,
+        "share": 0.1,
+        "prev_share": 0.036,
+        "stats": {
+          "games": 2,
+          "prev_record": "6-11",
+          "prev_wins": 6,
+          "win_pct_change": 0.647,
+          "point_diff": 24,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 10,
+        "player_id": "HC:Kevin O'Connell",
+        "player": "Kevin O'Connell",
+        "position": "HC",
+        "team": "MIN",
+        "team_record": "2-0",
+        "headshot_url": null,
+        "share": 0.029,
+        "prev_share": 0.011,
+        "stats": {
+          "games": 2,
+          "prev_record": "9-8",
+          "prev_wins": 9,
+          "win_pct_change": 0.471,
+          "point_diff": 23,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 11,
+        "player_id": "HC:Joe Brady",
+        "player": "Joe Brady",
+        "position": "HC",
+        "team": "BUF",
+        "team_record": "2-0",
+        "headshot_url": null,
+        "share": 0.018,
+        "prev_share": 0.007,
+        "stats": {
+          "games": 2,
+          "prev_record": "12-5",
+          "prev_wins": 12,
+          "win_pct_change": 0.294,
+          "point_diff": 15,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 12,
+        "player_id": "HC:Nick Sirianni",
+        "player": "Nick Sirianni",
+        "position": "HC",
+        "team": "PHI",
+        "team_record": "2-0",
+        "headshot_url": null,
+        "share": 0.013,
+        "prev_share": 0.005,
+        "stats": {
+          "games": 2,
+          "prev_record": "11-6",
+          "prev_wins": 11,
+          "win_pct_change": 0.353,
+          "point_diff": 6,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 14,
+        "player_id": "HC:Kyle Shanahan",
+        "player": "Kyle Shanahan",
+        "position": "HC",
+        "team": "SF",
+        "team_record": "2-0",
+        "headshot_url": null,
+        "share": 0.008,
+        "prev_share": 0.003,
+        "stats": {
+          "games": 2,
+          "prev_record": "12-5",
+          "prev_wins": 12,
+          "win_pct_change": 0.294,
+          "point_diff": 42,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 16,
+        "player_id": "HC:Mike Macdonald",
+        "player": "Mike Macdonald",
+        "position": "HC",
+        "team": "SEA",
+        "team_record": "2-0",
+        "headshot_url": null,
+        "share": 0.004,
+        "prev_share": 0.001,
+        "stats": {
+          "games": 2,
+          "prev_record": "14-3",
+          "prev_wins": 14,
+          "win_pct_change": 0.176,
+          "point_diff": 27,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 1,
+        "player_id": "HC:Mike LaFleur",
+        "player": "Mike LaFleur",
+        "position": "HC",
+        "team": "ARI",
+        "team_record": "1-1",
+        "headshot_url": null,
+        "share": 0.001,
+        "prev_share": 0.266,
+        "stats": {
+          "games": 2,
+          "prev_record": "3-14",
+          "prev_wins": 3,
+          "win_pct_change": 0.324,
+          "point_diff": -12,
+          "conf_rank": 5
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 3,
+        "player_id": "HC:John Harbaugh",
+        "player": "John Harbaugh",
+        "position": "HC",
+        "team": "NYG",
+        "team_record": "1-1",
+        "headshot_url": null,
+        "share": 0.001,
+        "prev_share": 0.177,
+        "stats": {
+          "games": 2,
+          "prev_record": "4-13",
+          "prev_wins": 4,
+          "win_pct_change": 0.265,
+          "point_diff": -14,
+          "conf_rank": 5
         }
       }
     ]

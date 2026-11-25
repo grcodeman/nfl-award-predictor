@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 1,
-  "generated_at": "2026-11-25T04:18:09Z",
-  "model_version": "v6",
+  "generated_at": "2026-11-25T04:36:54Z",
+  "model_version": "v7",
   "awards": {
     "mvp": [
       {
@@ -1163,6 +1163,208 @@
           "prev_games": 10,
           "prod_pct": 47,
           "prev_prod_pct": 9
+        }
+      }
+    ],
+    "coty": [
+      {
+        "rank": 1,
+        "prev_rank": null,
+        "player_id": "HC:Mike LaFleur",
+        "player": "Mike LaFleur",
+        "position": "HC",
+        "team": "ARI",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.266,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "3-14",
+          "prev_wins": 3,
+          "win_pct_change": 0.824,
+          "point_diff": 12,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": null,
+        "player_id": "HC:Klint Kubiak",
+        "player": "Klint Kubiak",
+        "position": "HC",
+        "team": "LV",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.266,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "3-14",
+          "prev_wins": 3,
+          "win_pct_change": 0.824,
+          "point_diff": 14,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": null,
+        "player_id": "HC:John Harbaugh",
+        "player": "John Harbaugh",
+        "position": "HC",
+        "team": "NYG",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.177,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "4-13",
+          "prev_wins": 4,
+          "win_pct_change": 0.765,
+          "point_diff": 8,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": null,
+        "player_id": "HC:Aaron Glenn",
+        "player": "Aaron Glenn",
+        "position": "HC",
+        "team": "NYJ",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.126,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "3-14",
+          "prev_wins": 3,
+          "win_pct_change": 0.824,
+          "point_diff": 13,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": null,
+        "player_id": "HC:Zac Taylor",
+        "player": "Zac Taylor",
+        "position": "HC",
+        "team": "CIN",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.037,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "6-11",
+          "prev_wins": 6,
+          "win_pct_change": 0.647,
+          "point_diff": 6,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": null,
+        "player_id": "HC:Andy Reid",
+        "player": "Andy Reid",
+        "position": "HC",
+        "team": "KC",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.036,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "6-11",
+          "prev_wins": 6,
+          "win_pct_change": 0.647,
+          "point_diff": 21,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": null,
+        "player_id": "HC:Jesse Minter",
+        "player": "Jesse Minter",
+        "position": "HC",
+        "team": "BAL",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.034,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "8-9",
+          "prev_wins": 8,
+          "win_pct_change": 0.529,
+          "point_diff": 18,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": null,
+        "player_id": "HC:Mike McCarthy",
+        "player": "Mike McCarthy",
+        "position": "HC",
+        "team": "PIT",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.015,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "10-7",
+          "prev_wins": 10,
+          "win_pct_change": 0.412,
+          "point_diff": 7,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": null,
+        "player_id": "HC:Dan Campbell",
+        "player": "Dan Campbell",
+        "position": "HC",
+        "team": "DET",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.011,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "9-8",
+          "prev_wins": 9,
+          "win_pct_change": 0.471,
+          "point_diff": 1,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": null,
+        "player_id": "HC:Kevin O'Connell",
+        "player": "Kevin O'Connell",
+        "position": "HC",
+        "team": "MIN",
+        "team_record": "1-0",
+        "headshot_url": null,
+        "share": 0.011,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "prev_record": "9-8",
+          "prev_wins": 9,
+          "win_pct_change": 0.471,
+          "point_diff": 17,
+          "conf_rank": 1
         }
       }
     ]

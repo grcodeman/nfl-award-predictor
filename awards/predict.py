@@ -22,7 +22,7 @@ from awards.model import MODEL_VERSION, fit, score, to_shares
 
 OUT = ROOT / "predictions"
 KIND = "logistic"  # the model that cleared the MVP floor at every snapshot week and the OPOY floor
-AWARDS = ["mvp", "opoy", "oroy", "dpoy", "droy", "cpoy"]  # each award gets its own model, trained on its own "won" label and pool
+AWARDS = ["mvp", "opoy", "oroy", "dpoy", "droy", "cpoy", "coty"]  # each award gets its own model, trained on its own "won" label and pool
 TOP_N = 10
 
 
@@ -53,8 +53,21 @@ def ranked(table, award, model):
     return t.set_index("player_id")
 
 
+def record(wins, losses, ties):
+    return f"{int(wins)}-{int(losses)}" + (f"-{int(ties)}" if ties else "")
+
+
 def stats(row, award):
     """The season-so-far numbers the dashboard shows, which depend on the award and the side of the ball."""
+    if award == "coty":
+        return {
+            "games": int(row.games),
+            "prev_record": record(row.prev_wins, row.prev_losses, row.prev_ties),
+            "prev_wins": int(row.prev_wins),
+            "win_pct_change": round(float(row.win_pct_change), 3),
+            "point_diff": int(round(row.team_pd_pg * row.team_games)),  # season total, as it's usually quoted
+            "conf_rank": int(row.conf_rank),
+        }
     if award == "cpoy":
         # one scale for both sides: production as a percentile of the starters at the position
         return {
@@ -83,7 +96,6 @@ def stats(row, award):
 
 def entry(award, player_id, row, prev):
     p = prev.loc[player_id] if prev is not None and player_id in prev.index else None
-    record = f"{row.team_wins}-{row.team_losses}" + (f"-{row.team_ties}" if row.team_ties else "")
     return {
         "rank": int(row["rank"]),
         "prev_rank": int(p["rank"]) if p is not None else None,
@@ -92,7 +104,7 @@ def entry(award, player_id, row, prev):
         # defenders show their position (CB, DE, OLB): the group (DB, DL, LB) says less
         "position": row.position if row.side == "defense" else row.position_group,
         "team": row.team,
-        "team_record": record,
+        "team_record": record(row.team_wins, row.team_losses, row.team_ties),
         "headshot_url": row.headshot_url if isinstance(row.headshot_url, str) else None,
         "share": round(float(row.share), 3),
         "prev_share": round(float(p["share"]), 3) if p is not None else None,

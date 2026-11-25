@@ -6,6 +6,7 @@ python -m awards.evaluate oroy     Offensive Rookie of the Year
 python -m awards.evaluate dpoy     Defensive Player of the Year
 python -m awards.evaluate droy     Defensive Rookie of the Year
 python -m awards.evaluate cpoy     Comeback Player of the Year
+python -m awards.evaluate coty     Coach of the Year
 
 The three offensive awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
 scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the dashboard is read
@@ -42,6 +43,14 @@ whose thin rookie season looks like a comeback (Jordan Love 2023, Drake Maye 202
 back a top-3 season at full season, so by the rule the baseline stayed. Damar Hamlin (2023, 0.42 of
 first-place votes) had no stats to find, and offensive linemen are out of every pool.
 
+COTY ranks every team's head coach, 2000-2025 (the 1998 schedules aren't in nflverse), as one row per
+team-season, so votes and winners are joined by team. Baseline, the floor: win pct, its change from last
+season, point differential per game and conf_rank, 6/11 8/17 7/20 9/21 of 26. Plus "first season with
+the team" 6/11 8/18 9/20 12/20; minus conf_rank 4/11 8/16 8/20 12/20; minus point differential 6/11
+8/18 7/19 11/21; first season without conf_rank 5/10 8/18 9/19 13/20. The first-season flag tied at
+week 8, did better at weeks 11 and 14, and at full season gained three top picks for one top-3 season
+(as with DPOY's prior vote), so it is the set used.
+
 For each season 1999-2025: train on full-season features from the other 26 seasons, then score the
 held-out season with features through weeks 8, 11, 14 and the full season. Seasons are held out
 whole because players in the same season compete for the same votes.
@@ -50,7 +59,7 @@ import sys
 
 import pandas as pd
 
-from awards.data import VOTES_CSV, add_targets
+from awards.data import add_targets, load_votes
 from awards.features import FINAL_WEEK, award_pool, build_features
 from awards.model import MODELS, fit, score
 
@@ -66,6 +75,7 @@ FLOOR = {
     "dpoy": {8: (2, 6), 11: (2, 10), 14: (4, 10), FINAL_WEEK: (4, 12)},
     "droy": {8: (7, 13), 11: (7, 16), 14: (7, 17), FINAL_WEEK: (8, 17)},
     "cpoy": {8: (5, 9), 11: (5, 11), 14: (6, 11), FINAL_WEEK: (6, 14)},
+    "coty": {8: (6, 11), 11: (8, 17), 14: (7, 20), FINAL_WEEK: (9, 21)},
 }
 
 
@@ -121,7 +131,7 @@ def main(award="mvp"):
             print(f"  {x.season}  {winners[x.season]:<34} ranked {x.winner_rank:>3.0f}   top pick: {x.top_pick}")
 
     # 2022 on, ballots rank 3-5 players, so the points order says how voters ranked the whole field.
-    votes = pd.read_csv(VOTES_CSV, skiprows=2)
+    votes = load_votes()
     votes = votes[(votes["award"] == award) & (votes["voting_system"] == "ranked_points")].dropna(subset=["votes"])
     print("\nrank correlation (Spearman) with the ranked points order, vote-getters in the pool, full season:")
     print("  season" + "".join(f"{k:>10}" for k in MODELS) + "   players")

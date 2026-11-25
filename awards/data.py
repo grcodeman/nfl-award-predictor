@@ -1,4 +1,4 @@
-"""Loaders: AP vote targets, the player id crosswalk, weekly player stats, and team records."""
+"""Loaders: AP votes and vote targets, the player id crosswalk, weekly player stats, and team records."""
 from pathlib import Path
 
 import nflreadpy as nfl
@@ -28,14 +28,42 @@ STAT_COLS = [
 ]
 
 
-def load_targets(awards=("mvp", "opoy", "oroy", "dpoy", "droy", "cpoy")):
-    """One row per player-season that got votes: pfr_id, season, target_* and won_* for each award.
+def team_code(name):
+    """A full team name from the award files ("St. Louis Rams") -> today's code ("LA"), by nickname."""
+    nick = name.split()[-1]
+    return {"Redskins": "WAS", "Team": "WAS", "Commanders": "WAS"}.get(nick) or _NICKNAMES[nick]
+
+
+_NICKNAMES = None
+
+
+def coach_id(team):
+    """COTY candidates are team-seasons, so a coach's key is his team's: the AP's 2012 winner, Bruce
+    Arians, coached the Colts while Chuck Pagano was ill, and the schedules list Pagano all season."""
+    return f"HC-{team}"
+
+
+def load_votes():
+    """The vote file, with COTY rows keyed by coach_id instead of the coach's own PFR id."""
+    global _NICKNAMES
+    if _NICKNAMES is None:
+        teams = nfl.load_teams().to_pandas()
+        teams = teams[~teams["team_abbr"].isin([*OLD_TEAM_CODES, "LAR"])]  # one code per nickname, today's
+        _NICKNAMES = dict(zip(teams["team_nick"], teams["team_abbr"]))
+    v = pd.read_csv(VOTES_CSV, skiprows=2)
+    coty = v["award"] == "coty"
+    v.loc[coty, "pfr_id"] = v.loc[coty, "team"].map(lambda name: coach_id(team_code(name)))
+    return v
+
+
+def load_targets(awards=("mvp", "opoy", "oroy", "dpoy", "droy", "cpoy", "coty")):
+    """One row per candidate-season that got votes: pfr_id, season, target_* and won_* for each award.
 
     target_* is first-place share. Unlike `share`, it sums to 1.0 within every season and award,
     so it means the same thing before and after the 2022 switch to ranked ballots.
     won_* is 1 for the winner, from the award-data/ winner files, which list both 2003 co-MVPs.
     """
-    v = pd.read_csv(VOTES_CSV, skiprows=2)
+    v = load_votes()
     v = v[v["award"].isin(awards)].dropna(subset=["pfr_id"])  # drops Denny Kellington, a team trainer (2022 MVP)
     first = v["first_place"].fillna(0)
     total_first = first.groupby([v["season"], v["award"]]).transform("sum")
@@ -45,6 +73,8 @@ def load_targets(awards=("mvp", "opoy", "oroy", "dpoy", "droy", "cpoy")):
     wide = wide.add_prefix("target_").reset_index().rename_axis(columns=None)
     for award in awards:
         w = pd.read_csv(ROOT / "award-data" / f"{award}.csv", skiprows=2)
+        if award == "coty":  # the coach file has no id column; it starts in 1957, before some team names
+            w = w[w["Year"] >= 1999].assign(**{"Player-additional": lambda d: d["Tm"].map(team_code).map(coach_id)})
         winners = set(zip(w["Player-additional"], w["Year"]))
         wide[f"won_{award}"] = [int(key in winners) for key in zip(wide["pfr_id"], wide["season"])]
     return wide
@@ -78,21 +108,24 @@ def load_weekly_stats(seasons, through_week):
 
 
 def load_team_records(seasons, through_week):
-    """team_games, team_win_pct, conf_rank and def_rank per team-season, from REG games played in weeks
-    1 through `through_week`."""
+    """team_games, team_win_pct, conf_rank, def_rank, team_pd_pg and coach per team-season, from REG
+    games played in weeks 1 through `through_week`. coach is the head coach in the latest game."""
     g = nfl.load_schedules(list(seasons)).to_pandas()
     g = g[(g["game_type"] == "REG") & (g["week"] <= through_week) & g["result"].notna()]
     # One row per team per game. `result` is home score minus away score.
     games = pd.concat([
-        pd.DataFrame({"season": g["season"], "team": g["home_team"], "margin": g["result"], "allowed": g["away_score"]}),
-        pd.DataFrame({"season": g["season"], "team": g["away_team"], "margin": -g["result"], "allowed": g["home_score"]}),
-    ])
+        pd.DataFrame({"season": g["season"], "week": g["week"], "team": g["home_team"], "coach": g["home_coach"],
+                      "margin": g["result"], "allowed": g["away_score"]}),
+        pd.DataFrame({"season": g["season"], "week": g["week"], "team": g["away_team"], "coach": g["away_coach"],
+                      "margin": -g["result"], "allowed": g["home_score"]}),
+    ]).sort_values("week")
     games["team"] = games["team"].replace(OLD_TEAM_CODES)
     games["win"] = (games["margin"] > 0) + 0.5 * (games["margin"] == 0)  # a tie counts as half a win
     t = games.groupby(["season", "team"], as_index=False).agg(
         team_games=("win", "size"), team_win_pct=("win", "mean"),
         team_wins=("margin", lambda m: (m > 0).sum()), team_losses=("margin", lambda m: (m < 0).sum()),
         team_ties=("margin", lambda m: (m == 0).sum()), team_pa_pg=("allowed", "mean"),
+        team_pd_pg=("margin", "mean"), coach=("coach", "last"),
     )
     # 1 = fewest points allowed per game in the league that season
     t["def_rank"] = t.groupby("season")["team_pa_pg"].rank(method="min")

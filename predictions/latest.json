@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 11,
-  "generated_at": "2026-11-25T04:19:11Z",
-  "model_version": "v6",
+  "generated_at": "2026-11-25T04:37:59Z",
+  "model_version": "v7",
   "awards": {
     "mvp": [
       {
@@ -1163,6 +1163,208 @@
           "prev_games": 14,
           "prod_pct": 88,
           "prev_prod_pct": 76
+        }
+      }
+    ],
+    "coty": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "HC:Andy Reid",
+        "player": "Andy Reid",
+        "position": "HC",
+        "team": "KC",
+        "team_record": "8-2",
+        "headshot_url": null,
+        "share": 0.297,
+        "prev_share": 0.221,
+        "stats": {
+          "games": 10,
+          "prev_record": "6-11",
+          "prev_wins": 6,
+          "win_pct_change": 0.447,
+          "point_diff": 108,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 3,
+        "player_id": "HC:Joe Brady",
+        "player": "Joe Brady",
+        "position": "HC",
+        "team": "BUF",
+        "team_record": "9-1",
+        "headshot_url": null,
+        "share": 0.202,
+        "prev_share": 0.169,
+        "stats": {
+          "games": 10,
+          "prev_record": "12-5",
+          "prev_wins": 12,
+          "win_pct_change": 0.194,
+          "point_diff": 105,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 4,
+        "player_id": "HC:John Harbaugh",
+        "player": "John Harbaugh",
+        "position": "HC",
+        "team": "NYG",
+        "team_record": "6-3-1",
+        "headshot_url": null,
+        "share": 0.132,
+        "prev_share": 0.082,
+        "stats": {
+          "games": 10,
+          "prev_record": "4-13",
+          "prev_wins": 4,
+          "win_pct_change": 0.415,
+          "point_diff": 12,
+          "conf_rank": 5
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 5,
+        "player_id": "HC:Kyle Shanahan",
+        "player": "Kyle Shanahan",
+        "position": "HC",
+        "team": "SF",
+        "team_record": "9-1",
+        "headshot_url": null,
+        "share": 0.095,
+        "prev_share": 0.08,
+        "stats": {
+          "games": 10,
+          "prev_record": "12-5",
+          "prev_wins": 12,
+          "win_pct_change": 0.194,
+          "point_diff": 110,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 7,
+        "player_id": "HC:Dan Campbell",
+        "player": "Dan Campbell",
+        "position": "HC",
+        "team": "DET",
+        "team_record": "8-2",
+        "headshot_url": null,
+        "share": 0.087,
+        "prev_share": 0.064,
+        "stats": {
+          "games": 10,
+          "prev_record": "9-8",
+          "prev_wins": 9,
+          "win_pct_change": 0.271,
+          "point_diff": 68,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 2,
+        "player_id": "HC:Zac Taylor",
+        "player": "Zac Taylor",
+        "position": "HC",
+        "team": "CIN",
+        "team_record": "7-3",
+        "headshot_url": null,
+        "share": 0.06,
+        "prev_share": 0.221,
+        "stats": {
+          "games": 10,
+          "prev_record": "6-11",
+          "prev_wins": 6,
+          "win_pct_change": 0.347,
+          "point_diff": 83,
+          "conf_rank": 4
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 8,
+        "player_id": "HC:Todd Monken",
+        "player": "Todd Monken",
+        "position": "HC",
+        "team": "CLE",
+        "team_record": "6-4",
+        "headshot_url": null,
+        "share": 0.04,
+        "prev_share": 0.029,
+        "stats": {
+          "games": 10,
+          "prev_record": "5-12",
+          "prev_wins": 5,
+          "win_pct_change": 0.306,
+          "point_diff": -32,
+          "conf_rank": 6
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 9,
+        "player_id": "HC:Ben Johnson",
+        "player": "Ben Johnson",
+        "position": "HC",
+        "team": "CHI",
+        "team_record": "8-2",
+        "headshot_url": null,
+        "share": 0.038,
+        "prev_share": 0.028,
+        "stats": {
+          "games": 10,
+          "prev_record": "11-6",
+          "prev_wins": 11,
+          "win_pct_change": 0.153,
+          "point_diff": 65,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 6,
+        "player_id": "HC:Kevin O'Connell",
+        "player": "Kevin O'Connell",
+        "position": "HC",
+        "team": "MIN",
+        "team_record": "7-3",
+        "headshot_url": null,
+        "share": 0.018,
+        "prev_share": 0.064,
+        "stats": {
+          "games": 10,
+          "prev_record": "9-8",
+          "prev_wins": 9,
+          "win_pct_change": 0.171,
+          "point_diff": 25,
+          "conf_rank": 4
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 12,
+        "player_id": "HC:Sean Payton",
+        "player": "Sean Payton",
+        "position": "HC",
+        "team": "DEN",
+        "team_record": "8-2",
+        "headshot_url": null,
+        "share": 0.011,
+        "prev_share": 0.008,
+        "stats": {
+          "games": 10,
+          "prev_record": "14-3",
+          "prev_wins": 14,
+          "win_pct_change": -0.024,
+          "point_diff": 26,
+          "conf_rank": 2
         }
       }
     ]

@@ -20,7 +20,10 @@ DEFENSE = ["sacks_z", "ints_z", "pds_z", "ffs_z", "tackles_z", "def_tds_z", "con
 FEATURES = {"mvp": OFFENSE, "opoy": OFFENSE, "oroy": OFFENSE, "dpoy": DEFENSE + ["prev_dpoy_vote"],
             "droy": DEFENSE + ["draft_slot"],
             "cpoy": ["prod_z", "prev_prod_z", "prev_availability", "conf_rank", "availability",
-                     "is_qb", "is_rb", "is_wr", "is_te", "is_dl", "is_lb", "is_db"]}
+                     "is_qb", "is_rb", "is_wr", "is_te", "is_dl", "is_lb", "is_db"],
+            # coaches: the team's record, its change from last season, point differential, standing,
+            # and whether it's the coach's first season with the team
+            "coty": ["team_win_pct", "win_pct_change", "team_pd_pg", "conf_rank", "new_coach"]}
 
 # StandardScaler puts every feature on the same scale, so the regularization treats them evenly.
 MODELS = {
@@ -31,7 +34,9 @@ MODELS = {
     "logistic": lambda: make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000)),
 }
 TARGETS = {"ridge": "target_{award}", "logistic": "won_{award}"}
-MODEL_VERSION = "v6"  # written into the prediction JSON; bump it when features or models change (v2: OPOY, v3: OROY, v4: DPOY, v5: DROY, v6: CPOY)
+# Written into the prediction JSON; bump it when features or models change.
+# v2 added OPOY, v3 OROY, v4 DPOY, v5 DROY, v6 CPOY, v7 COTY.
+MODEL_VERSION = "v7"
 
 
 def fit(kind, train, award="mvp"):

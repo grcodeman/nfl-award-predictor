@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 4,
-  "generated_at": "2026-11-25T04:18:27Z",
-  "model_version": "v6",
+  "generated_at": "2026-11-25T04:37:13Z",
+  "model_version": "v7",
   "awards": {
     "mvp": [
       {
@@ -1163,6 +1163,208 @@
           "prev_games": 0,
           "prod_pct": 25,
           "prev_prod_pct": 0
+        }
+      }
+    ],
+    "coty": [
+      {
+        "rank": 1,
+        "prev_rank": 2,
+        "player_id": "HC:Andy Reid",
+        "player": "Andy Reid",
+        "position": "HC",
+        "team": "KC",
+        "team_record": "4-0",
+        "headshot_url": null,
+        "share": 0.456,
+        "prev_share": 0.111,
+        "stats": {
+          "games": 4,
+          "prev_record": "6-11",
+          "prev_wins": 6,
+          "win_pct_change": 0.647,
+          "point_diff": 41,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 1,
+        "player_id": "HC:Klint Kubiak",
+        "player": "Klint Kubiak",
+        "position": "HC",
+        "team": "LV",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.174,
+        "prev_share": 0.809,
+        "stats": {
+          "games": 4,
+          "prev_record": "3-14",
+          "prev_wins": 3,
+          "win_pct_change": 0.574,
+          "point_diff": 31,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 3,
+        "player_id": "HC:Kevin O'Connell",
+        "player": "Kevin O'Connell",
+        "position": "HC",
+        "team": "MIN",
+        "team_record": "4-0",
+        "headshot_url": null,
+        "share": 0.132,
+        "prev_share": 0.032,
+        "stats": {
+          "games": 4,
+          "prev_record": "9-8",
+          "prev_wins": 9,
+          "win_pct_change": 0.471,
+          "point_diff": 35,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 6,
+        "player_id": "HC:John Harbaugh",
+        "player": "John Harbaugh",
+        "position": "HC",
+        "team": "NYG",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.089,
+        "prev_share": 0.009,
+        "stats": {
+          "games": 4,
+          "prev_record": "4-13",
+          "prev_wins": 4,
+          "win_pct_change": 0.515,
+          "point_diff": 3,
+          "conf_rank": 3
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 7,
+        "player_id": "HC:Todd Monken",
+        "player": "Todd Monken",
+        "position": "HC",
+        "team": "CLE",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.077,
+        "prev_share": 0.005,
+        "stats": {
+          "games": 4,
+          "prev_record": "5-12",
+          "prev_wins": 5,
+          "win_pct_change": 0.456,
+          "point_diff": -14,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 5,
+        "player_id": "HC:Kyle Shanahan",
+        "player": "Kyle Shanahan",
+        "position": "HC",
+        "team": "SF",
+        "team_record": "4-0",
+        "headshot_url": null,
+        "share": 0.038,
+        "prev_share": 0.009,
+        "stats": {
+          "games": 4,
+          "prev_record": "12-5",
+          "prev_wins": 12,
+          "win_pct_change": 0.294,
+          "point_diff": 58,
+          "conf_rank": 1
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 9,
+        "player_id": "HC:Jesse Minter",
+        "player": "Jesse Minter",
+        "position": "HC",
+        "team": "BAL",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.022,
+        "prev_share": 0.001,
+        "stats": {
+          "games": 4,
+          "prev_record": "8-9",
+          "prev_wins": 8,
+          "win_pct_change": 0.279,
+          "point_diff": 20,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 4,
+        "player_id": "HC:Joe Brady",
+        "player": "Joe Brady",
+        "position": "HC",
+        "team": "BUF",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.004,
+        "prev_share": 0.02,
+        "stats": {
+          "games": 4,
+          "prev_record": "12-5",
+          "prev_wins": 12,
+          "win_pct_change": 0.044,
+          "point_diff": 20,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 13,
+        "player_id": "HC:Ben Johnson",
+        "player": "Ben Johnson",
+        "position": "HC",
+        "team": "CHI",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.002,
+        "prev_share": 0.0,
+        "stats": {
+          "games": 4,
+          "prev_record": "11-6",
+          "prev_wins": 11,
+          "win_pct_change": 0.103,
+          "point_diff": 47,
+          "conf_rank": 3
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 15,
+        "player_id": "HC:Liam Coen",
+        "player": "Liam Coen",
+        "position": "HC",
+        "team": "JAX",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.001,
+        "prev_share": 0.0,
+        "stats": {
+          "games": 4,
+          "prev_record": "13-4",
+          "prev_wins": 13,
+          "win_pct_change": -0.015,
+          "point_diff": 51,
+          "conf_rank": 2
         }
       }
     ]
