@@ -146,7 +146,9 @@ ol, ul { list-style: none; padding: 0; }
 .page { padding: 1.75rem 0 3rem; }
 .title-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-bottom: 1.5rem; }
 h1 { font: 700 2.875rem/1 var(--cond); text-transform: uppercase; letter-spacing: -0.005em; }
-.lede { color: var(--ink-2); font-size: 1.0625rem; max-width: 72ch; text-wrap: pretty; }
+/* Fills the row beside the title, so every award's lede stays on one line when there's room. A 72ch cap
+   used to wrap the longer names ("Offensive Player of the Year") while MVP's fit. Below 24rem it drops under the title. */
+.lede { flex: 1 1 24rem; color: var(--ink-2); font-size: 1.0625rem; text-wrap: pretty; }
 .message { padding: 1rem 0 3rem; color: var(--ink-2); max-width: 60ch; }
 
 .layout { display: grid; gap: 1.5rem; align-items: start; }
