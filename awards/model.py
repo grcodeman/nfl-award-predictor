@@ -12,12 +12,15 @@ from sklearn.preprocessing import StandardScaler
 OFFENSE = ["yards_z", "tds_z", "epa_z", "turnovers_z", "conf_rank", "availability",
            "is_qb", "is_rb", "is_wr", "is_te"]
 # The same recipe for defenders: per-game production z-scored within DL, LB and DB, plus standing and
-# games played. DPOY adds last season's DPOY vote, for reputation, and DROY the draft slot. The
+# games played. DPOY adds last season's DPOY vote, for reputation, and DROY the draft slot. CPOY sets
+# this season's production against last season's and how much of last season the player missed. The
 # experiments behind each award's set are in the awards/evaluate.py docstring.
 DEFENSE = ["sacks_z", "ints_z", "pds_z", "ffs_z", "tackles_z", "def_tds_z", "conf_rank", "availability",
            "is_dl", "is_lb", "is_db"]
 FEATURES = {"mvp": OFFENSE, "opoy": OFFENSE, "oroy": OFFENSE, "dpoy": DEFENSE + ["prev_dpoy_vote"],
-            "droy": DEFENSE + ["draft_slot"]}
+            "droy": DEFENSE + ["draft_slot"],
+            "cpoy": ["prod_z", "prev_prod_z", "prev_availability", "conf_rank", "availability",
+                     "is_qb", "is_rb", "is_wr", "is_te", "is_dl", "is_lb", "is_db"]}
 
 # StandardScaler puts every feature on the same scale, so the regularization treats them evenly.
 MODELS = {
@@ -28,7 +31,7 @@ MODELS = {
     "logistic": lambda: make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000)),
 }
 TARGETS = {"ridge": "target_{award}", "logistic": "won_{award}"}
-MODEL_VERSION = "v5"  # written into the prediction JSON; bump it when features or models change (v2: OPOY, v3: OROY, v4: DPOY, v5: DROY)
+MODEL_VERSION = "v6"  # written into the prediction JSON; bump it when features or models change (v2: OPOY, v3: OROY, v4: DPOY, v5: DROY, v6: CPOY)
 
 
 def fit(kind, train, award="mvp"):

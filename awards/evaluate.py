@@ -5,12 +5,13 @@ python -m awards.evaluate opoy     Offensive Player of the Year
 python -m awards.evaluate oroy     Offensive Rookie of the Year
 python -m awards.evaluate dpoy     Defensive Player of the Year
 python -m awards.evaluate droy     Defensive Rookie of the Year
+python -m awards.evaluate cpoy     Comeback Player of the Year
 
 The three offensive awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
 scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the dashboard is read
 mid-season, so the shared set stayed.
 
-OROY ranks rookies only (ROOKIE_BARS in awards/features.py). Logistic, winner top pick / top 3 at weeks
+OROY ranks rookies with a regular role (REGULAR_BARS in awards/features.py). Logistic, winner top pick / top 3 at weeks
 8, 11, 14 and full season: shared set 12/21 15/24 20/25 17/26; plus log draft slot 12/20 12/23 18/26
 18/26; minus turnovers_z 13/21 14/24 19/24 17/25; minus conf_rank 13/20 14/24 18/25 17/25; draft slot
 without conf_rank 13/20 14/22 17/26 16/27. None did better at weeks 11 and 14 and full season together,
@@ -26,10 +27,20 @@ DPOY first-place share 4/5 6/9 5/12 5/13; all three changes 4/9 5/8 5/12 4/11. L
 gained top picks at every week (+4 at week 11) and top-3 at week 14 and full season, giving back one
 top-3 season at weeks 8 and 11, within noise. It is the set used.
 
-DROY ranks defensive rookies (DEF_ROOKIE_BARS) on the defensive baseline, the floor: 7/13 7/16 7/17
+DROY ranks defensive rookies (DEF_REGULAR_BARS) on the defensive baseline, the floor: 7/13 7/16 7/17
 8/17. Plus log draft slot 8/14 10/17 10/17 11/18; minus tackles_z 6/11 6/15 6/15 7/17; plus def_rank
 6/12 9/15 10/17 8/19; minus conf_rank 8/13 7/17 8/18 9/18. Draft slot did better at every week and is
 the set used. (For OROY the same feature lost at weeks 11 and 14.)
+
+CPOY ranks non-rookies with a regular role on either side, 2000-2025 (a comeback needs a previous season,
+and player stats start in 1999), on this season's production (prod_z, the mean of the side's z-scores),
+last season's, the share of last season's team games played, conf_rank, availability and position flags.
+That baseline is the floor, out of 26: 5/9 5/11 6/11 6/14. Its usual miss is a second-year breakout
+whose thin rookie season looks like a comeback (Jordan Love 2023, Drake Maye 2025). Minus conf_rank
+5/9 6/9 6/9 6/9; every z-score instead of prod_z 5/6 6/10 5/10 6/11; plus years in the league 6/9
+7/11 8/12 6/13; both 5/8 6/10 7/10 7/12. Years in the league did better at weeks 11 and 14 but gave
+back a top-3 season at full season, so by the rule the baseline stayed. Damar Hamlin (2023, 0.42 of
+first-place votes) had no stats to find, and offensive linemen are out of every pool.
 
 For each season 1999-2025: train on full-season features from the other 26 seasons, then score the
 held-out season with features through weeks 8, 11, 14 and the full season. Seasons are held out
@@ -54,6 +65,7 @@ FLOOR = {
     "oroy": {8: (12, 21), 11: (15, 24), 14: (20, 25), FINAL_WEEK: (17, 26)},
     "dpoy": {8: (2, 6), 11: (2, 10), 14: (4, 10), FINAL_WEEK: (4, 12)},
     "droy": {8: (7, 13), 11: (7, 16), 14: (7, 17), FINAL_WEEK: (8, 17)},
+    "cpoy": {8: (5, 9), 11: (5, 11), 14: (6, 11), FINAL_WEEK: (6, 14)},
 }
 
 
@@ -67,7 +79,7 @@ def run(award="mvp"):
     full = snapshots[FINAL_WEEK]
     rows = []
     for kind in MODELS:
-        for season in SEASONS:
+        for season in sorted(full["season"].unique()):  # CPOY starts in 2000: it needs a previous season
             model = fit(kind, full[full["season"] != season], award)
             for week, table in snapshots.items():
                 t = table[table["season"] == season]
@@ -88,7 +100,7 @@ def main(award="mvp"):
     results = run(award)
     full = award_pool(add_targets(build_features(SEASONS, FINAL_WEEK)), award)
     winners = full[full[f"won_{award}"] == 1].groupby("season")["player"].agg(" / ".join)
-    n = len(SEASONS)
+    n = full["season"].nunique()
 
     print(f"{award.upper()}: leave-one-season-out, {n} seasons. Cells are seasons where the actual"
           " winner was the model's top pick / in its top 3.\n")

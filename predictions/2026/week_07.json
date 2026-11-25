@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 7,
-  "generated_at": "2026-11-25T04:09:54Z",
-  "model_version": "v5",
+  "generated_at": "2026-11-25T04:18:46Z",
+  "model_version": "v6",
   "awards": {
     "mvp": [
       {
@@ -981,6 +981,188 @@
           "passes_defended": 0,
           "tackles": 9,
           "forced_fumbles": 1
+        }
+      }
+    ],
+    "cpoy": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "00-0033537",
+        "player": "Deshaun Watson",
+        "position": "QB",
+        "team": "CLE",
+        "team_record": "5-2",
+        "headshot_url": "https://static.www.nfl.com/image/private/f_auto,q_auto/league/otfs2docj6eahaebo5xn",
+        "share": 0.283,
+        "prev_share": 0.237,
+        "stats": {
+          "games": 7,
+          "prev_games": 0,
+          "prod_pct": 48,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 4,
+        "player_id": "00-0036442",
+        "player": "Joe Burrow",
+        "position": "QB",
+        "team": "CIN",
+        "team_record": "4-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/gnnvcgui1cijybukk2w7",
+        "share": 0.116,
+        "prev_share": 0.043,
+        "stats": {
+          "games": 6,
+          "prev_games": 8,
+          "prod_pct": 94,
+          "prev_prod_pct": 30
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 2,
+        "player_id": "00-0037834",
+        "player": "Brock Purdy",
+        "position": "QB",
+        "team": "SF",
+        "team_record": "6-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/xs2fyj1sqdgwvt9ihbri",
+        "share": 0.1,
+        "prev_share": 0.133,
+        "stats": {
+          "games": 7,
+          "prev_games": 9,
+          "prod_pct": 91,
+          "prev_prod_pct": 45
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 3,
+        "player_id": "00-0028986",
+        "player": "Case Keenum",
+        "position": "QB",
+        "team": "CHI",
+        "team_record": "5-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/weixhyzal4ntsyszyepu",
+        "share": 0.038,
+        "prev_share": 0.043,
+        "stats": {
+          "games": 2,
+          "prev_games": 0,
+          "prod_pct": 0,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 5,
+        "player_id": "00-0029604",
+        "player": "Kirk Cousins",
+        "position": "QB",
+        "team": "LV",
+        "team_record": "3-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/za7cynvpwlsro1tsaijk",
+        "share": 0.029,
+        "prev_share": 0.032,
+        "stats": {
+          "games": 7,
+          "prev_games": 10,
+          "prod_pct": 82,
+          "prev_prod_pct": 9
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 6,
+        "player_id": "00-0031503",
+        "player": "Jameis Winston",
+        "position": "QB",
+        "team": "NYG",
+        "team_record": "4-2-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/e5qyxnibbyawi0pvfpjl",
+        "share": 0.026,
+        "prev_share": 0.023,
+        "stats": {
+          "games": 6,
+          "prev_games": 3,
+          "prod_pct": 24,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 8,
+        "player_id": "00-0035228",
+        "player": "Kyler Murray",
+        "position": "QB",
+        "team": "MIN",
+        "team_record": "6-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/qzoa3bglbgxpxcvjqzo1",
+        "share": 0.021,
+        "prev_share": 0.019,
+        "stats": {
+          "games": 5,
+          "prev_games": 5,
+          "prod_pct": 9,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 10,
+        "player_id": "00-0035704",
+        "player": "Drew Lock",
+        "position": "QB",
+        "team": "SEA",
+        "team_record": "4-3",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vdixnkk1uglfpwowalf8",
+        "share": 0.021,
+        "prev_share": 0.018,
+        "stats": {
+          "games": 2,
+          "prev_games": 3,
+          "prod_pct": 6,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 14,
+        "player_id": "00-0034857",
+        "player": "Josh Allen",
+        "position": "QB",
+        "team": "BUF",
+        "team_record": "5-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ynrhq9iv30ysjpwmrfdv",
+        "share": 0.02,
+        "prev_share": 0.015,
+        "stats": {
+          "games": 6,
+          "prev_games": 16,
+          "prod_pct": 100,
+          "prev_prod_pct": 94
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 13,
+        "player_id": "00-0038416",
+        "player": "Tyson Bagent",
+        "position": "QB",
+        "team": "CHI",
+        "team_record": "5-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/shhpyhrz7zl8s2t3jy0l",
+        "share": 0.015,
+        "prev_share": 0.017,
+        "stats": {
+          "games": 3,
+          "prev_games": 2,
+          "prod_pct": 0,
+          "prev_prod_pct": 0
         }
       }
     ]

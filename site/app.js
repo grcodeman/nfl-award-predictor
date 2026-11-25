@@ -9,10 +9,12 @@ const AWARD_NAMES = {
   oroy: { short: "OROY", full: "Offensive Rookie of the Year" },
   dpoy: { short: "DPOY", full: "Defensive Player of the Year", stats: "defense" },
   droy: { short: "DROY", full: "Defensive Rookie of the Year", stats: "defense" },
+  cpoy: { short: "CPOY", full: "Comeback Player of the Year", stats: "comeback" },
 };
 const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(), full: award.toUpperCase() };
 // The four stats an award's leader card, table and head to head show, keyed to the JSON's stats.
-// unit: the inline label on phones ("92.4 yds/g"); long: the head-to-head label; lower: fewer is better.
+// unit: the inline label on phones ("92.4 yds/g"); long: the head-to-head label; lower: fewer is better;
+// neutral: neither side is better, so the head to head doesn't bold it.
 const STAT_SETS = {
   offense: [
     { key: "yards_per_game", label: "Yds/g", unit: "yds/g", digits: 1 },
@@ -25,6 +27,14 @@ const STAT_SETS = {
     { key: "ints", label: "INT", unit: "INT" },
     { key: "passes_defended", label: "PD", long: "Passes defended", unit: "PD" },
     { key: "tackles", label: "Solo", long: "Solo tackles", unit: "solo tkl" },
+  ],
+  // CPOY mixes offense and defense, so production is a percentile of the starters at the position.
+  // Labels stay six characters or fewer so they fit a 360px phone's leader card.
+  comeback: [
+    { key: "prev_games", label: "Prev G", long: "Games last season", unit: "G last yr", neutral: true },
+    { key: "prev_prod_pct", label: "Prev %", long: "Percentile last season", unit: "% last yr", neutral: true },
+    { key: "games", label: "G", long: "Games", unit: "G" },
+    { key: "prod_pct", label: "%", long: "Percentile", unit: "%" },
   ],
 };
 const statSet = (award) => STAT_SETS[AWARD_NAMES[award]?.stats || "offense"];
@@ -42,6 +52,7 @@ const HOW_IT_WORKS = {
   oroy: `${RETRAINED} every rookie QB, RB, WR and TE with a regular role, compared with the league's starters, on ${OFFENSE}. ${shares("about 20 rookies")}`,
   dpoy: `${RETRAINED} every starting defensive lineman, linebacker and defensive back on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and last season's DPOY votes. ${shares("about 200 players")}`,
   droy: `${RETRAINED} every rookie defensive lineman, linebacker and defensive back with a regular role, compared with the league's starters, on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and draft position. ${shares("about 30 rookies")}`,
+  cpoy: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every non-rookie with a regular role, on offense or defense, on this season's production and last season's, the share of last season's games played, the team's conference standing, and games played. % is production as a percentile of the starters at the same position: 88 means ahead of 88% of them. ${shares("about 450 players")}`,
 };
 const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5"]; // chart colors, fixed order; color follows the player, not the rank
 const NIGHT = ["--n1", "--n2", "--n3", "--n4", "--n5"]; // the same hues stepped for the dark leader card
@@ -659,10 +670,12 @@ function renderHeadToHead(rows, set) {
   $("h2h-card").hidden = false;
   const lower = set.filter((st) => st.lower);
   const metrics = [
-    // label, value, display, true when lower is better. Fewer-is-better stats go last, next to the note.
-    ["Share", (r) => r.share, (r) => pct(r.share)],
-    ...[...set.filter((st) => !st.lower), ...lower].map((st) => [st.long || st.label, (r) => r.stats[st.key], (r) => showStat(st, r), st.lower]),
-    ["Record", (r) => winPct(r.team_record), (r) => r.team_record],
+    // label, value, display, then true if lower is better, false if higher, null if neither (no bold).
+    // Fewer-is-better stats go last, next to the note.
+    ["Share", (r) => r.share, (r) => pct(r.share), false],
+    ...[...set.filter((st) => !st.lower), ...lower].map((st) => [st.long || st.label, (r) => r.stats[st.key], (r) => showStat(st, r),
+      st.neutral ? null : Boolean(st.lower)]),
+    ["Record", (r) => winPct(r.team_record), (r) => r.team_record, false],
   ];
   const colors = ["var(--s1)", "var(--s2)"];
   $("h2h").replaceChildren(
@@ -672,7 +685,7 @@ function renderHeadToHead(rows, set) {
     ...metrics.map(([label, value, show, lowerBetter]) => {
       const va = value(a), vb = value(b);
       const top = Math.max(va, vb, 0) || 1;
-      const better = va === vb ? null : (va > vb) !== Boolean(lowerBetter) ? "a" : "b";
+      const better = va === vb || lowerBetter == null ? null : (va > vb) !== lowerBetter ? "a" : "b";
       const half = (side, v, color) => el("div", { class: `h2h-half ${side}`, "aria-hidden": "true" },
         el("span", { vars: { width: `${Math.max(v, 0) / top * 100}%`, "--series": color } }));
       return el("div", { class: "h2h-row", role: "group", "aria-label": `${label}: ${a.player} ${show(a)}, ${b.player} ${show(b)}` },

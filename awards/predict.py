@@ -22,7 +22,7 @@ from awards.model import MODEL_VERSION, fit, score, to_shares
 
 OUT = ROOT / "predictions"
 KIND = "logistic"  # the model that cleared the MVP floor at every snapshot week and the OPOY floor
-AWARDS = ["mvp", "opoy", "oroy", "dpoy", "droy"]  # each award gets its own model, trained on its own "won" label and pool
+AWARDS = ["mvp", "opoy", "oroy", "dpoy", "droy", "cpoy"]  # each award gets its own model, trained on its own "won" label and pool
 TOP_N = 10
 
 
@@ -53,8 +53,16 @@ def ranked(table, award, model):
     return t.set_index("player_id")
 
 
-def stats(row):
-    """The season-so-far numbers the dashboard shows, which depend on the side of the ball."""
+def stats(row, award):
+    """The season-so-far numbers the dashboard shows, which depend on the award and the side of the ball."""
+    if award == "cpoy":
+        # one scale for both sides: production as a percentile of the starters at the position
+        return {
+            "games": int(row.games),
+            "prev_games": int(row.prev_games),
+            "prod_pct": int(round(row.prod_pct)),
+            "prev_prod_pct": int(round(row.prev_prod_pct)),
+        }
     if row.side == "defense":
         return {
             "games": int(row.games),
@@ -73,7 +81,7 @@ def stats(row):
     }
 
 
-def entry(player_id, row, prev):
+def entry(award, player_id, row, prev):
     p = prev.loc[player_id] if prev is not None and player_id in prev.index else None
     record = f"{row.team_wins}-{row.team_losses}" + (f"-{row.team_ties}" if row.team_ties else "")
     return {
@@ -88,7 +96,7 @@ def entry(player_id, row, prev):
         "headshot_url": row.headshot_url if isinstance(row.headshot_url, str) else None,
         "share": round(float(row.share), 3),
         "prev_share": round(float(p["share"]), 3) if p is not None else None,
-        "stats": stats(row),
+        "stats": stats(row, award),
     }
 
 
@@ -156,7 +164,7 @@ def main():
         model = fit(KIND, award_pool(train, award), award)
         now = ranked(this_week, award, model)
         prev = ranked(last_week, award, model) if last_week is not None else None
-        payload["awards"][award] = [entry(pid, row, prev) for pid, row in now.head(TOP_N).iterrows()]
+        payload["awards"][award] = [entry(award, pid, row, prev) for pid, row in now.head(TOP_N).iterrows()]
 
     changed = write_if_changed(path, payload)
     write_index()

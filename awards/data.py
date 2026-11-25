@@ -28,7 +28,7 @@ STAT_COLS = [
 ]
 
 
-def load_targets(awards=("mvp", "opoy", "oroy", "dpoy", "droy")):
+def load_targets(awards=("mvp", "opoy", "oroy", "dpoy", "droy", "cpoy")):
     """One row per player-season that got votes: pfr_id, season, target_* and won_* for each award.
 
     target_* is first-place share. Unlike `share`, it sums to 1.0 within every season and award,

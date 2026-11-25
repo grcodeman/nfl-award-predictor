@@ -19,30 +19,36 @@ DEF_RATES = ["sacks", "ints", "pds", "ffs", "tackles", "def_tds"]  # tackles = s
 POSITIONS = ["QB", "RB", "WR", "TE"]
 DEF_POSITIONS = ["DL", "LB", "DB"]
 FINAL_WEEK = 18  # covers every regular-season week, 17-game seasons included
+FIRST_SEASON = 1999  # nflverse player stats start here, so 1999 rows have no previous season
 
 # Offensive workload bars per team game: QB pass attempts, RB touches, WR/TE receiving yards. Starters
-# clear the first set. Rookies get a much lower one: few clear the starter bars (8 a season, and 1 in 2026
-# through week 11), which missed Percy Harvin (2009 OROY, 49.4 yards a team game) and couldn't fill
-# a top 10. 8/8/35 still left 2026 weeks 2-7 with 4 to 9 rookies; 5/5/25 keeps 14 or more.
+# clear the first set. The second, much lower, marks a regular role, which is enough for the rookie
+# awards and CPOY. Few rookies clear the starter bars (8 a season, and 1 in 2026 through week 11):
+# they missed Percy Harvin (2009 OROY, 49.4 yards a team game) and couldn't fill a top 10. 8/8/35
+# still left 2026 weeks 2-7 with 4 to 9 rookies; 5/5/25 keeps 14 or more.
 STARTER_BARS = (14, 12, 50)
-ROOKIE_BARS = (5, 5, 25)
+REGULAR_BARS = (5, 5, 25)
 # Defensive starter bars per team game, either one: DL sacks + forced fumbles or solo tackles, LB solo
 # tackles or sacks, DB interceptions + passes defended or solo tackles. They sit at a regular starter's
 # level, not a stat leader's, because DPOY often goes to players with modest counting stats (Bob Sanders
 # 2007, 2.6 solo tackles; Patrick Surtain 2024, 0.9 INT + PD). That makes about 215 a season, twice the
 # offensive pool; bars sized for 100 lost both of those winners.
 DEF_STARTER_BARS = {"DL": (0.35, 2.5), "LB": (3.25, 0.35), "DB": (0.75, 2.5)}
-# Defensive rookies, at about three quarters of those: the starter bars missed two DROY winners
+# A regular role on defense, at about three quarters of those: the starter bars missed two DROY winners
 # (Jonathan Vilma 2004, Sheldon Richardson 2013). These hold all 27, about 27 rookies a season.
-DEF_ROOKIE_BARS = {"DL": (0.25, 1.9), "LB": (2.5, 0.25), "DB": (0.55, 1.9)}
+DEF_REGULAR_BARS = {"DL": (0.25, 1.9), "LB": (2.5, 0.25), "DB": (0.55, 1.9)}
 
-# Which candidates each award ranks. Rookies below the starter bars are candidates only for rookie awards.
+# Which candidates each award ranks. Players below the starter bars are candidates only for the rookie
+# awards and CPOY.
 POOLS = {
     "mvp": lambda t: (t["side"] == "offense") & (t["starter"] == 1),
     "opoy": lambda t: (t["side"] == "offense") & (t["starter"] == 1),
     "oroy": lambda t: (t["side"] == "offense") & (t["rookie"] == 1),
     "dpoy": lambda t: (t["side"] == "defense") & (t["starter"] == 1),
     "droy": lambda t: (t["side"] == "defense") & (t["rookie"] == 1),
+    # Non-rookies with a regular role on either side, from 2000 on (a comeback needs a previous season).
+    # Starters only would miss players back for part of a season: Joe Flacco, 2023's winner, played 5 games.
+    "cpoy": lambda t: (t["rookie"] == 0) & t["prev_availability"].notna(),
 }
 
 
@@ -66,9 +72,64 @@ def zscore(col, groups, ref):
 def build_features(seasons, through_week):
     """One row per candidate player-season, using games in weeks 1 through `through_week`.
 
-    side is "offense" or "defense"; starter and rookie say which pools the row is in. A row's z-scores
-    for the other side are 0.
+    side is "offense" or "defense"; starter, regular and rookie say which pools the row is in. Every row
+    has a regular role; rookie means a rookie with one. A row's z-scores for the other side are 0. The prev_* columns
+    describe the player's previous full season and are blank in 1999.
     """
+    p = player_seasons(seasons, through_week)
+    p = p.merge(last_season(p), on=["season", "player_id"], how="left", validate="one_to_one")
+    p = p[p["regular"] == 1]  # every starter has a regular role
+
+    keep = ["season", "player_id", "pfr_id", "player", "position", "position_group", "side", "team", "headshot_url",
+            "games", "team_games", "team_win_pct", "availability", "starter", "regular", "rookie"]
+    keep += [f"{c}_pg" for c in RATES + DEF_RATES] + [f"{c}_z" for c in RATES + DEF_RATES] + ["prod_z", "prod_pct"]
+    keep += [f"is_{x.lower()}" for x in POSITIONS + DEF_POSITIONS]
+    keep += ["conf_rank", "def_rank", "prev_dpoy_vote", "draft_slot", "prev_games", "prev_availability", "prev_prod_z",
+             "prev_prod_pct"]
+    keep += ["team_wins", "team_losses", "team_ties"] + RATES + DEF_RATES  # record and season totals, for display
+    # Offense first, in the order it has always had, so the offensive awards fit on identical rows.
+    return pd.concat([
+        p.loc[p["side"] == "offense", keep].sort_values(["season", "epa_z"], ascending=[True, False]),
+        p.loc[p["side"] == "defense", keep].sort_values(["season", "player_id"]),
+    ]).reset_index(drop=True)
+
+
+def last_season(p):
+    """For each player in a player_seasons table, his previous full season: prev_games, prev_availability
+    (share of the team's games played), prev_prod_z and prev_prod_pct, all for CPOY. A player with no games
+    that season gets 0 availability and the lowest prod_z at his position, as if he had barely played.
+    Rows in FIRST_SEASON have no previous season and are left out."""
+    cols = ["season", "player_id", "prev_games", "prev_availability", "prev_prod_z", "prev_prod_pct"]
+    now = p.loc[p["season"] > FIRST_SEASON, ["season", "player_id", "position_group"]]
+    if now.empty:
+        return pd.DataFrame(columns=cols).astype({"season": int, "player_id": str})
+    q = player_seasons(sorted(now["season"].unique() - 1), FINAL_WEEK)
+    floor = q.groupby(["season", "position_group"])["prod_z"].min().rename("floor").reset_index()
+    q = q.assign(season=q["season"] + 1).rename(columns={"games": "prev_games", "availability": "prev_availability",
+                                                         "prod_z": "prev_prod_z", "prod_pct": "prev_prod_pct"})[cols]
+    out = now.merge(q, on=["season", "player_id"], how="left")
+    out = out.merge(floor.assign(season=floor["season"] + 1), on=["season", "position_group"], how="left")
+    out["prev_games"] = out["prev_games"].fillna(0)
+    out["prev_availability"] = out["prev_availability"].fillna(0)
+    out["prev_prod_z"] = out["prev_prod_z"].fillna(out["floor"])
+    out["prev_prod_pct"] = out["prev_prod_pct"].fillna(0)
+    return out[cols]
+
+
+def percentile(col, groups, ref):
+    """Each value as the share of its group's reference rows at or below it, 0 to 100."""
+    df = pd.DataFrame({"v": col, "ref": ref, "g0": groups[0], "g1": groups[1]})
+
+    def pct(g):
+        r = np.sort(g.loc[g["ref"], "v"].to_numpy())
+        return pd.Series(100 * np.searchsorted(r, g["v"].to_numpy(), side="right") / max(len(r), 1), index=g.index)
+
+    return df.groupby(["g0", "g1"], group_keys=False)[["v", "ref"]].apply(pct).reindex(col.index)
+
+
+def player_seasons(seasons, through_week):
+    """Every offensive and defensive player's season through `through_week`: totals, per-team-game rates,
+    pool flags and z-scores against that side's starters. build_features keeps the candidates."""
     s = load_weekly_stats(seasons, through_week)
     s["yards"] = s["passing_yards"] + s["rushing_yards"] + s["receiving_yards"]
     s["tds"] = s["passing_tds"] + s["rushing_tds"] + s["receiving_tds"]
@@ -122,8 +183,9 @@ def build_features(seasons, through_week):
     offense, defense = pos.isin(POSITIONS), pos.isin(DEF_POSITIONS)
     p["side"] = defense.map({True: "defense", False: "offense"})
     p["starter"] = ((offense & clears(STARTER_BARS)) | (defense & clears_defense(DEF_STARTER_BARS))).astype(int)
-    p["rookie"] = (is_rookie & ((offense & clears(ROOKIE_BARS)) | (defense & clears_defense(DEF_ROOKIE_BARS)))).astype(int)
-    p = p[(p["starter"] == 1) | (p["rookie"] == 1)].copy()
+    p["regular"] = ((offense & clears(REGULAR_BARS)) | (defense & clears_defense(DEF_REGULAR_BARS))).astype(int)
+    p["rookie"] = (is_rookie & (p["regular"] == 1)).astype(int)
+    p = p[offense | defense].copy()
     for c in RATES + DEF_RATES:
         p[f"{c}_pg"] = per_game.loc[p.index, c]
 
@@ -135,21 +197,16 @@ def build_features(seasons, through_week):
         p[f"{c}_z"] = zscore(p[f"{c}_pg"], z_group, (p["side"] == "offense") & (p["starter"] == 1))
     for c in DEF_RATES:
         p[f"{c}_z"] = zscore(p[f"{c}_pg"], z_group, (p["side"] == "defense") & (p["starter"] == 1))
+    # One production number per player, for comparing a season with the one before (CPOY): the mean
+    # of the side's z-scores, turnovers aside.
+    p["prod_z"] = np.where(p["side"] == "offense", p[["yards_z", "tds_z", "epa_z"]].mean(axis=1),
+                           p[[f"{c}_z" for c in DEF_RATES]].mean(axis=1))
+    # the same as a percentile of the starters at the position, which reads across positions (display only)
+    p["prod_pct"] = percentile(p["prod_z"], z_group, p["starter"] == 1)
 
     for position in POSITIONS + DEF_POSITIONS:
         p[f"is_{position.lower()}"] = (p["position_group"] == position).astype(int)
-
-    keep = ["season", "player_id", "pfr_id", "player", "position", "position_group", "side", "team", "headshot_url",
-            "games", "team_games", "team_win_pct", "availability", "starter", "rookie"]
-    keep += [f"{c}_pg" for c in RATES + DEF_RATES] + [f"{c}_z" for c in RATES + DEF_RATES]
-    keep += [f"is_{x.lower()}" for x in POSITIONS + DEF_POSITIONS]
-    keep += ["conf_rank", "def_rank", "prev_dpoy_vote", "draft_slot", "team_wins", "team_losses", "team_ties"]
-    keep += RATES + DEF_RATES  # record and season totals, for display
-    # Offense first, in the order it has always had, so the offensive awards fit on identical rows.
-    return pd.concat([
-        p.loc[p["side"] == "offense", keep].sort_values(["season", "epa_z"], ascending=[True, False]),
-        p.loc[p["side"] == "defense", keep].sort_values(["season", "player_id"]),
-    ]).reset_index(drop=True)
+    return p
 
 
 def main():
