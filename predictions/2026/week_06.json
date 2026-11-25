@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 6,
-  "generated_at": "2026-11-25T03:54:14Z",
-  "model_version": "v3",
+  "generated_at": "2026-11-25T04:03:05Z",
+  "model_version": "v4",
   "awards": {
     "mvp": [
       {
@@ -577,6 +577,208 @@
           "tds": 1,
           "turnovers": 0,
           "epa_per_game": -0.5
+        }
+      }
+    ],
+    "dpoy": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "00-0036914",
+        "player": "Greg Rousseau",
+        "position": "LB",
+        "team": "BUF",
+        "team_record": "5-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/cyhqf4lgtizbm9j7lged",
+        "share": 0.139,
+        "prev_share": 0.193,
+        "stats": {
+          "games": 6,
+          "sacks": 6.0,
+          "ints": 0,
+          "passes_defended": 5,
+          "tackles": 14,
+          "forced_fumbles": 3
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 4,
+        "player_id": "00-0037244",
+        "player": "Devin Lloyd",
+        "position": "LB",
+        "team": "CAR",
+        "team_record": "3-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/hbva85h6axjaiiiiwjfv",
+        "share": 0.101,
+        "prev_share": 0.054,
+        "stats": {
+          "games": 4,
+          "sacks": 2.0,
+          "ints": 2,
+          "passes_defended": 3,
+          "tackles": 23,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 3,
+        "player_id": "00-0033886",
+        "player": "T.J. Watt",
+        "position": "OLB",
+        "team": "PIT",
+        "team_record": "4-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/aywegy4gpj1d32vrl67u",
+        "share": 0.085,
+        "prev_share": 0.099,
+        "stats": {
+          "games": 5,
+          "sacks": 4.5,
+          "ints": 1,
+          "passes_defended": 2,
+          "tackles": 10,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 2,
+        "player_id": "00-0036564",
+        "player": "Talanoa Hufanga",
+        "position": "SAF",
+        "team": "DEN",
+        "team_record": "4-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/i1jjyltv64sihzzrr04t",
+        "share": 0.073,
+        "prev_share": 0.102,
+        "stats": {
+          "games": 5,
+          "sacks": 1.0,
+          "ints": 2,
+          "passes_defended": 3,
+          "tackles": 12,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 5,
+        "player_id": "00-0039924",
+        "player": "Dallas Turner",
+        "position": "LB",
+        "team": "MIN",
+        "team_record": "5-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/kkibscog8h0y7z35uzav",
+        "share": 0.064,
+        "prev_share": 0.049,
+        "stats": {
+          "games": 5,
+          "sacks": 5.5,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 10,
+          "forced_fumbles": 2
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 11,
+        "player_id": "00-0033890",
+        "player": "Budda Baker",
+        "position": "S",
+        "team": "ARI",
+        "team_record": "2-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tpr5aphfvgckzecyr5rd",
+        "share": 0.053,
+        "prev_share": 0.012,
+        "stats": {
+          "games": 6,
+          "sacks": 3.5,
+          "ints": 1,
+          "passes_defended": 4,
+          "tackles": 24,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 7,
+        "player_id": "00-0035272",
+        "player": "Andrew Van Ginkel",
+        "position": "OLB",
+        "team": "MIN",
+        "team_record": "5-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vbpdlib647tcpzz59wyt",
+        "share": 0.037,
+        "prev_share": 0.028,
+        "stats": {
+          "games": 5,
+          "sacks": 4.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 8,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 6,
+        "player_id": "00-0039108",
+        "player": "Will Anderson Jr.",
+        "position": "DE",
+        "team": "HOU",
+        "team_record": "2-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ar9k2r2btzzb10zc0xja",
+        "share": 0.032,
+        "prev_share": 0.044,
+        "stats": {
+          "games": 6,
+          "sacks": 7.5,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 15,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 146,
+        "player_id": "00-0033055",
+        "player": "Jalen Ramsey",
+        "position": "CB",
+        "team": "PIT",
+        "team_record": "4-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/pjozgun3xstol72jfoow",
+        "share": 0.016,
+        "prev_share": 0.0,
+        "stats": {
+          "games": 6,
+          "sacks": 2.0,
+          "ints": 0,
+          "passes_defended": 2,
+          "tackles": 21,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 20,
+        "player_id": "00-0040574",
+        "player": "Elijah Ponder",
+        "position": "LB",
+        "team": "NE",
+        "team_record": "4-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/icxlmxdodansgs4udp27",
+        "share": 0.015,
+        "prev_share": 0.009,
+        "stats": {
+          "games": 6,
+          "sacks": 5.5,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 12,
+          "forced_fumbles": 1
         }
       }
     ]

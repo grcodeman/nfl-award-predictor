@@ -3,8 +3,9 @@
 python -m awards.evaluate          MVP
 python -m awards.evaluate opoy     Offensive Player of the Year
 python -m awards.evaluate oroy     Offensive Rookie of the Year
+python -m awards.evaluate dpoy     Defensive Player of the Year
 
-These three awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
+The three offensive awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
 scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the dashboard is read
 mid-season, so the shared set stayed.
 
@@ -13,6 +14,16 @@ OROY ranks rookies only (ROOKIE_BARS in awards/features.py). Logistic, winner to
 18/26; minus turnovers_z 13/21 14/24 19/24 17/25; minus conf_rank 13/20 14/24 18/25 17/25; draft slot
 without conf_rank 13/20 14/22 17/26 16/27. None did better at weeks 11 and 14 and full season together,
 so the shared set stayed.
+
+DPOY ranks the defensive pool (about 215 a season) on per-game sacks, interceptions, passes defended,
+forced fumbles, solo tackles and defensive TDs, z-scored within DL, LB and DB, plus conf_rank and
+availability. That baseline is the floor, and it is weak: voters reward reputation and team defense,
+and counting stats miss box safeties and shutdown corners (Bob Sanders 2007, Pat Surtain 2024).
+Logistic, top pick / top 3 at weeks 8, 11, 14 and full season: baseline 2/6 2/10 4/10 4/12; minus
+tackles_z 3/6 3/8 4/11 3/10; plus def_rank (team points allowed) 3/8 3/7 3/9 4/12; plus last season's
+DPOY first-place share 4/5 6/9 5/12 5/13; all three changes 4/9 5/8 5/12 4/11. Last season's vote
+gained top picks at every week (+4 at week 11) and top-3 at week 14 and full season, giving back one
+top-3 season at weeks 8 and 11, within noise. It is the set used.
 
 For each season 1999-2025: train on full-season features from the other 26 seasons, then score the
 held-out season with features through weeks 8, 11, 14 and the full season. Seasons are held out
@@ -29,12 +40,13 @@ from awards.model import MODELS, fit, score
 SEASONS = range(1999, 2026)
 WEEKS = [8, 11, 14, FINAL_WEEK]
 # From the throwaway prototype (logistic, v1 features): (winner is top pick, winner in top 3) out of 27.
-# The plan gives OPOY a full-season floor only. OROY's floor is its own baseline, the shared features'
-# result above, because the plan gives it none.
+# The plan gives OPOY a full-season floor only. OROY's and DPOY's floors are their own baselines (the
+# shared features and the defensive baseline, above), because the plan gives them none.
 FLOOR = {
     "mvp": {8: (11, 17), 11: (13, 21), 14: (14, 23), FINAL_WEEK: (16, 24)},
     "opoy": {FINAL_WEEK: (14, 22)},
     "oroy": {8: (12, 21), 11: (15, 24), 14: (20, 25), FINAL_WEEK: (17, 26)},
+    "dpoy": {8: (2, 6), 11: (2, 10), 14: (4, 10), FINAL_WEEK: (4, 12)},
 }
 
 

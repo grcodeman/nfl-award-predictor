@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 1,
-  "generated_at": "2026-11-25T03:53:57Z",
-  "model_version": "v3",
+  "generated_at": "2026-11-25T04:02:47Z",
+  "model_version": "v4",
   "awards": {
     "mvp": [
       {
@@ -577,6 +577,208 @@
           "tds": 0,
           "turnovers": 0,
           "epa_per_game": 1.7
+        }
+      }
+    ],
+    "dpoy": [
+      {
+        "rank": 1,
+        "prev_rank": null,
+        "player_id": "00-0033886",
+        "player": "T.J. Watt",
+        "position": "OLB",
+        "team": "PIT",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/aywegy4gpj1d32vrl67u",
+        "share": 0.324,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 2.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 4,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": null,
+        "player_id": "00-0038125",
+        "player": "Roger McCreary",
+        "position": "CB",
+        "team": "DET",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/elq9ou82mtnczfos63em",
+        "share": 0.24,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 4,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": null,
+        "player_id": "00-0036914",
+        "player": "Greg Rousseau",
+        "position": "LB",
+        "team": "BUF",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/cyhqf4lgtizbm9j7lged",
+        "share": 0.106,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 2.0,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 4,
+          "forced_fumbles": 2
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": null,
+        "player_id": "00-0040865",
+        "player": "Caleb Downs",
+        "position": "SAF",
+        "team": "DAL",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/nkj0yjytmlcbciqjus0w",
+        "share": 0.057,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 4,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": null,
+        "player_id": "00-0040670",
+        "player": "Nohl Williams",
+        "position": "CB",
+        "team": "KC",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/pf22yjk2vhk7gc6ogh8z",
+        "share": 0.055,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 2,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": null,
+        "player_id": "00-0036964",
+        "player": "Derrick Barnes",
+        "position": "LB",
+        "team": "DET",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/bh66oqiavycebvryiy96",
+        "share": 0.018,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 2,
+          "tackles": 3,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": null,
+        "player_id": "00-0041502",
+        "player": "Josiah Trotter",
+        "position": "LB",
+        "team": "TB",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/sqikte2lgczxdun64akq",
+        "share": 0.018,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 4,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": null,
+        "player_id": "00-0038570",
+        "player": "Ventrell Miller",
+        "position": "LB",
+        "team": "JAX",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/gmxgq1mjnbdjjpcggamn",
+        "share": 0.009,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 7,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": null,
+        "player_id": "00-0035272",
+        "player": "Andrew Van Ginkel",
+        "position": "OLB",
+        "team": "MIN",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vbpdlib647tcpzz59wyt",
+        "share": 0.009,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.5,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 2,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": null,
+        "player_id": "00-0037236",
+        "player": "Aidan Hutchinson",
+        "position": "DE",
+        "team": "DET",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/gmeczjok2lmjftb6mfof",
+        "share": 0.008,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 2.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 4,
+          "forced_fumbles": 0
         }
       }
     ]

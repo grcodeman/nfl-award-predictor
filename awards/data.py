@@ -14,17 +14,21 @@ update_config(cache_mode="filesystem", cache_dir=ROOT / ".cache" / "nflreadpy", 
 # Schedules use the team code of the time; stats use today's code for every season.
 OLD_TEAM_CODES = {"STL": "LA", "SD": "LAC", "OAK": "LV"}
 
-ID_COLS = ["season", "week", "game_id", "player_id", "player_display_name", "position_group", "team", "headshot_url"]
+ID_COLS = ["season", "week", "game_id", "player_id", "player_display_name", "position", "position_group", "team",
+           "headshot_url"]
 STAT_COLS = [
     "attempts", "carries", "receptions",
     "passing_yards", "rushing_yards", "receiving_yards",
     "passing_tds", "rushing_tds", "receiving_tds",
     "passing_epa", "rushing_epa", "receiving_epa",
     "passing_interceptions", "sack_fumbles_lost", "rushing_fumbles_lost", "receiving_fumbles_lost",
+    # Defense: the columns recorded the same way every season since 1999. Tackles for loss are blank
+    # 2003-2011 and QB hits 2003-2005, and assisted tackles changed meaning in 2025, so those are out.
+    "def_sacks", "def_interceptions", "def_pass_defended", "def_fumbles_forced", "def_tackles_solo", "def_tds",
 ]
 
 
-def load_targets(awards=("mvp", "opoy", "oroy")):
+def load_targets(awards=("mvp", "opoy", "oroy", "dpoy")):
     """One row per player-season that got votes: pfr_id, season, target_* and won_* for each award.
 
     target_* is first-place share. Unlike `share`, it sums to 1.0 within every season and award,
@@ -74,21 +78,24 @@ def load_weekly_stats(seasons, through_week):
 
 
 def load_team_records(seasons, through_week):
-    """team_games and team_win_pct per team-season, from REG games played in weeks 1 through `through_week`."""
+    """team_games, team_win_pct, conf_rank and def_rank per team-season, from REG games played in weeks
+    1 through `through_week`."""
     g = nfl.load_schedules(list(seasons)).to_pandas()
     g = g[(g["game_type"] == "REG") & (g["week"] <= through_week) & g["result"].notna()]
     # One row per team per game. `result` is home score minus away score.
     games = pd.concat([
-        pd.DataFrame({"season": g["season"], "team": g["home_team"], "margin": g["result"]}),
-        pd.DataFrame({"season": g["season"], "team": g["away_team"], "margin": -g["result"]}),
+        pd.DataFrame({"season": g["season"], "team": g["home_team"], "margin": g["result"], "allowed": g["away_score"]}),
+        pd.DataFrame({"season": g["season"], "team": g["away_team"], "margin": -g["result"], "allowed": g["home_score"]}),
     ])
     games["team"] = games["team"].replace(OLD_TEAM_CODES)
     games["win"] = (games["margin"] > 0) + 0.5 * (games["margin"] == 0)  # a tie counts as half a win
     t = games.groupby(["season", "team"], as_index=False).agg(
         team_games=("win", "size"), team_win_pct=("win", "mean"),
         team_wins=("margin", lambda m: (m > 0).sum()), team_losses=("margin", lambda m: (m < 0).sum()),
-        team_ties=("margin", lambda m: (m == 0).sum()),
+        team_ties=("margin", lambda m: (m == 0).sum()), team_pa_pg=("allowed", "mean"),
     )
+    # 1 = fewest points allowed per game in the league that season
+    t["def_rank"] = t.groupby("season")["team_pa_pg"].rank(method="min")
     conf = nfl.load_teams().to_pandas().set_index("team_abbr")["team_conf"]
     t["conf"] = t["team"].map(conf).where(~((t["team"] == "SEA") & (t["season"] < 2002)), "AFC")  # SEA moved in 2002
     # 1 = best record in the conference (ties share the better rank). A stand-in for playoff seed
