@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "through_week": 1,
-  "generated_at": "2026-11-25T04:36:54Z",
+  "generated_at": "2026-11-25T04:47:31Z",
   "model_version": "v7",
   "awards": {
     "mvp": [
@@ -1175,7 +1175,7 @@
         "position": "HC",
         "team": "ARI",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Lafleur26.jpg/500px-Lafleur26.jpg",
         "share": 0.266,
         "prev_share": null,
         "stats": {
@@ -1185,7 +1185,9 @@
           "win_pct_change": 0.824,
           "point_diff": 12,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "WOH3030, CC BY-SA 4.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Mike_LaFleur"
       },
       {
         "rank": 2,
@@ -1215,7 +1217,7 @@
         "position": "HC",
         "team": "NYG",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/John_Harbaugh_%2852093585046%29_%28cropped%29.jpg/500px-John_Harbaugh_%2852093585046%29_%28cropped%29.jpg",
         "share": 0.177,
         "prev_share": null,
         "stats": {
@@ -1225,7 +1227,9 @@
           "win_pct_change": 0.765,
           "point_diff": 8,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "Maryland GovPics, CC BY 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/John_Harbaugh"
       },
       {
         "rank": 4,
@@ -1235,7 +1239,7 @@
         "position": "HC",
         "team": "NYJ",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/2025_NYJ_HC_Aaron_Glenn.png/500px-2025_NYJ_HC_Aaron_Glenn.png",
         "share": 0.126,
         "prev_share": null,
         "stats": {
@@ -1245,7 +1249,9 @@
           "win_pct_change": 0.824,
           "point_diff": 13,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "New York Jets, CC BY 3.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Aaron_Glenn"
       },
       {
         "rank": 5,
@@ -1255,7 +1261,7 @@
         "position": "HC",
         "team": "CIN",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Zac_Taylor_2019.jpg/500px-Zac_Taylor_2019.jpg",
         "share": 0.037,
         "prev_share": null,
         "stats": {
@@ -1265,7 +1271,9 @@
           "win_pct_change": 0.647,
           "point_diff": 6,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "Erik Drost, CC BY 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Zac_Taylor"
       },
       {
         "rank": 6,
@@ -1275,7 +1283,7 @@
         "position": "HC",
         "team": "KC",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Andy_Reid_%28Kansas_City_Chiefs_at_Washington_Football_Team%2C_October_17%2C_2021%29_%28cropped%29.jpg/500px-Andy_Reid_%28Kansas_City_Chiefs_at_Washington_Football_Team%2C_October_17%2C_2021%29_%28cropped%29.jpg",
         "share": 0.036,
         "prev_share": null,
         "stats": {
@@ -1285,7 +1293,9 @@
           "win_pct_change": 0.647,
           "point_diff": 21,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Andy_Reid"
       },
       {
         "rank": 7,
@@ -1295,7 +1305,7 @@
         "position": "HC",
         "team": "BAL",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/2024-0106-Jesse_Minter.jpg/500px-2024-0106-Jesse_Minter.jpg",
         "share": 0.034,
         "prev_share": null,
         "stats": {
@@ -1305,7 +1315,9 @@
           "win_pct_change": 0.529,
           "point_diff": 18,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "Bobak Ha'Eri, CC BY 3.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Jesse_Minter"
       },
       {
         "rank": 8,
@@ -1315,7 +1327,7 @@
         "position": "HC",
         "team": "PIT",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Mike_McCarthy_%28cropped%29.jpg/500px-Mike_McCarthy_%28cropped%29.jpg",
         "share": 0.015,
         "prev_share": null,
         "stats": {
@@ -1325,7 +1337,9 @@
           "win_pct_change": 0.412,
           "point_diff": 7,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "Gingersnap6288, CC BY-SA 4.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Mike_McCarthy"
       },
       {
         "rank": 9,
@@ -1335,7 +1349,7 @@
         "position": "HC",
         "team": "DET",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Rivera-Campbell-shake_%28cropped%29.jpg/500px-Rivera-Campbell-shake_%28cropped%29.jpg",
         "share": 0.011,
         "prev_share": null,
         "stats": {
@@ -1345,7 +1359,9 @@
           "win_pct_change": 0.471,
           "point_diff": 1,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Dan_Campbell"
       },
       {
         "rank": 10,
@@ -1355,7 +1371,7 @@
         "position": "HC",
         "team": "MIN",
         "team_record": "1-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Kevin_O%27Connell_2019_%28cropped%29.jpg/500px-Kevin_O%27Connell_2019_%28cropped%29.jpg",
         "share": 0.011,
         "prev_share": null,
         "stats": {
@@ -1365,7 +1381,9 @@
           "win_pct_change": 0.471,
           "point_diff": 17,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Kevin_O%27Connell"
       }
     ]
   }

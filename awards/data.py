@@ -1,5 +1,13 @@
-"""Loaders: AP votes and vote targets, the player id crosswalk, weekly player stats, and team records."""
+"""Loaders: AP votes and vote targets, the player id crosswalk, weekly player stats, team records, and
+head coach photos."""
+import html
+import json
+import re
+import time
 from pathlib import Path
+from urllib.error import HTTPError
+from urllib.parse import quote, urlencode
+from urllib.request import Request, urlopen
 
 import nflreadpy as nfl
 import pandas as pd
@@ -135,3 +143,66 @@ def load_team_records(seasons, through_week):
     # that also works mid-season.
     t["conf_rank"] = t.groupby(["season", "conf"])["team_win_pct"].rank(method="min", ascending=False)
     return t
+
+
+# Head coach photos. nflverse has none, so they come from each coach's Wikipedia page: its lead image,
+# where the page has a free one. Wikimedia asks API clients to send a descriptive User-Agent.
+WIKI_API = "https://en.wikipedia.org/w/api.php"
+WIKI_UA = "nfl-coach-photos/1.0 (weekly award predictions; python urllib)"
+
+
+def _wiki(**params):
+    url = f"{WIKI_API}?{urlencode({'format': 'json', 'formatversion': 2, **params})}"
+    for attempt in range(4):
+        try:
+            with urlopen(Request(url, headers={"User-Agent": WIKI_UA}), timeout=30) as r:
+                return json.load(r)
+        except HTTPError as e:
+            if e.code != 429 or attempt == 3:
+                raise
+            time.sleep(int(e.headers.get("Retry-After") or 5))  # rate limited: wait as asked, then retry
+
+
+def _wiki_pages(titles, **params):
+    """Each title asked for -> its page (after normalizing and following redirects), 50 titles a request."""
+    out = {}
+    for i in range(0, len(titles), 50):
+        chunk = titles[i:i + 50]
+        q = _wiki(action="query", titles="|".join(chunk), redirects=1, **params)["query"]
+        hop = {h["from"]: h["to"] for h in q.get("normalized", []) + q.get("redirects", [])}
+        pages = {p["title"]: p for p in q.get("pages", [])}
+        for t in chunk:
+            out[t] = pages.get(hop.get(hop.get(t, t), hop.get(t, t)), {})
+    return out
+
+
+def coach_photos(names):
+    """Coach name -> {"url", "page", "credit"} for coaches whose Wikipedia page has a free lead photo.
+
+    A page counts only if its short description mentions football, so a namesake can't stand in
+    ("Mike Smith" is several people). The disambiguated titles are tried first. credit is the photo's
+    author and license, which CC BY-SA photos require to be shown.
+    """
+    found = {}
+    for suffix in [" (American football coach)", " (American football)", ""]:
+        todo = [n for n in sorted(set(names)) if n not in found]
+        pages = _wiki_pages([n + suffix for n in todo], prop="pageimages|description",
+                            piprop="thumbnail|name", pithumbsize=400)
+        for n in todo:
+            p = pages[n + suffix]
+            if p and not p.get("missing") and "football" in p.get("description", "").lower():
+                found[n] = p  # the coach's page, with or without a photo
+    with_photo = {n: p for n, p in found.items() if p.get("thumbnail") and p.get("pageimage")}
+    files = _wiki_pages([f"File:{p['pageimage']}" for p in with_photo.values()], prop="imageinfo",
+                        iiprop="extmetadata", iiextmetadatafilter="Artist|LicenseShortName")
+    out = {}
+    for n, p in with_photo.items():
+        meta = ((files[f"File:{p['pageimage']}"].get("imageinfo") or [{}])[0]).get("extmetadata", {})
+        artist = html.unescape(re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", ""))).strip()
+        license_ = meta.get("LicenseShortName", {}).get("value", "")
+        out[n] = {
+            "url": p["thumbnail"]["source"].split("?")[0],
+            "page": f"https://en.wikipedia.org/wiki/{quote(p['title'].replace(' ', '_'))}",
+            "credit": ", ".join(x for x in [artist, license_] if x) or "Wikimedia Commons",
+        }
+    return out

@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "through_week": 4,
-  "generated_at": "2026-11-25T04:37:13Z",
+  "generated_at": "2026-11-25T04:49:07Z",
   "model_version": "v7",
   "awards": {
     "mvp": [
@@ -1175,7 +1175,7 @@
         "position": "HC",
         "team": "KC",
         "team_record": "4-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Andy_Reid_%28Kansas_City_Chiefs_at_Washington_Football_Team%2C_October_17%2C_2021%29_%28cropped%29.jpg/500px-Andy_Reid_%28Kansas_City_Chiefs_at_Washington_Football_Team%2C_October_17%2C_2021%29_%28cropped%29.jpg",
         "share": 0.456,
         "prev_share": 0.111,
         "stats": {
@@ -1185,7 +1185,9 @@
           "win_pct_change": 0.647,
           "point_diff": 41,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Andy_Reid"
       },
       {
         "rank": 2,
@@ -1215,7 +1217,7 @@
         "position": "HC",
         "team": "MIN",
         "team_record": "4-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Kevin_O%27Connell_2019_%28cropped%29.jpg/500px-Kevin_O%27Connell_2019_%28cropped%29.jpg",
         "share": 0.132,
         "prev_share": 0.032,
         "stats": {
@@ -1225,7 +1227,9 @@
           "win_pct_change": 0.471,
           "point_diff": 35,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Kevin_O%27Connell"
       },
       {
         "rank": 4,
@@ -1235,7 +1239,7 @@
         "position": "HC",
         "team": "NYG",
         "team_record": "3-1",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/John_Harbaugh_%2852093585046%29_%28cropped%29.jpg/500px-John_Harbaugh_%2852093585046%29_%28cropped%29.jpg",
         "share": 0.089,
         "prev_share": 0.009,
         "stats": {
@@ -1245,7 +1249,9 @@
           "win_pct_change": 0.515,
           "point_diff": 3,
           "conf_rank": 3
-        }
+        },
+        "headshot_credit": "Maryland GovPics, CC BY 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/John_Harbaugh"
       },
       {
         "rank": 5,
@@ -1255,7 +1261,7 @@
         "position": "HC",
         "team": "CLE",
         "team_record": "3-1",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Todd_Monken_%28cropped%29.jpg/500px-Todd_Monken_%28cropped%29.jpg",
         "share": 0.077,
         "prev_share": 0.005,
         "stats": {
@@ -1265,7 +1271,9 @@
           "win_pct_change": 0.456,
           "point_diff": -14,
           "conf_rank": 2
-        }
+        },
+        "headshot_credit": "Erik Drost, CC BY 4.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Todd_Monken"
       },
       {
         "rank": 6,
@@ -1275,7 +1283,7 @@
         "position": "HC",
         "team": "SF",
         "team_record": "4-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Kyle_Shanahan_%28tight_crop%29.jpg/500px-Kyle_Shanahan_%28tight_crop%29.jpg",
         "share": 0.038,
         "prev_share": 0.009,
         "stats": {
@@ -1285,7 +1293,9 @@
           "win_pct_change": 0.294,
           "point_diff": 58,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "AlexanderJonesi, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Kyle_Shanahan"
       },
       {
         "rank": 7,
@@ -1295,7 +1305,7 @@
         "position": "HC",
         "team": "BAL",
         "team_record": "3-1",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/2024-0106-Jesse_Minter.jpg/500px-2024-0106-Jesse_Minter.jpg",
         "share": 0.022,
         "prev_share": 0.001,
         "stats": {
@@ -1305,7 +1315,9 @@
           "win_pct_change": 0.279,
           "point_diff": 20,
           "conf_rank": 2
-        }
+        },
+        "headshot_credit": "Bobak Ha'Eri, CC BY 3.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Jesse_Minter"
       },
       {
         "rank": 8,

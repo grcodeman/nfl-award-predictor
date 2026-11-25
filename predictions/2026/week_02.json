@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "through_week": 2,
-  "generated_at": "2026-11-25T04:37:00Z",
+  "generated_at": "2026-11-25T04:48:07Z",
   "model_version": "v7",
   "awards": {
     "mvp": [
@@ -1195,7 +1195,7 @@
         "position": "HC",
         "team": "CIN",
         "team_record": "2-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Zac_Taylor_2019.jpg/500px-Zac_Taylor_2019.jpg",
         "share": 0.1,
         "prev_share": 0.037,
         "stats": {
@@ -1205,7 +1205,9 @@
           "win_pct_change": 0.647,
           "point_diff": 20,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "Erik Drost, CC BY 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Zac_Taylor"
       },
       {
         "rank": 3,
@@ -1215,7 +1217,7 @@
         "position": "HC",
         "team": "KC",
         "team_record": "2-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Andy_Reid_%28Kansas_City_Chiefs_at_Washington_Football_Team%2C_October_17%2C_2021%29_%28cropped%29.jpg/500px-Andy_Reid_%28Kansas_City_Chiefs_at_Washington_Football_Team%2C_October_17%2C_2021%29_%28cropped%29.jpg",
         "share": 0.1,
         "prev_share": 0.036,
         "stats": {
@@ -1225,7 +1227,9 @@
           "win_pct_change": 0.647,
           "point_diff": 24,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Andy_Reid"
       },
       {
         "rank": 4,
@@ -1235,7 +1239,7 @@
         "position": "HC",
         "team": "MIN",
         "team_record": "2-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Kevin_O%27Connell_2019_%28cropped%29.jpg/500px-Kevin_O%27Connell_2019_%28cropped%29.jpg",
         "share": 0.029,
         "prev_share": 0.011,
         "stats": {
@@ -1245,7 +1249,9 @@
           "win_pct_change": 0.471,
           "point_diff": 23,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Kevin_O%27Connell"
       },
       {
         "rank": 5,
@@ -1275,7 +1281,7 @@
         "position": "HC",
         "team": "PHI",
         "team_record": "2-0",
-        "headshot_url": null,
+        "headshot_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Nick_Sirianni_in_2025_%28cropped%29.jpg",
         "share": 0.013,
         "prev_share": 0.005,
         "stats": {
@@ -1285,7 +1291,9 @@
           "win_pct_change": 0.353,
           "point_diff": 6,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "The White House, Public domain",
+        "headshot_page": "https://en.wikipedia.org/wiki/Nick_Sirianni"
       },
       {
         "rank": 7,
@@ -1295,7 +1303,7 @@
         "position": "HC",
         "team": "SF",
         "team_record": "2-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Kyle_Shanahan_%28tight_crop%29.jpg/500px-Kyle_Shanahan_%28tight_crop%29.jpg",
         "share": 0.008,
         "prev_share": 0.003,
         "stats": {
@@ -1305,7 +1313,9 @@
           "win_pct_change": 0.294,
           "point_diff": 42,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "AlexanderJonesi, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Kyle_Shanahan"
       },
       {
         "rank": 8,
@@ -1315,7 +1325,7 @@
         "position": "HC",
         "team": "SEA",
         "team_record": "2-0",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Mike_Macdonald_2_11_2026.jpg/500px-Mike_Macdonald_2_11_2026.jpg",
         "share": 0.004,
         "prev_share": 0.001,
         "stats": {
@@ -1325,7 +1335,9 @@
           "win_pct_change": 0.176,
           "point_diff": 27,
           "conf_rank": 1
-        }
+        },
+        "headshot_credit": "Washington National Guard, CC BY 4.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Mike_Macdonald"
       },
       {
         "rank": 9,
@@ -1335,7 +1347,7 @@
         "position": "HC",
         "team": "ARI",
         "team_record": "1-1",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Lafleur26.jpg/500px-Lafleur26.jpg",
         "share": 0.001,
         "prev_share": 0.266,
         "stats": {
@@ -1345,7 +1357,9 @@
           "win_pct_change": 0.324,
           "point_diff": -12,
           "conf_rank": 5
-        }
+        },
+        "headshot_credit": "WOH3030, CC BY-SA 4.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Mike_LaFleur"
       },
       {
         "rank": 10,
@@ -1355,7 +1369,7 @@
         "position": "HC",
         "team": "NYG",
         "team_record": "1-1",
-        "headshot_url": null,
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/John_Harbaugh_%2852093585046%29_%28cropped%29.jpg/500px-John_Harbaugh_%2852093585046%29_%28cropped%29.jpg",
         "share": 0.001,
         "prev_share": 0.177,
         "stats": {
@@ -1365,7 +1379,9 @@
           "win_pct_change": 0.265,
           "point_diff": -14,
           "conf_rank": 5
-        }
+        },
+        "headshot_credit": "Maryland GovPics, CC BY 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/John_Harbaugh"
       }
     ]
   }

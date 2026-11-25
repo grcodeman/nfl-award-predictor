@@ -67,7 +67,7 @@ const HOW_IT_WORKS = {
   dpoy: `${RETRAINED} every starting defensive lineman, linebacker and defensive back on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and last season's DPOY votes. ${shares("about 200 players")}`,
   droy: `${RETRAINED} every rookie defensive lineman, linebacker and defensive back with a regular role, compared with the league's starters, on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and draft position. ${shares("about 30 rookies")}`,
   cpoy: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every non-rookie with a regular role, on offense or defense, on this season's production and last season's, the share of last season's games played, the team's conference standing, and games played. % is production as a percentile of the starters at the same position: 88 means ahead of 88% of them. ${shares("about 450 players")}`,
-  coty: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every head coach on the team's win percentage, its change from last season, point differential per game, conference standing, and whether it's the coach's first season with the team. ${shares("32 head coaches", "coach")}`,
+  coty: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every head coach on the team's win percentage, its change from last season, point differential per game, conference standing, and whether it's the coach's first season with the team. ${shares("32 head coaches", "coach")} Coach photos are from Wikipedia; point at one for its photographer and license.`,
 };
 const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5"]; // chart colors, fixed order; color follows the player, not the rank
 const NIGHT = ["--n1", "--n2", "--n3", "--n4", "--n5"]; // the same hues stepped for the dark leader card
@@ -129,16 +129,29 @@ function winPct(record) {
 function headshot(url, px) {
   return url.replace("/image/upload/f_auto,q_auto/", `/image/upload/f_auto,q_auto,c_thumb,g_face,w_${px},h_${px}/`);
 }
-function avatar(row, cls, px) {
+// The picture is clipped to a circle, so the team logo sits beside it in a wrapper, over its bottom
+// right, with no backing. ESPN draws a version of each logo for dark backgrounds: the leader card is
+// always dark, and the table follows the color scheme. The logo is decoration: the team is named
+// next to every picture.
+function avatar(row, cls, px, logo, onDark = false) {
   const box = el("div", { class: cls });
   if (row.headshot_url) {
-    const img = el("img", { src: headshot(row.headshot_url, px), alt: "", decoding: "async" });
+    // Coach photos are Wikipedia portraits, not face crops: anchor them near the top, and show the
+    // photographer and license that their CC licenses ask for.
+    const img = el("img", { src: headshot(row.headshot_url, px), alt: "", decoding: "async",
+      class: row.headshot_credit ? "portrait" : null, title: row.headshot_credit ? `Photo: ${row.headshot_credit}` : null });
     img.addEventListener("error", () => img.replaceWith(el("span", { class: "initials", text: initials(row.player) })), { once: true });
     box.append(img);
   } else {
     box.append(el("span", { class: "initials", "aria-hidden": "true", text: initials(row.player) }));
   }
-  return box;
+  if (!logo) return el("div", { class: "pic" }, box);
+  const dark = logo.replace("/500/", "/500-dark/");
+  const img = el("img", { src: onDark ? dark : logo, alt: "", decoding: "async", loading: "lazy" });
+  const badge = el("picture", { class: "logo-badge" },
+    onDark ? null : el("source", { srcset: dark, media: "(prefers-color-scheme: dark)" }), img);
+  img.addEventListener("error", () => badge.remove(), { once: true });
+  return el("div", { class: "pic" }, box, badge);
 }
 
 // A movement marker: arrow plus amount, with a sentence for screen readers.
@@ -307,7 +320,7 @@ function renderHero(rows, week, team, set) {
 
   $("hero").replaceChildren(
     el("div", { class: "hero-top", vars },
-      avatar(lead, "hero-avatar", 208),
+      avatar(lead, "hero-avatar", 208, t.logo, true),
       el("div", { class: "hero-id" },
         el("h2", { class: "hero-name", id: "hero-name", text: lead.player }),
         el("p", { class: "hero-meta" }, el("span", { class: "team-chip", "aria-hidden": "true" }),
@@ -371,7 +384,7 @@ function renderBoard(rows, team, set) {
       el("td", { class: "c-rk" }, el("div", { class: "rk" }, el("strong", { text: String(r.rank) }),
         move(rankChange(r), { digits: 0, words: " spots since last week" }))),
       el("td", { class: "c-player" }, el("div", { class: "player", vars },
-        avatar(r, "avatar", 80),
+        avatar(r, "avatar", 80, t.logo),
         el("div", { class: "who" },
           el("p", { class: "who-name", text: r.player }),
           el("p", { class: "who-meta" }, el("span", { class: "team-chip", "aria-hidden": "true" }),
