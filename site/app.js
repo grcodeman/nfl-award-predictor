@@ -6,8 +6,20 @@ const DATA = "../predictions/";
 const AWARD_NAMES = {
   mvp: { short: "MVP", full: "Most Valuable Player" },
   opoy: { short: "OPOY", full: "Offensive Player of the Year" },
+  oroy: { short: "OROY", full: "Offensive Rookie of the Year" },
 };
 const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(), full: award.toUpperCase() };
+// "How it works", one per award, because each award ranks its own pool. MVP's is also static in index.html.
+const RETRAINED = "Each week a logistic regression is retrained on AP voting from 1999 to 2025 and scores";
+const OFFENSE = "per-game yards, touchdowns, EPA and turnovers, the team's conference standing, and games played";
+const shares = (pool, who = "player") =>
+  `Shares add up to 100% across the whole pool of ${pool}, so they read as each ${who}'s slice of the vote if the season ended today.`;
+const STARTERS_HOW = `${RETRAINED} every starting-caliber QB, RB, WR and TE on ${OFFENSE}. ${shares("about 90 players")}`;
+const HOW_IT_WORKS = {
+  mvp: STARTERS_HOW,
+  opoy: STARTERS_HOW,
+  oroy: `${RETRAINED} every rookie QB, RB, WR and TE with a regular role, compared with the league's starters, on ${OFFENSE}. ${shares("about 20 rookies")}`,
+};
 const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5"]; // chart colors, fixed order; color follows the player, not the rank
 const NIGHT = ["--n1", "--n2", "--n3", "--n4", "--n5"]; // the same hues stepped for the dark leader card
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -180,6 +192,8 @@ function render(award, latest, teams, weeks) {
   document.title = `Award Watch: NFL ${short} race`;
   const lede = `The model's predicted share of the AP ${full} vote, from this season's stats.`;
   if ($("lede").textContent !== lede) $("lede").textContent = lede; // the MVP line is already in the HTML
+  const how = HOW_IT_WORKS[award] || `${RETRAINED} every candidate in the pool. ${shares("candidates", "candidate")}`;
+  if ($("how-text").textContent.replace(/\s+/g, " ").trim() !== how) $("how-text").textContent = how;
   $("panel").setAttribute("aria-busy", "false");
   if (!rows.length) {
     showMessage(`No ${full} predictions in this week's file yet.`);
@@ -556,8 +570,11 @@ function swingItems(award, rows, weeks) {
     if (group.length === 1) {
       const r = group[0];
       const [from, to] = ordinalPair(r.prev_rank, r.rank);
+      // a climb can come from others falling, with the share the same to one decimal
+      const how = pct(r.prev_share) === pct(r.share) ? `with the share steady at ${pct(r.share)}`
+        : `on a move from ${pct(r.prev_share)} to ${pct(r.share)}`;
       return { delta: d, unit: "spots", title: `${L(r)} ${d >= 5 ? "jumps" : "climbs"} ${numberWord(d)} spots`,
-        detail: `${cap(from)} to ${to}, on a move from ${pct(r.prev_share)} to ${pct(r.share)}.` };
+        detail: `${cap(from)} to ${to}, ${how}.` };
     }
     const names = group.map(L);
     const sameStart = group.every((r) => pct(r.prev_share) === pct(group[0].prev_share));

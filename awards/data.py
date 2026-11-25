@@ -24,7 +24,7 @@ STAT_COLS = [
 ]
 
 
-def load_targets(awards=("mvp", "opoy")):
+def load_targets(awards=("mvp", "opoy", "oroy")):
     """One row per player-season that got votes: pfr_id, season, target_* and won_* for each award.
 
     target_* is first-place share. Unlike `share`, it sums to 1.0 within every season and award,
@@ -55,9 +55,14 @@ def add_targets(table):
 
 
 def load_player_ids():
-    """player_id (the gsis id used in nflverse stats) -> pfr_id (Pro Football Reference, used in the vote file)."""
+    """player_id (the gsis id used in nflverse stats) -> pfr_id (Pro Football Reference, used in the vote file)
+    and rookie_season.
+
+    rookie_season is filled in for every candidate back to 1999 and matches all 233 OROY and DROY
+    vote-getters. draft_year is blank for undrafted rookies (Phillip Lindsay 2018), so it isn't used.
+    """
     players = nfl.load_players().to_pandas()
-    return players[["gsis_id", "pfr_id"]].rename(columns={"gsis_id": "player_id"})
+    return players[["gsis_id", "pfr_id", "rookie_season"]].rename(columns={"gsis_id": "player_id"})
 
 
 def load_weekly_stats(seasons, through_week):

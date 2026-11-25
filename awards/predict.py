@@ -17,12 +17,12 @@ from datetime import datetime, timezone
 import nflreadpy as nfl
 
 from awards.data import ROOT, add_targets, load_targets, load_weekly_stats
-from awards.features import FINAL_WEEK, build_features
+from awards.features import FINAL_WEEK, award_pool, build_features
 from awards.model import MODEL_VERSION, fit, score, to_shares
 
 OUT = ROOT / "predictions"
 KIND = "logistic"  # the model that cleared the MVP floor at every snapshot week and the OPOY floor
-AWARDS = ["mvp", "opoy"]  # each award gets its own model, trained on its own "won" label
+AWARDS = ["mvp", "opoy", "oroy"]  # each award gets its own model, trained on its own "won" label and pool
 TOP_N = 10
 
 
@@ -42,9 +42,10 @@ def latest_completed_week(season):
     return int(done[done].index.max()) if done.any() else None
 
 
-def ranked(season, week, model):
-    """Every candidate through `week`, scored and ranked, with shares that sum to 1 over the pool."""
-    t = build_features([season], week)
+def ranked(table, award, model):
+    """Every candidate for `award` in a build_features table, scored and ranked, with shares that sum
+    to 1 over the award's pool."""
+    t = award_pool(table, award).copy()
     t["score"] = score(KIND, model, t)
     t["share"] = to_shares(KIND, t["score"], t["season"])
     t = t.sort_values(["score", "player_id"], ascending=[False, True])  # player_id breaks ties, for stable output
@@ -134,10 +135,12 @@ def main():
         "model_version": MODEL_VERSION,
         "awards": {},
     }
+    this_week = build_features([args.season], week)
+    last_week = build_features([args.season], week - 1) if week > 1 else None
     for award in AWARDS:
-        model = fit(KIND, train, award)
-        now = ranked(args.season, week, model)
-        prev = ranked(args.season, week - 1, model) if week > 1 else None
+        model = fit(KIND, award_pool(train, award), award)
+        now = ranked(this_week, award, model)
+        prev = ranked(last_week, award, model) if last_week is not None else None
         payload["awards"][award] = [entry(pid, row, prev) for pid, row in now.head(TOP_N).iterrows()]
 
     changed = write_if_changed(path, payload)

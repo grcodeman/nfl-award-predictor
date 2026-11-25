@@ -2,10 +2,17 @@
 
 python -m awards.evaluate          MVP
 python -m awards.evaluate opoy     Offensive Player of the Year
+python -m awards.evaluate oroy     Offensive Rookie of the Year
 
-Both awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
+These three awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
 scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the dashboard is read
 mid-season, so the shared set stayed.
+
+OROY ranks rookies only (ROOKIE_BARS in awards/features.py). Logistic, winner top pick / top 3 at weeks
+8, 11, 14 and full season: shared set 12/21 15/24 20/25 17/26; plus log draft slot 12/20 12/23 18/26
+18/26; minus turnovers_z 13/21 14/24 19/24 17/25; minus conf_rank 13/20 14/24 18/25 17/25; draft slot
+without conf_rank 13/20 14/22 17/26 16/27. None did better at weeks 11 and 14 and full season together,
+so the shared set stayed.
 
 For each season 1999-2025: train on full-season features from the other 26 seasons, then score the
 held-out season with features through weeks 8, 11, 14 and the full season. Seasons are held out
@@ -16,16 +23,18 @@ import sys
 import pandas as pd
 
 from awards.data import VOTES_CSV, add_targets
-from awards.features import FINAL_WEEK, build_features
+from awards.features import FINAL_WEEK, award_pool, build_features
 from awards.model import MODELS, fit, score
 
 SEASONS = range(1999, 2026)
 WEEKS = [8, 11, 14, FINAL_WEEK]
 # From the throwaway prototype (logistic, v1 features): (winner is top pick, winner in top 3) out of 27.
-# The plan gives OPOY a full-season floor only.
+# The plan gives OPOY a full-season floor only. OROY's floor is its own baseline, the shared features'
+# result above, because the plan gives it none.
 FLOOR = {
     "mvp": {8: (11, 17), 11: (13, 21), 14: (14, 23), FINAL_WEEK: (16, 24)},
     "opoy": {FINAL_WEEK: (14, 22)},
+    "oroy": {8: (12, 21), 11: (15, 24), 14: (20, 25), FINAL_WEEK: (17, 26)},
 }
 
 
@@ -35,7 +44,7 @@ def week_label(week):
 
 def run(award="mvp"):
     """One row per model, snapshot week and held-out season, with where the actual winner ranked."""
-    snapshots = {week: add_targets(build_features(SEASONS, week)) for week in WEEKS}
+    snapshots = {week: award_pool(add_targets(build_features(SEASONS, week)), award) for week in WEEKS}
     full = snapshots[FINAL_WEEK]
     rows = []
     for kind in MODELS:
@@ -58,19 +67,20 @@ def run(award="mvp"):
 
 def main(award="mvp"):
     results = run(award)
-    full = add_targets(build_features(SEASONS, FINAL_WEEK))
+    full = award_pool(add_targets(build_features(SEASONS, FINAL_WEEK)), award)
     winners = full[full[f"won_{award}"] == 1].groupby("season")["player"].agg(" / ".join)
+    n = len(SEASONS)
 
-    print(f"{award.upper()}: leave-one-season-out, {len(SEASONS)} seasons. Cells are seasons where the actual"
+    print(f"{award.upper()}: leave-one-season-out, {n} seasons. Cells are seasons where the actual"
           " winner was the model's top pick / in its top 3.\n")
     print(f"{'features through':<17}" + "".join(f"{k:>16}" for k in MODELS) + f"{'floor (logistic)':>19}")
     for week in WEEKS:
         cells = []
         for kind in MODELS:
             r = results[(results["model"] == kind) & (results["week"] == week)]["winner_rank"]
-            cells.append(f"{(r == 1).sum():>2} / {(r <= 3).sum():>2} of 27")
+            cells.append(f"{(r == 1).sum():>2} / {(r <= 3).sum():>2} of {n}")
         floor = FLOOR[award].get(week)
-        floor_cell = f"{floor[0]:>9} / {floor[1]:>2} of 27" if floor else f"{'–':>15}"
+        floor_cell = f"{floor[0]:>9} / {floor[1]:>2} of {n}" if floor else f"{'–':>15}"
         print(f"{week_label(week):<17}" + "".join(f"{c:>16}" for c in cells) + floor_cell)
 
     for kind in MODELS:
