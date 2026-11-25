@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 11,
-  "generated_at": "2026-11-25T04:03:24Z",
-  "model_version": "v4",
+  "generated_at": "2026-11-25T04:10:09Z",
+  "model_version": "v5",
   "awards": {
     "mvp": [
       {
@@ -778,6 +778,208 @@
           "ints": 3,
           "passes_defended": 5,
           "tackles": 38,
+          "forced_fumbles": 0
+        }
+      }
+    ],
+    "droy": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "00-0041509",
+        "player": "Arvell Reese",
+        "position": "LB",
+        "team": "NYG",
+        "team_record": "6-3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tvhqfy34evkal6zpu9to",
+        "share": 0.461,
+        "prev_share": 0.627,
+        "stats": {
+          "games": 10,
+          "sacks": 4.5,
+          "ints": 1,
+          "passes_defended": 4,
+          "tackles": 56,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 2,
+        "player_id": "00-0041026",
+        "player": "David Bailey",
+        "position": "LB",
+        "team": "NYJ",
+        "team_record": "3-8",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/bzanl4jdvmkvsdmsyxwg",
+        "share": 0.449,
+        "prev_share": 0.277,
+        "stats": {
+          "games": 10,
+          "sacks": 9.5,
+          "ints": 0,
+          "passes_defended": 4,
+          "tackles": 28,
+          "forced_fumbles": 6
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 3,
+        "player_id": "00-0041028",
+        "player": "Sonny Styles",
+        "position": "LB",
+        "team": "WAS",
+        "team_record": "4-5-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/wxufyrsnbie0gyq9piyf",
+        "share": 0.036,
+        "prev_share": 0.042,
+        "stats": {
+          "games": 10,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 4,
+          "tackles": 38,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 4,
+        "player_id": "00-0040865",
+        "player": "Caleb Downs",
+        "position": "SAF",
+        "team": "DAL",
+        "team_record": "5-6",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/nkj0yjytmlcbciqjus0w",
+        "share": 0.011,
+        "prev_share": 0.012,
+        "stats": {
+          "games": 11,
+          "sacks": 2.0,
+          "ints": 1,
+          "passes_defended": 3,
+          "tackles": 40,
+          "forced_fumbles": 2
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 5,
+        "player_id": "00-0041502",
+        "player": "Josiah Trotter",
+        "position": "LB",
+        "team": "TB",
+        "team_record": "3-7",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/sqikte2lgczxdun64akq",
+        "share": 0.011,
+        "prev_share": 0.01,
+        "stats": {
+          "games": 9,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 3,
+          "tackles": 44,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 8,
+        "player_id": "00-0041522",
+        "player": "Jacob Rodriguez",
+        "position": "LB",
+        "team": "MIA",
+        "team_record": "1-9",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ew3ilkxo5ub3bnzisc2t",
+        "share": 0.006,
+        "prev_share": 0.004,
+        "stats": {
+          "games": 10,
+          "sacks": 1.0,
+          "ints": 2,
+          "passes_defended": 2,
+          "tackles": 43,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 6,
+        "player_id": "00-0041538",
+        "player": "Dillon Thieneman",
+        "position": "SAF",
+        "team": "CHI",
+        "team_record": "8-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/lkqxlsmgrd6zfnxvwfph",
+        "share": 0.006,
+        "prev_share": 0.005,
+        "stats": {
+          "games": 10,
+          "sacks": 1.5,
+          "ints": 2,
+          "passes_defended": 6,
+          "tackles": 33,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 7,
+        "player_id": "00-0041036",
+        "player": "TJ Parker",
+        "position": "LB",
+        "team": "BUF",
+        "team_record": "9-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ko8yaipbaeyaneyp7oex",
+        "share": 0.004,
+        "prev_share": 0.004,
+        "stats": {
+          "games": 9,
+          "sacks": 3.5,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 10,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 9,
+        "player_id": "00-0041078",
+        "player": "Jaden Dugger",
+        "position": "LB",
+        "team": "SF",
+        "team_record": "9-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/qgqcvgbjx1yflrlwfltq",
+        "share": 0.003,
+        "prev_share": 0.004,
+        "stats": {
+          "games": 9,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 29,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 10,
+        "player_id": "00-0041569",
+        "player": "Gabe Jacas",
+        "position": "LB",
+        "team": "NE",
+        "team_record": "5-5",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/pfj4ln4kaoimfwezeviq",
+        "share": 0.002,
+        "prev_share": 0.002,
+        "stats": {
+          "games": 10,
+          "sacks": 3.5,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 16,
           "forced_fumbles": 0
         }
       }

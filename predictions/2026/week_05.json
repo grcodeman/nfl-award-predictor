@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 5,
-  "generated_at": "2026-11-25T04:03:02Z",
-  "model_version": "v4",
+  "generated_at": "2026-11-25T04:09:47Z",
+  "model_version": "v5",
   "awards": {
     "mvp": [
       {
@@ -779,6 +779,208 @@
           "passes_defended": 3,
           "tackles": 22,
           "forced_fumbles": 3
+        }
+      }
+    ],
+    "droy": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "00-0041509",
+        "player": "Arvell Reese",
+        "position": "LB",
+        "team": "NYG",
+        "team_record": "3-1-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tvhqfy34evkal6zpu9to",
+        "share": 0.49,
+        "prev_share": 0.717,
+        "stats": {
+          "games": 5,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 4,
+          "tackles": 29,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 2,
+        "player_id": "00-0041026",
+        "player": "David Bailey",
+        "position": "LB",
+        "team": "NYJ",
+        "team_record": "2-3",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/bzanl4jdvmkvsdmsyxwg",
+        "share": 0.424,
+        "prev_share": 0.149,
+        "stats": {
+          "games": 5,
+          "sacks": 5.0,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 17,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 4,
+        "player_id": "00-0041028",
+        "player": "Sonny Styles",
+        "position": "LB",
+        "team": "WAS",
+        "team_record": "1-3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/wxufyrsnbie0gyq9piyf",
+        "share": 0.03,
+        "prev_share": 0.035,
+        "stats": {
+          "games": 5,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 3,
+          "tackles": 13,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 3,
+        "player_id": "00-0040865",
+        "player": "Caleb Downs",
+        "position": "SAF",
+        "team": "DAL",
+        "team_record": "2-3",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/nkj0yjytmlcbciqjus0w",
+        "share": 0.012,
+        "prev_share": 0.048,
+        "stats": {
+          "games": 5,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 20,
+          "forced_fumbles": 2
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 5,
+        "player_id": "00-0041502",
+        "player": "Josiah Trotter",
+        "position": "LB",
+        "team": "TB",
+        "team_record": "1-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/sqikte2lgczxdun64akq",
+        "share": 0.009,
+        "prev_share": 0.012,
+        "stats": {
+          "games": 4,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 21,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 6,
+        "player_id": "00-0041543",
+        "player": "Mansoor Delane",
+        "position": "CB",
+        "team": "KC",
+        "team_record": "4-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tw9nfj4gxwqjvqfencwo",
+        "share": 0.006,
+        "prev_share": 0.008,
+        "stats": {
+          "games": 3,
+          "sacks": 0.0,
+          "ints": 1,
+          "passes_defended": 3,
+          "tackles": 14,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 7,
+        "player_id": "00-0041522",
+        "player": "Jacob Rodriguez",
+        "position": "LB",
+        "team": "MIA",
+        "team_record": "0-5",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ew3ilkxo5ub3bnzisc2t",
+        "share": 0.005,
+        "prev_share": 0.008,
+        "stats": {
+          "games": 5,
+          "sacks": 0.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 24,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 10,
+        "player_id": "00-0041544",
+        "player": "Akheem Mesidor",
+        "position": "LB",
+        "team": "LAC",
+        "team_record": "0-5",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/uzofkqafecc5zqqwyiyd",
+        "share": 0.005,
+        "prev_share": 0.003,
+        "stats": {
+          "games": 5,
+          "sacks": 2.5,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 9,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 8,
+        "player_id": "00-0041569",
+        "player": "Gabe Jacas",
+        "position": "LB",
+        "team": "NE",
+        "team_record": "3-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/pfj4ln4kaoimfwezeviq",
+        "share": 0.003,
+        "prev_share": 0.004,
+        "stats": {
+          "games": 5,
+          "sacks": 1.5,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 8,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 13,
+        "player_id": "00-0041470",
+        "player": "Brandon Cisse",
+        "position": "CB",
+        "team": "GB",
+        "team_record": "3-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/jvhlu2ghhxoitpve7ccj",
+        "share": 0.003,
+        "prev_share": 0.001,
+        "stats": {
+          "games": 5,
+          "sacks": 1.5,
+          "ints": 0,
+          "passes_defended": 2,
+          "tackles": 16,
+          "forced_fumbles": 0
         }
       }
     ]

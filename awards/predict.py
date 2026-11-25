@@ -22,7 +22,7 @@ from awards.model import MODEL_VERSION, fit, score, to_shares
 
 OUT = ROOT / "predictions"
 KIND = "logistic"  # the model that cleared the MVP floor at every snapshot week and the OPOY floor
-AWARDS = ["mvp", "opoy", "oroy", "dpoy"]  # each award gets its own model, trained on its own "won" label and pool
+AWARDS = ["mvp", "opoy", "oroy", "dpoy", "droy"]  # each award gets its own model, trained on its own "won" label and pool
 TOP_N = 10
 
 

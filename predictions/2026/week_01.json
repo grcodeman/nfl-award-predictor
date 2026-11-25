@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 1,
-  "generated_at": "2026-11-25T04:02:47Z",
-  "model_version": "v4",
+  "generated_at": "2026-11-25T04:09:33Z",
+  "model_version": "v5",
   "awards": {
     "mvp": [
       {
@@ -775,6 +775,208 @@
         "stats": {
           "games": 1,
           "sacks": 2.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 4,
+          "forced_fumbles": 0
+        }
+      }
+    ],
+    "droy": [
+      {
+        "rank": 1,
+        "prev_rank": null,
+        "player_id": "00-0041026",
+        "player": "David Bailey",
+        "position": "LB",
+        "team": "NYJ",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/bzanl4jdvmkvsdmsyxwg",
+        "share": 0.522,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 4,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": null,
+        "player_id": "00-0040865",
+        "player": "Caleb Downs",
+        "position": "SAF",
+        "team": "DAL",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/nkj0yjytmlcbciqjus0w",
+        "share": 0.197,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 4,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": null,
+        "player_id": "00-0041502",
+        "player": "Josiah Trotter",
+        "position": "LB",
+        "team": "TB",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/sqikte2lgczxdun64akq",
+        "share": 0.089,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 4,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": null,
+        "player_id": "00-0041509",
+        "player": "Arvell Reese",
+        "position": "LB",
+        "team": "NYG",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tvhqfy34evkal6zpu9to",
+        "share": 0.076,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 0.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 4,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": null,
+        "player_id": "00-0041028",
+        "player": "Sonny Styles",
+        "position": "LB",
+        "team": "WAS",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/wxufyrsnbie0gyq9piyf",
+        "share": 0.054,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 3,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": null,
+        "player_id": "00-0041538",
+        "player": "Dillon Thieneman",
+        "position": "SAF",
+        "team": "CHI",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/lkqxlsmgrd6zfnxvwfph",
+        "share": 0.014,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 0.0,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 8,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": null,
+        "player_id": "00-0041501",
+        "player": "R Mason Thomas",
+        "position": "DE",
+        "team": "KC",
+        "team_record": "1-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/kyj9zy752wgq6nnn4ui6",
+        "share": 0.008,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 1,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": null,
+        "player_id": "00-0041569",
+        "player": "Gabe Jacas",
+        "position": "LB",
+        "team": "NE",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/pfj4ln4kaoimfwezeviq",
+        "share": 0.008,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 3,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": null,
+        "player_id": "00-0041522",
+        "player": "Jacob Rodriguez",
+        "position": "LB",
+        "team": "MIA",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ew3ilkxo5ub3bnzisc2t",
+        "share": 0.007,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 0.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 5,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": null,
+        "player_id": "00-0041478",
+        "player": "Lee Hunter",
+        "position": "DT",
+        "team": "CAR",
+        "team_record": "0-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/h3dk22cisv0hv6dpvd6a",
+        "share": 0.007,
+        "prev_share": null,
+        "stats": {
+          "games": 1,
+          "sacks": 0.0,
           "ints": 0,
           "passes_defended": 0,
           "tackles": 4,

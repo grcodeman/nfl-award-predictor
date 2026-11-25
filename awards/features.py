@@ -32,6 +32,9 @@ ROOKIE_BARS = (5, 5, 25)
 # 2007, 2.6 solo tackles; Patrick Surtain 2024, 0.9 INT + PD). That makes about 215 a season, twice the
 # offensive pool; bars sized for 100 lost both of those winners.
 DEF_STARTER_BARS = {"DL": (0.35, 2.5), "LB": (3.25, 0.35), "DB": (0.75, 2.5)}
+# Defensive rookies, at about three quarters of those: the starter bars missed two DROY winners
+# (Jonathan Vilma 2004, Sheldon Richardson 2013). These hold all 27, about 27 rookies a season.
+DEF_ROOKIE_BARS = {"DL": (0.25, 1.9), "LB": (2.5, 0.25), "DB": (0.55, 1.9)}
 
 # Which candidates each award ranks. Rookies below the starter bars are candidates only for rookie awards.
 POOLS = {
@@ -39,6 +42,7 @@ POOLS = {
     "opoy": lambda t: (t["side"] == "offense") & (t["starter"] == 1),
     "oroy": lambda t: (t["side"] == "offense") & (t["rookie"] == 1),
     "dpoy": lambda t: (t["side"] == "defense") & (t["starter"] == 1),
+    "droy": lambda t: (t["side"] == "defense") & (t["rookie"] == 1),
 }
 
 
@@ -93,6 +97,9 @@ def build_features(seasons, through_week):
     prev = load_targets(("dpoy",))[["pfr_id", "season", "target_dpoy"]]
     prev = prev.assign(season=prev["season"] + 1).rename(columns={"target_dpoy": "prev_dpoy_vote"})
     p = p.merge(prev, on=["pfr_id", "season"], how="left", validate="many_to_one").fillna({"prev_dpoy_vote": 0})
+    # Where a player was drafted, on a log scale (pick 1 to 2 matters more than 101 to 102); undrafted
+    # counts as 260, just past the last pick. DROY voters follow the top picks (awards/evaluate.py).
+    p["draft_slot"] = np.log(p["draft_pick"].fillna(260))
 
     per_game = p[["attempts", "touches", "receiving_yards"] + RATES + DEF_RATES].div(p["team_games"], axis=0)
     # A traded player can have more games than his new team has played, so cap at 1.
@@ -115,7 +122,7 @@ def build_features(seasons, through_week):
     offense, defense = pos.isin(POSITIONS), pos.isin(DEF_POSITIONS)
     p["side"] = defense.map({True: "defense", False: "offense"})
     p["starter"] = ((offense & clears(STARTER_BARS)) | (defense & clears_defense(DEF_STARTER_BARS))).astype(int)
-    p["rookie"] = (offense & is_rookie & clears(ROOKIE_BARS)).astype(int)
+    p["rookie"] = (is_rookie & ((offense & clears(ROOKIE_BARS)) | (defense & clears_defense(DEF_ROOKIE_BARS)))).astype(int)
     p = p[(p["starter"] == 1) | (p["rookie"] == 1)].copy()
     for c in RATES + DEF_RATES:
         p[f"{c}_pg"] = per_game.loc[p.index, c]
@@ -136,7 +143,7 @@ def build_features(seasons, through_week):
             "games", "team_games", "team_win_pct", "availability", "starter", "rookie"]
     keep += [f"{c}_pg" for c in RATES + DEF_RATES] + [f"{c}_z" for c in RATES + DEF_RATES]
     keep += [f"is_{x.lower()}" for x in POSITIONS + DEF_POSITIONS]
-    keep += ["conf_rank", "def_rank", "prev_dpoy_vote", "team_wins", "team_losses", "team_ties"]
+    keep += ["conf_rank", "def_rank", "prev_dpoy_vote", "draft_slot", "team_wins", "team_losses", "team_ties"]
     keep += RATES + DEF_RATES  # record and season totals, for display
     # Offense first, in the order it has always had, so the offensive awards fit on identical rows.
     return pd.concat([

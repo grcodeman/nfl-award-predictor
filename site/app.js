@@ -8,6 +8,7 @@ const AWARD_NAMES = {
   opoy: { short: "OPOY", full: "Offensive Player of the Year" },
   oroy: { short: "OROY", full: "Offensive Rookie of the Year" },
   dpoy: { short: "DPOY", full: "Defensive Player of the Year", stats: "defense" },
+  droy: { short: "DROY", full: "Defensive Rookie of the Year", stats: "defense" },
 };
 const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(), full: award.toUpperCase() };
 // The four stats an award's leader card, table and head to head show, keyed to the JSON's stats.
@@ -40,6 +41,7 @@ const HOW_IT_WORKS = {
   opoy: STARTERS_HOW,
   oroy: `${RETRAINED} every rookie QB, RB, WR and TE with a regular role, compared with the league's starters, on ${OFFENSE}. ${shares("about 20 rookies")}`,
   dpoy: `${RETRAINED} every starting defensive lineman, linebacker and defensive back on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and last season's DPOY votes. ${shares("about 200 players")}`,
+  droy: `${RETRAINED} every rookie defensive lineman, linebacker and defensive back with a regular role, compared with the league's starters, on per-game sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns, the team's conference standing, games played, and draft position. ${shares("about 30 rookies")}`,
 };
 const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5"]; // chart colors, fixed order; color follows the player, not the rank
 const NIGHT = ["--n1", "--n2", "--n3", "--n4", "--n5"]; // the same hues stepped for the dark leader card

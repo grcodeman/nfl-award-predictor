@@ -4,6 +4,7 @@ python -m awards.evaluate          MVP
 python -m awards.evaluate opoy     Offensive Player of the Year
 python -m awards.evaluate oroy     Offensive Rookie of the Year
 python -m awards.evaluate dpoy     Defensive Player of the Year
+python -m awards.evaluate droy     Defensive Rookie of the Year
 
 The three offensive awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
 scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the dashboard is read
@@ -25,6 +26,11 @@ DPOY first-place share 4/5 6/9 5/12 5/13; all three changes 4/9 5/8 5/12 4/11. L
 gained top picks at every week (+4 at week 11) and top-3 at week 14 and full season, giving back one
 top-3 season at weeks 8 and 11, within noise. It is the set used.
 
+DROY ranks defensive rookies (DEF_ROOKIE_BARS) on the defensive baseline, the floor: 7/13 7/16 7/17
+8/17. Plus log draft slot 8/14 10/17 10/17 11/18; minus tackles_z 6/11 6/15 6/15 7/17; plus def_rank
+6/12 9/15 10/17 8/19; minus conf_rank 8/13 7/17 8/18 9/18. Draft slot did better at every week and is
+the set used. (For OROY the same feature lost at weeks 11 and 14.)
+
 For each season 1999-2025: train on full-season features from the other 26 seasons, then score the
 held-out season with features through weeks 8, 11, 14 and the full season. Seasons are held out
 whole because players in the same season compete for the same votes.
@@ -40,13 +46,14 @@ from awards.model import MODELS, fit, score
 SEASONS = range(1999, 2026)
 WEEKS = [8, 11, 14, FINAL_WEEK]
 # From the throwaway prototype (logistic, v1 features): (winner is top pick, winner in top 3) out of 27.
-# The plan gives OPOY a full-season floor only. OROY's and DPOY's floors are their own baselines (the
-# shared features and the defensive baseline, above), because the plan gives them none.
+# The plan gives OPOY a full-season floor only. The other awards' floors are their own baselines (the
+# shared features, or the defensive baseline, above), because the plan gives them none.
 FLOOR = {
     "mvp": {8: (11, 17), 11: (13, 21), 14: (14, 23), FINAL_WEEK: (16, 24)},
     "opoy": {FINAL_WEEK: (14, 22)},
     "oroy": {8: (12, 21), 11: (15, 24), 14: (20, 25), FINAL_WEEK: (17, 26)},
     "dpoy": {8: (2, 6), 11: (2, 10), 14: (4, 10), FINAL_WEEK: (4, 12)},
+    "droy": {8: (7, 13), 11: (7, 16), 14: (7, 17), FINAL_WEEK: (8, 17)},
 }
 
 
