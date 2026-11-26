@@ -45,7 +45,7 @@ jobs:
         env:  # inputs go through env, not straight into the script, so they can't inject shell code
           SEASON: ${{ inputs.season }}
           WEEK: ${{ inputs.week }}
-        run: python -m awards.predict ${SEASON:+--season "$SEASON"} ${WEEK:+--week "$WEEK"}
+        run: python -m predictor.awards.predict ${SEASON:+--season "$SEASON"} ${WEEK:+--week "$WEEK"}
 
       - name: Commit changed predictions
         run: |

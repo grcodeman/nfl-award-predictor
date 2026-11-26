@@ -4,14 +4,15 @@ Training calls it with the final week, the weekly run with the latest completed 
 with any week, so all three see exactly the same features. The table holds every award's candidates;
 award_pool(table, award) picks the rows one award ranks.
 
-python -m awards.features   writes the 1999-2025 table with targets to .cache/modeling_table.csv
+python -m predictor.awards.features   writes the 1999-2025 table with targets to .cache/modeling_table.csv
                             and prints the Phase 1 acceptance checks
 """
 import numpy as np
 import pandas as pd
 
-from awards.data import (ROOT, add_targets, coach_id, load_player_ids, load_targets, load_team_records, load_votes,
-                         load_weekly_stats)
+from predictor.awards.data import (add_targets, coach_id, load_player_ids, load_targets, load_votes,
+                                   load_weekly_stats)
+from predictor.data import ROOT, load_team_records
 
 # Per team game rates, so a player 10 games in compares fairly with a full season.
 RATES = ["yards", "tds", "epa", "turnovers"]
@@ -179,12 +180,12 @@ def player_seasons(seasons, through_week):
     assert p["team_games"].notna().all(), "a player's team has no record; check OLD_TEAM_CODES"
     p = p.merge(load_player_ids(), on="player_id", how="left", validate="many_to_one")
     # Last season's first-place share of the DPOY vote, known before the season starts. Defensive voting
-    # leans on reputation (awards/evaluate.py). 0 for 1999, the first season of vote data.
+    # leans on reputation (predictor/awards/evaluate.py). 0 for 1999, the first season of vote data.
     prev = load_targets(("dpoy",))[["pfr_id", "season", "target_dpoy"]]
     prev = prev.assign(season=prev["season"] + 1).rename(columns={"target_dpoy": "prev_dpoy_vote"})
     p = p.merge(prev, on=["pfr_id", "season"], how="left", validate="many_to_one").fillna({"prev_dpoy_vote": 0})
     # Where a player was drafted, on a log scale (pick 1 to 2 matters more than 101 to 102); undrafted
-    # counts as 260, just past the last pick. DROY voters follow the top picks (awards/evaluate.py).
+    # counts as 260, just past the last pick. DROY voters follow the top picks (predictor/awards/evaluate.py).
     p["draft_slot"] = np.log(p["draft_pick"].fillna(260))
 
     per_game = p[["attempts", "touches", "receiving_yards"] + RATES + DEF_RATES].div(p["team_games"], axis=0)
@@ -266,7 +267,7 @@ def main():
         print(f"  {season} {name}: top is {top['player']} ({top['target_mvp']:.2f})"
               f" {'OK' if top['player'] == name else 'MISMATCH'}")
 
-    from awards.model import FEATURES  # model doesn't import features, so this can't loop
+    from predictor.awards.model import FEATURES  # model doesn't import features, so this can't loop
 
     now = build_features([2026], through_week=10)
     missing = sum(int(award_pool(now, a)[FEATURES[a]].isna().sum().sum()) for a in POOLS)

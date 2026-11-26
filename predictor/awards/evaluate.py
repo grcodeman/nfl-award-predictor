@@ -1,22 +1,22 @@
 """Leave-one-season-out evaluation of the award models.
 
-python -m awards.evaluate          MVP
-python -m awards.evaluate opoy     Offensive Player of the Year
-python -m awards.evaluate oroy     Offensive Rookie of the Year
-python -m awards.evaluate dpoy     Defensive Player of the Year
-python -m awards.evaluate droy     Defensive Rookie of the Year
-python -m awards.evaluate cpoy     Comeback Player of the Year
-python -m awards.evaluate coty     Coach of the Year
+python -m predictor.awards.evaluate          MVP
+python -m predictor.awards.evaluate opoy     Offensive Player of the Year
+python -m predictor.awards.evaluate oroy     Offensive Rookie of the Year
+python -m predictor.awards.evaluate dpoy     Defensive Player of the Year
+python -m predictor.awards.evaluate droy     Defensive Rookie of the Year
+python -m predictor.awards.evaluate cpoy     Comeback Player of the Year
+python -m predictor.awards.evaluate coty     Coach of the Year
 
-The three offensive awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
-scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the dashboard is read
-mid-season, so the shared set stayed.
+The three offensive awards use the same features (predictor/awards/model.py). For OPOY, swapping
+conf_rank for team_win_pct scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the
+dashboard is read mid-season, so the shared set stayed.
 
-OROY ranks rookies with a regular role (REGULAR_BARS in awards/features.py). Logistic, winner top pick / top 3 at weeks
-8, 11, 14 and full season: shared set 12/21 15/24 20/25 17/26; plus log draft slot 12/20 12/23 18/26
-18/26; minus turnovers_z 13/21 14/24 19/24 17/25; minus conf_rank 13/20 14/24 18/25 17/25; draft slot
-without conf_rank 13/20 14/22 17/26 16/27. None did better at weeks 11 and 14 and full season together,
-so the shared set stayed.
+OROY ranks rookies with a regular role (REGULAR_BARS in predictor/awards/features.py). Logistic, winner
+top pick / top 3 at weeks 8, 11, 14 and full season: shared set 12/21 15/24 20/25 17/26; plus log draft
+slot 12/20 12/23 18/26 18/26; minus turnovers_z 13/21 14/24 19/24 17/25; minus conf_rank 13/20 14/24
+18/25 17/25; draft slot without conf_rank 13/20 14/22 17/26 16/27. None did better at weeks 11 and 14
+and full season together, so the shared set stayed.
 
 DPOY ranks the defensive pool (about 215 a season) on per-game sacks, interceptions, passes defended,
 forced fumbles, solo tackles and defensive TDs, z-scored within DL, LB and DB, plus conf_rank and
@@ -68,9 +68,9 @@ import sys
 
 import pandas as pd
 
-from awards.data import add_targets, load_votes
-from awards.features import FINAL_WEEK, award_pool, build_features
-from awards.model import MODELS, fit, score
+from predictor.awards.data import add_targets, load_votes
+from predictor.awards.features import FINAL_WEEK, award_pool, build_features
+from predictor.awards.model import MODELS, fit, score
 
 SEASONS = range(1999, 2026)
 WEEKS = [8, 11, 14, FINAL_WEEK]

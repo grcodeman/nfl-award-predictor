@@ -14,7 +14,7 @@ OFFENSE = ["yards_z", "tds_z", "epa_z", "turnovers_z", "conf_rank", "availabilit
 # The same recipe for defenders: per-game production z-scored within DL, LB and DB, plus standing and
 # games played. DPOY adds last season's DPOY vote, for reputation, and DROY the draft slot. CPOY sets
 # this season's production against last season's and how much of last season the player missed. The
-# experiments behind each award's set are in the awards/evaluate.py docstring.
+# experiments behind each award's set are in the predictor/awards/evaluate.py docstring.
 DEFENSE = ["sacks_z", "ints_z", "pds_z", "ffs_z", "tackles_z", "def_tds_z", "conf_rank", "availability",
            "is_dl", "is_lb", "is_db"]
 FEATURES = {"mvp": OFFENSE, "opoy": OFFENSE, "oroy": OFFENSE, "dpoy": DEFENSE + ["prev_dpoy_vote"],

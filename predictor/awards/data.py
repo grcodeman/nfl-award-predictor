@@ -1,24 +1,17 @@
-"""Loaders: AP votes and vote targets, the player id crosswalk, weekly player stats, team records, and
-head coach photos."""
+"""Award loaders: AP votes and vote targets, the player id crosswalk, weekly player stats, and head coach
+photos. Schedules and team records are shared with the game models, in predictor/data.py."""
 import html
 import json
 import re
-from pathlib import Path
 from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 
 import nflreadpy as nfl
 import pandas as pd
-from nflreadpy.config import update_config
 
-ROOT = Path(__file__).resolve().parent.parent
+from predictor.data import OLD_TEAM_CODES, ROOT
+
 VOTES_CSV = ROOT / "award-share-data" / "award_votes.csv"
-
-# Keep nflreadpy downloads on disk in the gitignored .cache/ folder; it re-downloads at most once a day.
-update_config(cache_mode="filesystem", cache_dir=ROOT / ".cache" / "nflreadpy", verbose=False)
-
-# Schedules use the team code of the time; stats use today's code for every season.
-OLD_TEAM_CODES = {"STL": "LA", "SD": "LAC", "OAK": "LV"}
 
 ID_COLS = ["season", "week", "game_id", "player_id", "player_display_name", "position", "position_group", "team",
            "headshot_url"]
@@ -111,36 +104,6 @@ def load_weekly_stats(seasons, through_week):
     # one 1999 row (Steve Bono, week 9) has no team; it can't be matched to a team record
     s = s[(s["season_type"] == "REG") & (s["week"] <= through_week) & s["player_id"].notna() & s["team"].notna()]
     return s[ID_COLS + STAT_COLS].fillna({c: 0 for c in STAT_COLS})  # EPA is blank when a player had no such plays
-
-
-def load_team_records(seasons, through_week):
-    """team_games, team_win_pct, conf_rank, def_rank, team_pd_pg and coach per team-season, from REG
-    games played in weeks 1 through `through_week`. coach is the head coach in the latest game."""
-    g = nfl.load_schedules(list(seasons)).to_pandas()
-    g = g[(g["game_type"] == "REG") & (g["week"] <= through_week) & g["result"].notna()]
-    # One row per team per game. `result` is home score minus away score.
-    games = pd.concat([
-        pd.DataFrame({"season": g["season"], "week": g["week"], "team": g["home_team"], "coach": g["home_coach"],
-                      "margin": g["result"], "allowed": g["away_score"]}),
-        pd.DataFrame({"season": g["season"], "week": g["week"], "team": g["away_team"], "coach": g["away_coach"],
-                      "margin": -g["result"], "allowed": g["home_score"]}),
-    ]).sort_values("week")
-    games["team"] = games["team"].replace(OLD_TEAM_CODES)
-    games["win"] = (games["margin"] > 0) + 0.5 * (games["margin"] == 0)  # a tie counts as half a win
-    t = games.groupby(["season", "team"], as_index=False).agg(
-        team_games=("win", "size"), team_win_pct=("win", "mean"),
-        team_wins=("margin", lambda m: (m > 0).sum()), team_losses=("margin", lambda m: (m < 0).sum()),
-        team_ties=("margin", lambda m: (m == 0).sum()), team_pa_pg=("allowed", "mean"),
-        team_pd_pg=("margin", "mean"), coach=("coach", "last"),
-    )
-    # 1 = fewest points allowed per game in the league that season
-    t["def_rank"] = t.groupby("season")["team_pa_pg"].rank(method="min")
-    conf = nfl.load_teams().to_pandas().set_index("team_abbr")["team_conf"]
-    t["conf"] = t["team"].map(conf).where(~((t["team"] == "SEA") & (t["season"] < 2002)), "AFC")  # SEA moved in 2002
-    # 1 = best record in the conference (ties share the better rank). A stand-in for playoff seed
-    # that also works mid-season.
-    t["conf_rank"] = t.groupby(["season", "conf"])["team_win_pct"].rank(method="min", ascending=False)
-    return t
 
 
 # Head coach photos. nflverse has none, so they come from each coach's Wikipedia page: its lead image,

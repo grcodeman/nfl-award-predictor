@@ -12,12 +12,12 @@ This is the process OPOY went through (Phase 6), written down so every award get
 
 | Piece | File | What changes |
 |---|---|---|
-| Vote targets and won labels | `awards/data.py` `load_targets(awards=...)` | add the code to the default tuple |
-| Pool coverage check | `awards/features.py` `main()` | add the code to the `for award in [...]` list |
-| Candidate pool and features | `awards/features.py` `build_features()` | only for awards the offensive pool doesn't cover (see step 0) |
-| Model | `awards/model.py` | usually nothing; `FEATURES` is shared |
-| Evaluation floor | `awards/evaluate.py` `FLOOR` | add `FLOOR[award]` |
-| Weekly JSON | `awards/predict.py` `AWARDS`, `awards/model.py` `MODEL_VERSION` | add the code, bump the version |
+| Vote targets and won labels | `predictor/awards/data.py` `load_targets(awards=...)` | add the code to the default tuple |
+| Pool coverage check | `predictor/awards/features.py` `main()` | add the code to the `for award in [...]` list |
+| Candidate pool and features | `predictor/awards/features.py` `build_features()` | only for awards the offensive pool doesn't cover (see step 0) |
+| Model | `predictor/awards/model.py` | usually nothing; `FEATURES` is shared |
+| Evaluation floor | `predictor/awards/evaluate.py` `FLOOR` | add `FLOOR[award]` |
+| Weekly JSON | `predictor/awards/predict.py` `AWARDS`, `predictor/awards/model.py` `MODEL_VERSION` | add the code, bump the version |
 | Dashboard tab | `site/app.js` `AWARD_NAMES` | add `{ short, full }` |
 
 The set is these seven: mvp, opoy, dpoy, oroy, droy, cpoy and coty. The data side is already there: `award-share-data/award_votes.csv` has 27 seasons of votes for each, and `award-data/<award>.csv` has the winners (co-winners included).
@@ -40,8 +40,8 @@ Decide which path it takes before writing code.
 
 ## Step 1: wire the label and check pool coverage
 
-1. Add the code to `load_targets(awards=(...))` in `awards/data.py` and to the check loop in `features.main()`.
-2. Run `python -m awards.features`.
+1. Add the code to `load_targets(awards=(...))` in `predictor/awards/data.py` and to the check loop in `features.main()`.
+2. Run `python -m predictor.awards.features`.
 3. Read `in-pool target_<award>`. In-pool first-place share should sum to about 1.0 in most seasons. It never goes above 1.0 except for rounding.
    - A few misses, like J.J. Watt in MVP 2014, are fine. List them.
    - If many seasons fall well short, the pool doesn't fit the award: go back to step 0 and treat it as path B.
@@ -53,7 +53,7 @@ Decide which path it takes before writing code.
 1. Add `FLOOR[award]`.
    - **If the plan gives a floor,** use it.
    - **If not,** run the baseline first and record its numbers as the floor. Say in the docstring that the floor came from the baseline.
-2. Run `python -m awards.evaluate <award>` with the shared `FEATURES` unchanged.
+2. Run `python -m predictor.awards.evaluate <award>` with the shared `FEATURES` unchanged.
 3. Read every row, not just the full season. The dashboard is read mid-season, so weeks 8, 11 and 14 matter.
 
 **Check:** the evaluation table, the misses, and whether it clears the floor.
@@ -61,7 +61,7 @@ Decide which path it takes before writing code.
 ## Step 3: a few feature experiments, decided in advance
 
 - Write down at most five feature sets before running them, each with a reason (for example "team standing matters less for an offensive award"). Don't search until something wins: with 27 seasons, a difference of one or two seasons is noise.
-- Use a scratch script in the session's scratchpad, not the repo. Build the snapshots once with `add_targets(build_features(SEASONS, week))`, set `awards.model.FEATURES`, and rerun the leave-one-season-out loop from `awards/evaluate.py:run`.
+- Use a scratch script in the session's scratchpad, not the repo. Build the snapshots once with `add_targets(build_features(SEASONS, week))`, set `predictor.awards.model.FEATURES`, and rerun the leave-one-season-out loop from `predictor/awards/evaluate.py:run`.
 - **Keep the shared set** unless another set does better at weeks 11 and 14 *and* at full season without losing elsewhere. OPOY kept the shared set: swapping `conf_rank` for `team_win_pct` won at full season (18/24) but lost badly at weeks 8 and 11.
 - If an award really needs its own features:
   1. Turn `FEATURES` into a dict keyed by award.
@@ -73,10 +73,10 @@ Decide which path it takes before writing code.
 
 ## Step 4: publish to the weekly JSON
 
-1. Add the code to `AWARDS` in `awards/predict.py` and bump `MODEL_VERSION` in `awards/model.py`. Adding a key to the JSON is a deliberate contract change.
+1. Add the code to `AWARDS` in `predictor/awards/predict.py` and bump `MODEL_VERSION` in `predictor/awards/model.py`. Adding a key to the JSON is a deliberate contract change.
 2. Rebuild the current season so the new tab has a trend from week 1:
    ```bash
-   for w in $(seq 1 <latest>); do python -m awards.predict --season <season> --week $w; done
+   for w in $(seq 1 <latest>); do python -m predictor.awards.predict --season <season> --week $w; done
    ```
    The local nflreadpy cache is up to a day old, so `latest` here can trail by a week. The GitHub Action downloads fresh data, so its next run picks up the newest week with the award included.
 3. **Check:**
@@ -117,7 +117,7 @@ Decide which path it takes before writing code.
 
 ## Step 6: wrap up
 
-- Rerun `python -m awards.evaluate mvp` and `opoy`. Their tables must match the ones recorded before this change.
+- Rerun `python -m predictor.awards.evaluate mvp` and `opoy`. Their tables must match the ones recorded before this change.
 - Commit with the project's naming (for example "add oroy") once the user asks, then push. Wait for GitHub Pages and load the live `…/site/#<award>`.
 - Update the project memory note with what was added and its evaluation numbers.
 
@@ -128,7 +128,7 @@ Do this before step 1, keeping design rule 1: `build_features` stays the only wa
 - **Pool:** add the new candidate pool next to the offensive one, judged per team game so it works mid-season (for example, defenders with enough snaps or tackles per team game). Size it like the offensive pool, roughly 100 per season, then check coverage in step 1.
 - **Features:** z-score the new features within their own groups (DL, LB, DB) and set them to 0 for players they don't apply to. Add position flags for the new groups.
 - **Training pool per award:** `fit()` should train only on rows from the award's own pool. A defender should never be a candidate for an offensive award, and the other way round.
-- **Existing awards stay put:** rerun `python -m awards.features`, then `python -m awards.evaluate` for mvp and opoy. Their pools and tables must be unchanged.
+- **Existing awards stay put:** rerun `python -m predictor.awards.features`, then `python -m predictor.awards.evaluate` for mvp and opoy. Their pools and tables must be unchanged.
 
 ## Gotchas already paid for
 

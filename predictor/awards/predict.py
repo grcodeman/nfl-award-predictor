@@ -1,8 +1,8 @@
 """Weekly predictions: retrain, score the season through a week, write the dashboard JSON.
 
-python -m awards.predict                          latest completed week of the current season,
-                                                  skipped if that week's file already exists
-python -m awards.predict --season 2026 --week 5   rebuild any completed week (backfill)
+python -m predictor.awards.predict                          latest completed week of the current season,
+                                                            skipped if that week's file already exists
+python -m predictor.awards.predict --season 2026 --week 5   rebuild any completed week (backfill)
 
 Writes predictions/{season}/week_{WW}.json, a copy of the newest week at predictions/latest.json,
 predictions/index.json listing every week available, predictions/teams.json with the team
@@ -16,9 +16,10 @@ from datetime import date, datetime, timezone
 
 import nflreadpy as nfl
 
-from awards.data import ROOT, add_targets, coach_photos, load_targets, load_weekly_stats
-from awards.features import FINAL_WEEK, award_pool, build_features
-from awards.model import MODEL_VERSION, fit, score, to_shares
+from predictor.awards.data import add_targets, coach_photos, load_targets, load_weekly_stats
+from predictor.awards.features import FINAL_WEEK, award_pool, build_features
+from predictor.awards.model import MODEL_VERSION, fit, score, to_shares
+from predictor.data import ROOT, load_schedules
 
 OUT = ROOT / "predictions"
 KIND = "logistic"  # the model that cleared the MVP floor at every snapshot week and the OPOY floor
@@ -32,7 +33,7 @@ def latest_completed_week(season):
     nflverse posts player stats a few hours after the games, so a week can be finished on the
     schedule before its stats exist. Returns None if no week is complete yet.
     """
-    g = nfl.load_schedules([season]).to_pandas()
+    g = load_schedules([season])
     g = g[g["game_type"] == "REG"]
     played = g["result"].notna()
     if not played.any():  # before week 1 there is no stats file for the season either
