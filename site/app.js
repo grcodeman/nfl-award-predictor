@@ -135,29 +135,38 @@ function winPct(record) {
 function headshot(url, px) {
   return url.replace("/image/upload/f_auto,q_auto/", `/image/upload/f_auto,q_auto,c_thumb,g_face,w_${px},h_${px}/`);
 }
+// A team logo. ESPN draws a version of each logo for dark backgrounds: the leader card is always dark,
+// and the table follows the color scheme. The logo is decoration: the team is named next to every picture.
+function teamLogo(logo, cls, onDark, onError, lazy = true) {
+  const dark = logo.replace("/500/", "/500-dark/");
+  const img = el("img", { src: onDark ? dark : logo, alt: "", decoding: "async", loading: lazy ? "lazy" : null });
+  const pic = el("picture", { class: cls },
+    onDark ? null : el("source", { srcset: dark, media: "(prefers-color-scheme: dark)" }), img);
+  img.addEventListener("error", () => onError(pic), { once: true });
+  return pic;
+}
 // The picture is clipped to a circle, so the team logo sits beside it in a wrapper, over its bottom
-// right, with no backing. ESPN draws a version of each logo for dark backgrounds: the leader card is
-// always dark, and the table follows the color scheme. The logo is decoration: the team is named
-// next to every picture.
+// right, with no backing.
 function avatar(row, cls, px, logo, onDark = false) {
   const box = el("div", { class: cls });
+  const noPhoto = () => el("span", { class: "initials", "aria-hidden": "true", text: initials(row.player) });
   if (row.headshot_url) {
     // Coach photos are Wikipedia portraits, not face crops: anchor them near the top, and show the
     // photographer and license that their CC licenses ask for.
     const img = el("img", { src: headshot(row.headshot_url, px), alt: "", decoding: "async",
       class: row.headshot_credit ? "portrait" : null, title: row.headshot_credit ? `Photo: ${row.headshot_credit}` : null });
-    img.addEventListener("error", () => img.replaceWith(el("span", { class: "initials", text: initials(row.player) })), { once: true });
+    img.addEventListener("error", () => img.replaceWith(noPhoto()), { once: true });
     box.append(img);
+  } else if (row.position === "HC" && logo) {
+    // A head coach whose Wikipedia page has no free photo gets the team's logo in place of a face, on the
+    // avatar's own background. No corner badge: it would repeat the logo. Players keep their initials.
+    box.append(teamLogo(logo, "team-mark", onDark, (pic) => pic.replaceWith(noPhoto()), false));
+    return el("div", { class: "pic" }, box);
   } else {
-    box.append(el("span", { class: "initials", "aria-hidden": "true", text: initials(row.player) }));
+    box.append(noPhoto());
   }
   if (!logo) return el("div", { class: "pic" }, box);
-  const dark = logo.replace("/500/", "/500-dark/");
-  const img = el("img", { src: onDark ? dark : logo, alt: "", decoding: "async", loading: "lazy" });
-  const badge = el("picture", { class: "logo-badge" },
-    onDark ? null : el("source", { srcset: dark, media: "(prefers-color-scheme: dark)" }), img);
-  img.addEventListener("error", () => badge.remove(), { once: true });
-  return el("div", { class: "pic" }, box, badge);
+  return el("div", { class: "pic" }, box, teamLogo(logo, "logo-badge", onDark, (pic) => pic.remove()));
 }
 
 // A movement marker: arrow plus amount, with a sentence for screen readers.
