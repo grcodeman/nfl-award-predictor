@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Award Watch: NFL MVP race</title>
-  <meta name="description" content="Weekly model predictions for the NFL MVP race, from player stats and team standings.">
+  <meta name="description" content="Weekly model predictions for the NFL's AP award races, MVP through Coach of the Year, from player stats and team standings.">
   <meta name="color-scheme" content="light dark">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23e0162b'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://static.www.nfl.com">
@@ -51,7 +51,7 @@
             <p class="card-meta sort-hint">Select a column to sort</p>
           </div>
           <table class="board" id="board">
-            <caption class="visually-hidden">This week's top 10, with per-game stats and predicted share of the vote</caption>
+            <caption class="visually-hidden">This week's top 10, with season stats and predicted share of the vote</caption>
             <thead><tr id="board-head"></tr></thead>
             <tbody id="board-body"></tbody>
             <tfoot><tr id="board-foot"></tr></tfoot>
@@ -97,10 +97,11 @@
             <h2 id="how-heading">How it works</h2>
           </div>
           <div class="card-body prose">
-            <p>
+            <!-- MVP's copy, static like the lede; app.js swaps in each award's own (HOW_IT_WORKS) -->
+            <p id="how-text">
               Each week a logistic regression is retrained on AP voting from 1999 to 2025 and scores every
-              starting-caliber QB, RB, WR and TE on per-game yards, touchdowns, EPA and turnovers, the team's
-              conference standing, and games played. Shares add up to 100% across the whole pool of about 90
+              starting-caliber QB, RB, WR and TE on yards, touchdowns, EPA and turnovers per team game (a missed
+              game counts as zero), the team's conference standing, and games played. Shares add up to 100% across the whole pool of about 90
               players, so they read as each player's slice of the vote if the season ended today.
             </p>
             <p class="credits">

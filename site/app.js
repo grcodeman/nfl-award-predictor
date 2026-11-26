@@ -6,8 +6,75 @@ const DATA = "../predictions/";
 const AWARD_NAMES = {
   mvp: { short: "MVP", full: "Most Valuable Player" },
   opoy: { short: "OPOY", full: "Offensive Player of the Year" },
+  oroy: { short: "OROY", full: "Offensive Rookie of the Year" },
+  dpoy: { short: "DPOY", full: "Defensive Player of the Year", stats: "defense" },
+  droy: { short: "DROY", full: "Defensive Rookie of the Year", stats: "defense" },
+  cpoy: { short: "CPOY", full: "Comeback Player of the Year", stats: "comeback" },
+  coty: { short: "COTY", full: "Coach of the Year", stats: "coach" },
 };
 const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(), full: award.toUpperCase() };
+// The four stats an award's leader card, table and head to head show, keyed to the JSON's stats.
+// unit: the inline label on phones ("92.4 yds/g"); long: the head-to-head label; lower: fewer is better;
+// neutral: neither side is better, so the head to head doesn't bold it; fmt: how to show it;
+// note: the head-to-head line for a fewer-is-better stat.
+// Players show season totals and games played, the way the model weighs them: its per-game rates divide
+// by the team's games, so a player who missed time isn't flattered by a per-game-played average.
+// games: on phones the leader card leaves it out (the line under each name in the table keeps it).
+const GAMES = { key: "games", label: "G", long: "Games played", unit: "G", games: true };
+const STAT_SETS = {
+  offense: [
+    GAMES,
+    { key: "yards", label: "Yds", long: "Yards", unit: "yds", fmt: (x) => x.toLocaleString("en-US") },
+    { key: "tds", label: "TD", unit: "TD" },
+    { key: "turnovers", label: "TO", long: "Turnovers", unit: "TO", lower: true },
+    { key: "epa", label: "EPA", unit: "EPA", fmt: (x) => String(Math.round(x)) }, // a QB's total runs past 100
+  ],
+  defense: [
+    GAMES,
+    { key: "sacks", label: "Sacks", unit: "sacks" },
+    { key: "ints", label: "INT", unit: "INT" },
+    { key: "passes_defended", label: "PD", long: "Passes defended", unit: "PD" },
+    { key: "tackles", label: "Solo", long: "Solo tackles", unit: "solo tkl" },
+  ],
+  // CPOY mixes offense and defense, so production is a percentile of the starters at the position.
+  // Labels stay six characters or fewer so they fit a 360px phone's leader card.
+  comeback: [
+    { key: "prev_games", label: "Prev G", long: "Games last season", unit: "G last yr", neutral: true },
+    { key: "prev_prod_pct", label: "Prev %", long: "Percentile last season", unit: "% last yr", neutral: true },
+    { key: "games", label: "G", long: "Games", unit: "G" },
+    { key: "prod_pct", label: "%", long: "Percentile", unit: "%" },
+  ],
+  // Values stay four characters or fewer to fit a phone's leader card, so last season is wins, not a record
+  coach: [
+    { key: "prev_wins", label: "Prev W", long: "Wins last season", unit: "W last yr", neutral: true },
+    { key: "win_pct_change", label: "Gain", long: "Win % gain", unit: "win %", fmt: (x) => `${x < 0 ? "−" : "+"}${Math.abs(x).toFixed(2).slice(1)}` },
+    { key: "point_diff", label: "Diff", long: "Point differential", unit: "pt diff", fmt: (x) => `${x < 0 ? "−" : "+"}${Math.abs(x)}` },
+    { key: "conf_rank", label: "Conf", long: "Conference rank", unit: "in conf", lower: true, fmt: (x) => ordinalNum(x),
+      note: "A lower conference rank is better." },
+  ],
+};
+const statSet = (award) => STAT_SETS[AWARD_NAMES[award]?.stats || "offense"];
+// digits fixes the decimals; otherwise whole numbers stay whole and half sacks show as 4.5
+const showStat = (st, r) => {
+  const x = r.stats[st.key];
+  return st.fmt ? st.fmt(x) : st.digits ? x.toFixed(st.digits) : String(x);
+};
+const statValue = (st, r) => r.stats[st.key];
+// "How it works", one per award, because each award ranks its own pool. MVP's is also static in index.html.
+const RETRAINED = "Each week a logistic regression is retrained on AP voting from 1999 to 2025 and scores";
+const OFFENSE = "yards, touchdowns, EPA and turnovers per team game (a missed game counts as zero), the team's conference standing, and games played";
+const shares = (pool, who = "player") =>
+  `Shares add up to 100% across the whole pool of ${pool}, so they read as each ${who}'s slice of the vote if the season ended today.`;
+const STARTERS_HOW = `${RETRAINED} every starting-caliber QB, RB, WR and TE on ${OFFENSE}. ${shares("about 90 players")}`;
+const HOW_IT_WORKS = {
+  mvp: STARTERS_HOW,
+  opoy: STARTERS_HOW,
+  oroy: `${RETRAINED} every rookie QB, RB, WR and TE with a regular role, compared with the league's starters, on ${OFFENSE}. ${shares("about 20 rookies")}`,
+  dpoy: `${RETRAINED} every starting defensive lineman, linebacker and defensive back on sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns per team game, the team's conference standing, games played, and last season's DPOY votes. ${shares("about 200 players")}`,
+  droy: `${RETRAINED} every rookie defensive lineman, linebacker and defensive back with a regular role, compared with the league's starters, on sacks, interceptions, passes defended, forced fumbles, solo tackles and defensive touchdowns per team game, the team's conference standing, games played, and draft position. ${shares("about 30 rookies")}`,
+  cpoy: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every non-rookie with a regular role, on offense or defense, on this season's production and last season's, the share of last season's games played, the team's conference standing, and games played. % is production as a percentile of the starters at the same position: 88 means ahead of 88% of them. ${shares("about 450 players")}`,
+  coty: `Each week a logistic regression is retrained on AP voting from 2000 to 2025 and scores every head coach on the team's win percentage, its change from last season, point differential per game, conference standing, and whether it's the coach's first season with the team. ${shares("32 head coaches", "coach")} Coach photos are from Wikipedia; point at one for its photographer and license.`,
+};
 const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5"]; // chart colors, fixed order; color follows the player, not the rank
 const NIGHT = ["--n1", "--n2", "--n3", "--n4", "--n5"]; // the same hues stepped for the dark leader card
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -68,16 +135,29 @@ function winPct(record) {
 function headshot(url, px) {
   return url.replace("/image/upload/f_auto,q_auto/", `/image/upload/f_auto,q_auto,c_thumb,g_face,w_${px},h_${px}/`);
 }
-function avatar(row, cls, px) {
+// The picture is clipped to a circle, so the team logo sits beside it in a wrapper, over its bottom
+// right, with no backing. ESPN draws a version of each logo for dark backgrounds: the leader card is
+// always dark, and the table follows the color scheme. The logo is decoration: the team is named
+// next to every picture.
+function avatar(row, cls, px, logo, onDark = false) {
   const box = el("div", { class: cls });
   if (row.headshot_url) {
-    const img = el("img", { src: headshot(row.headshot_url, px), alt: "", decoding: "async" });
+    // Coach photos are Wikipedia portraits, not face crops: anchor them near the top, and show the
+    // photographer and license that their CC licenses ask for.
+    const img = el("img", { src: headshot(row.headshot_url, px), alt: "", decoding: "async",
+      class: row.headshot_credit ? "portrait" : null, title: row.headshot_credit ? `Photo: ${row.headshot_credit}` : null });
     img.addEventListener("error", () => img.replaceWith(el("span", { class: "initials", text: initials(row.player) })), { once: true });
     box.append(img);
   } else {
     box.append(el("span", { class: "initials", "aria-hidden": "true", text: initials(row.player) }));
   }
-  return box;
+  if (!logo) return el("div", { class: "pic" }, box);
+  const dark = logo.replace("/500/", "/500-dark/");
+  const img = el("img", { src: onDark ? dark : logo, alt: "", decoding: "async", loading: "lazy" });
+  const badge = el("picture", { class: "logo-badge" },
+    onDark ? null : el("source", { srcset: dark, media: "(prefers-color-scheme: dark)" }), img);
+  img.addEventListener("error", () => badge.remove(), { once: true });
+  return el("div", { class: "pic" }, box, badge);
 }
 
 // A movement marker: arrow plus amount, with a sentence for screen readers.
@@ -142,6 +222,19 @@ async function main() {
     text: awardName(award).short,
   }));
   $("tabs").replaceChildren(...tabs);
+  const strip = $("tabs");
+  const edges = () => {
+    strip.classList.toggle("more-left", strip.scrollLeft > 1);
+    strip.classList.toggle("more-right", strip.scrollLeft + strip.clientWidth < strip.scrollWidth - 1);
+  };
+  strip.addEventListener("scroll", edges, { passive: true });
+  new ResizeObserver(edges).observe(strip);
+  // Bring the selected tab into the strip's view without scrolling the page (scrollIntoView would).
+  const reveal = (tab) => {
+    const a = strip.getBoundingClientRect(), b = tab.getBoundingClientRect();
+    if (b.left < a.left) strip.scrollLeft -= a.left - b.left + 40;
+    else if (b.right > a.right) strip.scrollLeft += b.right - a.right + 40;
+  };
 
   // The selected award lives in the URL (#opoy) so a link opens on that tab; MVP keeps the plain URL.
   const fromHash = () => Math.max(0, awards.indexOf(location.hash.slice(1)));
@@ -151,6 +244,7 @@ async function main() {
       tab.tabIndex = i === j ? 0 : -1;
     });
     $("panel").setAttribute("aria-labelledby", tabs[i].id);
+    reveal(tabs[i]);
     history.replaceState(null, "", i === 0 ? location.pathname + location.search : `#${awards[i]}`);
     render(awards[i], latest, teams, weeks);
   }
@@ -180,6 +274,8 @@ function render(award, latest, teams, weeks) {
   document.title = `Award Watch: NFL ${short} race`;
   const lede = `The model's predicted share of the AP ${full} vote, from this season's stats.`;
   if ($("lede").textContent !== lede) $("lede").textContent = lede; // the MVP line is already in the HTML
+  const how = HOW_IT_WORKS[award] || `${RETRAINED} every candidate in the pool. ${shares("candidates", "candidate")}`;
+  if ($("how-text").textContent.replace(/\s+/g, " ").trim() !== how) $("how-text").textContent = how;
   $("panel").setAttribute("aria-busy", "false");
   if (!rows.length) {
     showMessage(`No ${full} predictions in this week's file yet.`);
@@ -188,13 +284,14 @@ function render(award, latest, teams, weeks) {
   $("content").hidden = false;
   $("ticker-bar").hidden = false;
   const team = (r) => teams[r.team] || {};
+  const set = statSet(award);
 
   renderTicker(rows, week);
-  renderHero(rows, week, team);
-  renderBoard(rows, team);
+  renderHero(rows, week, team, set);
+  renderBoard(rows, team, set);
   renderTrend(award, rows.slice(0, SERIES.length), weeks);
   renderSwings(award, rows, weeks, week);
-  renderHeadToHead(rows);
+  renderHeadToHead(rows, set);
 }
 
 // ---------- Ticker ----------
@@ -211,14 +308,13 @@ function renderTicker(rows, week) {
 
 // ---------- Leader card ----------
 
-function renderHero(rows, week, team) {
+function renderHero(rows, week, team, set) {
   const lead = rows[0];
   const second = rows[1];
   const t = team(lead);
   const vars = t.color ? { "--team": t.color } : {};
   const change = shareChange(lead);
   const margin = second ? lead.share - second.share : null;
-  const s = lead.stats;
 
   const stat = (cls, label, value, unit) => el("div", { class: cls },
     el("dt", { text: label }), el("dd", {}, value, unit ? el("small", { text: unit }) : null));
@@ -230,7 +326,7 @@ function renderHero(rows, week, team) {
 
   $("hero").replaceChildren(
     el("div", { class: "hero-top", vars },
-      avatar(lead, "hero-avatar", 208),
+      avatar(lead, "hero-avatar", 208, t.logo, true),
       el("div", { class: "hero-id" },
         el("h2", { class: "hero-name", id: "hero-name", text: lead.player }),
         el("p", { class: "hero-meta" }, el("span", { class: "team-chip", "aria-hidden": "true" }),
@@ -241,17 +337,14 @@ function renderHero(rows, week, team) {
         el("span", { class: "hero-share-sub" },
           change == null ? null : el("span", {}, move(change * 100), ` pts since week ${week - 1}`),
           margin == null ? null : el("span", { text: `${pts(margin)} pts ahead of ${lastName(second.player)}` })))),
-    el("dl", { class: "hero-stats" },
+    el("dl", { class: "hero-stats", vars: { "--hero-cols": 2 + set.length, "--hero-core": set.filter((st) => !st.games).length } },
       change == null
         ? stat("stat-context", "Last week", el("span", { class: "flat", text: "New" }))
         : stat("stat-context", `Since week ${week - 1}`, move(change * 100), "pts"),
       margin == null ? stat("stat-context", "Lead", "–")
         // a long surname ("Smith-Njigba") would truncate in the label cell
         : stat("stat-context", lastName(second.player).length <= 9 ? `Lead over ${lastName(second.player)}` : "Lead over No. 2", pts(margin), "pts"),
-      stat("stat-core", "Yds/g", s.yards_per_game.toFixed(1)),
-      stat("stat-core", "TD", String(s.tds)),
-      stat("stat-core", "TO", String(s.turnovers)),
-      stat("stat-core", "EPA/g", s.epa_per_game.toFixed(1))),
+      ...set.map((st) => stat(st.games ? "stat-core stat-games" : "stat-core", st.label, showStat(st, lead)))),
     el("div", { class: "vote" },
       el("p", { class: "vote-label", id: "vote-label", text: "The vote if the season ended today" }),
       el("div", { class: "vote-bar", role: "img", "aria-labelledby": "vote-label vote-legend" },
@@ -263,20 +356,19 @@ function renderHero(rows, week, team) {
 
 // ---------- Top 10 table ----------
 
-const COLUMNS = [
+const columnsFor = (set) => [
   // key, label, first sort direction (1 = ascending), cell class, value for sorting
   ["rk", "Rk", 1, "c-rk", (r) => r.rank],
   ["player", "Player", 1, "c-player", (r) => lastName(r.player)],
   ["rec", "Rec", -1, "c-stat c-rec", (r) => winPct(r.team_record)],
-  ["yds", "Yds/g", -1, "c-stat", (r) => r.stats.yards_per_game],
-  ["td", "TD", -1, "c-stat", (r) => r.stats.tds],
-  ["to", "TO", 1, "c-stat", (r) => r.stats.turnovers], // fewer is better, so the first click sorts low to high
-  ["epa", "EPA/g", -1, "c-stat", (r) => r.stats.epa_per_game],
+  // where fewer is better (turnovers), the first click sorts low to high
+  ...set.map((st) => [st.key, st.label, st.lower ? 1 : -1, "c-stat", (r) => statValue(st, r)]),
   ["share", "Share", -1, "c-share", (r) => r.share],
   ["chg", "Chg", -1, "c-chg", (r) => shareChange(r) ?? -Infinity],
 ];
 
-function renderBoard(rows, team) {
+function renderBoard(rows, team, set) {
+  const COLUMNS = columnsFor(set);
   const sort = { key: "rk", dir: 1 };
   const heads = COLUMNS.map(([key, label, firstDir, cls]) => {
     const button = el("button", { class: "sort", type: "button" }, label);
@@ -293,23 +385,19 @@ function renderBoard(rows, team) {
   const rowFor = (r) => {
     const t = team(r);
     const vars = t.color ? { "--team": t.color } : {};
-    const s = r.stats;
-    const stats = [`${s.yards_per_game.toFixed(1)} yds/g`, `${s.tds} TD`, `${s.turnovers} TO`, `${s.epa_per_game.toFixed(1)} EPA/g`];
+    const stats = set.map((st) => `${showStat(st, r)} ${st.unit}`);
     return el("tr", {},
       el("td", { class: "c-rk" }, el("div", { class: "rk" }, el("strong", { text: String(r.rank) }),
         move(rankChange(r), { digits: 0, words: " spots since last week" }))),
       el("td", { class: "c-player" }, el("div", { class: "player", vars },
-        avatar(r, "avatar", 80),
+        avatar(r, "avatar", 80, t.logo),
         el("div", { class: "who" },
           el("p", { class: "who-name", text: r.player }),
           el("p", { class: "who-meta" }, el("span", { class: "team-chip", "aria-hidden": "true" }),
             `${r.position} · ${r.team}`, el("span", { class: "rec-inline", text: `· ${r.team_record}` })),
           el("p", { class: "who-stats" }, ...stats.map((x) => el("span", { text: x })))))), // separators come from CSS
       el("td", { class: "c-stat c-rec", text: r.team_record }),
-      el("td", { class: "c-stat", text: s.yards_per_game.toFixed(1) }),
-      el("td", { class: "c-stat", text: String(s.tds) }),
-      el("td", { class: "c-stat", text: String(s.turnovers) }),
-      el("td", { class: "c-stat", text: s.epa_per_game.toFixed(1) }),
+      ...set.map((st) => el("td", { class: "c-stat", text: showStat(st, r) })),
       el("td", { class: "c-share" }, el("div", { class: "share" },
         el("span", { class: "share-bar", "aria-hidden": "true" }, el("span", { vars: { width: `${r.share * 100}%` } })),
         el("span", { class: "share-pct", text: pct(r.share) }))),
@@ -335,7 +423,7 @@ function renderBoard(rows, team) {
 
   const rest = Math.max(0, 1 - rows.reduce((sum, r) => sum + r.share, 0));
   $("board-foot").replaceChildren(
-    el("td", { colspan: "7", class: "c-player", text: "Everyone else in the pool" }),
+    el("td", { colspan: String(3 + set.length), class: "c-player", text: "Everyone else in the pool" }),
     el("td", { class: "c-share" }, el("div", { class: "share" }, el("span", { class: "share-pct", text: pct(rest) }))),
     el("td", { class: "c-chg" }));
 }
@@ -556,8 +644,11 @@ function swingItems(award, rows, weeks) {
     if (group.length === 1) {
       const r = group[0];
       const [from, to] = ordinalPair(r.prev_rank, r.rank);
+      // a climb can come from others falling, with the share the same to one decimal
+      const how = pct(r.prev_share) === pct(r.share) ? `with the share steady at ${pct(r.share)}`
+        : `on a move from ${pct(r.prev_share)} to ${pct(r.share)}`;
       return { delta: d, unit: "spots", title: `${L(r)} ${d >= 5 ? "jumps" : "climbs"} ${numberWord(d)} spots`,
-        detail: `${cap(from)} to ${to}, on a move from ${pct(r.prev_share)} to ${pct(r.share)}.` };
+        detail: `${cap(from)} to ${to}, ${how}.` };
     }
     const names = group.map(L);
     const sameStart = group.every((r) => pct(r.prev_share) === pct(group[0].prev_share));
@@ -604,21 +695,21 @@ function renderSwings(award, rows, weeks, week) {
 
 // ---------- Head to head ----------
 
-function renderHeadToHead(rows) {
+function renderHeadToHead(rows, set) {
   const [a, b] = rows;
   if (!b) {
     $("h2h-card").hidden = true;
     return;
   }
   $("h2h-card").hidden = false;
+  const lower = set.filter((st) => st.lower);
   const metrics = [
-    // label, value, display, true when lower is better
-    ["Share", (r) => r.share, (r) => pct(r.share)],
-    ["Yds/g", (r) => r.stats.yards_per_game, (r) => r.stats.yards_per_game.toFixed(1)],
-    ["TD", (r) => r.stats.tds, (r) => String(r.stats.tds)],
-    ["EPA/g", (r) => r.stats.epa_per_game, (r) => r.stats.epa_per_game.toFixed(1)],
-    ["Turnovers", (r) => r.stats.turnovers, (r) => String(r.stats.turnovers), true],
-    ["Record", (r) => winPct(r.team_record), (r) => r.team_record],
+    // label, value, display, then true if lower is better, false if higher, null if neither (no bold).
+    // Fewer-is-better stats go last, next to the note.
+    ["Share", (r) => r.share, (r) => pct(r.share), false],
+    ...[...set.filter((st) => !st.lower), ...lower].map((st) => [st.long || st.label, (r) => statValue(st, r), (r) => showStat(st, r),
+      st.neutral ? null : Boolean(st.lower)]),
+    ["Record", (r) => winPct(r.team_record), (r) => r.team_record, false],
   ];
   const colors = ["var(--s1)", "var(--s2)"];
   $("h2h").replaceChildren(
@@ -628,7 +719,7 @@ function renderHeadToHead(rows) {
     ...metrics.map(([label, value, show, lowerBetter]) => {
       const va = value(a), vb = value(b);
       const top = Math.max(va, vb, 0) || 1;
-      const better = va === vb ? null : (va > vb) !== Boolean(lowerBetter) ? "a" : "b";
+      const better = va === vb || lowerBetter == null ? null : (va > vb) !== lowerBetter ? "a" : "b";
       const half = (side, v, color) => el("div", { class: `h2h-half ${side}`, "aria-hidden": "true" },
         el("span", { vars: { width: `${Math.max(v, 0) / top * 100}%`, "--series": color } }));
       return el("div", { class: "h2h-row", role: "group", "aria-label": `${label}: ${a.player} ${show(a)}, ${b.player} ${show(b)}` },
@@ -637,7 +728,8 @@ function renderHeadToHead(rows) {
         half("a", va, colors[0]), half("b", vb, colors[1]),
         el("span", { class: `h2h-val b${better === "b" ? " better" : ""}`, text: show(b) }));
     }),
-    el("p", { class: "h2h-note", text: "Bold marks the better number. Fewer turnovers is better." }));
+    el("p", { class: "h2h-note", text: ["Bold marks the better number.",
+      ...lower.map((st) => st.note || `Fewer ${(st.long || st.label).toLowerCase()} is better.`)].join(" ") }));
 }
 
 main();

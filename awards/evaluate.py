@@ -2,10 +2,63 @@
 
 python -m awards.evaluate          MVP
 python -m awards.evaluate opoy     Offensive Player of the Year
+python -m awards.evaluate oroy     Offensive Rookie of the Year
+python -m awards.evaluate dpoy     Defensive Player of the Year
+python -m awards.evaluate droy     Defensive Rookie of the Year
+python -m awards.evaluate cpoy     Comeback Player of the Year
+python -m awards.evaluate coty     Coach of the Year
 
-Both awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
+The three offensive awards use the same features (awards/model.py). For OPOY, swapping conf_rank for team_win_pct
 scored 18/24 at full season but 5/17 at week 8 and 6/16 at week 11, and the dashboard is read
 mid-season, so the shared set stayed.
+
+OROY ranks rookies with a regular role (REGULAR_BARS in awards/features.py). Logistic, winner top pick / top 3 at weeks
+8, 11, 14 and full season: shared set 12/21 15/24 20/25 17/26; plus log draft slot 12/20 12/23 18/26
+18/26; minus turnovers_z 13/21 14/24 19/24 17/25; minus conf_rank 13/20 14/24 18/25 17/25; draft slot
+without conf_rank 13/20 14/22 17/26 16/27. None did better at weeks 11 and 14 and full season together,
+so the shared set stayed.
+
+DPOY ranks the defensive pool (about 215 a season) on per-game sacks, interceptions, passes defended,
+forced fumbles, solo tackles and defensive TDs, z-scored within DL, LB and DB, plus conf_rank and
+availability. That baseline is the floor, and it is weak: voters reward reputation and team defense,
+and counting stats miss box safeties and shutdown corners (Bob Sanders 2007, Pat Surtain 2024).
+Logistic, top pick / top 3 at weeks 8, 11, 14 and full season: baseline 2/6 2/10 4/10 4/12; minus
+tackles_z 3/6 3/8 4/11 3/10; plus def_rank (team points allowed) 3/8 3/7 3/9 4/12; plus last season's
+DPOY first-place share 4/5 6/9 5/12 5/13; all three changes 4/9 5/8 5/12 4/11. Last season's vote
+gained top picks at every week (+4 at week 11) and top-3 at week 14 and full season, giving back one
+top-3 season at weeks 8 and 11, within noise. It is the set used.
+
+DROY ranks defensive rookies (DEF_REGULAR_BARS) on the defensive baseline, the floor: 7/13 7/16 7/17
+8/17. Plus log draft slot 8/14 10/17 10/17 11/18; minus tackles_z 6/11 6/15 6/15 7/17; plus def_rank
+6/12 9/15 10/17 8/19; minus conf_rank 8/13 7/17 8/18 9/18. Draft slot did better at every week and is
+the set used. (For OROY the same feature lost at weeks 11 and 14.)
+
+CPOY ranks non-rookies with a regular role on either side, 2000-2025 (a comeback needs a previous season,
+and player stats start in 1999), on this season's production (prod_z, the mean of the side's z-scores),
+last season's, the share of last season's team games played, conf_rank, availability and position flags.
+That baseline is the floor, out of 26: 5/9 5/11 6/11 6/14. Its usual miss is a second-year breakout
+whose thin rookie season looks like a comeback (Jordan Love 2023, Drake Maye 2025). Minus conf_rank
+5/9 6/9 6/9 6/9; every z-score instead of prod_z 5/6 6/10 5/10 6/11; plus years in the league 6/9
+7/11 8/12 6/13; both 5/8 6/10 7/10 7/12. Years in the league did better at weeks 11 and 14 but gave
+back a top-3 season at full season, so by the rule the baseline stayed. Damar Hamlin (2023, 0.42 of
+first-place votes) had no stats to find, and offensive linemen are out of every pool.
+
+COTY ranks every team's head coach, 2000-2025 (the 1998 schedules aren't in nflverse), as one row per
+team-season, so votes and winners are joined by team. Baseline, the floor: win pct, its change from last
+season, point differential per game and conf_rank, 6/11 8/17 7/20 9/21 of 26. Plus "first season with
+the team" 6/11 8/18 9/20 12/20; minus conf_rank 4/11 8/16 8/20 12/20; minus point differential 6/11
+8/18 7/19 11/21; first season without conf_rank 5/10 8/18 9/19 13/20. The first-season flag tied at
+week 8, did better at weeks 11 and 14, and at full season gained three top picks for one top-3 season
+(as with DPOY's prior vote), so it is the set used.
+
+Recent form, production over the team's last 4 or 6 games (per team game, so a missed game counts as 0)
+as one z-score against the starters, was tried on top of every player award's set and kept for none.
+Last 4 / last 6, top pick / top 3 at weeks 8, 11, 14, full: MVP 12/19 14/23 14/25 16/24 and 13/19
+14/23 14/25 16/24; OPOY 6/15 11/15 12/20 14/22 and 6/14 11/16 12/22 15/21; OROY 13/20 15/22 18/25
+16/25 and unchanged; DPOY 4/7 6/9 4/12 4/10 and 4/8 7/9 6/12 5/10; DROY 6/15 11/17 10/17 9/18 and
+7/15 10/17 10/18 11/19; CPOY 5/9 6/11 6/10 7/13 and 5/10 6/10 7/11 7/13. Each lost ground at full
+season or week 14, or only traded a top pick for a top-3 season. Season totals per team game already
+count missed games, which is why availability itself carries almost no weight.
 
 For each season 1999-2025: train on full-season features from the other 26 seasons, then score the
 held-out season with features through weeks 8, 11, 14 and the full season. Seasons are held out
@@ -15,17 +68,23 @@ import sys
 
 import pandas as pd
 
-from awards.data import VOTES_CSV, add_targets
-from awards.features import FINAL_WEEK, build_features
+from awards.data import add_targets, load_votes
+from awards.features import FINAL_WEEK, award_pool, build_features
 from awards.model import MODELS, fit, score
 
 SEASONS = range(1999, 2026)
 WEEKS = [8, 11, 14, FINAL_WEEK]
 # From the throwaway prototype (logistic, v1 features): (winner is top pick, winner in top 3) out of 27.
-# The plan gives OPOY a full-season floor only.
+# The plan gives OPOY a full-season floor only. The other awards' floors are their own baselines (the
+# shared features, or the defensive baseline, above), because the plan gives them none.
 FLOOR = {
     "mvp": {8: (11, 17), 11: (13, 21), 14: (14, 23), FINAL_WEEK: (16, 24)},
     "opoy": {FINAL_WEEK: (14, 22)},
+    "oroy": {8: (12, 21), 11: (15, 24), 14: (20, 25), FINAL_WEEK: (17, 26)},
+    "dpoy": {8: (2, 6), 11: (2, 10), 14: (4, 10), FINAL_WEEK: (4, 12)},
+    "droy": {8: (7, 13), 11: (7, 16), 14: (7, 17), FINAL_WEEK: (8, 17)},
+    "cpoy": {8: (5, 9), 11: (5, 11), 14: (6, 11), FINAL_WEEK: (6, 14)},
+    "coty": {8: (6, 11), 11: (8, 17), 14: (7, 20), FINAL_WEEK: (9, 21)},
 }
 
 
@@ -35,11 +94,11 @@ def week_label(week):
 
 def run(award="mvp"):
     """One row per model, snapshot week and held-out season, with where the actual winner ranked."""
-    snapshots = {week: add_targets(build_features(SEASONS, week)) for week in WEEKS}
+    snapshots = {week: award_pool(add_targets(build_features(SEASONS, week)), award) for week in WEEKS}
     full = snapshots[FINAL_WEEK]
     rows = []
     for kind in MODELS:
-        for season in SEASONS:
+        for season in sorted(full["season"].unique()):  # CPOY starts in 2000: it needs a previous season
             model = fit(kind, full[full["season"] != season], award)
             for week, table in snapshots.items():
                 t = table[table["season"] == season]
@@ -58,19 +117,20 @@ def run(award="mvp"):
 
 def main(award="mvp"):
     results = run(award)
-    full = add_targets(build_features(SEASONS, FINAL_WEEK))
+    full = award_pool(add_targets(build_features(SEASONS, FINAL_WEEK)), award)
     winners = full[full[f"won_{award}"] == 1].groupby("season")["player"].agg(" / ".join)
+    n = full["season"].nunique()
 
-    print(f"{award.upper()}: leave-one-season-out, {len(SEASONS)} seasons. Cells are seasons where the actual"
+    print(f"{award.upper()}: leave-one-season-out, {n} seasons. Cells are seasons where the actual"
           " winner was the model's top pick / in its top 3.\n")
     print(f"{'features through':<17}" + "".join(f"{k:>16}" for k in MODELS) + f"{'floor (logistic)':>19}")
     for week in WEEKS:
         cells = []
         for kind in MODELS:
             r = results[(results["model"] == kind) & (results["week"] == week)]["winner_rank"]
-            cells.append(f"{(r == 1).sum():>2} / {(r <= 3).sum():>2} of 27")
+            cells.append(f"{(r == 1).sum():>2} / {(r <= 3).sum():>2} of {n}")
         floor = FLOOR[award].get(week)
-        floor_cell = f"{floor[0]:>9} / {floor[1]:>2} of 27" if floor else f"{'–':>15}"
+        floor_cell = f"{floor[0]:>9} / {floor[1]:>2} of {n}" if floor else f"{'–':>15}"
         print(f"{week_label(week):<17}" + "".join(f"{c:>16}" for c in cells) + floor_cell)
 
     for kind in MODELS:
@@ -80,7 +140,7 @@ def main(award="mvp"):
             print(f"  {x.season}  {winners[x.season]:<34} ranked {x.winner_rank:>3.0f}   top pick: {x.top_pick}")
 
     # 2022 on, ballots rank 3-5 players, so the points order says how voters ranked the whole field.
-    votes = pd.read_csv(VOTES_CSV, skiprows=2)
+    votes = load_votes()
     votes = votes[(votes["award"] == award) & (votes["voting_system"] == "ranked_points")].dropna(subset=["votes"])
     print("\nrank correlation (Spearman) with the ranked points order, vote-getters in the pool, full season:")
     print("  season" + "".join(f"{k:>10}" for k in MODELS) + "   players")

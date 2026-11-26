@@ -1,8 +1,8 @@
 {
   "season": 2026,
   "through_week": 4,
-  "generated_at": "2026-11-24T18:46:27Z",
-  "model_version": "v2",
+  "generated_at": "2026-11-25T21:28:15Z",
+  "model_version": "v7",
   "awards": {
     "mvp": [
       {
@@ -14,14 +14,14 @@
         "team": "SF",
         "team_record": "4-0",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/xs2fyj1sqdgwvt9ihbri",
-        "share": 0.718,
-        "prev_share": 0.675,
+        "share": 0.71,
+        "prev_share": 0.671,
         "stats": {
           "games": 4,
-          "yards_per_game": 282.2,
+          "yards": 1129,
           "tds": 12,
           "turnovers": 1,
-          "epa_per_game": 14.3
+          "epa": 55.1
         }
       },
       {
@@ -33,14 +33,14 @@
         "team": "BUF",
         "team_record": "3-1",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ynrhq9iv30ysjpwmrfdv",
-        "share": 0.085,
-        "prev_share": 0.147,
+        "share": 0.084,
+        "prev_share": 0.141,
         "stats": {
           "games": 4,
-          "yards_per_game": 289.5,
+          "yards": 1158,
           "tds": 13,
           "turnovers": 4,
-          "epa_per_game": 8.5
+          "epa": 32.5
         }
       },
       {
@@ -52,14 +52,14 @@
         "team": "KC",
         "team_record": "4-0",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vk6nruaqdewdglofcwwg",
-        "share": 0.036,
-        "prev_share": 0.019,
+        "share": 0.039,
+        "prev_share": 0.02,
         "stats": {
           "games": 4,
-          "yards_per_game": 155.2,
+          "yards": 621,
           "tds": 6,
           "turnovers": 0,
-          "epa_per_game": 2.0
+          "epa": 9.9
         }
       },
       {
@@ -71,14 +71,14 @@
         "team": "KC",
         "team_record": "4-0",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/wdckwtob1lybvkmxnf7p",
-        "share": 0.035,
+        "share": 0.037,
         "prev_share": 0.025,
         "stats": {
           "games": 4,
-          "yards_per_game": 269.5,
+          "yards": 1078,
           "tds": 10,
           "turnovers": 2,
-          "epa_per_game": 5.5
+          "epa": 21.8
         }
       },
       {
@@ -90,14 +90,14 @@
         "team": "SEA",
         "team_record": "3-1",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/yx1xjrupbqdknnjaq4a6",
-        "share": 0.024,
-        "prev_share": 0.043,
+        "share": 0.025,
+        "prev_share": 0.045,
         "stats": {
           "games": 4,
-          "yards_per_game": 123.8,
+          "yards": 495,
           "tds": 6,
           "turnovers": 0,
-          "epa_per_game": 6.8
+          "epa": 27.3
         }
       },
       {
@@ -109,14 +109,14 @@
         "team": "DET",
         "team_record": "2-2",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/kaicbot8qhzrvddilbtp",
-        "share": 0.023,
-        "prev_share": 0.042,
+        "share": 0.025,
+        "prev_share": 0.045,
         "stats": {
           "games": 4,
-          "yards_per_game": 307.2,
+          "yards": 1229,
           "tds": 9,
           "turnovers": 0,
-          "epa_per_game": 9.1
+          "epa": 36.4
         }
       },
       {
@@ -132,10 +132,10 @@
         "prev_share": 0.003,
         "stats": {
           "games": 4,
-          "yards_per_game": 321.8,
+          "yards": 1287,
           "tds": 10,
           "turnovers": 2,
-          "epa_per_game": 8.8
+          "epa": 33.3
         }
       },
       {
@@ -151,10 +151,10 @@
         "prev_share": 0.003,
         "stats": {
           "games": 4,
-          "yards_per_game": 277.8,
+          "yards": 1111,
           "tds": 7,
           "turnovers": 2,
-          "epa_per_game": 9.4
+          "epa": 36.4
         }
       },
       {
@@ -166,14 +166,14 @@
         "team": "LV",
         "team_record": "3-1",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/za7cynvpwlsro1tsaijk",
-        "share": 0.011,
-        "prev_share": 0.007,
+        "share": 0.012,
+        "prev_share": 0.008,
         "stats": {
           "games": 4,
-          "yards_per_game": 256.0,
+          "yards": 1024,
           "tds": 11,
           "turnovers": 4,
-          "epa_per_game": 4.1
+          "epa": 17.9
         }
       },
       {
@@ -189,10 +189,10 @@
         "prev_share": 0.003,
         "stats": {
           "games": 4,
-          "yards_per_game": 282.8,
+          "yards": 1131,
           "tds": 8,
           "turnovers": 1,
-          "epa_per_game": 10.0
+          "epa": 38.9
         }
       }
     ],
@@ -206,14 +206,14 @@
         "team": "KC",
         "team_record": "4-0",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vk6nruaqdewdglofcwwg",
-        "share": 0.418,
-        "prev_share": 0.087,
+        "share": 0.43,
+        "prev_share": 0.085,
         "stats": {
           "games": 4,
-          "yards_per_game": 155.2,
+          "yards": 621,
           "tds": 6,
           "turnovers": 0,
-          "epa_per_game": 2.0
+          "epa": 9.9
         }
       },
       {
@@ -225,14 +225,14 @@
         "team": "SEA",
         "team_record": "3-1",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/yx1xjrupbqdknnjaq4a6",
-        "share": 0.319,
-        "prev_share": 0.562,
+        "share": 0.321,
+        "prev_share": 0.546,
         "stats": {
           "games": 4,
-          "yards_per_game": 123.8,
+          "yards": 495,
           "tds": 6,
           "turnovers": 0,
-          "epa_per_game": 6.8
+          "epa": 27.3
         }
       },
       {
@@ -244,14 +244,14 @@
         "team": "DAL",
         "team_record": "2-2",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/mbblzwtynxr15ovzkevi",
-        "share": 0.087,
+        "share": 0.076,
         "prev_share": 0.001,
         "stats": {
           "games": 4,
-          "yards_per_game": 123.0,
+          "yards": 492,
           "tds": 4,
           "turnovers": 0,
-          "epa_per_game": 8.3
+          "epa": 31.7
         }
       },
       {
@@ -263,14 +263,14 @@
         "team": "ATL",
         "team_record": "2-2",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/zaxetgy0p0ul6evlsf63",
-        "share": 0.054,
+        "share": 0.055,
         "prev_share": 0.008,
         "stats": {
           "games": 4,
-          "yards_per_game": 153.5,
+          "yards": 614,
           "tds": 5,
           "turnovers": 0,
-          "epa_per_game": 1.0
+          "epa": 5.8
         }
       },
       {
@@ -282,14 +282,14 @@
         "team": "DET",
         "team_record": "2-2",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/cursejnmmp1i9hnxihkj",
-        "share": 0.033,
-        "prev_share": 0.271,
+        "share": 0.034,
+        "prev_share": 0.293,
         "stats": {
           "games": 4,
-          "yards_per_game": 135.0,
+          "yards": 540,
           "tds": 7,
           "turnovers": 1,
-          "epa_per_game": 1.1
+          "epa": 6.3
         }
       },
       {
@@ -301,14 +301,14 @@
         "team": "SF",
         "team_record": "4-0",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/xs2fyj1sqdgwvt9ihbri",
-        "share": 0.026,
-        "prev_share": 0.027,
+        "share": 0.024,
+        "prev_share": 0.025,
         "stats": {
           "games": 4,
-          "yards_per_game": 282.2,
+          "yards": 1129,
           "tds": 12,
           "turnovers": 1,
-          "epa_per_game": 14.3
+          "epa": 55.1
         }
       },
       {
@@ -320,14 +320,14 @@
         "team": "BUF",
         "team_record": "3-1",
         "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ynrhq9iv30ysjpwmrfdv",
-        "share": 0.015,
-        "prev_share": 0.018,
+        "share": 0.014,
+        "prev_share": 0.016,
         "stats": {
           "games": 4,
-          "yards_per_game": 289.5,
+          "yards": 1158,
           "tds": 13,
           "turnovers": 4,
-          "epa_per_game": 8.5
+          "epa": 32.5
         }
       },
       {
@@ -343,10 +343,10 @@
         "prev_share": 0.002,
         "stats": {
           "games": 4,
-          "yards_per_game": 321.8,
+          "yards": 1287,
           "tds": 10,
           "turnovers": 2,
-          "epa_per_game": 8.8
+          "epa": 33.3
         }
       },
       {
@@ -362,15 +362,15 @@
         "prev_share": 0.006,
         "stats": {
           "games": 4,
-          "yards_per_game": 104.5,
+          "yards": 418,
           "tds": 7,
           "turnovers": 0,
-          "epa_per_game": -0.4
+          "epa": 0.2
         }
       },
       {
         "rank": 10,
-        "prev_rank": 14,
+        "prev_rank": 13,
         "player_id": "00-0033106",
         "player": "Jared Goff",
         "position": "QB",
@@ -381,10 +381,1002 @@
         "prev_share": 0.002,
         "stats": {
           "games": 4,
-          "yards_per_game": 307.2,
+          "yards": 1229,
           "tds": 9,
           "turnovers": 0,
-          "epa_per_game": 9.1
+          "epa": 36.4
+        }
+      }
+    ],
+    "oroy": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "00-0041037",
+        "player": "Denzel Boston",
+        "position": "WR",
+        "team": "CLE",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/loaz6dx5hkl1r5nxi4sg",
+        "share": 0.79,
+        "prev_share": 0.584,
+        "stats": {
+          "games": 4,
+          "yards": 284,
+          "tds": 2,
+          "turnovers": 0,
+          "epa": 11.5
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 2,
+        "player_id": "00-0041027",
+        "player": "Jeremiyah Love",
+        "position": "RB",
+        "team": "ARI",
+        "team_record": "1-3",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/b12gtjsylmql5v7iyyla",
+        "share": 0.037,
+        "prev_share": 0.156,
+        "stats": {
+          "games": 4,
+          "yards": 259,
+          "tds": 2,
+          "turnovers": 0,
+          "epa": -1.0
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 10,
+        "player_id": "00-0041438",
+        "player": "Carnell Tate",
+        "position": "WR",
+        "team": "TEN",
+        "team_record": "0-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/xlva68qwhtm0n36pwyad",
+        "share": 0.035,
+        "prev_share": 0.011,
+        "stats": {
+          "games": 4,
+          "yards": 268,
+          "tds": 0,
+          "turnovers": 1,
+          "epa": 3.9
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": null,
+        "player_id": "00-0041042",
+        "player": "Malachi Fields",
+        "position": "WR",
+        "team": "NYG",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tpls1aptxx9x8xaqvjtj",
+        "share": 0.025,
+        "prev_share": null,
+        "stats": {
+          "games": 4,
+          "yards": 126,
+          "tds": 1,
+          "turnovers": 0,
+          "epa": 0.3
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 4,
+        "player_id": "00-0041013",
+        "player": "Emmett Johnson",
+        "position": "RB",
+        "team": "KC",
+        "team_record": "4-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/avdz4njz1slqn7ktqcuq",
+        "share": 0.016,
+        "prev_share": 0.046,
+        "stats": {
+          "games": 4,
+          "yards": 130,
+          "tds": 0,
+          "turnovers": 0,
+          "epa": 4.5
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 3,
+        "player_id": "00-0040878",
+        "player": "Mike Washington Jr.",
+        "position": "RB",
+        "team": "LV",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ocdjq5ohmtgdghqdh5m4",
+        "share": 0.013,
+        "prev_share": 0.051,
+        "stats": {
+          "games": 4,
+          "yards": 119,
+          "tds": 1,
+          "turnovers": 0,
+          "epa": -2.8
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": null,
+        "player_id": "00-0040785",
+        "player": "Dohnte Meyers",
+        "position": "WR",
+        "team": "CIN",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/xkxpqhtebubkbv1irlkc",
+        "share": 0.012,
+        "prev_share": null,
+        "stats": {
+          "games": 4,
+          "yards": 139,
+          "tds": 0,
+          "turnovers": 0,
+          "epa": 1.3
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 5,
+        "player_id": "00-0041040",
+        "player": "Antonio Williams",
+        "position": "WR",
+        "team": "WAS",
+        "team_record": "1-3",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/noywrsgaqoqlv64c12yw",
+        "share": 0.012,
+        "prev_share": 0.035,
+        "stats": {
+          "games": 4,
+          "yards": 124,
+          "tds": 1,
+          "turnovers": 0,
+          "epa": 1.6
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 13,
+        "player_id": "00-0041547",
+        "player": "KC Concepcion",
+        "position": "WR",
+        "team": "CLE",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/evzxqxsyr1m3ohchqcan",
+        "share": 0.012,
+        "prev_share": 0.006,
+        "stats": {
+          "games": 4,
+          "yards": 153,
+          "tds": 0,
+          "turnovers": 1,
+          "epa": -3.2
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 7,
+        "player_id": "00-0041052",
+        "player": "Kaelon Black",
+        "position": "RB",
+        "team": "SF",
+        "team_record": "4-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/nwgkzr1ysr32jc79zfnt",
+        "share": 0.011,
+        "prev_share": 0.028,
+        "stats": {
+          "games": 4,
+          "yards": 125,
+          "tds": 0,
+          "turnovers": 0,
+          "epa": -1.1
+        }
+      }
+    ],
+    "dpoy": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "00-0036914",
+        "player": "Greg Rousseau",
+        "position": "LB",
+        "team": "BUF",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/cyhqf4lgtizbm9j7lged",
+        "share": 0.39,
+        "prev_share": 0.375,
+        "stats": {
+          "games": 4,
+          "sacks": 6.0,
+          "ints": 0,
+          "passes_defended": 3,
+          "tackles": 14,
+          "forced_fumbles": 3
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 3,
+        "player_id": "00-0033886",
+        "player": "T.J. Watt",
+        "position": "OLB",
+        "team": "PIT",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/aywegy4gpj1d32vrl67u",
+        "share": 0.117,
+        "prev_share": 0.04,
+        "stats": {
+          "games": 4,
+          "sacks": 4.5,
+          "ints": 1,
+          "passes_defended": 2,
+          "tackles": 10,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 8,
+        "player_id": "00-0039924",
+        "player": "Dallas Turner",
+        "position": "LB",
+        "team": "MIN",
+        "team_record": "4-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/kkibscog8h0y7z35uzav",
+        "share": 0.071,
+        "prev_share": 0.009,
+        "stats": {
+          "games": 4,
+          "sacks": 5.5,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 10,
+          "forced_fumbles": 2
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 2,
+        "player_id": "00-0036564",
+        "player": "Talanoa Hufanga",
+        "position": "SAF",
+        "team": "DEN",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/i1jjyltv64sihzzrr04t",
+        "share": 0.06,
+        "prev_share": 0.329,
+        "stats": {
+          "games": 4,
+          "sacks": 1.0,
+          "ints": 2,
+          "passes_defended": 3,
+          "tackles": 11,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 5,
+        "player_id": "00-0037244",
+        "player": "Devin Lloyd",
+        "position": "LB",
+        "team": "CAR",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/hbva85h6axjaiiiiwjfv",
+        "share": 0.032,
+        "prev_share": 0.023,
+        "stats": {
+          "games": 3,
+          "sacks": 1.0,
+          "ints": 2,
+          "passes_defended": 3,
+          "tackles": 20,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 4,
+        "player_id": "00-0037615",
+        "player": "Nakobe Dean",
+        "position": "LB",
+        "team": "LV",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/cyowdu41yhyzblsz2aam",
+        "share": 0.021,
+        "prev_share": 0.027,
+        "stats": {
+          "games": 4,
+          "sacks": 1.5,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 25,
+          "forced_fumbles": 3
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 6,
+        "player_id": "00-0036293",
+        "player": "Jeremy Chinn",
+        "position": "SAF",
+        "team": "LV",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/qdvollzto5i4xs6q9gov",
+        "share": 0.018,
+        "prev_share": 0.021,
+        "stats": {
+          "games": 4,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 16,
+          "forced_fumbles": 2
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 7,
+        "player_id": "00-0035272",
+        "player": "Andrew Van Ginkel",
+        "position": "OLB",
+        "team": "MIN",
+        "team_record": "4-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vbpdlib647tcpzz59wyt",
+        "share": 0.017,
+        "prev_share": 0.018,
+        "stats": {
+          "games": 4,
+          "sacks": 3.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 6,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 11,
+        "player_id": "00-0040865",
+        "player": "Caleb Downs",
+        "position": "SAF",
+        "team": "DAL",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/nkj0yjytmlcbciqjus0w",
+        "share": 0.012,
+        "prev_share": 0.007,
+        "stats": {
+          "games": 4,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 18,
+          "forced_fumbles": 2
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 23,
+        "player_id": "00-0039108",
+        "player": "Will Anderson Jr.",
+        "position": "DE",
+        "team": "HOU",
+        "team_record": "0-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ar9k2r2btzzb10zc0xja",
+        "share": 0.01,
+        "prev_share": 0.003,
+        "stats": {
+          "games": 4,
+          "sacks": 4.5,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 12,
+          "forced_fumbles": 1
+        }
+      }
+    ],
+    "droy": [
+      {
+        "rank": 1,
+        "prev_rank": 2,
+        "player_id": "00-0041509",
+        "player": "Arvell Reese",
+        "position": "LB",
+        "team": "NYG",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tvhqfy34evkal6zpu9to",
+        "share": 0.717,
+        "prev_share": 0.348,
+        "stats": {
+          "games": 4,
+          "sacks": 0.0,
+          "ints": 1,
+          "passes_defended": 4,
+          "tackles": 26,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 1,
+        "player_id": "00-0041026",
+        "player": "David Bailey",
+        "position": "LB",
+        "team": "NYJ",
+        "team_record": "1-3",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/bzanl4jdvmkvsdmsyxwg",
+        "share": 0.149,
+        "prev_share": 0.356,
+        "stats": {
+          "games": 4,
+          "sacks": 2.0,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 12,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 4,
+        "player_id": "00-0040865",
+        "player": "Caleb Downs",
+        "position": "SAF",
+        "team": "DAL",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/nkj0yjytmlcbciqjus0w",
+        "share": 0.048,
+        "prev_share": 0.093,
+        "stats": {
+          "games": 4,
+          "sacks": 1.0,
+          "ints": 0,
+          "passes_defended": 1,
+          "tackles": 18,
+          "forced_fumbles": 2
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 3,
+        "player_id": "00-0041028",
+        "player": "Sonny Styles",
+        "position": "LB",
+        "team": "WAS",
+        "team_record": "1-3",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/wxufyrsnbie0gyq9piyf",
+        "share": 0.035,
+        "prev_share": 0.112,
+        "stats": {
+          "games": 4,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 2,
+          "tackles": 10,
+          "forced_fumbles": 1
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 5,
+        "player_id": "00-0041502",
+        "player": "Josiah Trotter",
+        "position": "LB",
+        "team": "TB",
+        "team_record": "0-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/sqikte2lgczxdun64akq",
+        "share": 0.012,
+        "prev_share": 0.017,
+        "stats": {
+          "games": 3,
+          "sacks": 1.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 17,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 11,
+        "player_id": "00-0041543",
+        "player": "Mansoor Delane",
+        "position": "CB",
+        "team": "KC",
+        "team_record": "4-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/tw9nfj4gxwqjvqfencwo",
+        "share": 0.008,
+        "prev_share": 0.005,
+        "stats": {
+          "games": 3,
+          "sacks": 0.0,
+          "ints": 1,
+          "passes_defended": 3,
+          "tackles": 14,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 7,
+        "player_id": "00-0041522",
+        "player": "Jacob Rodriguez",
+        "position": "LB",
+        "team": "MIA",
+        "team_record": "0-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/ew3ilkxo5ub3bnzisc2t",
+        "share": 0.008,
+        "prev_share": 0.01,
+        "stats": {
+          "games": 4,
+          "sacks": 0.0,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 20,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 8,
+        "player_id": "00-0041569",
+        "player": "Gabe Jacas",
+        "position": "LB",
+        "team": "NE",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/pfj4ln4kaoimfwezeviq",
+        "share": 0.004,
+        "prev_share": 0.01,
+        "stats": {
+          "games": 4,
+          "sacks": 1.5,
+          "ints": 1,
+          "passes_defended": 1,
+          "tackles": 6,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 9,
+        "player_id": "00-0041479",
+        "player": "Anthony Hill Jr.",
+        "position": "LB",
+        "team": "TEN",
+        "team_record": "0-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/rcozyv4kil96dw8aovh4",
+        "share": 0.003,
+        "prev_share": 0.009,
+        "stats": {
+          "games": 4,
+          "sacks": 0.0,
+          "ints": 0,
+          "passes_defended": 2,
+          "tackles": 15,
+          "forced_fumbles": 0
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 10,
+        "player_id": "00-0041544",
+        "player": "Akheem Mesidor",
+        "position": "LB",
+        "team": "LAC",
+        "team_record": "0-4",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/uzofkqafecc5zqqwyiyd",
+        "share": 0.003,
+        "prev_share": 0.006,
+        "stats": {
+          "games": 4,
+          "sacks": 1.5,
+          "ints": 0,
+          "passes_defended": 0,
+          "tackles": 5,
+          "forced_fumbles": 0
+        }
+      }
+    ],
+    "cpoy": [
+      {
+        "rank": 1,
+        "prev_rank": 1,
+        "player_id": "00-0033537",
+        "player": "Deshaun Watson",
+        "position": "QB",
+        "team": "CLE",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/private/f_auto,q_auto/league/otfs2docj6eahaebo5xn",
+        "share": 0.341,
+        "prev_share": 0.242,
+        "stats": {
+          "games": 4,
+          "prev_games": 0,
+          "prod_pct": 52,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 2,
+        "prev_rank": 2,
+        "player_id": "00-0037834",
+        "player": "Brock Purdy",
+        "position": "QB",
+        "team": "SF",
+        "team_record": "4-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/xs2fyj1sqdgwvt9ihbri",
+        "share": 0.138,
+        "prev_share": 0.186,
+        "stats": {
+          "games": 4,
+          "prev_games": 9,
+          "prod_pct": 100,
+          "prev_prod_pct": 45
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 5,
+        "player_id": "00-0029604",
+        "player": "Kirk Cousins",
+        "position": "QB",
+        "team": "LV",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/za7cynvpwlsro1tsaijk",
+        "share": 0.068,
+        "prev_share": 0.054,
+        "stats": {
+          "games": 4,
+          "prev_games": 10,
+          "prod_pct": 76,
+          "prev_prod_pct": 9
+        }
+      },
+      {
+        "rank": 4,
+        "prev_rank": 3,
+        "player_id": "00-0035704",
+        "player": "Drew Lock",
+        "position": "QB",
+        "team": "SEA",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vdixnkk1uglfpwowalf8",
+        "share": 0.041,
+        "prev_share": 0.089,
+        "stats": {
+          "games": 2,
+          "prev_games": 3,
+          "prod_pct": 17,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 5,
+        "prev_rank": 4,
+        "player_id": "00-0028986",
+        "player": "Case Keenum",
+        "position": "QB",
+        "team": "CHI",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/weixhyzal4ntsyszyepu",
+        "share": 0.033,
+        "prev_share": 0.06,
+        "stats": {
+          "games": 1,
+          "prev_games": 0,
+          "prod_pct": 3,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 6,
+        "prev_rank": 7,
+        "player_id": "00-0036442",
+        "player": "Joe Burrow",
+        "position": "QB",
+        "team": "CIN",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/gnnvcgui1cijybukk2w7",
+        "share": 0.024,
+        "prev_share": 0.024,
+        "stats": {
+          "games": 4,
+          "prev_games": 8,
+          "prod_pct": 69,
+          "prev_prod_pct": 30
+        }
+      },
+      {
+        "rank": 7,
+        "prev_rank": 11,
+        "player_id": "00-0034796",
+        "player": "Lamar Jackson",
+        "position": "QB",
+        "team": "BAL",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/eno6s5qzl9grbfbfwhoa",
+        "share": 0.016,
+        "prev_share": 0.011,
+        "stats": {
+          "games": 4,
+          "prev_games": 13,
+          "prod_pct": 72,
+          "prev_prod_pct": 39
+        }
+      },
+      {
+        "rank": 8,
+        "prev_rank": 15,
+        "player_id": "00-0039150",
+        "player": "Bryce Young",
+        "position": "QB",
+        "team": "CAR",
+        "team_record": "2-2",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/vcvhmxvxw2a3armle0af",
+        "share": 0.013,
+        "prev_share": 0.007,
+        "stats": {
+          "games": 4,
+          "prev_games": 16,
+          "prod_pct": 93,
+          "prev_prod_pct": 36
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": null,
+        "player_id": "00-0038416",
+        "player": "Tyson Bagent",
+        "position": "QB",
+        "team": "CHI",
+        "team_record": "3-1",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/shhpyhrz7zl8s2t3jy0l",
+        "share": 0.012,
+        "prev_share": null,
+        "stats": {
+          "games": 2,
+          "prev_games": 2,
+          "prod_pct": 0,
+          "prev_prod_pct": 0
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 10,
+        "player_id": "00-0039006",
+        "player": "Felix Anudike-Uzomah",
+        "position": "DE",
+        "team": "KC",
+        "team_record": "4-0",
+        "headshot_url": "https://static.www.nfl.com/image/upload/f_auto,q_auto/league/exgukbhcnyzn7sntq0jk",
+        "share": 0.011,
+        "prev_share": 0.011,
+        "stats": {
+          "games": 4,
+          "prev_games": 0,
+          "prod_pct": 25,
+          "prev_prod_pct": 0
+        }
+      }
+    ],
+    "coty": [
+      {
+        "rank": 1,
+        "prev_rank": 2,
+        "player_id": "HC:Andy Reid",
+        "player": "Andy Reid",
+        "position": "HC",
+        "team": "KC",
+        "team_record": "4-0",
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Andy_Reid_%28Kansas_City_Chiefs_at_Washington_Football_Team%2C_October_17%2C_2021%29_%28cropped%29.jpg/500px-Andy_Reid_%28Kansas_City_Chiefs_at_Washington_Football_Team%2C_October_17%2C_2021%29_%28cropped%29.jpg",
+        "share": 0.456,
+        "prev_share": 0.111,
+        "stats": {
+          "games": 4,
+          "prev_record": "6-11",
+          "prev_wins": 6,
+          "win_pct_change": 0.647,
+          "point_diff": 41,
+          "conf_rank": 1
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Andy_Reid"
+      },
+      {
+        "rank": 2,
+        "prev_rank": 1,
+        "player_id": "HC:Klint Kubiak",
+        "player": "Klint Kubiak",
+        "position": "HC",
+        "team": "LV",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.174,
+        "prev_share": 0.809,
+        "stats": {
+          "games": 4,
+          "prev_record": "3-14",
+          "prev_wins": 3,
+          "win_pct_change": 0.574,
+          "point_diff": 31,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 3,
+        "prev_rank": 3,
+        "player_id": "HC:Kevin O'Connell",
+        "player": "Kevin O'Connell",
+        "position": "HC",
+        "team": "MIN",
+        "team_record": "4-0",
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Kevin_O%27Connell_2019_%28cropped%29.jpg/500px-Kevin_O%27Connell_2019_%28cropped%29.jpg",
+        "share": 0.132,
+        "prev_share": 0.032,
+        "stats": {
+          "games": 4,
+          "prev_record": "9-8",
+          "prev_wins": 9,
+          "win_pct_change": 0.471,
+          "point_diff": 35,
+          "conf_rank": 1
+        },
+        "headshot_credit": "All-Pro Reels, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Kevin_O%27Connell"
+      },
+      {
+        "rank": 4,
+        "prev_rank": 6,
+        "player_id": "HC:John Harbaugh",
+        "player": "John Harbaugh",
+        "position": "HC",
+        "team": "NYG",
+        "team_record": "3-1",
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/John_Harbaugh_%2852093585046%29_%28cropped%29.jpg/500px-John_Harbaugh_%2852093585046%29_%28cropped%29.jpg",
+        "share": 0.089,
+        "prev_share": 0.009,
+        "stats": {
+          "games": 4,
+          "prev_record": "4-13",
+          "prev_wins": 4,
+          "win_pct_change": 0.515,
+          "point_diff": 3,
+          "conf_rank": 3
+        },
+        "headshot_credit": "Maryland GovPics, CC BY 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/John_Harbaugh"
+      },
+      {
+        "rank": 5,
+        "prev_rank": 7,
+        "player_id": "HC:Todd Monken",
+        "player": "Todd Monken",
+        "position": "HC",
+        "team": "CLE",
+        "team_record": "3-1",
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Todd_Monken_%28cropped%29.jpg/500px-Todd_Monken_%28cropped%29.jpg",
+        "share": 0.077,
+        "prev_share": 0.005,
+        "stats": {
+          "games": 4,
+          "prev_record": "5-12",
+          "prev_wins": 5,
+          "win_pct_change": 0.456,
+          "point_diff": -14,
+          "conf_rank": 2
+        },
+        "headshot_credit": "Erik Drost, CC BY 4.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Todd_Monken"
+      },
+      {
+        "rank": 6,
+        "prev_rank": 5,
+        "player_id": "HC:Kyle Shanahan",
+        "player": "Kyle Shanahan",
+        "position": "HC",
+        "team": "SF",
+        "team_record": "4-0",
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Kyle_Shanahan_%28tight_crop%29.jpg/500px-Kyle_Shanahan_%28tight_crop%29.jpg",
+        "share": 0.038,
+        "prev_share": 0.009,
+        "stats": {
+          "games": 4,
+          "prev_record": "12-5",
+          "prev_wins": 12,
+          "win_pct_change": 0.294,
+          "point_diff": 58,
+          "conf_rank": 1
+        },
+        "headshot_credit": "AlexanderJonesi, CC BY-SA 2.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Kyle_Shanahan"
+      },
+      {
+        "rank": 7,
+        "prev_rank": 9,
+        "player_id": "HC:Jesse Minter",
+        "player": "Jesse Minter",
+        "position": "HC",
+        "team": "BAL",
+        "team_record": "3-1",
+        "headshot_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/2024-0106-Jesse_Minter.jpg/500px-2024-0106-Jesse_Minter.jpg",
+        "share": 0.022,
+        "prev_share": 0.001,
+        "stats": {
+          "games": 4,
+          "prev_record": "8-9",
+          "prev_wins": 8,
+          "win_pct_change": 0.279,
+          "point_diff": 20,
+          "conf_rank": 2
+        },
+        "headshot_credit": "Bobak Ha'Eri, CC BY 3.0",
+        "headshot_page": "https://en.wikipedia.org/wiki/Jesse_Minter"
+      },
+      {
+        "rank": 8,
+        "prev_rank": 4,
+        "player_id": "HC:Joe Brady",
+        "player": "Joe Brady",
+        "position": "HC",
+        "team": "BUF",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.004,
+        "prev_share": 0.02,
+        "stats": {
+          "games": 4,
+          "prev_record": "12-5",
+          "prev_wins": 12,
+          "win_pct_change": 0.044,
+          "point_diff": 20,
+          "conf_rank": 2
+        }
+      },
+      {
+        "rank": 9,
+        "prev_rank": 13,
+        "player_id": "HC:Ben Johnson",
+        "player": "Ben Johnson",
+        "position": "HC",
+        "team": "CHI",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.002,
+        "prev_share": 0.0,
+        "stats": {
+          "games": 4,
+          "prev_record": "11-6",
+          "prev_wins": 11,
+          "win_pct_change": 0.103,
+          "point_diff": 47,
+          "conf_rank": 3
+        }
+      },
+      {
+        "rank": 10,
+        "prev_rank": 15,
+        "player_id": "HC:Liam Coen",
+        "player": "Liam Coen",
+        "position": "HC",
+        "team": "JAX",
+        "team_record": "3-1",
+        "headshot_url": null,
+        "share": 0.001,
+        "prev_share": 0.0,
+        "stats": {
+          "games": 4,
+          "prev_record": "13-4",
+          "prev_wins": 13,
+          "win_pct_change": -0.015,
+          "point_diff": 51,
+          "conf_rank": 2
         }
       }
     ]

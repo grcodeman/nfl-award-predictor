@@ -5,24 +5,24 @@ python -m awards.predict                          latest completed week of the c
 python -m awards.predict --season 2026 --week 5   rebuild any completed week (backfill)
 
 Writes predictions/{season}/week_{WW}.json, a copy of the newest week at predictions/latest.json,
-predictions/index.json listing every week available, and predictions/teams.json with the team
-colors and logos the dashboard uses. Training takes seconds, so the model is refit on every run
+predictions/index.json listing every week available, predictions/teams.json with the team
+colors and logos the dashboard uses, and predictions/coaches.json, the head coach photos found so far. Training takes seconds, so the model is refit on every run
 instead of being saved.
 """
 import argparse
 import json
 import shutil
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 import nflreadpy as nfl
 
-from awards.data import ROOT, add_targets, load_targets, load_weekly_stats
-from awards.features import FINAL_WEEK, build_features
+from awards.data import ROOT, add_targets, coach_photos, load_targets, load_weekly_stats
+from awards.features import FINAL_WEEK, award_pool, build_features
 from awards.model import MODEL_VERSION, fit, score, to_shares
 
 OUT = ROOT / "predictions"
 KIND = "logistic"  # the model that cleared the MVP floor at every snapshot week and the OPOY floor
-AWARDS = ["mvp", "opoy"]  # each award gets its own model, trained on its own "won" label
+AWARDS = ["mvp", "opoy", "oroy", "dpoy", "droy", "cpoy", "coty"]  # each award gets its own model, trained on its own "won" label and pool
 TOP_N = 10
 
 
@@ -42,9 +42,10 @@ def latest_completed_week(season):
     return int(done[done].index.max()) if done.any() else None
 
 
-def ranked(season, week, model):
-    """Every candidate through `week`, scored and ranked, with shares that sum to 1 over the pool."""
-    t = build_features([season], week)
+def ranked(table, award, model):
+    """Every candidate for `award` in a build_features table, scored and ranked, with shares that sum
+    to 1 over the award's pool."""
+    t = award_pool(table, award).copy()
     t["score"] = score(KIND, model, t)
     t["share"] = to_shares(KIND, t["score"], t["season"])
     t = t.sort_values(["score", "player_id"], ascending=[False, True])  # player_id breaks ties, for stable output
@@ -52,27 +53,86 @@ def ranked(season, week, model):
     return t.set_index("player_id")
 
 
-def entry(player_id, row, prev):
+def record(wins, losses, ties):
+    return f"{int(wins)}-{int(losses)}" + (f"-{int(ties)}" if ties else "")
+
+
+def stats(row, award):
+    """The season-so-far numbers the dashboard shows, which depend on the award and the side of the ball."""
+    if award == "coty":
+        return {
+            "games": int(row.games),
+            "prev_record": record(row.prev_wins, row.prev_losses, row.prev_ties),
+            "prev_wins": int(row.prev_wins),
+            "win_pct_change": round(float(row.win_pct_change), 3),
+            "point_diff": int(round(row.team_pd_pg * row.team_games)),  # season total, as it's usually quoted
+            "conf_rank": int(row.conf_rank),
+        }
+    if award == "cpoy":
+        # one scale for both sides: production as a percentile of the starters at the position
+        return {
+            "games": int(row.games),
+            "prev_games": int(row.prev_games),
+            "prod_pct": int(round(row.prod_pct)),
+            "prev_prod_pct": int(round(row.prev_prod_pct)),
+        }
+    # Season totals, as the model sees them (it divides by team games, so missed games count against a player)
+    if row.side == "defense":
+        return {
+            "games": int(row.games),
+            "sacks": round(float(row.sacks), 1),  # half sacks exist
+            "ints": int(row.ints),
+            "passes_defended": int(row.pds),
+            "tackles": int(row.tackles),  # solo
+            "forced_fumbles": int(row.ffs),
+        }
+    return {
+        "games": int(row.games),
+        "yards": int(row.yards),
+        "tds": int(row.tds),
+        "turnovers": int(row.turnovers),
+        "epa": round(float(row.epa), 1),
+    }
+
+
+def photos_for(names):
+    """Coach name -> photo, from predictions/coaches.json, looking up only coaches it doesn't know.
+
+    A coach with no free photo is stored as {"checked": date} and asked about again after a week, so a
+    backfill doesn't ask Wikipedia about the same coaches every run. A failed lookup (Wikipedia down, no
+    network) leaves those coaches on initials; it never stops the run."""
+    path = OUT / "coaches.json"
+    known = json.loads(path.read_text()) if path.exists() else {}
+    today = datetime.now(timezone.utc).date()
+    stale = lambda v: "url" not in v and (today - date.fromisoformat(v["checked"])).days >= 7  # noqa: E731
+    todo = sorted(n for n in set(names) if n not in known or stale(known[n]))
+    if todo:
+        try:
+            found = coach_photos(todo)
+            known.update({n: found.get(n, {"checked": today.isoformat()}) for n in todo})
+        except Exception as e:  # noqa: BLE001 - photos are optional
+            print(f"coach photo lookup failed, using initials: {e}")
+        write_if_changed(path, dict(sorted(known.items())))
+    return {n: v for n, v in known.items() if "url" in v}
+
+
+def entry(award, player_id, row, prev, photo=None):
     p = prev.loc[player_id] if prev is not None and player_id in prev.index else None
-    record = f"{row.team_wins}-{row.team_losses}" + (f"-{row.team_ties}" if row.team_ties else "")
     return {
         "rank": int(row["rank"]),
         "prev_rank": int(p["rank"]) if p is not None else None,
         "player_id": player_id,
         "player": row.player,
-        "position": row.position_group,
+        # defenders show their position (CB, DE, OLB): the group (DB, DL, LB) says less
+        "position": row.position if row.side == "defense" else row.position_group,
         "team": row.team,
-        "team_record": record,
-        "headshot_url": row.headshot_url if isinstance(row.headshot_url, str) else None,
+        "team_record": record(row.team_wins, row.team_losses, row.team_ties),
+        "headshot_url": photo["url"] if photo else row.headshot_url if isinstance(row.headshot_url, str) else None,
         "share": round(float(row.share), 3),
         "prev_share": round(float(p["share"]), 3) if p is not None else None,
-        "stats": {
-            "games": int(row.games),
-            "yards_per_game": round(float(row.yards / row.games), 1),
-            "tds": int(row.tds),
-            "turnovers": int(row.turnovers),
-            "epa_per_game": round(float(row.epa / row.games), 1),
-        },
+        "stats": stats(row, award),
+        # photos from Wikipedia need their author and license shown
+        **({"headshot_credit": photo["credit"], "headshot_page": photo["page"]} if photo else {}),
     }
 
 
@@ -134,11 +194,15 @@ def main():
         "model_version": MODEL_VERSION,
         "awards": {},
     }
+    this_week = build_features([args.season], week)
+    last_week = build_features([args.season], week - 1) if week > 1 else None
     for award in AWARDS:
-        model = fit(KIND, train, award)
-        now = ranked(args.season, week, model)
-        prev = ranked(args.season, week - 1, model) if week > 1 else None
-        payload["awards"][award] = [entry(pid, row, prev) for pid, row in now.head(TOP_N).iterrows()]
+        model = fit(KIND, award_pool(train, award), award)
+        now = ranked(this_week, award, model)
+        prev = ranked(last_week, award, model) if last_week is not None else None
+        top = now.head(TOP_N)
+        photos = photos_for(top["player"]) if award == "coty" else {}
+        payload["awards"][award] = [entry(award, pid, row, prev, photos.get(row.player)) for pid, row in top.iterrows()]
 
     changed = write_if_changed(path, payload)
     write_index()
