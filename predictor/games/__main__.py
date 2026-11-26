@@ -18,7 +18,7 @@ import pandas as pd
 from predictor.data import ROOT, load_schedules
 from predictor.games import MODELS
 from predictor.games.backtest import backtest
-from predictor.games.ledger import grade, next_week, picks_path, write_picks, write_scoreboard
+from predictor.games.ledger import grade, next_week, picks_path, write_index, write_picks, write_scoreboard
 from predictor.models import version
 
 FIRST_SEASON = 1999  # the ratings start here
@@ -39,14 +39,17 @@ def weekly():
     target, why = next_week(games, now)
     if target is None:
         print(f"no picks to write: {why}")
-        return
-    if picks_path(*target).exists():
+    elif picks_path(*target).exists():
         print(f"{target[0]} week {target[1]} picks are already in {picks_path(*target).relative_to(ROOT)}")
-        return
-    path = write_picks(games, *target, now)
+    else:
+        show_picks(games, write_picks(games, *target, now))
+    write_index()
+
+
+def show_picks(games, path):
     print(f"wrote {path.relative_to(ROOT)}")
-    wk = games[(games["season"] == target[0]) & (games["week"] == target[1])].set_index("game_id")
     picks = json.loads(path.read_text())
+    wk = games[(games["season"] == picks["season"]) & (games["week"] == picks["week"])].set_index("game_id")
     for p in picks["picks"]:
         g = wk.loc[p["game_id"]]
         line = "no line" if pd.isna(g.spread_line) else f"market {g.home_team} {-g.spread_line:+g}"

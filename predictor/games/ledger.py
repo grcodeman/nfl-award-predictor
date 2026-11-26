@@ -6,6 +6,7 @@ predictions/games/picks/{season}/week_{WW}.json    live picks for one week. Writ
 predictions/games/results/{season}/week_{WW}.json  each picked game's result and every scorer's numbers for
                                                    the week, rewritten as games finish
 predictions/games/scoreboard.json                  season totals and week-by-week numbers for each scorer
+predictions/games/index.json                       which weeks have picks and results, for the dashboard
 
 Scorers are every model version with picks in the file, plus two from the betting market: "market", the
 spread when the picks were written (the same news the models had), and "closing", the last spread before
@@ -218,3 +219,21 @@ def write_scoreboard(now):
         "seasons": seasons,
     }
     return write_if_changed(GAMES_OUT / "scoreboard.json", payload, volatile=("updated_at",))
+
+
+def write_index():
+    """index.json: the weeks with picks and with results, and the newest picks, so the dashboard knows what
+    to load."""
+    def weeks(kind):
+        out = {}
+        for path in sorted(GAMES_OUT.glob(f"{kind}/*/week_*.json")):
+            out.setdefault(path.parent.name, []).append(int(path.stem.split("_")[1]))
+        return out
+    picks = weeks("picks")
+    latest = max(((int(s), w) for s, ws in picks.items() for w in ws), default=None)
+    payload = {
+        "latest_picks": {"season": latest[0], "week": latest[1]} if latest else None,
+        "picks": picks,
+        "results": weeks("results"),
+    }
+    return write_if_changed(GAMES_OUT / "index.json", payload, volatile=())
