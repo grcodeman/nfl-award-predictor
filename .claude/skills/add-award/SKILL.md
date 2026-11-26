@@ -17,7 +17,7 @@ This is the process OPOY went through (Phase 6), written down so every award get
 | Candidate pool and features | `predictor/awards/features.py` `build_features()` | only for awards the offensive pool doesn't cover (see step 0) |
 | Model | `predictor/awards/model.py` | usually nothing; `FEATURES` is shared |
 | Evaluation floor | `predictor/awards/evaluate.py` `FLOOR` | add `FLOOR[award]` |
-| Weekly JSON | `predictor/awards/predict.py` `AWARDS`, `predictor/awards/model.py` `MODEL_VERSION` | add the code, bump the version |
+| Weekly JSON | `predictor/awards/predict.py` `AWARDS`, `predictor/models.py` `CHANGELOG` | add the code, give the award version 1 |
 | Dashboard tab | `site/app.js` `AWARD_NAMES` | add `{ short, full }` |
 
 The set is these seven: mvp, opoy, dpoy, oroy, droy, cpoy and coty. The data side is already there: `award-share-data/award_votes.csv` has 27 seasons of votes for each, and `award-data/<award>.csv` has the winners (co-winners included).
@@ -73,7 +73,7 @@ Decide which path it takes before writing code.
 
 ## Step 4: publish to the weekly JSON
 
-1. Add the code to `AWARDS` in `predictor/awards/predict.py` and bump `MODEL_VERSION` in `predictor/awards/model.py`. Adding a key to the JSON is a deliberate contract change.
+1. Add the code to `AWARDS` in `predictor/awards/predict.py` and give the award a `CHANGELOG` entry (version 1, one line on the model) in `predictor/models.py`. Adding a key to the JSON is a deliberate contract change.
 2. Rebuild the current season so the new tab has a trend from week 1:
    ```bash
    for w in $(seq 1 <latest>); do python -m predictor.awards.predict --season <season> --week $w; done

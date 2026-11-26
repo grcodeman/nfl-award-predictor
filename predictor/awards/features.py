@@ -10,8 +10,7 @@ python -m predictor.awards.features   writes the 1999-2025 table with targets to
 import numpy as np
 import pandas as pd
 
-from predictor.awards.data import (add_targets, coach_id, load_player_ids, load_targets, load_votes,
-                                   load_weekly_stats)
+from predictor.awards.data import add_targets, coach_id, load_player_ids, load_targets, load_votes, load_weekly_stats
 from predictor.data import ROOT, load_team_records
 
 # Per team game rates, so a player 10 games in compares fairly with a full season.

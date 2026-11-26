@@ -3,6 +3,7 @@
   "through_week": 9,
   "generated_at": "2026-11-25T21:27:43Z",
   "model_version": "v7",
+  "backfill": true,
   "awards": {
     "mvp": [
       {

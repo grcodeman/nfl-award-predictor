@@ -1,5 +1,6 @@
 """Loaders shared by the award and game models: the nflverse download cache, team codes, the schedule
 (every game with its score, closing line and starting QBs) and each team's record through any week."""
+import json
 from pathlib import Path
 
 import nflreadpy as nfl
@@ -7,6 +8,7 @@ import pandas as pd
 from nflreadpy.config import update_config
 
 ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "predictions"  # everything the dashboard reads
 
 # Keep nflreadpy downloads on disk in the gitignored .cache/ folder; it re-downloads at most once a day.
 update_config(cache_mode="filesystem", cache_dir=ROOT / ".cache" / "nflreadpy", verbose=False)
@@ -18,8 +20,13 @@ OLD_TEAM_CODES = {"STL": "LA", "SD": "LAC", "OAK": "LV"}
 def load_schedules(seasons):
     """Every game of `seasons`, regular season and playoffs, as nflverse lists it: team codes of the time,
     `result` = home score minus away score (blank until played), `spread_line` = points the home team
-    is favored by."""
-    return nfl.load_schedules(list(seasons)).to_pandas()
+    is favored by, the starting QBs (projected for games not played yet), and `kickoff` in UTC."""
+    g = nfl.load_schedules(list(seasons)).to_pandas()
+    # gameday and gametime are Eastern; a game with no time yet counts from midnight, the earliest it could be
+    local = pd.to_datetime(g["gameday"] + " " + g["gametime"].fillna("00:00"), format="%Y-%m-%d %H:%M")
+    g["kickoff"] = local.dt.tz_localize("America/New_York", ambiguous=False,
+                                        nonexistent="shift_forward").dt.tz_convert("UTC")
+    return g
 
 
 def load_team_records(seasons, through_week):
@@ -50,3 +57,15 @@ def load_team_records(seasons, through_week):
     # that also works mid-season.
     t["conf_rank"] = t.groupby(["season", "conf"])["team_win_pct"].rank(method="min", ascending=False)
     return t
+
+
+def write_if_changed(path, payload, volatile=("generated_at",)):
+    """Write the JSON file unless only the `volatile` keys (timestamps) would change, so rerunning
+    leaves it untouched. Returns whether it wrote."""
+    if path.exists():
+        old = json.loads(path.read_text())
+        if {**old, **{k: None for k in volatile}} == {**payload, **{k: None for k in volatile}}:
+            return False
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2) + "\n")
+    return True

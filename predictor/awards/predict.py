@@ -2,7 +2,8 @@
 
 python -m predictor.awards.predict                          latest completed week of the current season,
                                                             skipped if that week's file already exists
-python -m predictor.awards.predict --season 2026 --week 5   rebuild any completed week (backfill)
+python -m predictor.awards.predict --season 2026 --week 5   rebuild any completed week; if the next game has
+                                                            kicked off, the file is labeled "backfill": true
 
 Writes predictions/{season}/week_{WW}.json, a copy of the newest week at predictions/latest.json,
 predictions/index.json listing every week available, predictions/teams.json with the team
@@ -18,10 +19,10 @@ import nflreadpy as nfl
 
 from predictor.awards.data import add_targets, coach_photos, load_targets, load_weekly_stats
 from predictor.awards.features import FINAL_WEEK, award_pool, build_features
-from predictor.awards.model import MODEL_VERSION, fit, score, to_shares
-from predictor.data import ROOT, load_schedules
+from predictor.awards.model import fit, score, to_shares
+from predictor.data import OUT, ROOT, load_schedules, write_if_changed
+from predictor.models import version
 
-OUT = ROOT / "predictions"
 KIND = "logistic"  # the model that cleared the MVP floor at every snapshot week and the OPOY floor
 AWARDS = ["mvp", "opoy", "oroy", "dpoy", "droy", "cpoy", "coty"]  # each award gets its own model, trained on its own "won" label and pool
 TOP_N = 10
@@ -41,6 +42,15 @@ def latest_completed_week(season):
     has_stats = g["game_id"].isin(load_weekly_stats([season], FINAL_WEEK)["game_id"])
     done = (played & has_stats).groupby(g["week"]).all()
     return int(done[done].index.max()) if done.any() else None
+
+
+def is_backfill(season, week, written_at):
+    """A week's file counts as published if it was written before the next game after that week kicked
+    off, so it knew nothing its first readers didn't. One written later, by a rebuild, is a backfill."""
+    g = load_schedules([season])
+    last = g.loc[(g["game_type"] == "REG") & (g["week"] == week), "kickoff"].max()
+    later = g.loc[g["kickoff"] > last, "kickoff"]
+    return bool(len(later)) and written_at >= later.min()
 
 
 def ranked(table, award, model):
@@ -137,15 +147,6 @@ def entry(award, player_id, row, prev, photo=None):
     }
 
 
-def write_if_changed(path, payload):
-    """Write the file unless only generated_at would change, so rerunning a week leaves it untouched."""
-    if path.exists() and {**json.loads(path.read_text()), "generated_at": None} == {**payload, "generated_at": None}:
-        return False
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2) + "\n")
-    return True
-
-
 def write_teams():
     """teams.json: the name, color and logo the dashboard shows for each team code."""
     t = nfl.load_teams().to_pandas()
@@ -188,24 +189,26 @@ def main():
     train_seasons = sorted(set(load_targets()["season"]) - {args.season})
     train = add_targets(build_features(train_seasons, FINAL_WEEK))
 
+    now = datetime.now(timezone.utc)
     payload = {
         "season": args.season,
         "through_week": week,
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "model_version": MODEL_VERSION,
+        "generated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "models": {award: version(award) for award in AWARDS},  # each award's version, predictor/models.py
+        "backfill": is_backfill(args.season, week, now),
         "awards": {},
     }
     this_week = build_features([args.season], week)
     last_week = build_features([args.season], week - 1) if week > 1 else None
     for award in AWARDS:
         model = fit(KIND, award_pool(train, award), award)
-        now = ranked(this_week, award, model)
         prev = ranked(last_week, award, model) if last_week is not None else None
-        top = now.head(TOP_N)
+        top = ranked(this_week, award, model).head(TOP_N)
         photos = photos_for(top["player"]) if award == "coty" else {}
         payload["awards"][award] = [entry(award, pid, row, prev, photos.get(row.player)) for pid, row in top.iterrows()]
 
-    changed = write_if_changed(path, payload)
+    # A rebuild that changes nothing keeps the published file, label and all.
+    changed = write_if_changed(path, payload, volatile=("generated_at", "backfill"))
     write_index()
     write_teams()
 

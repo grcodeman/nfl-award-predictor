@@ -2,6 +2,8 @@ name: weekly predictions
 
 on:
   schedule:
+    # One run grades last week's game picks, writes next week's picks (only before its first kickoff,
+    # which the code enforces) and writes last week's award predictions.
     # A week is done once its last game is over and nflverse has rebuilt player stats, which it does
     # nightly at about 09:00 UTC. Weeks 1-17 end with Monday Night Football (final whistle about
     # 04:30 UTC Tuesday), so the first clean run is Tuesday morning; week 18 ends Sunday night, so
@@ -14,10 +16,10 @@ on:
   workflow_dispatch:
     inputs:
       season:
-        description: "Season (blank = current season)"
+        description: "Awards: season (blank = current season)"
         required: false
       week:
-        description: "Week to rebuild (blank = latest completed week, skipped if it already has a file)"
+        description: "Awards: week to rebuild (blank = latest completed week, skipped if it already has a file). Game picks are never rebuilt."
         required: false
 
 permissions:
@@ -41,21 +43,31 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt
 
-      - name: Run predictions
+      - name: Grade game picks and write the next week's
+        run: python -m predictor.games
+
+      - name: Award predictions
+        if: ${{ !cancelled() }}  # a failed game step still lets the awards run and commit
         env:  # inputs go through env, not straight into the script, so they can't inject shell code
           SEASON: ${{ inputs.season }}
           WEEK: ${{ inputs.week }}
         run: python -m predictor.awards.predict ${SEASON:+--season "$SEASON"} ${WEEK:+--week "$WEEK"}
 
       - name: Commit changed predictions
+        if: ${{ !cancelled() }}
         run: |
           git add predictions
           if git diff --cached --quiet; then
             echo "No prediction changes, nothing to commit"
             exit 0
           fi
-          weeks=$(git diff --cached --name-only -- 'predictions/*/week_*.json' | sed 's#predictions/##; s#\.json##' | paste -sd ' ' -)
+          list() { git diff --cached --name-only "$@" | sed 's#.*predictions/\(games/[a-z]*/\)\{0,1\}##; s#\.json##' | paste -sd ' ' -; }
+          awards=$(list -- 'predictions/[0-9]*/week_*.json')
+          picks=$(list --diff-filter=A -- 'predictions/games/picks/')
+          graded=$(list -- 'predictions/games/results/')
+          msg="predictions:${awards:+ awards $awards;}${picks:+ picks $picks;}${graded:+ graded $graded;}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "predictions: ${weeks:-index update}"
+          # the commit time is the record that picks were written before kickoff, so push right away
+          git commit -m "${msg%;}"
           git push

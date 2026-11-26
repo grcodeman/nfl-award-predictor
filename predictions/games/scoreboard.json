@@ -1,0 +1,10 @@
+{
+  "kind": "live",
+  "updated_at": "2026-11-26T04:56:08Z",
+  "champion": {
+    "model": "games-elo",
+    "version": 1
+  },
+  "backtest": "games/backtest/games-elo-1.json",
+  "seasons": {}
+}
