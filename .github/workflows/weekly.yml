@@ -66,6 +66,7 @@ jobs:
           picks=$(list --diff-filter=A -- 'predictions/games/picks/')
           graded=$(list -- 'predictions/games/results/')
           msg="predictions:${awards:+ awards $awards;}${picks:+ picks $picks;}${graded:+ graded $graded;}"
+          [ "$msg" = "predictions:" ] && msg="predictions: index update"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # the commit time is the record that picks were written before kickoff, so push right away

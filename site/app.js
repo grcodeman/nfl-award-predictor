@@ -1,4 +1,5 @@
-// Award Watch: reads the JSON in ../predictions/ and renders every part of the page from it.
+// Award Watch: reads the JSON in ../predictions/ and renders every part of the page from it. The Games and
+// Scoreboard tabs live in games.js, which uses the helpers here.
 "use strict";
 
 const DATA = "../predictions/";
@@ -13,6 +14,7 @@ const AWARD_NAMES = {
   coty: { short: "COTY", full: "Coach of the Year", stats: "coach" },
 };
 const awardName = (award) => AWARD_NAMES[award] || { short: award.toUpperCase(), full: award.toUpperCase() };
+const VIEWS = { games: "Games", scoreboard: "Scoreboard" }; // the tabs after the awards (games.js)
 // The four stats an award's leader card, table and head to head show, keyed to the JSON's stats.
 // unit: the inline label on phones ("92.4 yds/g"); long: the head-to-head label; lower: fewer is better;
 // neutral: neither side is better, so the head to head doesn't bold it; fmt: how to show it;
@@ -210,12 +212,6 @@ async function main() {
     return;
   }
 
-  const updated = new Date(latest.generated_at).toLocaleDateString(undefined, { month: "short", day: "numeric" });
-  $("status").replaceChildren(
-    el("span", { class: "status-week", text: `${latest.season} season · Through week ${latest.through_week}` }),
-    el("span", { class: "sep", "aria-hidden": "true", text: " · " }),
-    el("span", { class: "status-updated", text: `Updated ${updated}` }));
-
   // The chart and the streaks need every week of the season. If those fail, the rest still renders.
   let weeks = [];
   try {
@@ -225,10 +221,10 @@ async function main() {
     console.error(err);
   }
 
-  const awards = Object.keys(latest.awards);
+  const awards = [...Object.keys(latest.awards), ...Object.keys(VIEWS)];
   const tabs = awards.map((award) => el("button", {
-    class: "tab", role: "tab", id: `tab-${award}`, "aria-controls": "panel", type: "button",
-    text: awardName(award).short,
+    class: award === "games" ? "tab tab-sep" : "tab", role: "tab", id: `tab-${award}`, "aria-controls": "panel", type: "button",
+    text: VIEWS[award] || awardName(award).short,
   }));
   $("tabs").replaceChildren(...tabs);
   const strip = $("tabs");
@@ -255,7 +251,9 @@ async function main() {
     $("panel").setAttribute("aria-labelledby", tabs[i].id);
     reveal(tabs[i]);
     history.replaceState(null, "", i === 0 ? location.pathname + location.search : `#${awards[i]}`);
-    render(awards[i], latest, teams, weeks);
+    if (awards[i] === "games") renderGames(teams);
+    else if (awards[i] === "scoreboard") renderScoreboard();
+    else render(awards[i], latest, teams, weeks);
   }
   addEventListener("hashchange", () => select(fromHash()));
   // One opening moment: the share bars and the vote bar draw in once. Sorting or switching tabs won't replay it.
@@ -279,6 +277,9 @@ function render(award, latest, teams, weeks) {
   const { short, full } = awardName(award);
   const rows = latest.awards[award] || [];
   const week = latest.through_week;
+  showView("content");
+  const updated = new Date(latest.generated_at).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  setStatus(`${latest.season} season · Through week ${week}`, `Updated ${updated}`); // on phones, one line each
   $("title").textContent = `${short} race`;
   document.title = `Award Watch: NFL ${short} race`;
   const lede = `The model's predicted share of the AP ${full} vote, from this season's stats.`;
@@ -741,4 +742,5 @@ function renderHeadToHead(rows, set) {
       ...lower.map((st) => st.note || `Fewer ${(st.long || st.label).toLowerCase()} is better.`)].join(" ") }));
 }
 
-main();
+// After games.js has loaded too: both scripts are deferred, in order.
+addEventListener("DOMContentLoaded", main);
